@@ -1,18 +1,18 @@
 //
-//  SecondViewController.m
+//  HistoryViewController.m
 //  SmartSole
 //
 //  Created by David Jeong on 2015. 6. 7..
 //
 //
 
-#import "SecondViewController.h"
+#import "HistoryViewController.h"
 
-@interface SecondViewController ()
+@interface HistoryViewController ()
 
 @end
 
-@implementation SecondViewController
+@implementation HistoryViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

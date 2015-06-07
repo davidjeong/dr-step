@@ -1,18 +1,18 @@
 //
-//  FirstViewController.m
+//  RealtimeViewController.m
 //  SmartSole
 //
 //  Created by David Jeong on 2015. 6. 7..
 //
 //
 
-#import "FirstViewController.h"
+#import "RealtimeViewController.h"
 
-@interface FirstViewController ()
+@interface RealtimeViewController ()
 
 @end
 
-@implementation FirstViewController
+@implementation RealtimeViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
