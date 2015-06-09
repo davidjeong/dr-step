@@ -16,9 +16,9 @@
 		CD16E7C51B24FBC50071E1CF /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD16E7C31B24FBC50071E1CF /* LaunchScreen.xib */; };
 		CD16E7D11B24FBC50071E1CF /* SmartSoleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CD16E7D01B24FBC50071E1CF /* SmartSoleTests.m */; };
 		CD16E7E71B2508DA0071E1CF /* HistoryContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD16E7E61B2508DA0071E1CF /* HistoryContentViewController.m */; };
-		CD5FD7AB1B275C2B003AA343 /* page1.png in Resources */ = {isa = PBXBuildFile; fileRef = CD5FD7A81B275C2B003AA343 /* page1.png */; };
-		CD5FD7AC1B275C2B003AA343 /* page2.png in Resources */ = {isa = PBXBuildFile; fileRef = CD5FD7A91B275C2B003AA343 /* page2.png */; };
-		CD5FD7AD1B275C2B003AA343 /* page3.png in Resources */ = {isa = PBXBuildFile; fileRef = CD5FD7AA1B275C2B003AA343 /* page3.png */; };
+		CD35BFEA1B27A269004B45CD /* page1.png in Resources */ = {isa = PBXBuildFile; fileRef = CD35BFE71B27A269004B45CD /* page1.png */; };
+		CD35BFEB1B27A269004B45CD /* page2.png in Resources */ = {isa = PBXBuildFile; fileRef = CD35BFE81B27A269004B45CD /* page2.png */; };
+		CD35BFEC1B27A269004B45CD /* page3.png in Resources */ = {isa = PBXBuildFile; fileRef = CD35BFE91B27A269004B45CD /* page3.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,9 +49,9 @@
 		CD16E7D01B24FBC50071E1CF /* SmartSoleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SmartSoleTests.m; sourceTree = "<group>"; };
 		CD16E7E51B2508DA0071E1CF /* HistoryContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryContentViewController.h; sourceTree = "<group>"; };
 		CD16E7E61B2508DA0071E1CF /* HistoryContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryContentViewController.m; sourceTree = "<group>"; };
-		CD5FD7A81B275C2B003AA343 /* page1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = page1.png; path = ../../../../Downloads/PageViewDemoImages/page1.png; sourceTree = "<group>"; };
-		CD5FD7A91B275C2B003AA343 /* page2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = page2.png; path = ../../../../Downloads/PageViewDemoImages/page2.png; sourceTree = "<group>"; };
-		CD5FD7AA1B275C2B003AA343 /* page3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = page3.png; path = ../../../../Downloads/PageViewDemoImages/page3.png; sourceTree = "<group>"; };
+		CD35BFE71B27A269004B45CD /* page1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = page1.png; path = "../../../../Downloads/PageViewDemoImages 2/page1.png"; sourceTree = "<group>"; };
+		CD35BFE81B27A269004B45CD /* page2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = page2.png; path = "../../../../Downloads/PageViewDemoImages 2/page2.png"; sourceTree = "<group>"; };
+		CD35BFE91B27A269004B45CD /* page3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = page3.png; path = "../../../../Downloads/PageViewDemoImages 2/page3.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,7 +93,9 @@
 		CD16E7B01B24FBC50071E1CF /* SmartSole */ = {
 			isa = PBXGroup;
 			children = (
-				CD5FD7A71B275C1A003AA343 /* Resources */,
+				CD35BFE71B27A269004B45CD /* page1.png */,
+				CD35BFE81B27A269004B45CD /* page2.png */,
+				CD35BFE91B27A269004B45CD /* page3.png */,
 				CD16E7B51B24FBC50071E1CF /* AppDelegate.h */,
 				CD16E7B61B24FBC50071E1CF /* AppDelegate.m */,
 				CD16E7E51B2508DA0071E1CF /* HistoryContentViewController.h */,
@@ -134,16 +136,6 @@
 				CD16E7CF1B24FBC50071E1CF /* Info.plist */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		CD5FD7A71B275C1A003AA343 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				CD5FD7A81B275C2B003AA343 /* page1.png */,
-				CD5FD7A91B275C2B003AA343 /* page2.png */,
-				CD5FD7AA1B275C2B003AA343 /* page3.png */,
-			);
-			name = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -190,10 +182,11 @@
 		CD16E7A61B24FBC50071E1CF /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0630;
+				LastUpgradeCheck = 0700;
 				TargetAttributes = {
 					CD16E7AD1B24FBC50071E1CF = {
 						CreatedOnToolsVersion = 6.3.2;
+						DevelopmentTeam = EBY7449492;
 					};
 					CD16E7C91B24FBC50071E1CF = {
 						CreatedOnToolsVersion = 6.3.2;
@@ -227,10 +220,10 @@
 			files = (
 				CD16E7C01B24FBC50071E1CF /* Main.storyboard in Resources */,
 				CD16E7C51B24FBC50071E1CF /* LaunchScreen.xib in Resources */,
-				CD5FD7AD1B275C2B003AA343 /* page3.png in Resources */,
-				CD5FD7AB1B275C2B003AA343 /* page1.png in Resources */,
+				CD35BFEC1B27A269004B45CD /* page3.png in Resources */,
+				CD35BFEA1B27A269004B45CD /* page1.png in Resources */,
 				CD16E7C21B24FBC50071E1CF /* Images.xcassets in Resources */,
-				CD5FD7AC1B275C2B003AA343 /* page2.png in Resources */,
+				CD35BFEB1B27A269004B45CD /* page2.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -315,6 +308,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -380,9 +374,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Juhwan Jeong (397FVFDHGT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Juhwan Jeong (397FVFDHGT)";
 				INFOPLIST_FILE = SmartSole/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.piezo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "3fa41dd3-9827-4922-8578-425db892c818";
 			};
 			name = Debug;
 		};
@@ -390,9 +389,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Juhwan Jeong (397FVFDHGT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Juhwan Jeong (397FVFDHGT)";
 				INFOPLIST_FILE = SmartSole/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.piezo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "3fa41dd3-9827-4922-8578-425db892c818";
 			};
 			name = Release;
 		};
@@ -410,6 +414,7 @@
 				);
 				INFOPLIST_FILE = SmartSoleTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.piezo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SmartSole.app/SmartSole";
 			};
@@ -425,6 +430,7 @@
 				);
 				INFOPLIST_FILE = SmartSoleTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.piezo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SmartSole.app/SmartSole";
 			};
