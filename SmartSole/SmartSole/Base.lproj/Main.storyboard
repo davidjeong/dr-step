@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E26a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Realtime-->
@@ -21,13 +20,13 @@
                                 <rect key="frame" x="185" y="279" width="230" height="42"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="36"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loaded by RealtimeViewController" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A5M-7J-77L">
                                 <rect key="frame" x="189" y="329" width="223" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -46,19 +45,36 @@
             <point key="canvasLocation" x="750" y="-320"/>
         </scene>
         <!--History-->
-        <scene sceneID="06v-wZ-fGe">
+        <scene sceneID="dzk-lS-RPk">
             <objects>
-                <pageViewController storyboardIdentifier="HistoryViewController" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="b3a-hN-B29" customClass="HistoryViewController" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="History" image="second" id="qeo-v5-uSr"/>
-                </pageViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="L93-Vh-FeV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="weV-AF-keP" customClass="HistoryViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="s2J-R4-4Wm"/>
+                        <viewControllerLayoutGuide type="bottom" id="EYL-aw-HAq"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="EeZ-pS-SBC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="History" image="second" id="4sh-Ug-gq6"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kBH-15-hWF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="750" y="360"/>
+        </scene>
+        <!--Page View Controller-->
+        <scene sceneID="WFU-vb-i4X">
+            <objects>
+                <pageViewController storyboardIdentifier="PageViewController" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="PXV-eC-lWR" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jTA-0r-xNV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1462" y="-20"/>
         </scene>
         <!--History Content View Controller-->
         <scene sceneID="9nr-CM-nXo">
             <objects>
-                <viewController id="58n-WX-Fob" customClass="HistoryContentViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HistoryContentViewController" id="58n-WX-Fob" customClass="HistoryContentViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="B4L-KF-5zl"/>
                         <viewControllerLayoutGuide type="bottom" id="bhz-MA-MVw"/>
@@ -68,24 +84,33 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OLf-jA-B8u">
-                                <rect key="frame" x="16" y="0.0" width="568" height="600"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="16J-nx-u3w">
+                                <rect key="frame" x="277" y="50" width="46" height="22"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="OLf-jA-B8u" secondAttribute="trailing" id="FY8-lT-fva"/>
-                            <constraint firstItem="OLf-jA-B8u" firstAttribute="leading" secondItem="GjJ-T2-yxj" secondAttribute="leadingMargin" id="Mvb-eU-qNH"/>
-                            <constraint firstItem="OLf-jA-B8u" firstAttribute="bottom" secondItem="GjJ-T2-yxj" secondAttribute="bottomMargin" id="SF8-5F-3Kp"/>
-                            <constraint firstItem="OLf-jA-B8u" firstAttribute="top" secondItem="GjJ-T2-yxj" secondAttribute="topMargin" id="ceT-fY-06k"/>
+                            <constraint firstItem="16J-nx-u3w" firstAttribute="top" secondItem="GjJ-T2-yxj" secondAttribute="top" constant="50" id="Bas-Si-gaI"/>
+                            <constraint firstItem="OLf-jA-B8u" firstAttribute="leading" secondItem="GjJ-T2-yxj" secondAttribute="leading" id="KhE-HY-W9a"/>
+                            <constraint firstItem="bhz-MA-MVw" firstAttribute="top" secondItem="OLf-jA-B8u" secondAttribute="bottom" id="PFM-ee-7r2"/>
+                            <constraint firstAttribute="centerX" secondItem="16J-nx-u3w" secondAttribute="centerX" id="eWH-xV-arJ"/>
+                            <constraint firstAttribute="trailing" secondItem="OLf-jA-B8u" secondAttribute="trailing" id="iot-ci-dgF"/>
+                            <constraint firstItem="OLf-jA-B8u" firstAttribute="top" secondItem="GjJ-T2-yxj" secondAttribute="top" id="uBZ-f7-CNH"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="imageView" destination="OLf-jA-B8u" id="nwC-Fl-CXB"/>
+                        <outlet property="label" destination="16J-nx-u3w" id="r14-3F-rGX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Ob-4E-CWb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1431" y="360"/>
+            <point key="canvasLocation" x="1462" y="690"/>
         </scene>
         <!--Settings-->
         <scene sceneID="dBq-G0-ZEF">
@@ -100,16 +125,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="GwM-0Y-ckw">
-                                <rect key="frame" x="16" y="0.0" width="568" height="600"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="GwM-0Y-ckw" secondAttribute="trailing" id="Cpc-P3-k4D"/>
-                            <constraint firstItem="GwM-0Y-ckw" firstAttribute="bottom" secondItem="sXD-jL-mcc" secondAttribute="bottomMargin" id="M7M-uf-ic1"/>
-                            <constraint firstItem="GwM-0Y-ckw" firstAttribute="top" secondItem="sXD-jL-mcc" secondAttribute="topMargin" id="UMe-i6-SIr"/>
-                            <constraint firstItem="GwM-0Y-ckw" firstAttribute="leading" secondItem="sXD-jL-mcc" secondAttribute="leadingMargin" id="vIO-OZ-CPQ"/>
+                            <constraint firstItem="GwM-0Y-ckw" firstAttribute="leading" secondItem="sXD-jL-mcc" secondAttribute="leading" id="YcQ-mH-waI"/>
+                            <constraint firstAttribute="bottom" secondItem="GwM-0Y-ckw" secondAttribute="bottom" id="ixg-Yl-w5e"/>
+                            <constraint firstItem="GwM-0Y-ckw" firstAttribute="top" secondItem="sXD-jL-mcc" secondAttribute="top" id="knd-8C-5em"/>
+                            <constraint firstAttribute="trailing" secondItem="GwM-0Y-ckw" secondAttribute="trailing" id="n3f-hh-NwQ"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Settings" image="first" id="RU6-yY-A5h"/>
@@ -130,13 +155,13 @@
                     </tabBar>
                     <connections>
                         <segue destination="9pv-A4-QxB" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
-                        <segue destination="b3a-hN-B29" kind="relationship" relationship="viewControllers" id="PdG-V5-X87"/>
+                        <segue destination="weV-AF-keP" kind="relationship" relationship="viewControllers" id="OjV-91-Cji"/>
                         <segue destination="ygY-pW-GPK" kind="relationship" relationship="viewControllers" id="geO-qS-RZx"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-132" y="360"/>
+            <point key="canvasLocation" x="-124" y="360"/>
         </scene>
     </scenes>
     <resources>

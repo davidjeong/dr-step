@@ -9,12 +9,16 @@
 /* Begin PBXBuildFile section */
 		CD16E7B41B24FBC50071E1CF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CD16E7B31B24FBC50071E1CF /* main.m */; };
 		CD16E7B71B24FBC50071E1CF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CD16E7B61B24FBC50071E1CF /* AppDelegate.m */; };
-		CD16E7BA1B24FBC50071E1CF /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD16E7B91B24FBC50071E1CF /* FirstViewController.m */; };
-		CD16E7BD1B24FBC50071E1CF /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD16E7BC1B24FBC50071E1CF /* SecondViewController.m */; };
+		CD16E7BA1B24FBC50071E1CF /* RealtimeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD16E7B91B24FBC50071E1CF /* RealtimeViewController.m */; };
+		CD16E7BD1B24FBC50071E1CF /* HistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD16E7BC1B24FBC50071E1CF /* HistoryViewController.m */; };
 		CD16E7C01B24FBC50071E1CF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD16E7BE1B24FBC50071E1CF /* Main.storyboard */; };
 		CD16E7C21B24FBC50071E1CF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD16E7C11B24FBC50071E1CF /* Images.xcassets */; };
 		CD16E7C51B24FBC50071E1CF /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD16E7C31B24FBC50071E1CF /* LaunchScreen.xib */; };
 		CD16E7D11B24FBC50071E1CF /* SmartSoleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CD16E7D01B24FBC50071E1CF /* SmartSoleTests.m */; };
+		CD16E7E71B2508DA0071E1CF /* HistoryContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD16E7E61B2508DA0071E1CF /* HistoryContentViewController.m */; };
+		CD5FD7AB1B275C2B003AA343 /* page1.png in Resources */ = {isa = PBXBuildFile; fileRef = CD5FD7A81B275C2B003AA343 /* page1.png */; };
+		CD5FD7AC1B275C2B003AA343 /* page2.png in Resources */ = {isa = PBXBuildFile; fileRef = CD5FD7A91B275C2B003AA343 /* page2.png */; };
+		CD5FD7AD1B275C2B003AA343 /* page3.png in Resources */ = {isa = PBXBuildFile; fileRef = CD5FD7AA1B275C2B003AA343 /* page3.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,16 +37,21 @@
 		CD16E7B31B24FBC50071E1CF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		CD16E7B51B24FBC50071E1CF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		CD16E7B61B24FBC50071E1CF /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		CD16E7B81B24FBC50071E1CF /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
-		CD16E7B91B24FBC50071E1CF /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
-		CD16E7BB1B24FBC50071E1CF /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
-		CD16E7BC1B24FBC50071E1CF /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
+		CD16E7B81B24FBC50071E1CF /* RealtimeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RealtimeViewController.h; sourceTree = "<group>"; };
+		CD16E7B91B24FBC50071E1CF /* RealtimeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RealtimeViewController.m; sourceTree = "<group>"; };
+		CD16E7BB1B24FBC50071E1CF /* HistoryViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HistoryViewController.h; sourceTree = "<group>"; };
+		CD16E7BC1B24FBC50071E1CF /* HistoryViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HistoryViewController.m; sourceTree = "<group>"; };
 		CD16E7BF1B24FBC50071E1CF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CD16E7C11B24FBC50071E1CF /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		CD16E7C41B24FBC50071E1CF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		CD16E7CA1B24FBC50071E1CF /* SmartSoleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SmartSoleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD16E7CF1B24FBC50071E1CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CD16E7D01B24FBC50071E1CF /* SmartSoleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SmartSoleTests.m; sourceTree = "<group>"; };
+		CD16E7E51B2508DA0071E1CF /* HistoryContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryContentViewController.h; sourceTree = "<group>"; };
+		CD16E7E61B2508DA0071E1CF /* HistoryContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryContentViewController.m; sourceTree = "<group>"; };
+		CD5FD7A81B275C2B003AA343 /* page1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = page1.png; path = ../../../../Downloads/PageViewDemoImages/page1.png; sourceTree = "<group>"; };
+		CD5FD7A91B275C2B003AA343 /* page2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = page2.png; path = ../../../../Downloads/PageViewDemoImages/page2.png; sourceTree = "<group>"; };
+		CD5FD7AA1B275C2B003AA343 /* page3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = page3.png; path = ../../../../Downloads/PageViewDemoImages/page3.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,12 +93,15 @@
 		CD16E7B01B24FBC50071E1CF /* SmartSole */ = {
 			isa = PBXGroup;
 			children = (
+				CD5FD7A71B275C1A003AA343 /* Resources */,
 				CD16E7B51B24FBC50071E1CF /* AppDelegate.h */,
 				CD16E7B61B24FBC50071E1CF /* AppDelegate.m */,
-				CD16E7B81B24FBC50071E1CF /* FirstViewController.h */,
-				CD16E7B91B24FBC50071E1CF /* FirstViewController.m */,
-				CD16E7BB1B24FBC50071E1CF /* SecondViewController.h */,
-				CD16E7BC1B24FBC50071E1CF /* SecondViewController.m */,
+				CD16E7E51B2508DA0071E1CF /* HistoryContentViewController.h */,
+				CD16E7E61B2508DA0071E1CF /* HistoryContentViewController.m */,
+				CD16E7BB1B24FBC50071E1CF /* HistoryViewController.h */,
+				CD16E7BC1B24FBC50071E1CF /* HistoryViewController.m */,
+				CD16E7B81B24FBC50071E1CF /* RealtimeViewController.h */,
+				CD16E7B91B24FBC50071E1CF /* RealtimeViewController.m */,
 				CD16E7BE1B24FBC50071E1CF /* Main.storyboard */,
 				CD16E7C11B24FBC50071E1CF /* Images.xcassets */,
 				CD16E7C31B24FBC50071E1CF /* LaunchScreen.xib */,
@@ -122,6 +134,16 @@
 				CD16E7CF1B24FBC50071E1CF /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		CD5FD7A71B275C1A003AA343 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				CD5FD7A81B275C2B003AA343 /* page1.png */,
+				CD5FD7A91B275C2B003AA343 /* page2.png */,
+				CD5FD7AA1B275C2B003AA343 /* page3.png */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -205,7 +227,10 @@
 			files = (
 				CD16E7C01B24FBC50071E1CF /* Main.storyboard in Resources */,
 				CD16E7C51B24FBC50071E1CF /* LaunchScreen.xib in Resources */,
+				CD5FD7AD1B275C2B003AA343 /* page3.png in Resources */,
+				CD5FD7AB1B275C2B003AA343 /* page1.png in Resources */,
 				CD16E7C21B24FBC50071E1CF /* Images.xcassets in Resources */,
+				CD5FD7AC1B275C2B003AA343 /* page2.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -223,9 +248,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CD16E7BD1B24FBC50071E1CF /* SecondViewController.m in Sources */,
+				CD16E7E71B2508DA0071E1CF /* HistoryContentViewController.m in Sources */,
+				CD16E7BD1B24FBC50071E1CF /* HistoryViewController.m in Sources */,
 				CD16E7B71B24FBC50071E1CF /* AppDelegate.m in Sources */,
-				CD16E7BA1B24FBC50071E1CF /* FirstViewController.m in Sources */,
+				CD16E7BA1B24FBC50071E1CF /* RealtimeViewController.m in Sources */,
 				CD16E7B41B24FBC50071E1CF /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -423,6 +449,7 @@
 				CD16E7D61B24FBC50071E1CF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CD16E7D71B24FBC50071E1CF /* Build configuration list for PBXNativeTarget "SmartSoleTests" */ = {
 			isa = XCConfigurationList;
@@ -431,6 +458,7 @@
 				CD16E7D91B24FBC50071E1CF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -7,9 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HistoryContentViewController.h"
 
-@interface HistoryViewController : UIPageViewController
+@interface HistoryViewController : UIViewController <UIPageViewControllerDataSource>
 
+@property (strong, nonatomic) UIPageViewController *pageViewController;
+@property (strong, nonatomic) NSArray *pageTitles;
+@property (strong, nonatomic) NSArray *pageImages;
 
 @end
 

@@ -17,6 +17,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.imageView.image = [UIImage imageNamed:self.imageFile];
+    self.label.text = self.labelText;
 }
 
 - (void)didReceiveMemoryWarning {
