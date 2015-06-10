@@ -16,9 +16,9 @@
 		CD16E7C51B24FBC50071E1CF /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD16E7C31B24FBC50071E1CF /* LaunchScreen.xib */; };
 		CD16E7D11B24FBC50071E1CF /* SmartSoleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CD16E7D01B24FBC50071E1CF /* SmartSoleTests.m */; };
 		CD16E7E71B2508DA0071E1CF /* HistoryContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD16E7E61B2508DA0071E1CF /* HistoryContentViewController.m */; };
-		CD35BFEA1B27A269004B45CD /* page1.png in Resources */ = {isa = PBXBuildFile; fileRef = CD35BFE71B27A269004B45CD /* page1.png */; };
-		CD35BFEB1B27A269004B45CD /* page2.png in Resources */ = {isa = PBXBuildFile; fileRef = CD35BFE81B27A269004B45CD /* page2.png */; };
-		CD35BFEC1B27A269004B45CD /* page3.png in Resources */ = {isa = PBXBuildFile; fileRef = CD35BFE91B27A269004B45CD /* page3.png */; };
+		CDA33D101B27C6DA00D01536 /* page1.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA33D0D1B27C6DA00D01536 /* page1.png */; };
+		CDA33D111B27C6DA00D01536 /* page2.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA33D0E1B27C6DA00D01536 /* page2.png */; };
+		CDA33D121B27C6DA00D01536 /* page3.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA33D0F1B27C6DA00D01536 /* page3.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,9 +49,9 @@
 		CD16E7D01B24FBC50071E1CF /* SmartSoleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SmartSoleTests.m; sourceTree = "<group>"; };
 		CD16E7E51B2508DA0071E1CF /* HistoryContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryContentViewController.h; sourceTree = "<group>"; };
 		CD16E7E61B2508DA0071E1CF /* HistoryContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryContentViewController.m; sourceTree = "<group>"; };
-		CD35BFE71B27A269004B45CD /* page1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = page1.png; path = "../../../../Downloads/PageViewDemoImages 2/page1.png"; sourceTree = "<group>"; };
-		CD35BFE81B27A269004B45CD /* page2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = page2.png; path = "../../../../Downloads/PageViewDemoImages 2/page2.png"; sourceTree = "<group>"; };
-		CD35BFE91B27A269004B45CD /* page3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = page3.png; path = "../../../../Downloads/PageViewDemoImages 2/page3.png"; sourceTree = "<group>"; };
+		CDA33D0D1B27C6DA00D01536 /* page1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = page1.png; sourceTree = "<group>"; };
+		CDA33D0E1B27C6DA00D01536 /* page2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = page2.png; sourceTree = "<group>"; };
+		CDA33D0F1B27C6DA00D01536 /* page3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = page3.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,9 +93,9 @@
 		CD16E7B01B24FBC50071E1CF /* SmartSole */ = {
 			isa = PBXGroup;
 			children = (
-				CD35BFE71B27A269004B45CD /* page1.png */,
-				CD35BFE81B27A269004B45CD /* page2.png */,
-				CD35BFE91B27A269004B45CD /* page3.png */,
+				CDA33D0D1B27C6DA00D01536 /* page1.png */,
+				CDA33D0E1B27C6DA00D01536 /* page2.png */,
+				CDA33D0F1B27C6DA00D01536 /* page3.png */,
 				CD16E7B51B24FBC50071E1CF /* AppDelegate.h */,
 				CD16E7B61B24FBC50071E1CF /* AppDelegate.m */,
 				CD16E7E51B2508DA0071E1CF /* HistoryContentViewController.h */,
@@ -220,10 +220,10 @@
 			files = (
 				CD16E7C01B24FBC50071E1CF /* Main.storyboard in Resources */,
 				CD16E7C51B24FBC50071E1CF /* LaunchScreen.xib in Resources */,
-				CD35BFEC1B27A269004B45CD /* page3.png in Resources */,
-				CD35BFEA1B27A269004B45CD /* page1.png in Resources */,
+				CDA33D121B27C6DA00D01536 /* page3.png in Resources */,
+				CDA33D101B27C6DA00D01536 /* page1.png in Resources */,
 				CD16E7C21B24FBC50071E1CF /* Images.xcassets in Resources */,
-				CD35BFEB1B27A269004B45CD /* page2.png in Resources */,
+				CDA33D111B27C6DA00D01536 /* page2.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
