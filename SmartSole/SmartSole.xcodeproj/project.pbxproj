@@ -15,10 +15,9 @@
 		CD16E7C21B24FBC50071E1CF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD16E7C11B24FBC50071E1CF /* Images.xcassets */; };
 		CD16E7C51B24FBC50071E1CF /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD16E7C31B24FBC50071E1CF /* LaunchScreen.xib */; };
 		CD16E7D11B24FBC50071E1CF /* SmartSoleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CD16E7D01B24FBC50071E1CF /* SmartSoleTests.m */; };
-		CD16E7E71B2508DA0071E1CF /* HistoryContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD16E7E61B2508DA0071E1CF /* HistoryContentViewController.m */; };
-		CDA33D101B27C6DA00D01536 /* page1.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA33D0D1B27C6DA00D01536 /* page1.png */; };
-		CDA33D111B27C6DA00D01536 /* page2.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA33D0E1B27C6DA00D01536 /* page2.png */; };
-		CDA33D121B27C6DA00D01536 /* page3.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA33D0F1B27C6DA00D01536 /* page3.png */; };
+		CD16E7E71B2508DA0071E1CF /* HistoryGraphViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD16E7E61B2508DA0071E1CF /* HistoryGraphViewController.m */; };
+		CD7F378D1B378EA300C19A6E /* HistoryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD7F378C1B378EA300C19A6E /* HistoryTableViewController.m */; };
+		CD7F37901B379F9000C19A6E /* InformationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD7F378F1B379F9000C19A6E /* InformationViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,11 +46,12 @@
 		CD16E7CA1B24FBC50071E1CF /* SmartSoleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SmartSoleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD16E7CF1B24FBC50071E1CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CD16E7D01B24FBC50071E1CF /* SmartSoleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SmartSoleTests.m; sourceTree = "<group>"; };
-		CD16E7E51B2508DA0071E1CF /* HistoryContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryContentViewController.h; sourceTree = "<group>"; };
-		CD16E7E61B2508DA0071E1CF /* HistoryContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryContentViewController.m; sourceTree = "<group>"; };
-		CDA33D0D1B27C6DA00D01536 /* page1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = page1.png; sourceTree = "<group>"; };
-		CDA33D0E1B27C6DA00D01536 /* page2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = page2.png; sourceTree = "<group>"; };
-		CDA33D0F1B27C6DA00D01536 /* page3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = page3.png; sourceTree = "<group>"; };
+		CD16E7E51B2508DA0071E1CF /* HistoryGraphViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryGraphViewController.h; sourceTree = "<group>"; };
+		CD16E7E61B2508DA0071E1CF /* HistoryGraphViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryGraphViewController.m; sourceTree = "<group>"; };
+		CD7F378B1B378EA300C19A6E /* HistoryTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryTableViewController.h; sourceTree = "<group>"; };
+		CD7F378C1B378EA300C19A6E /* HistoryTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryTableViewController.m; sourceTree = "<group>"; };
+		CD7F378E1B379F9000C19A6E /* InformationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InformationViewController.h; sourceTree = "<group>"; };
+		CD7F378F1B379F9000C19A6E /* InformationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InformationViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,15 +93,16 @@
 		CD16E7B01B24FBC50071E1CF /* SmartSole */ = {
 			isa = PBXGroup;
 			children = (
-				CDA33D0D1B27C6DA00D01536 /* page1.png */,
-				CDA33D0E1B27C6DA00D01536 /* page2.png */,
-				CDA33D0F1B27C6DA00D01536 /* page3.png */,
 				CD16E7B51B24FBC50071E1CF /* AppDelegate.h */,
 				CD16E7B61B24FBC50071E1CF /* AppDelegate.m */,
-				CD16E7E51B2508DA0071E1CF /* HistoryContentViewController.h */,
-				CD16E7E61B2508DA0071E1CF /* HistoryContentViewController.m */,
+				CD16E7E51B2508DA0071E1CF /* HistoryGraphViewController.h */,
+				CD16E7E61B2508DA0071E1CF /* HistoryGraphViewController.m */,
+				CD7F378B1B378EA300C19A6E /* HistoryTableViewController.h */,
+				CD7F378C1B378EA300C19A6E /* HistoryTableViewController.m */,
 				CD16E7BB1B24FBC50071E1CF /* HistoryViewController.h */,
 				CD16E7BC1B24FBC50071E1CF /* HistoryViewController.m */,
+				CD7F378E1B379F9000C19A6E /* InformationViewController.h */,
+				CD7F378F1B379F9000C19A6E /* InformationViewController.m */,
 				CD16E7B81B24FBC50071E1CF /* RealtimeViewController.h */,
 				CD16E7B91B24FBC50071E1CF /* RealtimeViewController.m */,
 				CD16E7BE1B24FBC50071E1CF /* Main.storyboard */,
@@ -220,10 +221,7 @@
 			files = (
 				CD16E7C01B24FBC50071E1CF /* Main.storyboard in Resources */,
 				CD16E7C51B24FBC50071E1CF /* LaunchScreen.xib in Resources */,
-				CDA33D121B27C6DA00D01536 /* page3.png in Resources */,
-				CDA33D101B27C6DA00D01536 /* page1.png in Resources */,
 				CD16E7C21B24FBC50071E1CF /* Images.xcassets in Resources */,
-				CDA33D111B27C6DA00D01536 /* page2.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -241,10 +239,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CD16E7E71B2508DA0071E1CF /* HistoryContentViewController.m in Sources */,
+				CD7F378D1B378EA300C19A6E /* HistoryTableViewController.m in Sources */,
+				CD16E7E71B2508DA0071E1CF /* HistoryGraphViewController.m in Sources */,
 				CD16E7BD1B24FBC50071E1CF /* HistoryViewController.m in Sources */,
 				CD16E7B71B24FBC50071E1CF /* AppDelegate.m in Sources */,
 				CD16E7BA1B24FBC50071E1CF /* RealtimeViewController.m in Sources */,
+				CD7F37901B379F9000C19A6E /* InformationViewController.m in Sources */,
 				CD16E7B41B24FBC50071E1CF /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -374,6 +374,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Juhwan Jeong (397FVFDHGT)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Juhwan Jeong (397FVFDHGT)";
 				INFOPLIST_FILE = SmartSole/Info.plist;
@@ -389,6 +390,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Juhwan Jeong (397FVFDHGT)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Juhwan Jeong (397FVFDHGT)";
 				INFOPLIST_FILE = SmartSole/Info.plist;

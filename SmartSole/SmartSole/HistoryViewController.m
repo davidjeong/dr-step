@@ -18,15 +18,16 @@
     [super viewDidLoad];
     
     // Create the necessary arrays.
-    _pageTitles = @[@"Tabular Format", @"Chart Format", @"Detailed Information"];
-    _pageImages = @[@"page1.png", @"page2.png", @"page3.png"];
+    self.instances = @[@"HistoryTableViewController", @"HistoryGraphViewController", @"InformationViewController"];
     
-    // Create historyContentViewController.
+    // Create HistoryGraphViewController.
     self.pageViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"PageViewController"];
     self.pageViewController.dataSource = self;
     
-    HistoryContentViewController *startingViewController = [self viewControllerAtIndex:0];
-    NSArray *viewControllers = @[startingViewController];
+    HistoryTableViewController *tableViewController = [self.storyboard instantiateViewControllerWithIdentifier:self.instances[0]];
+    HistoryGraphViewController *graphViewController;
+    InformationViewController *informationViewController;
+    NSArray *viewControllers = [NSArray arrayWithObjects:tableViewController, graphViewController, informationViewController, nil];
     [self.pageViewController setViewControllers:viewControllers direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:nil];
     
     // Change the size of page view controlller.
@@ -42,54 +43,36 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (HistoryContentViewController*) viewControllerAtIndex:(NSUInteger) index {
-    if (([self.pageTitles count] == 0) || (index >= [self.pageTitles count])) {
-        return nil;
-    }
-    
-    // Initialize the HistoryContentViewController at index and return.
-    HistoryContentViewController *pageContentViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"HistoryContentViewController"];
-    pageContentViewController.imageFile = self.pageImages[index];
-    pageContentViewController.labelText = self.pageTitles[index];
-    pageContentViewController.pageIndex = index;
-    
-    return pageContentViewController;
-}
-
-- (NSInteger)presentationCountForPageViewController:(UIPageViewController *)pageViewController {
-    return [self.pageTitles count];
-}
-
-- (NSInteger)presentationIndexForPageViewController:(UIPageViewController *)pageViewController {
-    return 0;
-}
-
-#pragma mark - History Content View Controller
-
+#pragma mark - History View Controller
 // Return the controller at previous index.
 - (UIViewController*) pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController {
-    NSUInteger index = ((HistoryContentViewController*) viewController).pageIndex;
-    if ((index == 0) || (index == NSNotFound)) {
-        return nil;
-    }
-        
-    index--;
-    return [self viewControllerAtIndex:index];
+    if ([viewController isKindOfClass:[InformationViewController class]]) {
+        HistoryGraphViewController *graphViewController = [self.storyboard instantiateViewControllerWithIdentifier:self.instances[1]];
+        return graphViewController;
+    } else if ([viewController isKindOfClass:[HistoryGraphViewController class]]) {
+        HistoryTableViewController *tableViewController = [self.storyboard instantiateViewControllerWithIdentifier:self.instances[0]];
+        return tableViewController;
+    } else return nil;
 }
 
 
 // Return the controller at next index.
 - (UIViewController*) pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(UIViewController *)viewController {
-    NSUInteger index = ((HistoryContentViewController*) viewController).pageIndex;
-    if (index == NSNotFound) {
-        return nil;
-    }
-    
-    index++;
-    if (index == [self.pageTitles count]) {
-        return nil;
-    }
-    return [self viewControllerAtIndex:index];
+    if ([viewController isKindOfClass:[HistoryTableViewController class]]) {
+        HistoryGraphViewController *graphViewController = [self.storyboard instantiateViewControllerWithIdentifier:self.instances[1]];
+        return graphViewController;
+    } else if ([viewController isKindOfClass:[HistoryGraphViewController class]]) {
+        InformationViewController *informationViewController = [self.storyboard instantiateViewControllerWithIdentifier:self.instances[2]];
+        return informationViewController;
+    } else return nil;
+}
+
+- (NSInteger) presentationCountForPageViewController:(UIPageViewController *)pageViewController {
+    return [self.instances count];
+}
+
+- (NSInteger) presentationIndexForPageViewController:(UIPageViewController *)pageViewController {
+    return 0;
 }
 
 @end

@@ -1,23 +1,21 @@
 //
-//  HistoryContentViewController.m
+//  HistoryGraphViewController.m
 //  SmartSole
 //
 //  Created by David Jeong on 2015. 6. 7..
 //
 //
 
-#import "HistoryContentViewController.h"
+#import "HistoryGraphViewController.h"
 
-@interface HistoryContentViewController ()
+@interface HistoryGraphViewController ()
 
 @end
 
-@implementation HistoryContentViewController
+@implementation HistoryGraphViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.imageView.image = [UIImage imageNamed:self.imageFile];
-    self.label.text = self.labelText;
 }
 
 - (void)didReceiveMemoryWarning {
