@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CD12CB5E1B385D55004F3AB7 /* InformationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD12CB5D1B385D55004F3AB7 /* InformationViewController.m */; };
 		CD16E7B41B24FBC50071E1CF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CD16E7B31B24FBC50071E1CF /* main.m */; };
 		CD16E7B71B24FBC50071E1CF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CD16E7B61B24FBC50071E1CF /* AppDelegate.m */; };
 		CD16E7BA1B24FBC50071E1CF /* RealtimeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD16E7B91B24FBC50071E1CF /* RealtimeViewController.m */; };
@@ -17,7 +18,6 @@
 		CD16E7D11B24FBC50071E1CF /* SmartSoleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CD16E7D01B24FBC50071E1CF /* SmartSoleTests.m */; };
 		CD16E7E71B2508DA0071E1CF /* HistoryGraphViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD16E7E61B2508DA0071E1CF /* HistoryGraphViewController.m */; };
 		CD7F378D1B378EA300C19A6E /* HistoryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD7F378C1B378EA300C19A6E /* HistoryTableViewController.m */; };
-		CD7F37901B379F9000C19A6E /* InformationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD7F378F1B379F9000C19A6E /* InformationViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,6 +31,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CD12CB5C1B385D55004F3AB7 /* InformationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InformationViewController.h; sourceTree = "<group>"; };
+		CD12CB5D1B385D55004F3AB7 /* InformationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InformationViewController.m; sourceTree = "<group>"; };
 		CD16E7AE1B24FBC50071E1CF /* SmartSole.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmartSole.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD16E7B21B24FBC50071E1CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CD16E7B31B24FBC50071E1CF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -50,8 +52,6 @@
 		CD16E7E61B2508DA0071E1CF /* HistoryGraphViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryGraphViewController.m; sourceTree = "<group>"; };
 		CD7F378B1B378EA300C19A6E /* HistoryTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryTableViewController.h; sourceTree = "<group>"; };
 		CD7F378C1B378EA300C19A6E /* HistoryTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryTableViewController.m; sourceTree = "<group>"; };
-		CD7F378E1B379F9000C19A6E /* InformationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InformationViewController.h; sourceTree = "<group>"; };
-		CD7F378F1B379F9000C19A6E /* InformationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InformationViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,8 +101,8 @@
 				CD7F378C1B378EA300C19A6E /* HistoryTableViewController.m */,
 				CD16E7BB1B24FBC50071E1CF /* HistoryViewController.h */,
 				CD16E7BC1B24FBC50071E1CF /* HistoryViewController.m */,
-				CD7F378E1B379F9000C19A6E /* InformationViewController.h */,
-				CD7F378F1B379F9000C19A6E /* InformationViewController.m */,
+				CD12CB5C1B385D55004F3AB7 /* InformationViewController.h */,
+				CD12CB5D1B385D55004F3AB7 /* InformationViewController.m */,
 				CD16E7B81B24FBC50071E1CF /* RealtimeViewController.h */,
 				CD16E7B91B24FBC50071E1CF /* RealtimeViewController.m */,
 				CD16E7BE1B24FBC50071E1CF /* Main.storyboard */,
@@ -244,7 +244,7 @@
 				CD16E7BD1B24FBC50071E1CF /* HistoryViewController.m in Sources */,
 				CD16E7B71B24FBC50071E1CF /* AppDelegate.m in Sources */,
 				CD16E7BA1B24FBC50071E1CF /* RealtimeViewController.m in Sources */,
-				CD7F37901B379F9000C19A6E /* InformationViewController.m in Sources */,
+				CD12CB5E1B385D55004F3AB7 /* InformationViewController.m in Sources */,
 				CD16E7B41B24FBC50071E1CF /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
