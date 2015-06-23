@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CorePlot-CocoaTouch.h"
 
-@interface HistoryGraphViewController : UIViewController
-@property (weak, nonatomic) IBOutlet UIImageView *imageView;
-@property NSUInteger pageIndex;
+@interface HistoryGraphViewController : UIViewController <CPTPlotDataSource>
+
+@property (strong, nonatomic) CPTGraphHostingView *hostView;
+@property (assign, nonatomic) NSUInteger numberOfPoints;
 
 @end

@@ -159,22 +159,8 @@
                     <view key="view" contentMode="scaleToFill" id="GjJ-T2-yxj">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OLf-jA-B8u">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                            </imageView>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="OLf-jA-B8u" firstAttribute="leading" secondItem="GjJ-T2-yxj" secondAttribute="leading" id="KhE-HY-W9a"/>
-                            <constraint firstItem="bhz-MA-MVw" firstAttribute="top" secondItem="OLf-jA-B8u" secondAttribute="bottom" id="PFM-ee-7r2"/>
-                            <constraint firstAttribute="trailing" secondItem="OLf-jA-B8u" secondAttribute="trailing" id="iot-ci-dgF"/>
-                            <constraint firstItem="OLf-jA-B8u" firstAttribute="top" secondItem="GjJ-T2-yxj" secondAttribute="top" id="uBZ-f7-CNH"/>
-                        </constraints>
                     </view>
-                    <connections>
-                        <outlet property="imageView" destination="OLf-jA-B8u" id="nwC-Fl-CXB"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Ob-4E-CWb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

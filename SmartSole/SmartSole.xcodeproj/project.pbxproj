@@ -18,6 +18,9 @@
 		CD16E7D11B24FBC50071E1CF /* SmartSoleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CD16E7D01B24FBC50071E1CF /* SmartSoleTests.m */; };
 		CD16E7E71B2508DA0071E1CF /* HistoryGraphViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD16E7E61B2508DA0071E1CF /* HistoryGraphViewController.m */; };
 		CD7F378D1B378EA300C19A6E /* HistoryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD7F378C1B378EA300C19A6E /* HistoryTableViewController.m */; };
+		CDDFB1241B390E6000DF1D5B /* libCorePlot-CocoaTouch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CDDFB1201B390D2600DF1D5B /* libCorePlot-CocoaTouch.a */; };
+		CDDFB1261B39115600DF1D5B /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDDFB1251B39115600DF1D5B /* QuartzCore.framework */; };
+		CDDFB1281B39116200DF1D5B /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDDFB1271B39116200DF1D5B /* Accelerate.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,6 +30,20 @@
 			proxyType = 1;
 			remoteGlobalIDString = CD16E7AD1B24FBC50071E1CF;
 			remoteInfo = SmartSole;
+		};
+		CDDFB11F1B390D2600DF1D5B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CDDFB1191B390D2600DF1D5B /* CorePlot-CocoaTouch.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = BC9B83470FB8A0A40035D8DA;
+			remoteInfo = "CorePlot-CocoaTouch";
+		};
+		CDDFB1221B390DEB00DF1D5B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CDDFB1191B390D2600DF1D5B /* CorePlot-CocoaTouch.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = BC9B83460FB8A0A40035D8DA;
+			remoteInfo = "CorePlot-CocoaTouch";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -52,6 +69,9 @@
 		CD16E7E61B2508DA0071E1CF /* HistoryGraphViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryGraphViewController.m; sourceTree = "<group>"; };
 		CD7F378B1B378EA300C19A6E /* HistoryTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryTableViewController.h; sourceTree = "<group>"; };
 		CD7F378C1B378EA300C19A6E /* HistoryTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryTableViewController.m; sourceTree = "<group>"; };
+		CDDFB1191B390D2600DF1D5B /* CorePlot-CocoaTouch.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "CorePlot-CocoaTouch.xcodeproj"; path = "../core-plot-master/framework/CorePlot-CocoaTouch.xcodeproj"; sourceTree = "<group>"; };
+		CDDFB1251B39115600DF1D5B /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		CDDFB1271B39116200DF1D5B /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +79,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CDDFB1281B39116200DF1D5B /* Accelerate.framework in Frameworks */,
+				CDDFB1261B39115600DF1D5B /* QuartzCore.framework in Frameworks */,
+				CDDFB1241B390E6000DF1D5B /* libCorePlot-CocoaTouch.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,6 +98,9 @@
 		CD16E7A51B24FBC50071E1CF = {
 			isa = PBXGroup;
 			children = (
+				CDDFB1271B39116200DF1D5B /* Accelerate.framework */,
+				CDDFB1251B39115600DF1D5B /* QuartzCore.framework */,
+				CDDFB1191B390D2600DF1D5B /* CorePlot-CocoaTouch.xcodeproj */,
 				CD16E7B01B24FBC50071E1CF /* SmartSole */,
 				CD16E7CD1B24FBC50071E1CF /* SmartSoleTests */,
 				CD16E7AF1B24FBC50071E1CF /* Products */,
@@ -139,6 +165,14 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		CDDFB11A1B390D2600DF1D5B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CDDFB1201B390D2600DF1D5B /* libCorePlot-CocoaTouch.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -153,6 +187,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				CDDFB1231B390DEB00DF1D5B /* PBXTargetDependency */,
 			);
 			name = SmartSole;
 			productName = SmartSole;
@@ -206,6 +241,12 @@
 			mainGroup = CD16E7A51B24FBC50071E1CF;
 			productRefGroup = CD16E7AF1B24FBC50071E1CF /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = CDDFB11A1B390D2600DF1D5B /* Products */;
+					ProjectRef = CDDFB1191B390D2600DF1D5B /* CorePlot-CocoaTouch.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				CD16E7AD1B24FBC50071E1CF /* SmartSole */,
@@ -213,6 +254,16 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		CDDFB1201B390D2600DF1D5B /* libCorePlot-CocoaTouch.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libCorePlot-CocoaTouch.a";
+			remoteRef = CDDFB11F1B390D2600DF1D5B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		CD16E7AC1B24FBC50071E1CF /* Resources */ = {
@@ -264,6 +315,11 @@
 			isa = PBXTargetDependency;
 			target = CD16E7AD1B24FBC50071E1CF /* SmartSole */;
 			targetProxy = CD16E7CB1B24FBC50071E1CF /* PBXContainerItemProxy */;
+		};
+		CDDFB1231B390DEB00DF1D5B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "CorePlot-CocoaTouch";
+			targetProxy = CDDFB1221B390DEB00DF1D5B /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -377,9 +433,15 @@
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Juhwan Jeong (397FVFDHGT)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Juhwan Jeong (397FVFDHGT)";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"/Users/davidjeong/Documents/fydp-ios/core-plot-master/framework/**",
+				);
 				INFOPLIST_FILE = SmartSole/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.piezo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "3fa41dd3-9827-4922-8578-425db892c818";
@@ -393,9 +455,15 @@
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Juhwan Jeong (397FVFDHGT)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Juhwan Jeong (397FVFDHGT)";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"/Users/davidjeong/Documents/fydp-ios/core-plot-master/framework/**",
+				);
 				INFOPLIST_FILE = SmartSole/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.piezo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "3fa41dd3-9827-4922-8578-425db892c818";
