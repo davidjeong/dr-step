@@ -1,6 +1,6 @@
 //
-//  SmartSoleTests.m
-//  SmartSoleTests
+//  BioWearTests.m
+//  BioWearTests
 //
 //  Created by David Jeong on 2015. 6. 7..
 //
@@ -9,11 +9,11 @@
 #import <UIKit/UIKit.h>
 #import <XCTest/XCTest.h>
 
-@interface SmartSoleTests : XCTestCase
+@interface BioWearTests : XCTestCase
 
 @end
 
-@implementation SmartSoleTests
+@implementation BioWearTests
 
 - (void)setUp {
     [super setUp];
