@@ -20,6 +20,10 @@
 		CD16E7E71B2508DA0071E1CF /* BWHistoryGraphViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD16E7E61B2508DA0071E1CF /* BWHistoryGraphViewController.m */; };
 		CD7F378D1B378EA300C19A6E /* BWHistoryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD7F378C1B378EA300C19A6E /* BWHistoryTableViewController.m */; };
 		CDA9D5601B4DE49100C3170F /* BWSettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDA9D55F1B4DE49100C3170F /* BWSettingsTableViewController.m */; };
+		CDA9D56A1B4DF61D00C3170F /* BWBlueBeanTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDA9D5691B4DF61D00C3170F /* BWBlueBeanTableViewController.m */; };
+		CDA9D56F1B4DFA1E00C3170F /* BWBlueBeanTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CDA9D56E1B4DFA1E00C3170F /* BWBlueBeanTableViewCell.m */; };
+		CDA9D5721B4E001000C3170F /* libPods-Bean-iOS-OSX-SDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CDA9D5711B4E001000C3170F /* libPods-Bean-iOS-OSX-SDK.a */; };
+		CDA9D5791B4E127F00C3170F /* BWBlueBeanConnector.m in Sources */ = {isa = PBXBuildFile; fileRef = CDA9D5781B4E127F00C3170F /* BWBlueBeanConnector.m */; };
 		CDDFB1241B390E6000DF1D5B /* libCorePlot-CocoaTouch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CDDFB1201B390D2600DF1D5B /* libCorePlot-CocoaTouch.a */; };
 		CDDFB1261B39115600DF1D5B /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDDFB1251B39115600DF1D5B /* QuartzCore.framework */; };
 		CDDFB1281B39116200DF1D5B /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDDFB1271B39116200DF1D5B /* Accelerate.framework */; };
@@ -74,6 +78,13 @@
 		CD7F378C1B378EA300C19A6E /* BWHistoryTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWHistoryTableViewController.m; sourceTree = "<group>"; };
 		CDA9D55E1B4DE49100C3170F /* BWSettingsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWSettingsTableViewController.h; sourceTree = "<group>"; };
 		CDA9D55F1B4DE49100C3170F /* BWSettingsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWSettingsTableViewController.m; sourceTree = "<group>"; };
+		CDA9D5681B4DF61D00C3170F /* BWBlueBeanTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWBlueBeanTableViewController.h; sourceTree = "<group>"; };
+		CDA9D5691B4DF61D00C3170F /* BWBlueBeanTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWBlueBeanTableViewController.m; sourceTree = "<group>"; };
+		CDA9D56D1B4DFA1E00C3170F /* BWBlueBeanTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWBlueBeanTableViewCell.h; sourceTree = "<group>"; };
+		CDA9D56E1B4DFA1E00C3170F /* BWBlueBeanTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWBlueBeanTableViewCell.m; sourceTree = "<group>"; };
+		CDA9D5711B4E001000C3170F /* libPods-Bean-iOS-OSX-SDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-Bean-iOS-OSX-SDK.a"; path = "Pods/../build/Debug-iphoneos/libPods-Bean-iOS-OSX-SDK.a"; sourceTree = "<group>"; };
+		CDA9D5771B4E127F00C3170F /* BWBlueBeanConnector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWBlueBeanConnector.h; sourceTree = "<group>"; };
+		CDA9D5781B4E127F00C3170F /* BWBlueBeanConnector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWBlueBeanConnector.m; sourceTree = "<group>"; };
 		CDDFB1191B390D2600DF1D5B /* CorePlot-CocoaTouch.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "CorePlot-CocoaTouch.xcodeproj"; path = "../core-plot-master/framework/CorePlot-CocoaTouch.xcodeproj"; sourceTree = "<group>"; };
 		CDDFB1251B39115600DF1D5B /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		CDDFB1271B39116200DF1D5B /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
@@ -86,6 +97,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CDA9D5721B4E001000C3170F /* libPods-Bean-iOS-OSX-SDK.a in Frameworks */,
 				CDDFB1281B39116200DF1D5B /* Accelerate.framework in Frameworks */,
 				CDDFB1261B39115600DF1D5B /* QuartzCore.framework in Frameworks */,
 				CDDFB1241B390E6000DF1D5B /* libCorePlot-CocoaTouch.a in Frameworks */,
@@ -115,6 +127,7 @@
 		7377D6F3ACB1645A58B7499C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CDA9D5711B4E001000C3170F /* libPods-Bean-iOS-OSX-SDK.a */,
 				DF5B73B1D557B0CEC5618F1A /* libPods.a */,
 			);
 			name = Frameworks;
@@ -148,6 +161,12 @@
 			children = (
 				CD16E7B51B24FBC50071E1CF /* BWAppDelegate.h */,
 				CD16E7B61B24FBC50071E1CF /* BWAppDelegate.m */,
+				CDA9D5771B4E127F00C3170F /* BWBlueBeanConnector.h */,
+				CDA9D5781B4E127F00C3170F /* BWBlueBeanConnector.m */,
+				CDA9D56D1B4DFA1E00C3170F /* BWBlueBeanTableViewCell.h */,
+				CDA9D56E1B4DFA1E00C3170F /* BWBlueBeanTableViewCell.m */,
+				CDA9D5681B4DF61D00C3170F /* BWBlueBeanTableViewController.h */,
+				CDA9D5691B4DF61D00C3170F /* BWBlueBeanTableViewController.m */,
 				CD16E7E51B2508DA0071E1CF /* BWHistoryGraphViewController.h */,
 				CD16E7E61B2508DA0071E1CF /* BWHistoryGraphViewController.m */,
 				CD7F378B1B378EA300C19A6E /* BWHistoryTableViewController.h */,
@@ -360,9 +379,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CDA9D56F1B4DFA1E00C3170F /* BWBlueBeanTableViewCell.m in Sources */,
 				CDA9D5601B4DE49100C3170F /* BWSettingsTableViewController.m in Sources */,
+				CDA9D56A1B4DF61D00C3170F /* BWBlueBeanTableViewController.m in Sources */,
 				CD7F378D1B378EA300C19A6E /* BWHistoryTableViewController.m in Sources */,
 				CD16E7E71B2508DA0071E1CF /* BWHistoryGraphViewController.m in Sources */,
+				CDA9D5791B4E127F00C3170F /* BWBlueBeanConnector.m in Sources */,
 				CD16E7BD1B24FBC50071E1CF /* BWHistoryViewController.m in Sources */,
 				CD16E7B71B24FBC50071E1CF /* BWAppDelegate.m in Sources */,
 				CD16E7BA1B24FBC50071E1CF /* BWRealtimeViewController.m in Sources */,
@@ -513,6 +535,10 @@
 				INFOPLIST_FILE = SmartSole/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.piezo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = BioWear;
@@ -536,6 +562,10 @@
 				INFOPLIST_FILE = SmartSole/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.piezo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = BioWear;

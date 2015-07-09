@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface BWSettingsTableViewController : UITableViewController
+#import "BWBlueBeanTableViewController.h"
+
+@interface BWSettingsTableViewController : UITableViewController <UITableViewDelegate>
 
 @end

@@ -18,7 +18,7 @@
     [super viewDidLoad];
     
     // Create the necessary arrays.
-    self.instances = @[@"HistoryTableViewController", @"HistoryGraphViewController", @"InformationViewController"];
+    self.instances = @[@"HistoryTableViewController", @"HistoryGraphViewController"];
     
     // Create HistoryGraphViewController.
     self.pageViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"PageViewController"];
@@ -26,8 +26,7 @@
     
     BWHistoryTableViewController *tableViewController = [self.storyboard instantiateViewControllerWithIdentifier:self.instances[0]];
     BWHistoryGraphViewController *graphViewController;
-    BWInformationViewController *informationViewController;
-    NSArray *viewControllers = [NSArray arrayWithObjects:tableViewController, graphViewController, informationViewController, nil];
+    NSArray *viewControllers = [NSArray arrayWithObjects:tableViewController, graphViewController, nil];
     [self.pageViewController setViewControllers:viewControllers direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:nil];
     
     // Change the size of page view controlller.
@@ -46,10 +45,7 @@
 #pragma mark - History View Controller
 // Return the controller at previous index.
 - (UIViewController*) pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController {
-    if ([viewController isKindOfClass:[BWInformationViewController class]]) {
-        BWHistoryGraphViewController *graphViewController = [self.storyboard instantiateViewControllerWithIdentifier:self.instances[1]];
-        return graphViewController;
-    } else if ([viewController isKindOfClass:[BWHistoryGraphViewController class]]) {
+    if ([viewController isKindOfClass:[BWHistoryGraphViewController class]]) {
         BWHistoryTableViewController *tableViewController = [self.storyboard instantiateViewControllerWithIdentifier:self.instances[0]];
         return tableViewController;
     } else return nil;
@@ -61,9 +57,6 @@
     if ([viewController isKindOfClass:[BWHistoryTableViewController class]]) {
         BWHistoryGraphViewController *graphViewController = [self.storyboard instantiateViewControllerWithIdentifier:self.instances[1]];
         return graphViewController;
-    } else if ([viewController isKindOfClass:[BWHistoryGraphViewController class]]) {
-        BWInformationViewController *informationViewController = [self.storyboard instantiateViewControllerWithIdentifier:self.instances[2]];
-        return informationViewController;
     } else return nil;
 }
 
