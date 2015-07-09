@@ -29,12 +29,18 @@
     [self.tableView reloadData];
 }
 
-#pragma mark - PTDBean
+#pragma mark - PTDBeanDelegate
 
 - (PTDBean *)beanForRow:(NSInteger)row {
     BWBlueBeanConnector *connector = [BWBlueBeanConnector connector];
     return [connector.beans.allValues objectAtIndex:row];
 }
+
+- (void)bean:(PTDBean *)bean serialDataReceived:(NSData *)data {
+    NSLog(@"Received data #%lu", self.counter++);
+}
+
+#pragma mark - PTDBeanManagerDelegate
 
 - (void)beanManagerDidUpdateState:(PTDBeanManager *)beanManager {
     BWBlueBeanConnector *connector = [BWBlueBeanConnector connector];
@@ -52,8 +58,8 @@
 
     NSUUID *key = bean.identifier;
     if (![connector.beans objectForKey:key]) {
-        // This means new bean
-        NSLog(@"beanManager:didDiscoverBean:error %@", bean);
+        // This means new bean.
+        NSLog(@"Adding new bean to dictionary %@", bean);
         [connector.beans setObject:bean forKey:key];
     }
     [self.tableView reloadData];
@@ -102,9 +108,15 @@ static NSString *cellIdentifier = @"beanCell";
     BWBlueBeanConnector *connector = [BWBlueBeanConnector connector];
     PTDBean *bean = [connector.beans.allValues objectAtIndex:indexPath.row];
     if (bean.state == BeanState_Discovered) {
+        // If state is discovered, try to establish connection.
         [connector.beanManager connectToBean:bean error:nil];
+        [BWBlueBean setBean:bean];
+        [BWBlueBean getBean].delegate = self;
+        [BWBlueBean setBeanName:bean.name];
     } else {
+        // Else, try to disconnect.
         [connector.beanManager disconnectBean:bean error:nil];
+        [BWBlueBean setBean:nil];
     }
     [self.tableView reloadData];
 }

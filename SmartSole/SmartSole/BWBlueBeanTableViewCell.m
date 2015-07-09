@@ -23,7 +23,10 @@
     [super layoutSubviews];
     
     self.nameLabel.text = self.bean.name;
+    
     NSString* state;
+    
+    // Set the state based on bean's state.
     switch (self.bean.state) {
         case BeanState_Unknown:
             state = @"Unknown";

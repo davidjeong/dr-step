@@ -45,6 +45,7 @@
 		CDA9D5CC1B4E284F00C3170F /* human_footprint_22.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA9D5C81B4E284F00C3170F /* human_footprint_22.png */; };
 		CDA9D5CD1B4E284F00C3170F /* running_22.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA9D5C91B4E284F00C3170F /* running_22.png */; };
 		CDA9D5CE1B4E284F00C3170F /* settings_22.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA9D5CA1B4E284F00C3170F /* settings_22.png */; };
+		CDC422941B4F239900759210 /* BWBlueBean.m in Sources */ = {isa = PBXBuildFile; fileRef = CDC422931B4F239900759210 /* BWBlueBean.m */; };
 		CDDFB1241B390E6000DF1D5B /* libCorePlot-CocoaTouch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CDDFB1201B390D2600DF1D5B /* libCorePlot-CocoaTouch.a */; };
 		CDDFB1261B39115600DF1D5B /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDDFB1251B39115600DF1D5B /* QuartzCore.framework */; };
 		CDDFB1281B39116200DF1D5B /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDDFB1271B39116200DF1D5B /* Accelerate.framework */; };
@@ -127,6 +128,8 @@
 		CDA9D5C81B4E284F00C3170F /* human_footprint_22.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = human_footprint_22.png; path = images/human_footprint_22.png; sourceTree = "<group>"; };
 		CDA9D5C91B4E284F00C3170F /* running_22.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = running_22.png; path = images/running_22.png; sourceTree = "<group>"; };
 		CDA9D5CA1B4E284F00C3170F /* settings_22.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = settings_22.png; path = images/settings_22.png; sourceTree = "<group>"; };
+		CDC422921B4F239900759210 /* BWBlueBean.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWBlueBean.h; sourceTree = "<group>"; };
+		CDC422931B4F239900759210 /* BWBlueBean.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWBlueBean.m; sourceTree = "<group>"; };
 		CDDFB1191B390D2600DF1D5B /* CorePlot-CocoaTouch.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "CorePlot-CocoaTouch.xcodeproj"; path = "../core-plot-master/framework/CorePlot-CocoaTouch.xcodeproj"; sourceTree = "<group>"; };
 		CDDFB1251B39115600DF1D5B /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		CDDFB1271B39116200DF1D5B /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
@@ -204,6 +207,8 @@
 				CDA9D5891B4E1E8E00C3170F /* images */,
 				CD16E7B51B24FBC50071E1CF /* BWAppDelegate.h */,
 				CD16E7B61B24FBC50071E1CF /* BWAppDelegate.m */,
+				CDC422921B4F239900759210 /* BWBlueBean.h */,
+				CDC422931B4F239900759210 /* BWBlueBean.m */,
 				CDA9D5771B4E127F00C3170F /* BWBlueBeanConnector.h */,
 				CDA9D5781B4E127F00C3170F /* BWBlueBeanConnector.m */,
 				CDA9D56D1B4DFA1E00C3170F /* BWBlueBeanTableViewCell.h */,
@@ -489,6 +494,7 @@
 				CD16E7B71B24FBC50071E1CF /* BWAppDelegate.m in Sources */,
 				CD16E7BA1B24FBC50071E1CF /* BWRealtimeViewController.m in Sources */,
 				CD12CB5E1B385D55004F3AB7 /* BWInformationViewController.m in Sources */,
+				CDC422941B4F239900759210 /* BWBlueBean.m in Sources */,
 				CD16E7B41B24FBC50071E1CF /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

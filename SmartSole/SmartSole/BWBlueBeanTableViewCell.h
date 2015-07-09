@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import <PTDBeanManager.h>
 
+#import "BWBlueBean.h"
+
 @interface BWBlueBeanTableViewCell : UITableViewCell
 
 @property (nonatomic, strong) PTDBean *bean;

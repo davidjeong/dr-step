@@ -10,6 +10,7 @@
 
 @implementation BWBlueBeanConnector
 
+// Singleton class to handle the connection manager.
 + (id)connector {
     static BWBlueBeanConnector *connector = nil;
     static dispatch_once_t onceToken;
@@ -20,6 +21,7 @@
 }
 
 - (id) init {
+    // Initialize the bean dictionary and the bean manager.
     self.beans = [[NSMutableDictionary alloc] init];
     self.beanManager = [[PTDBeanManager alloc] initWithDelegate:self];
     

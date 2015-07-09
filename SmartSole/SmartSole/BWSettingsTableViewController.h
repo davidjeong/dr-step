@@ -8,8 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+#import "BWBlueBeanConnector.h"
 #import "BWBlueBeanTableViewController.h"
 
 @interface BWSettingsTableViewController : UITableViewController <UITableViewDelegate>
+
+@property (weak, nonatomic) IBOutlet UILabel *connectLabel;
 
 @end

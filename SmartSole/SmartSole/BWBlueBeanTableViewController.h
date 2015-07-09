@@ -8,9 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+#import "BWBlueBean.h"
 #import "BWBlueBeanConnector.h"
 #import "BWBlueBeanTableViewCell.h"
 
-@interface BWBlueBeanTableViewController : UITableViewController <PTDBeanManagerDelegate, PTDBeanDelegate, UITableViewDataSource, UITableViewDelegate>
+@interface BWBlueBeanTableViewController : UITableViewController <PTDBeanDelegate, PTDBeanManagerDelegate, UITableViewDataSource, UITableViewDelegate>
+
+@property (assign, nonatomic) NSUInteger counter;
 
 @end
