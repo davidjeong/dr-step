@@ -44,7 +44,7 @@
                             <constraint firstAttribute="centerY" secondItem="KQZ-1w-vlD" secondAttribute="centerY" id="exm-UA-ej4"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Realtime" image="first" id="acW-dT-cKf"/>
+                    <tabBarItem key="tabBarItem" title="Realtime" image="human_footprint_22.png" id="acW-dT-cKf"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
@@ -63,7 +63,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="History" image="second" id="4sh-Ug-gq6"/>
+                    <tabBarItem key="tabBarItem" title="History" image="calendar_22.png" id="4sh-Ug-gq6"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kBH-15-hWF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -141,7 +141,7 @@
         <scene sceneID="Wku-ja-rcA">
             <objects>
                 <navigationController id="tJN-Tu-Bo6" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Settings" image="first" id="aUk-zs-KpS"/>
+                    <tabBarItem key="tabBarItem" title="Settings" image="settings_22.png" id="aUk-zs-KpS"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="CxA-T5-GkZ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -326,7 +326,7 @@
                             <constraint firstItem="9tr-Ud-JFV" firstAttribute="top" secondItem="ct3-nC-D13" secondAttribute="top" constant="20" id="rjH-jk-nZt"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Info" id="Hdc-pj-lZg"/>
+                    <tabBarItem key="tabBarItem" title="Info" image="running_22.png" id="Hdc-pj-lZg"/>
                     <connections>
                         <outlet property="searchDisplayController" destination="jcZ-tI-cqu" id="9DK-zH-LCz"/>
                         <outlet property="tableView" destination="9tr-Ud-JFV" id="X57-Xd-UD8"/>
@@ -383,7 +383,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="first" width="30" height="30"/>
-        <image name="second" width="30" height="30"/>
+        <image name="calendar_22.png" width="22" height="22"/>
+        <image name="human_footprint_22.png" width="22" height="22"/>
+        <image name="running_22.png" width="22" height="22"/>
+        <image name="settings_22.png" width="22" height="22"/>
     </resources>
 </document>
