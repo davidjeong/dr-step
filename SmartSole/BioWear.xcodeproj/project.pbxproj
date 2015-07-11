@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5315D8801B50F01200B56EA5 /* libCorePlot-CocoaTouch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CDDFB1201B390D2600DF1D5B /* libCorePlot-CocoaTouch.a */; };
+		5315D8821B50F01600B56EA5 /* libPods-Bean-iOS-OSX-SDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5315D8811B50F01600B56EA5 /* libPods-Bean-iOS-OSX-SDK.a */; };
 		9CEFEF823DBD8E6C25B450E4 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DF5B73B1D557B0CEC5618F1A /* libPods.a */; };
 		CD12CB5E1B385D55004F3AB7 /* BWInformationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD12CB5D1B385D55004F3AB7 /* BWInformationViewController.m */; };
 		CD16E7B41B24FBC50071E1CF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CD16E7B31B24FBC50071E1CF /* main.m */; };
@@ -21,7 +23,6 @@
 		CDA9D5601B4DE49100C3170F /* BWSettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDA9D55F1B4DE49100C3170F /* BWSettingsTableViewController.m */; };
 		CDA9D56A1B4DF61D00C3170F /* BWBlueBeanTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDA9D5691B4DF61D00C3170F /* BWBlueBeanTableViewController.m */; };
 		CDA9D56F1B4DFA1E00C3170F /* BWBlueBeanTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CDA9D56E1B4DFA1E00C3170F /* BWBlueBeanTableViewCell.m */; };
-		CDA9D5721B4E001000C3170F /* libPods-Bean-iOS-OSX-SDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CDA9D5711B4E001000C3170F /* libPods-Bean-iOS-OSX-SDK.a */; };
 		CDA9D5791B4E127F00C3170F /* BWBlueBeanConnector.m in Sources */ = {isa = PBXBuildFile; fileRef = CDA9D5781B4E127F00C3170F /* BWBlueBeanConnector.m */; };
 		CDA9D5A91B4E229000C3170F /* app_launch_screen_640_960.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA9D5A01B4E229000C3170F /* app_launch_screen_640_960.png */; };
 		CDA9D5AB1B4E229000C3170F /* bio_wear_logo_58_58.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA9D5A21B4E229000C3170F /* bio_wear_logo_58_58.png */; };
@@ -46,7 +47,6 @@
 		CDA9D5CD1B4E284F00C3170F /* running_22.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA9D5C91B4E284F00C3170F /* running_22.png */; };
 		CDA9D5CE1B4E284F00C3170F /* settings_22.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA9D5CA1B4E284F00C3170F /* settings_22.png */; };
 		CDC422941B4F239900759210 /* BWBlueBean.m in Sources */ = {isa = PBXBuildFile; fileRef = CDC422931B4F239900759210 /* BWBlueBean.m */; };
-		CDDFB1241B390E6000DF1D5B /* libCorePlot-CocoaTouch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CDDFB1201B390D2600DF1D5B /* libCorePlot-CocoaTouch.a */; };
 		CDDFB1261B39115600DF1D5B /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDDFB1251B39115600DF1D5B /* QuartzCore.framework */; };
 		CDDFB1281B39116200DF1D5B /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDDFB1271B39116200DF1D5B /* Accelerate.framework */; };
 /* End PBXBuildFile section */
@@ -76,6 +76,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5315D8811B50F01600B56EA5 /* libPods-Bean-iOS-OSX-SDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-Bean-iOS-OSX-SDK.a"; path = "Pods/../build/Debug-iphoneos/libPods-Bean-iOS-OSX-SDK.a"; sourceTree = "<group>"; };
 		9E5682A54B82EF61D63EB688 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		CD12CB5C1B385D55004F3AB7 /* BWInformationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWInformationViewController.h; sourceTree = "<group>"; };
 		CD12CB5D1B385D55004F3AB7 /* BWInformationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWInformationViewController.m; sourceTree = "<group>"; };
@@ -142,10 +143,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CDA9D5721B4E001000C3170F /* libPods-Bean-iOS-OSX-SDK.a in Frameworks */,
+				5315D8821B50F01600B56EA5 /* libPods-Bean-iOS-OSX-SDK.a in Frameworks */,
+				5315D8801B50F01200B56EA5 /* libCorePlot-CocoaTouch.a in Frameworks */,
 				CDDFB1281B39116200DF1D5B /* Accelerate.framework in Frameworks */,
 				CDDFB1261B39115600DF1D5B /* QuartzCore.framework in Frameworks */,
-				CDDFB1241B390E6000DF1D5B /* libCorePlot-CocoaTouch.a in Frameworks */,
 				9CEFEF823DBD8E6C25B450E4 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -172,6 +173,7 @@
 		7377D6F3ACB1645A58B7499C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5315D8811B50F01600B56EA5 /* libPods-Bean-iOS-OSX-SDK.a */,
 				CDA9D5711B4E001000C3170F /* libPods-Bean-iOS-OSX-SDK.a */,
 				DF5B73B1D557B0CEC5618F1A /* libPods.a */,
 			);
@@ -630,7 +632,7 @@
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
-					"/Users/davidjeong/Documents/fydp-ios/core-plot-master/framework/**",
+					"/Users/juhwanjeong/Documents/fydp-ios/core-plot-master/framework/**",
 				);
 				INFOPLIST_FILE = SmartSole/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
@@ -659,7 +661,7 @@
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
-					"/Users/davidjeong/Documents/fydp-ios/core-plot-master/framework/**",
+					"/Users/juhwanjeong/Documents/fydp-ios/core-plot-master/framework/**",
 				);
 				INFOPLIST_FILE = SmartSole/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
@@ -692,7 +694,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.piezo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = BioWearTests;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SmartSole.app/SmartSole";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BioWear.app/BioWear";
 			};
 			name = Debug;
 		};
@@ -708,7 +710,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.piezo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = BioWearTests;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SmartSole.app/SmartSole";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BioWear.app/BioWear";
 			};
 			name = Release;
 		};
