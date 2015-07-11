@@ -24,8 +24,25 @@
     // Initialize the bean dictionary and the bean manager.
     self.beans = [[NSMutableDictionary alloc] init];
     self.beanManager = [[PTDBeanManager alloc] initWithDelegate:self];
+    self.dataString = [[NSMutableString alloc] init];
+    
     
     return self;
 }
+
+#pragma mark - PTDBeanDelegate
+
+
+
+- (void)bean:(PTDBean *)bean serialDataReceived:(NSData *)data {
+    NSString *fragment = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+    [self.dataString appendString:fragment];
+    if ([fragment rangeOfString:@"end"].location != NSNotFound) {
+        NSLog(@"%@", self.dataString);
+        [self.dataString setString:@""];
+    }
+}
+
+
 
 @end

@@ -10,10 +10,11 @@
 #import <Foundation/Foundation.h>
 #import <PTDBeanManager.h>
 
-@interface BWBlueBeanConnector : NSObject <PTDBeanManagerDelegate>
+@interface BWBlueBeanConnector : NSObject <PTDBeanDelegate, PTDBeanManagerDelegate>
 
 @property (nonatomic, strong) PTDBeanManager *beanManager;
 @property (nonatomic, strong) NSMutableDictionary *beans;
+@property (retain, nonatomic) NSMutableString *dataString;
 
 + (id)connector;
 

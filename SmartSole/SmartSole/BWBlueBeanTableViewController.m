@@ -29,15 +29,9 @@
     [self.tableView reloadData];
 }
 
-#pragma mark - PTDBeanDelegate
-
 - (PTDBean *)beanForRow:(NSInteger)row {
     BWBlueBeanConnector *connector = [BWBlueBeanConnector connector];
     return [connector.beans.allValues objectAtIndex:row];
-}
-
-- (void)bean:(PTDBean *)bean serialDataReceived:(NSData *)data {
-    NSLog(@"Received data #%lu", self.counter++);
 }
 
 #pragma mark - PTDBeanManagerDelegate
@@ -111,7 +105,7 @@ static NSString *cellIdentifier = @"beanCell";
         // If state is discovered, try to establish connection.
         [connector.beanManager connectToBean:bean error:nil];
         [BWBlueBean setBean:bean];
-        [BWBlueBean getBean].delegate = self;
+        [BWBlueBean getBean].delegate = connector;
         [BWBlueBean setBeanName:bean.name];
     } else {
         // Else, try to disconnect.

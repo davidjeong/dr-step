@@ -13,7 +13,7 @@
 static PTDBean *applicationBean;
 static NSString *applicationBeanName;
 
-@interface BWBlueBean : NSObject <PTDBeanDelegate>
+@interface BWBlueBean : NSObject
 
 + (PTDBean *) getBean;
 + (void) setBean:(PTDBean *)bean;
