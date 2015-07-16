@@ -104,13 +104,16 @@ static NSString *cellIdentifier = @"beanCell";
     if (bean.state == BeanState_Discovered) {
         // If state is discovered, try to establish connection.
         [connector.beanManager connectToBean:bean error:nil];
-        [BWBlueBean setBean:bean];
-        [BWBlueBean getBean].delegate = connector;
-        [BWBlueBean setBeanName:bean.name];
+        BWBlueBean *blueBean = [BWBlueBean bean];
+        blueBean.bean = bean;
+        blueBean.beanName = bean.name;
+        blueBean.bean.delegate = connector;
     } else {
         // Else, try to disconnect.
         [connector.beanManager disconnectBean:bean error:nil];
-        [BWBlueBean setBean:nil];
+        BWBlueBean *blueBean = [BWBlueBean bean];
+        blueBean.bean = nil;
+        blueBean.beanName = @"";
     }
     [self.tableView reloadData];
 }

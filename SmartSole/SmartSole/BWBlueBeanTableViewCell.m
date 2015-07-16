@@ -23,7 +23,7 @@
     [super layoutSubviews];
     
     self.nameLabel.text = self.bean.name;
-    
+    self.rssiLabel.text = [self.bean.RSSI stringValue];
     NSString* state;
     
     // Set the state based on bean's state.

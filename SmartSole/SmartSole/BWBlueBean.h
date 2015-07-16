@@ -4,21 +4,19 @@
 //
 //  Created by David Jeong on 2015. 7. 9..
 //
-//  Global static variable holding bean information.
+//  Singleton to hold global bean.
 
 #import <Foundation/Foundation.h>
 #import <PTDBean.h>
 
-
-static PTDBean *applicationBean;
-static NSString *applicationBeanName;
+static NSUInteger numberOfSensors = 12;
+static BOOL notifiedLowBattery = NO;
 
 @interface BWBlueBean : NSObject
 
-+ (PTDBean *) getBean;
-+ (void) setBean:(PTDBean *)bean;
+@property (nonatomic, strong) PTDBean *bean;
+@property (nonatomic, assign) NSString *beanName;
 
-+ (NSString *) getBeanName;
-+ (void) setBeanName:(NSString *) beanName;
++ (id) bean;
 
 @end
