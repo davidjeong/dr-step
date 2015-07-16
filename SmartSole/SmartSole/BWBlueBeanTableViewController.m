@@ -39,14 +39,6 @@
     [self.tableView reloadData];
     NSLog(@"Table data refreshed.");
     if (self.refreshControl) {
-        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-        [formatter setDateFormat:@"MMM d, h:mm:ss a"];
-        NSString *title = [NSString stringWithFormat:@"Last refresh at %@", [formatter stringFromDate:[NSDate date]]];
-        NSDictionary *dictionary = [NSDictionary dictionaryWithObject:[UIColor orangeColor]
-                                                                    forKey:NSForegroundColorAttributeName];
-        NSAttributedString *attributedTitle = [[NSAttributedString alloc] initWithString:title attributes:dictionary];
-        self.refreshControl.attributedTitle = attributedTitle;
-        
         [self.refreshControl endRefreshing];
     }
 }
