@@ -9,9 +9,6 @@
 #import <Foundation/Foundation.h>
 #import <PTDBean.h>
 
-static NSUInteger numberOfSensors = 12;
-static BOOL notifiedLowBattery = NO;
-
 @interface BWBlueBean : NSObject
 
 @property (nonatomic, strong) PTDBean *bean;

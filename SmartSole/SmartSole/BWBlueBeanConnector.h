@@ -10,6 +10,7 @@
 #import <Foundation/Foundation.h>
 #import <PTDBeanManager.h>
 
+#import "BWAppConstants.h"
 #import "BWBlueBean.h"
 
 @interface BWBlueBeanConnector : NSObject <PTDBeanDelegate, PTDBeanManagerDelegate>

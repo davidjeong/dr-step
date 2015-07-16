@@ -78,6 +78,7 @@
 
 /* Begin PBXFileReference section */
 		5315D8811B50F01600B56EA5 /* libPods-Bean-iOS-OSX-SDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-Bean-iOS-OSX-SDK.a"; path = "Pods/../build/Debug-iphoneos/libPods-Bean-iOS-OSX-SDK.a"; sourceTree = "<group>"; };
+		535468681B57EE7B001D66E1 /* BWAppConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BWAppConstants.h; sourceTree = "<group>"; };
 		53612AC51B51D0CF002D7690 /* BWData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWData.h; sourceTree = "<group>"; };
 		53612AC61B51D0CF002D7690 /* BWData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWData.m; sourceTree = "<group>"; };
 		9E5682A54B82EF61D63EB688 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -210,6 +211,7 @@
 			isa = PBXGroup;
 			children = (
 				CDA9D5891B4E1E8E00C3170F /* images */,
+				535468681B57EE7B001D66E1 /* BWAppConstants.h */,
 				CD16E7B51B24FBC50071E1CF /* BWAppDelegate.h */,
 				CD16E7B61B24FBC50071E1CF /* BWAppDelegate.m */,
 				CDC422921B4F239900759210 /* BWBlueBean.h */,
@@ -273,7 +275,6 @@
 		CDA9D5891B4E1E8E00C3170F /* images */ = {
 			isa = PBXGroup;
 			children = (
-				CDA9D5BE1B4E264900C3170F /* icons */,
 				CDA9D5A01B4E229000C3170F /* app_launch_screen_640_960.png */,
 				CDA9D5B21B4E241C00C3170F /* app_launch_screen_640_1136.png */,
 				CDA9D5A21B4E229000C3170F /* bio_wear_logo_58_58.png */,
@@ -283,6 +284,7 @@
 				CDA9D5A61B4E229000C3170F /* bio_wear_logo_180_180.png */,
 				CDA9D5A71B4E229000C3170F /* bio_wear_logo_400_400.png */,
 				CDA9D5A81B4E229000C3170F /* bio_wear_logo.png */,
+				CDA9D5BE1B4E264900C3170F /* icons */,
 			);
 			name = images;
 			sourceTree = "<group>";
