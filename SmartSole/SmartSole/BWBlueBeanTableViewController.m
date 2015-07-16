@@ -18,12 +18,6 @@
     [super viewDidLoad];
     BWBlueBeanConnector *connector = [BWBlueBeanConnector connector];
     connector.beanManager.delegate = self;
-    
-    // Create a pull-down refresh control.
-    self.refreshControl = [[UIRefreshControl alloc] init];
-    self.refreshControl.backgroundColor = [UIColor whiteColor];
-    self.refreshControl.tintColor = [UIColor orangeColor];
-    [self.refreshControl addTarget:self action:@selector(refreshAllData) forControlEvents:UIControlEventValueChanged];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -33,19 +27,6 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self.tableView reloadData];
-}
-
-- (void) refreshAllData {
-    [self.tableView reloadData];
-    NSLog(@"Table data refreshed.");
-    if (self.refreshControl) {
-        [self.refreshControl endRefreshing];
-    }
-}
-
-- (PTDBean *)beanForRow:(NSInteger)row {
-    BWBlueBeanConnector *connector = [BWBlueBeanConnector connector];
-    return [connector.beans.allValues objectAtIndex:row];
 }
 
 #pragma mark - PTDBeanManagerDelegate
@@ -63,7 +44,6 @@
 
 - (void)beanManager:(PTDBeanManager *)beanManager didDiscoverBean:(PTDBean *)bean error:(NSError *)error {
     BWBlueBeanConnector *connector = [BWBlueBeanConnector connector];
-
     NSUUID *key = bean.identifier;
     if (![connector.beans objectForKey:key]) {
         // This means new bean.
@@ -122,9 +102,6 @@ static NSString *cellIdentifier = @"beanCell";
         blueBean.bean = bean;
         blueBean.beanName = bean.name;
         blueBean.bean.delegate = connector;
-    } else {
-        // Else, try to disconnect.
-        
     }
     [self.tableView reloadData];
 }
@@ -134,7 +111,7 @@ static NSString *cellIdentifier = @"beanCell";
     PTDBean *bean = [connector.beans.allValues objectAtIndex:indexPath.row];
     // Only allow left to disconnect on connected beans.
     if (bean.state == BeanState_ConnectedAndValidated) {
-        UITableViewRowAction *disconnectAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal title:@"Disconnect" handler:^(UITableViewRowAction *action, NSIndexPath *indexPath) {
+        UITableViewRowAction *disconnectAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDefault title:@"Disconnect" handler:^(UITableViewRowAction *action, NSIndexPath *indexPath) {
             [connector.beanManager disconnectBean:bean error:nil];
             BWBlueBean *blueBean = [BWBlueBean bean];
             blueBean.bean = nil;
@@ -142,7 +119,21 @@ static NSString *cellIdentifier = @"beanCell";
         }];
         return @[disconnectAction];
     }
-    return nil;
+    return UITableViewCellEditingStyleNone;
+}
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    BWBlueBeanConnector *connector = [BWBlueBeanConnector connector];
+    PTDBean *bean = [connector.beans.allValues objectAtIndex:indexPath.row];
+    // Only allow left to disconnect on connected beans.
+    if (bean.state == BeanState_ConnectedAndValidated) {
+        return YES;
+    }
+    return NO;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    
 }
 
 @end
