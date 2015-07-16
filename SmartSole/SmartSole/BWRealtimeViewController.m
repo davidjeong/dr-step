@@ -16,7 +16,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    
+    UIImage *image = [UIImage imageNamed:@"demo_feet_image.png"];
+    [self.baseImage setImage:image];
 }
 
 - (void)didReceiveMemoryWarning {

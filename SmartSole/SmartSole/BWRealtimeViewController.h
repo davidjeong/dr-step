@@ -10,6 +10,7 @@
 
 @interface BWRealtimeViewController : UIViewController
 
+@property (strong, nonatomic) IBOutlet UIImageView *baseImage;
 
 @end
 

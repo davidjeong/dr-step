@@ -7,12 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <PTDBean.h>
 
 #import "BWBlueBeanConnector.h"
 #import "BWBlueBeanTableViewController.h"
 
-@interface BWSettingsTableViewController : UITableViewController <UITableViewDelegate>
+@interface BWSettingsTableViewController : UITableViewController <UIAlertViewDelegate,UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *connectLabel;
+@property (weak, nonatomic) IBOutlet UILabel *passcodeLabel;
+
+
 
 @end
