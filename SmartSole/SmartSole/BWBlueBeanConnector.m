@@ -8,8 +8,6 @@
 
 #import "BWBlueBeanConnector.h"
 
-static NSString *commaDelim = @",";
-
 @implementation BWBlueBeanConnector
 
 // Singleton class to handle the connection manager.
@@ -33,9 +31,20 @@ static NSString *commaDelim = @",";
 
 - (void) processStringIntoArray:(NSString *) dataString {
     NSArray *analogData = [dataString componentsSeparatedByString:commaDelim];
-    if (analogData.count == numberOfSensors) {
+    if ([analogData count] == numberOfSensors) {
         // Do further processing. As in put in a data structure and show fancy shmancy.
         NSLog(@"Array size looks beautiful by default: %lu.", analogData.count);
+        NSMutableArray *tempArray = [[NSMutableArray alloc] init];
+        for (int i=0; i<analogData.count; i++) {
+            NSArray *splitData = [[analogData objectAtIndex:i] componentsSeparatedByString:separatorDelim];
+            if ([splitData count] == 2) {
+                [tempArray addObject:[splitData objectAtIndex:1]];
+            }
+        }
+        if ([tempArray count] == numberOfSensors) {
+            NSLog(@"Good, met the count.");
+            currentDataList = [[NSArray alloc] initWithArray:tempArray];
+        }
     } else {
         NSLog(@"O comon. Throw it out.");
     }
@@ -47,7 +56,7 @@ static NSString *commaDelim = @",";
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
     NSString *fragment = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
     
-    if (!notifiedLowBattery && [fragment rangeOfString:@"battery_"].location != NSNotFound) {
+    if (!notifiedLowBattery && [fragment rangeOfString:statusBattery].location != NSNotFound) {
         NSLog(@"Battery level is low.");
         UILocalNotification *batteryNotification = [[UILocalNotification alloc] init];
         batteryNotification.fireDate = [NSDate date];
@@ -58,7 +67,7 @@ static NSString *commaDelim = @",";
     }
     
     [self.dataString appendString:fragment];
-    if ([self.dataString rangeOfString:@"EOM"].location != NSNotFound) {
+    if ([self.dataString rangeOfString:EOM].location != NSNotFound) {
         [self.dataString deleteCharactersInRange:NSMakeRange([self.dataString length] - 3, 3)];
         NSLog(@"%@", self.dataString);
         [self processStringIntoArray:self.dataString];

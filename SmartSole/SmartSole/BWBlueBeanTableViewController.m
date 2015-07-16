@@ -18,6 +18,12 @@
     [super viewDidLoad];
     BWBlueBeanConnector *connector = [BWBlueBeanConnector connector];
     connector.beanManager.delegate = self;
+    
+    // Create a pull-down refresh control.
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    self.refreshControl.backgroundColor = [UIColor whiteColor];
+    self.refreshControl.tintColor = [UIColor orangeColor];
+    [self.refreshControl addTarget:self action:@selector(refreshAllData) forControlEvents:UIControlEventValueChanged];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -27,6 +33,22 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self.tableView reloadData];
+}
+
+- (void) refreshAllData {
+    [self.tableView reloadData];
+    NSLog(@"Table data refreshed.");
+    if (self.refreshControl) {
+        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+        [formatter setDateFormat:@"MMM d, h:mm:ss a"];
+        NSString *title = [NSString stringWithFormat:@"Last refresh at %@", [formatter stringFromDate:[NSDate date]]];
+        NSDictionary *dictionary = [NSDictionary dictionaryWithObject:[UIColor orangeColor]
+                                                                    forKey:NSForegroundColorAttributeName];
+        NSAttributedString *attributedTitle = [[NSAttributedString alloc] initWithString:title attributes:dictionary];
+        self.refreshControl.attributedTitle = attributedTitle;
+        
+        [self.refreshControl endRefreshing];
+    }
 }
 
 - (PTDBean *)beanForRow:(NSInteger)row {
@@ -110,12 +132,25 @@ static NSString *cellIdentifier = @"beanCell";
         blueBean.bean.delegate = connector;
     } else {
         // Else, try to disconnect.
-        [connector.beanManager disconnectBean:bean error:nil];
-        BWBlueBean *blueBean = [BWBlueBean bean];
-        blueBean.bean = nil;
-        blueBean.beanName = @"";
+        
     }
     [self.tableView reloadData];
+}
+
+- (NSArray *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath {
+    BWBlueBeanConnector *connector = [BWBlueBeanConnector connector];
+    PTDBean *bean = [connector.beans.allValues objectAtIndex:indexPath.row];
+    // Only allow left to disconnect on connected beans.
+    if (bean.state == BeanState_ConnectedAndValidated) {
+        UITableViewRowAction *disconnectAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal title:@"Disconnect" handler:^(UITableViewRowAction *action, NSIndexPath *indexPath) {
+            [connector.beanManager disconnectBean:bean error:nil];
+            BWBlueBean *blueBean = [BWBlueBean bean];
+            blueBean.bean = nil;
+            blueBean.beanName = @"";
+        }];
+        return @[disconnectAction];
+    }
+    return nil;
 }
 
 @end
