@@ -8,7 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+#import "BWAppConstants.h"
+#import "BWCoordinate.h"
+
 @interface BWRealtimeViewController : UIViewController
+
+@property (nonatomic, strong) NSMutableArray *currentGraphicsData;
 
 @property (strong, nonatomic) IBOutlet UIImageView *baseImage;
 

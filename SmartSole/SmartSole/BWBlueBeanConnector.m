@@ -43,7 +43,9 @@
         }
         if ([tempArray count] == numberOfSensors) {
             NSLog(@"Good, met the count.");
-            currentDataList = [[NSArray alloc] initWithArray:tempArray];
+            [[NSNotificationCenter defaultCenter]
+             postNotificationName:@"finishedProcessingData"
+             object:tempArray];
         }
     } else {
         NSLog(@"O comon. Throw it out.");
@@ -54,25 +56,27 @@
 
 - (void)bean:(PTDBean *)bean serialDataReceived:(NSData *)data {
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-    NSString *fragment = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-    
-    if (!notifiedLowBattery && [fragment rangeOfString:statusBattery].location != NSNotFound) {
-        NSLog(@"Battery level is low.");
-        UILocalNotification *batteryNotification = [[UILocalNotification alloc] init];
-        batteryNotification.fireDate = [NSDate date];
-        batteryNotification.alertBody = @"The battery level is low. Please replace battery to ensure optimal performance.";
-        batteryNotification.soundName = UILocalNotificationDefaultSoundName;
-        [[UIApplication sharedApplication] scheduleLocalNotification:batteryNotification];
-        notifiedLowBattery = YES;
-    }
-    
-    [self.dataString appendString:fragment];
-    if ([self.dataString rangeOfString:EOM].location != NSNotFound) {
-        [self.dataString deleteCharactersInRange:NSMakeRange([self.dataString length] - 3, 3)];
-        NSLog(@"%@", self.dataString);
-        [self processStringIntoArray:self.dataString];
-        [self.dataString setString:@""];
-    }
+        @synchronized(self.dataString) {
+            NSString *fragment = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+            
+            if (!notifiedLowBattery && [fragment rangeOfString:statusBattery].location != NSNotFound) {
+                NSLog(@"Battery level is low.");
+                UILocalNotification *batteryNotification = [[UILocalNotification alloc] init];
+                batteryNotification.fireDate = [NSDate date];
+                batteryNotification.alertBody = @"The battery level is low. Please replace battery to ensure optimal performance.";
+                batteryNotification.soundName = UILocalNotificationDefaultSoundName;
+                [[UIApplication sharedApplication] scheduleLocalNotification:batteryNotification];
+                notifiedLowBattery = YES;
+            }
+            
+            [self.dataString appendString:fragment];
+            if ([self.dataString rangeOfString:EOM].location != NSNotFound) {
+                [self.dataString deleteCharactersInRange:NSMakeRange([self.dataString length] - 3, 3)];
+                NSLog(@"%@", self.dataString);
+                [self processStringIntoArray:self.dataString];
+                [self.dataString setString:@""];
+            }
+        }
     });
 }
 

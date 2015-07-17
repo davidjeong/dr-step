@@ -10,6 +10,7 @@
 		5315D8801B50F01200B56EA5 /* libCorePlot-CocoaTouch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CDDFB1201B390D2600DF1D5B /* libCorePlot-CocoaTouch.a */; };
 		5315D8821B50F01600B56EA5 /* libPods-Bean-iOS-OSX-SDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5315D8811B50F01600B56EA5 /* libPods-Bean-iOS-OSX-SDK.a */; };
 		535468751B583F26001D66E1 /* demo_feet_image.png in Resources */ = {isa = PBXBuildFile; fileRef = 535468741B583F26001D66E1 /* demo_feet_image.png */; };
+		535468781B5843AA001D66E1 /* BWCoordinate.m in Sources */ = {isa = PBXBuildFile; fileRef = 535468771B5843AA001D66E1 /* BWCoordinate.m */; };
 		53612AC71B51D0CF002D7690 /* BWData.m in Sources */ = {isa = PBXBuildFile; fileRef = 53612AC61B51D0CF002D7690 /* BWData.m */; };
 		9CEFEF823DBD8E6C25B450E4 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DF5B73B1D557B0CEC5618F1A /* libPods.a */; };
 		CD12CB5E1B385D55004F3AB7 /* BWInformationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD12CB5D1B385D55004F3AB7 /* BWInformationViewController.m */; };
@@ -81,6 +82,8 @@
 		5315D8811B50F01600B56EA5 /* libPods-Bean-iOS-OSX-SDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-Bean-iOS-OSX-SDK.a"; path = "Pods/../build/Debug-iphoneos/libPods-Bean-iOS-OSX-SDK.a"; sourceTree = "<group>"; };
 		535468681B57EE7B001D66E1 /* BWAppConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BWAppConstants.h; sourceTree = "<group>"; };
 		535468741B583F26001D66E1 /* demo_feet_image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = demo_feet_image.png; path = images/demo_feet_image.png; sourceTree = "<group>"; };
+		535468761B5843AA001D66E1 /* BWCoordinate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWCoordinate.h; sourceTree = "<group>"; };
+		535468771B5843AA001D66E1 /* BWCoordinate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWCoordinate.m; sourceTree = "<group>"; };
 		53612AC51B51D0CF002D7690 /* BWData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWData.h; sourceTree = "<group>"; };
 		53612AC61B51D0CF002D7690 /* BWData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWData.m; sourceTree = "<group>"; };
 		9E5682A54B82EF61D63EB688 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -224,6 +227,8 @@
 				CDA9D56E1B4DFA1E00C3170F /* BWBlueBeanTableViewCell.m */,
 				CDA9D5681B4DF61D00C3170F /* BWBlueBeanTableViewController.h */,
 				CDA9D5691B4DF61D00C3170F /* BWBlueBeanTableViewController.m */,
+				535468761B5843AA001D66E1 /* BWCoordinate.h */,
+				535468771B5843AA001D66E1 /* BWCoordinate.m */,
 				53612AC51B51D0CF002D7690 /* BWData.h */,
 				53612AC61B51D0CF002D7690 /* BWData.m */,
 				CD16E7E51B2508DA0071E1CF /* BWHistoryGraphViewController.h */,
@@ -502,6 +507,7 @@
 				CDA9D5601B4DE49100C3170F /* BWSettingsTableViewController.m in Sources */,
 				CDA9D56A1B4DF61D00C3170F /* BWBlueBeanTableViewController.m in Sources */,
 				CD7F378D1B378EA300C19A6E /* BWHistoryTableViewController.m in Sources */,
+				535468781B5843AA001D66E1 /* BWCoordinate.m in Sources */,
 				CD16E7E71B2508DA0071E1CF /* BWHistoryGraphViewController.m in Sources */,
 				CDA9D5791B4E127F00C3170F /* BWBlueBeanConnector.m in Sources */,
 				CD16E7BD1B24FBC50071E1CF /* BWHistoryViewController.m in Sources */,
