@@ -20,13 +20,11 @@
     UIImage *image = [UIImage imageNamed:@"demo_feet_image.png"];
     [self.baseImage setImage:image];
     
-    NSMutableArray *tempPositions = [[NSMutableArray alloc] init];
     self.currentGraphicsData = [[NSMutableArray alloc] init];
-    for (int i = 0; i < 5; i++) {
-        BWCoordinate *coordinate = [[BWCoordinate alloc] init];
-        coordinate.x = 100;
-        coordinate.y = 100*(i+1);
-        
+    BWAppConstants *constants = [BWAppConstants constants];
+    NSLog(@"%lu", [constants.sensorCoordinates count]);
+    for (int i = 0; i < constants.sensorCoordinates.count; i++) {
+        BWCoordinate *coordinate = [constants.sensorCoordinates objectAtIndex:i];
         CAShapeLayer *shapeLayer = [CAShapeLayer layer];
         CGPoint point = CGPointMake(coordinate.x, coordinate.y);
         shapeLayer.path = [[self makeShape:point radius:circleRadius index:i] CGPath];
@@ -37,9 +35,7 @@
         
         [self.view.layer addSublayer:shapeLayer];
         [self.currentGraphicsData addObject:shapeLayer];
-        [tempPositions addObject:coordinate];
     }
-    sensorPositions = [[NSArray alloc] initWithArray:tempPositions];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(receivedNotification:)
@@ -65,20 +61,23 @@
 }
 
 - (void) receivedNotification:(NSNotification *)notification {
-    if ([[notification name] isEqualToString:@"finishedProcessingData"]) {
-        [self processGraphics:[notification object]];
-    }
+    NSLog(@"Spawning new serial thread");
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^ {
+        if ([[notification name] isEqualToString:@"finishedProcessingData"]) {
+            [self processGraphics:[notification object]];
+        }
+    });
 }
 
 - (void)processGraphics:(NSMutableArray*)array {
     NSLog(@"Processing graphics");
         for (int i=0; i<self.currentGraphicsData.count; i++) {
             // Calculate new opacity
-            float newOpacity = [[array objectAtIndex:i*2] floatValue] / maximumVoltage;
+            float newOpacity = [[array objectAtIndex:i] floatValue] / maximumVoltage;
             
             // Remove old layer, and put new layer.
             dispatch_async(dispatch_get_main_queue(), ^ {
-                NSLog(@"Dispatching main thread to run animation.");
+                NSLog(@"Dispatching concurrent thread to run animation.");
                 CAShapeLayer *currentLayer = [self.currentGraphicsData objectAtIndex:i];
                 
                 CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"opacity"];
@@ -88,7 +87,7 @@
                 
                 [currentLayer addAnimation:animation forKey:@"animation"];
                 [currentLayer setOpacity:newOpacity];
-                NSLog(@"Main thread finished animation.");
+                NSLog(@"Concurrent thread finished animation.");
             });
         }
     NSLog(@"Exiting processing graphics.");

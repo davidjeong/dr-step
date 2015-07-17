@@ -15,11 +15,26 @@
 @implementation BWAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
     // Set color for page control.
     UIPageControl *pageControl = [UIPageControl appearance];
     pageControl.pageIndicatorTintColor = [UIColor lightGrayColor];
     pageControl.currentPageIndicatorTintColor = [UIColor blackColor];
     pageControl.backgroundColor = [UIColor whiteColor];
+    
+    // Read Coordinates from file to memory.
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"Coordinates" ofType:@"plist"];
+    NSArray *arrayFromFile = [[NSArray alloc] initWithContentsOfFile:path];
+    NSMutableArray *mutableCoordinates = [[NSMutableArray alloc] initWithCapacity:[arrayFromFile count]];
+    for (int i=0; i<arrayFromFile.count; i++) {
+        BWCoordinate *coordinate = [[BWCoordinate alloc] init];
+        coordinate.x = [[[arrayFromFile objectAtIndex:i] objectAtIndex:0] integerValue];
+        coordinate.y = [[[arrayFromFile objectAtIndex:i] objectAtIndex:1] integerValue];
+        [mutableCoordinates addObject:coordinate];
+    }
+    BWAppConstants *constants = [BWAppConstants constants];
+    constants.sensorCoordinates = [[NSArray alloc] initWithArray:mutableCoordinates];
+    
     return YES;
 }
 

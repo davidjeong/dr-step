@@ -11,6 +11,8 @@
 		5315D8821B50F01600B56EA5 /* libPods-Bean-iOS-OSX-SDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5315D8811B50F01600B56EA5 /* libPods-Bean-iOS-OSX-SDK.a */; };
 		535468751B583F26001D66E1 /* demo_feet_image.png in Resources */ = {isa = PBXBuildFile; fileRef = 535468741B583F26001D66E1 /* demo_feet_image.png */; };
 		535468781B5843AA001D66E1 /* BWCoordinate.m in Sources */ = {isa = PBXBuildFile; fileRef = 535468771B5843AA001D66E1 /* BWCoordinate.m */; };
+		535468B01B596108001D66E1 /* Coordinates.plist in Resources */ = {isa = PBXBuildFile; fileRef = 535468AF1B596108001D66E1 /* Coordinates.plist */; };
+		535468B51B5968E6001D66E1 /* BWAppConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 535468B41B5968E6001D66E1 /* BWAppConstants.m */; };
 		53612AC71B51D0CF002D7690 /* BWData.m in Sources */ = {isa = PBXBuildFile; fileRef = 53612AC61B51D0CF002D7690 /* BWData.m */; };
 		9CEFEF823DBD8E6C25B450E4 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DF5B73B1D557B0CEC5618F1A /* libPods.a */; };
 		CD12CB5E1B385D55004F3AB7 /* BWInformationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD12CB5D1B385D55004F3AB7 /* BWInformationViewController.m */; };
@@ -80,10 +82,12 @@
 
 /* Begin PBXFileReference section */
 		5315D8811B50F01600B56EA5 /* libPods-Bean-iOS-OSX-SDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-Bean-iOS-OSX-SDK.a"; path = "Pods/../build/Debug-iphoneos/libPods-Bean-iOS-OSX-SDK.a"; sourceTree = "<group>"; };
-		535468681B57EE7B001D66E1 /* BWAppConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BWAppConstants.h; sourceTree = "<group>"; };
 		535468741B583F26001D66E1 /* demo_feet_image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = demo_feet_image.png; path = images/demo_feet_image.png; sourceTree = "<group>"; };
 		535468761B5843AA001D66E1 /* BWCoordinate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWCoordinate.h; sourceTree = "<group>"; };
 		535468771B5843AA001D66E1 /* BWCoordinate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWCoordinate.m; sourceTree = "<group>"; };
+		535468AF1B596108001D66E1 /* Coordinates.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Coordinates.plist; sourceTree = "<group>"; };
+		535468B31B5968E6001D66E1 /* BWAppConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWAppConstants.h; sourceTree = "<group>"; };
+		535468B41B5968E6001D66E1 /* BWAppConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWAppConstants.m; sourceTree = "<group>"; };
 		53612AC51B51D0CF002D7690 /* BWData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWData.h; sourceTree = "<group>"; };
 		53612AC61B51D0CF002D7690 /* BWData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWData.m; sourceTree = "<group>"; };
 		9E5682A54B82EF61D63EB688 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -216,7 +220,8 @@
 			isa = PBXGroup;
 			children = (
 				CDA9D5891B4E1E8E00C3170F /* images */,
-				535468681B57EE7B001D66E1 /* BWAppConstants.h */,
+				535468B31B5968E6001D66E1 /* BWAppConstants.h */,
+				535468B41B5968E6001D66E1 /* BWAppConstants.m */,
 				CD16E7B51B24FBC50071E1CF /* BWAppDelegate.h */,
 				CD16E7B61B24FBC50071E1CF /* BWAppDelegate.m */,
 				CDC422921B4F239900759210 /* BWBlueBean.h */,
@@ -247,6 +252,7 @@
 				CD16E7C11B24FBC50071E1CF /* Images.xcassets */,
 				CD16E7B11B24FBC50071E1CF /* Supporting Files */,
 				CDA9D5B41B4E257F00C3170F /* LaunchScreen.xib */,
+				535468AF1B596108001D66E1 /* Coordinates.plist */,
 			);
 			name = BioWear;
 			path = SmartSole;
@@ -438,6 +444,7 @@
 				CDA9D5CE1B4E284F00C3170F /* settings_22.png in Resources */,
 				CDA9D5B51B4E257F00C3170F /* LaunchScreen.xib in Resources */,
 				CDA9D5CC1B4E284F00C3170F /* human_footprint_22.png in Resources */,
+				535468B01B596108001D66E1 /* Coordinates.plist in Resources */,
 				CDA9D5B11B4E229000C3170F /* bio_wear_logo.png in Resources */,
 				CDA9D5BD1B4E264200C3170F /* settings_50.png in Resources */,
 				CDA9D5C31B4E271F00C3170F /* calendar_44.png in Resources */,
@@ -516,6 +523,7 @@
 				CD12CB5E1B385D55004F3AB7 /* BWInformationViewController.m in Sources */,
 				CDC422941B4F239900759210 /* BWBlueBean.m in Sources */,
 				CD16E7B41B24FBC50071E1CF /* main.m in Sources */,
+				535468B51B5968E6001D66E1 /* BWAppConstants.m in Sources */,
 				53612AC71B51D0CF002D7690 /* BWData.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

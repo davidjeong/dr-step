@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+#import "BWAppConstants.h"
+#import "BWCoordinate.h"
+
 @interface BWAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;

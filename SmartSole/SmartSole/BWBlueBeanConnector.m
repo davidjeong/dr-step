@@ -58,15 +58,15 @@
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         @synchronized(self.dataString) {
             NSString *fragment = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-            
-            if (!notifiedLowBattery && [fragment rangeOfString:statusBattery].location != NSNotFound) {
+            BWAppConstants *constants = [BWAppConstants constants];
+            if (!constants.notifiedLowBattery && [fragment rangeOfString:statusBattery].location != NSNotFound) {
                 NSLog(@"Battery level is low.");
                 UILocalNotification *batteryNotification = [[UILocalNotification alloc] init];
                 batteryNotification.fireDate = [NSDate date];
                 batteryNotification.alertBody = @"The battery level is low. Please replace battery to ensure optimal performance.";
                 batteryNotification.soundName = UILocalNotificationDefaultSoundName;
                 [[UIApplication sharedApplication] scheduleLocalNotification:batteryNotification];
-                notifiedLowBattery = YES;
+                constants.notifiedLowBattery = YES;
             }
             
             [self.dataString appendString:fragment];
