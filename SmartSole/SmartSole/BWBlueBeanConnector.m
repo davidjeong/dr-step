@@ -30,8 +30,9 @@
 }
 
 - (void) processStringIntoArray:(NSString *) dataString {
+    BWAppConstants* constants = [BWAppConstants constants];
     NSArray *analogData = [dataString componentsSeparatedByString:commaDelim];
-    if ([analogData count] == numberOfSensors) {
+    if ([analogData count] == constants.numberOfSensors) {
         // Do further processing. As in put in a data structure and show fancy shmancy.
         NSLog(@"Array size looks beautiful by default: %lu.", analogData.count);
         NSMutableArray *tempArray = [[NSMutableArray alloc] init];
@@ -41,14 +42,14 @@
                 [tempArray addObject:[splitData objectAtIndex:1]];
             }
         }
-        if ([tempArray count] == numberOfSensors) {
-            NSLog(@"Good, met the count.");
+        if ([tempArray count] == constants.numberOfSensors) {
+            NSLog(@"Valid data.");
             [[NSNotificationCenter defaultCenter]
              postNotificationName:@"finishedProcessingData"
              object:tempArray];
         }
     } else {
-        NSLog(@"O comon. Throw it out.");
+        NSLog(@"Corrupt data... discarding.");
     }
 }
 
@@ -67,6 +68,8 @@
                 batteryNotification.soundName = UILocalNotificationDefaultSoundName;
                 [[UIApplication sharedApplication] scheduleLocalNotification:batteryNotification];
                 constants.notifiedLowBattery = YES;
+                BWBlueBean *bean = [BWBlueBean bean];
+                [bean.bean sendSerialData:[receivedBatteryStatus dataUsingEncoding:NSUTF8StringEncoding]];
             }
             
             [self.dataString appendString:fragment];
@@ -79,6 +82,7 @@
         }
     });
 }
+
 
 
 

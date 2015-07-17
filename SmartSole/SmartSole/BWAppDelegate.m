@@ -34,6 +34,7 @@
     }
     BWAppConstants *constants = [BWAppConstants constants];
     constants.sensorCoordinates = [[NSArray alloc] initWithArray:mutableCoordinates];
+    constants.numberOfSensors = [constants.sensorCoordinates count];
     
     return YES;
 }

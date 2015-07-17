@@ -13,15 +13,16 @@
 static NSString* const commaDelim = @",";
 static NSString* const EOM = @"EOM";
 static NSString* const separatorDelim = @":";
-static NSString* const statusBattery = @"battery_";
+static NSString* const statusBattery = @"lowBattery";
+static NSString* const receivedBatteryStatus = @"receivedBattery";
 
 // Number
-static const NSUInteger circleRadius = 30;
+static const NSUInteger circleRadius = 15;
 static const float maximumVoltage = 2.8;
-static const NSUInteger numberOfSensors = 12;
 
 @interface BWAppConstants : NSObject
 
+@property (assign, nonatomic) NSUInteger numberOfSensors;
 @property (assign, nonatomic) BOOL notifiedLowBattery;
 @property (strong, nonatomic) NSArray *sensorCoordinates;
 

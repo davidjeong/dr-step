@@ -8,6 +8,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <PTDBean.h>
 #import <PTDBeanManager.h>
 
 #import "BWAppConstants.h"
