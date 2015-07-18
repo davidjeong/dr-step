@@ -96,8 +96,6 @@
     datePicker.tag = 3;
     [datePicker setBackgroundColor:[UIColor whiteColor]];
     [datePicker setDate:self.startDate];
-    NSDate *maxDate = [self.endDate dateByAddingTimeInterval:-1*60];
-    [datePicker setMaximumDate:maxDate];
     [datePicker addTarget:self action:@selector(changeStartDate:) forControlEvents:UIControlEventValueChanged];
     [self.view addSubview:datePicker];
     
@@ -135,10 +133,6 @@
     datePicker.tag = 3;
     [datePicker setBackgroundColor:[UIColor whiteColor]];
     [datePicker setDate:self.endDate];
-    NSDate *minDate = [self.startDate dateByAddingTimeInterval:1*60];
-    NSDate *maxDate = [NSDate date];
-    [datePicker setMinimumDate:minDate];
-    [datePicker setMaximumDate:maxDate];
     [datePicker addTarget:self action:@selector(changeEndDate:) forControlEvents:UIControlEventValueChanged];
     [self.view addSubview:datePicker];
     

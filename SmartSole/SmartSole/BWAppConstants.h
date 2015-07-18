@@ -17,7 +17,7 @@ static NSString* const statusBattery = @"lowBattery";
 static NSString* const receivedBatteryStatus = @"receivedBattery";
 
 // Number
-static const NSUInteger circleRadius = 15;
+static const NSUInteger circleRadius = 17;
 static const float maximumVoltage = 2.8;
 
 @interface BWAppConstants : NSObject

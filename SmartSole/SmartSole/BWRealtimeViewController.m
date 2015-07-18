@@ -17,24 +17,23 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    UIImage *image = [UIImage imageNamed:@"demo_feet_image.png"];
+    UIImage *image = [UIImage imageNamed:@"foot_image.png"];
     [self.baseImage setImage:image];
     
     self.currentGraphicsData = [[NSMutableArray alloc] init];
     BWAppConstants *constants = [BWAppConstants constants];
     for (int i = 0; i < constants.sensorCoordinates.count; i++) {
         BWCoordinate *coordinate = [constants.sensorCoordinates objectAtIndex:i];
-        if (coordinate.x == 0.0 && coordinate.y == 0.0) continue;
         CAShapeLayer *shapeLayer = [CAShapeLayer layer];
         CGPoint point = CGPointMake(coordinate.x, coordinate.y);
         shapeLayer.path = [[self makeShape:point radius:circleRadius index:i] CGPath];
         shapeLayer.strokeColor = [[UIColor darkGrayColor] CGColor];
         shapeLayer.fillColor = [[UIColor yellowColor] CGColor];
-        shapeLayer.lineWidth = 2.0;
-        //[shapeLayer setOpacity:1.0];
-        
-        [self.view.layer addSublayer:shapeLayer];
+        shapeLayer.lineWidth = 1.0;
         [self.currentGraphicsData addObject:shapeLayer];
+        
+        if (coordinate.x == 0 && coordinate.y == 0) continue;
+        [self.view.layer addSublayer:shapeLayer];
     }
     
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -72,24 +71,20 @@
 - (void)processGraphics:(NSMutableArray*)array {
     NSLog(@"Processing graphics");
     BWAppConstants *constants = [BWAppConstants constants];
-    float diff = 255-128;
-    
-    for (int i=0; i<self.currentGraphicsData.count; i++) {
+    float diff = 255;
+    for (int i=0; i<constants.sensorCoordinates.count; i++) {
         BWCoordinate *coordinate = [constants.sensorCoordinates objectAtIndex:i];
         if (coordinate.x == 0 && coordinate.y == 0) continue;
         // Calculate new opacity
-        float newOpacity = [[array objectAtIndex:i] floatValue] / maximumVoltage;
-        
+        float intensity = [[array objectAtIndex:i] floatValue] / maximumVoltage;
         // Remove old layer, and put new layer.
         dispatch_async(dispatch_get_main_queue(), ^ {
             NSLog(@"Dispatching concurrent thread to run animation.");
             CAShapeLayer *currentLayer = [self.currentGraphicsData objectAtIndex:i];
-            
             CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"fillColor"];
             animation.duration = 0.01;
-            UIColor *fromColor = (id)[currentLayer fillColor];
-            UIColor *toColor = [UIColor colorWithRed:255 green:(diff*newOpacity+128) blue:0 alpha:1.0];
-            animation.fromValue = (id) fromColor.CGColor;
+            UIColor *toColor = [UIColor colorWithRed:1.0 green:(255-diff*intensity)/255 blue:0.0 alpha:1.0];
+            animation.fromValue = (id) [currentLayer fillColor];
             animation.toValue = (id) toColor.CGColor;
             
             [currentLayer addAnimation:animation forKey:@"animation"];
