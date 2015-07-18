@@ -36,6 +36,11 @@
     constants.sensorCoordinates = [[NSArray alloc] initWithArray:mutableCoordinates];
     constants.numberOfSensors = [constants.sensorCoordinates count];
     
+    // Start the thread to parse every minute collection into data.
+    
+    BWData *data = [BWData data];
+    [data setCountAndInitialize:arrayFromFile.count];
+    
     return YES;
 }
 
