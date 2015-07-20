@@ -27,9 +27,22 @@
         CAShapeLayer *shapeLayer = [CAShapeLayer layer];
         CGPoint point = CGPointMake(coordinate.x, coordinate.y);
         shapeLayer.path = [[self makeShape:point radius:circleRadius index:i] CGPath];
-        shapeLayer.strokeColor = [[UIColor darkGrayColor] CGColor];
+        shapeLayer.strokeColor = [[UIColor orangeColor] CGColor];
         shapeLayer.fillColor = [[UIColor yellowColor] CGColor];
         shapeLayer.lineWidth = 1.0;
+
+        
+        CATextLayer *textLayer = [[CATextLayer alloc] init];
+        [textLayer setName:@"textLayer"];
+        [textLayer setFont:@"Helvetica"];
+        [textLayer setFontSize:10];
+        [textLayer setFrame:CGRectMake(point.x - 20, point.y - 5, 40, 10)];
+        [textLayer setString:@"0.00V"];
+        [textLayer setAlignmentMode:kCAAlignmentCenter];
+        [textLayer setForegroundColor:[[UIColor darkTextColor] CGColor]];
+        [textLayer setContentsScale:[[UIScreen mainScreen] scale]];
+        [shapeLayer addSublayer:textLayer];
+        
         [self.currentGraphicsData addObject:shapeLayer];
         
         if (coordinate.x == 0 && coordinate.y == 0) continue;
@@ -85,6 +98,11 @@
             UIColor *toColor = [UIColor colorWithRed:1.0 green:(255-diff*intensity)/255 blue:0.0 alpha:1.0];
             animation.fromValue = (id) [currentLayer fillColor];
             animation.toValue = (id) toColor.CGColor;
+            
+            // Set the text in textLayer
+            // TODO Need to test
+            CATextLayer *textLayer = [currentLayer.sublayers valueForKey:@"textLayer"];
+            [textLayer setString:[NSString stringWithFormat:@"%.02f", intensity]];
             
             [currentLayer addAnimation:animation forKey:@"animation"];
             [currentLayer setFillColor:toColor.CGColor];
