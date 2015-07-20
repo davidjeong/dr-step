@@ -82,6 +82,13 @@
     BWBlueBean *blueBean = [BWBlueBean bean];
     blueBean.isConnected = NO;
     [[NSNotificationCenter defaultCenter] postNotificationName:@"disconnectedFromBean" object:nil];
+    
+    UILocalNotification *localNotification = [[UILocalNotification alloc] init];
+    localNotification.fireDate = [NSDate date];
+    localNotification.alertBody = @"The bean has been disconnected.";
+    localNotification.soundName = UILocalNotificationDefaultSoundName;
+    [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
+    
     [self.tableView reloadData];
 }
 

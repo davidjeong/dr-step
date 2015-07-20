@@ -9,6 +9,7 @@
 #import "BWAppDelegate.h"
 
 #import "BWAppConstants.h"
+#import "BWBlueBean.h"
 #import "BWCoordinate.h"
 #import "BWData.h"
 
@@ -69,11 +70,14 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Alert the user that by terminating the application, the motion will not be logged.
-    UILocalNotification *localNotification = [[UILocalNotification alloc] init];
-    localNotification.fireDate = [NSDate date];
-    localNotification.alertBody = @"The application has been terminated. Please restart to continue monitoring.";
-    localNotification.soundName = UILocalNotificationDefaultSoundName;
-    [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
+    BWBlueBean *blueBean = [BWBlueBean bean];
+    if (blueBean.isConnected) {
+        UILocalNotification *localNotification = [[UILocalNotification alloc] init];
+        localNotification.fireDate = [NSDate date];
+        localNotification.alertBody = @"The application has been terminated. Please restart to continue monitoring.";
+        localNotification.soundName = UILocalNotificationDefaultSoundName;
+        [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
+    }
 }
 
 @end
