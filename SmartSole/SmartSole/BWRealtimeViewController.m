@@ -34,7 +34,7 @@
         
         CATextLayer *textLayer = [[CATextLayer alloc] init];
         [textLayer setName:@"textLayer"];
-        [textLayer setFont:@"Helvetica"];
+        [textLayer setFont:@"Helvetica-Bold"];
         [textLayer setFontSize:10];
         [textLayer setFrame:CGRectMake(point.x - 20, point.y - 5, 40, 10)];
         [textLayer setString:@"0.00V"];
