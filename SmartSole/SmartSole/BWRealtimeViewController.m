@@ -44,7 +44,6 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (UIBezierPath *)makeShape:(CGPoint)location radius:(CGFloat)radius index:(NSUInteger)index

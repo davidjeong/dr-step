@@ -14,6 +14,7 @@
 		535468B01B596108001D66E1 /* Coordinates.plist in Resources */ = {isa = PBXBuildFile; fileRef = 535468AF1B596108001D66E1 /* Coordinates.plist */; };
 		535468B51B5968E6001D66E1 /* BWAppConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 535468B41B5968E6001D66E1 /* BWAppConstants.m */; };
 		535468BF1B59DAA8001D66E1 /* foot_image.png in Resources */ = {isa = PBXBuildFile; fileRef = 535468BE1B59DAA8001D66E1 /* foot_image.png */; };
+		535468C71B5ABF18001D66E1 /* BWData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 535468C51B5ABF18001D66E1 /* BWData.xcdatamodeld */; };
 		53612AC71B51D0CF002D7690 /* BWData.m in Sources */ = {isa = PBXBuildFile; fileRef = 53612AC61B51D0CF002D7690 /* BWData.m */; };
 		9CEFEF823DBD8E6C25B450E4 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DF5B73B1D557B0CEC5618F1A /* libPods.a */; };
 		CD12CB5E1B385D55004F3AB7 /* BWInformationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD12CB5D1B385D55004F3AB7 /* BWInformationViewController.m */; };
@@ -90,6 +91,7 @@
 		535468B31B5968E6001D66E1 /* BWAppConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWAppConstants.h; sourceTree = "<group>"; };
 		535468B41B5968E6001D66E1 /* BWAppConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWAppConstants.m; sourceTree = "<group>"; };
 		535468BE1B59DAA8001D66E1 /* foot_image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = foot_image.png; path = images/foot_image.png; sourceTree = "<group>"; };
+		535468C61B5ABF18001D66E1 /* BWData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BWData.xcdatamodel; sourceTree = "<group>"; };
 		53612AC51B51D0CF002D7690 /* BWData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWData.h; sourceTree = "<group>"; };
 		53612AC61B51D0CF002D7690 /* BWData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWData.m; sourceTree = "<group>"; };
 		9E5682A54B82EF61D63EB688 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -255,6 +257,7 @@
 				CD16E7B11B24FBC50071E1CF /* Supporting Files */,
 				CDA9D5B41B4E257F00C3170F /* LaunchScreen.xib */,
 				535468AF1B596108001D66E1 /* Coordinates.plist */,
+				535468C51B5ABF18001D66E1 /* BWData.xcdatamodeld */,
 			);
 			name = BioWear;
 			path = SmartSole;
@@ -528,6 +531,7 @@
 				CDC422941B4F239900759210 /* BWBlueBean.m in Sources */,
 				CD16E7B41B24FBC50071E1CF /* main.m in Sources */,
 				535468B51B5968E6001D66E1 /* BWAppConstants.m in Sources */,
+				535468C71B5ABF18001D66E1 /* BWData.xcdatamodeld in Sources */,
 				53612AC71B51D0CF002D7690 /* BWData.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -769,6 +773,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		535468C51B5ABF18001D66E1 /* BWData.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				535468C61B5ABF18001D66E1 /* BWData.xcdatamodel */,
+			);
+			currentVersion = 535468C61B5ABF18001D66E1 /* BWData.xcdatamodel */;
+			path = BWData.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = CD16E7A61B24FBC50071E1CF /* Project object */;
 }
