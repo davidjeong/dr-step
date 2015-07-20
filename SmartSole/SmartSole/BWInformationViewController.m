@@ -10,6 +10,12 @@
 
 @interface BWInformationViewController ()
 
+@property (strong, nonatomic) UISearchController *searchController;
+@property (strong, nonatomic) NSArray *tableData;
+@property (strong, nonatomic) NSArray *searchResults;
+
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+
 @end
 
 @implementation BWInformationViewController
@@ -33,6 +39,8 @@
     [super didReceiveMemoryWarning];
 }
 
+#pragma mark - UISearchResultsUpdating
+
 - (void)updateSearchResultsForSearchController:(UISearchController *)searchController {
     NSString *searchString = searchController.searchBar.text;
     if (searchString != nil && [searchString length] != 0) {
@@ -51,6 +59,8 @@
     
     self.searchResults = [self.tableData filteredArrayUsingPredicate:resultPredicate];
 }
+
+#pragma mark - UISearchBarDelegate
 
 - (void) searchBar:(UISearchBar *)searchBar selectedScopeButtonIndexDidChange:(NSInteger)selectedScope {
     [self updateSearchResultsForSearchController:self.searchController];

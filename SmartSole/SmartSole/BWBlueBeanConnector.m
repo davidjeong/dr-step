@@ -8,6 +8,15 @@
 
 #import "BWBlueBeanConnector.h"
 
+#import "BWAppConstants.h"
+#import "BWBlueBean.h"
+
+@interface BWBlueBeanConnector()
+
+@property (retain, nonatomic) NSMutableString *dataString;
+
+@end
+
 @implementation BWBlueBeanConnector
 
 // Singleton class to handle the connection manager.

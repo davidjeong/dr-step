@@ -10,6 +10,17 @@
 
 @interface BWHistoryTableViewController ()
 
+@property (strong, nonatomic) NSDateFormatter *dateFormatter;
+@property (strong, nonatomic) NSDate *startDate;
+@property (strong, nonatomic) NSDate *endDate;
+
+@property (assign, nonatomic) NSUInteger toolbarHeight;
+@property (assign, nonatomic) NSUInteger datePickerHeight;
+
+@property (weak, nonatomic) IBOutlet UIButton *startButton;
+@property (weak, nonatomic) IBOutlet UIButton *endButton;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+
 @end
 
 @implementation BWHistoryTableViewController

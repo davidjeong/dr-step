@@ -8,6 +8,8 @@
 
 #import "BWBlueBean.h"
 
+#import <PTDBean.h>
+
 @implementation BWBlueBean
 
 // Singleton class to handle the connection manager.
@@ -18,6 +20,11 @@
         blueBean = [[self alloc] init];
     });
     return blueBean;
+}
+
+- (id) init {    
+    self.isConnected = NO;
+    return self;
 }
 
 @end

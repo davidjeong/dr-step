@@ -7,10 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
-#import "BWBlueBean.h"
-#import "BWBlueBeanConnector.h"
-#import "BWBlueBeanTableViewCell.h"
+#import <PTDBeanManager.h>
 
 @interface BWBlueBeanTableViewController : UITableViewController <PTDBeanManagerDelegate, UITableViewDataSource, UITableViewDelegate>
 

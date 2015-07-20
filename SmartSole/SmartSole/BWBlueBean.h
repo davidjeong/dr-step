@@ -7,10 +7,12 @@
 //  Singleton to hold global bean.
 
 #import <Foundation/Foundation.h>
-#import <PTDBean.h>
+
+@class PTDBean;
 
 @interface BWBlueBean : NSObject
 
+@property (assign, nonatomic) BOOL isConnected;
 @property (nonatomic, strong) PTDBean *bean;
 @property (nonatomic, assign) NSString *beanName;
 

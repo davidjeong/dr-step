@@ -11,7 +11,4 @@
 
 @interface BWHistoryGraphViewController : UIViewController <CPTPlotDataSource>
 
-@property (strong, nonatomic) CPTGraphHostingView *hostView;
-@property (assign, nonatomic) NSUInteger numberOfPoints;
-
 @end

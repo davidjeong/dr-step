@@ -8,6 +8,10 @@
 
 #import "BWBlueBeanTableViewController.h"
 
+#import "BWBlueBean.h"
+#import "BWBlueBeanConnector.h"
+#import "BWBlueBeanTableViewCell.h"
+
 @interface BWBlueBeanTableViewController ()
 
 @end
@@ -102,6 +106,8 @@ static NSString *cellIdentifier = @"beanCell";
         blueBean.bean = bean;
         blueBean.beanName = bean.name;
         blueBean.bean.delegate = connector;
+        blueBean.isConnected = YES;
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"connectedToBean" object:nil];
     }
     [self.tableView reloadData];
 }
@@ -116,6 +122,8 @@ static NSString *cellIdentifier = @"beanCell";
             BWBlueBean *blueBean = [BWBlueBean bean];
             blueBean.bean = nil;
             blueBean.beanName = @"";
+            blueBean.isConnected = NO;
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"disconnectedFromBean" object:nil];
         }];
         return @[disconnectAction];
     }

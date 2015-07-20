@@ -12,12 +12,6 @@
 
 @interface BWData : NSObject
 
-@property (nonatomic, strong) NSMutableArray *lastMinuteData;
-@property (assign, nonatomic) NSUInteger *counter;
-@property (assign, nonatomic) NSUInteger numberOfSensors;
-
-@property (nonatomic, strong) NSTimer *timer;
-
 +(id)data;
 - (void) setCountAndInitialize:(NSUInteger)count;
 

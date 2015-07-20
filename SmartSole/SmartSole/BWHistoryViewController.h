@@ -7,15 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "BWHistoryGraphViewController.h"
-#import "BWHistoryTableViewController.h"
-#import "BWInformationViewController.h"
 
 @interface BWHistoryViewController : UIViewController <UIPageViewControllerDataSource>
-
-@property (strong, nonatomic) UIPageViewController *pageViewController;
-@property (strong, nonatomic) NSArray *instances;
-@property (assign, nonatomic) NSUInteger index;
 
 @end
 

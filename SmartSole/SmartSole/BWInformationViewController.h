@@ -10,10 +10,4 @@
 
 @interface BWInformationViewController : UIViewController <UISearchBarDelegate, UISearchResultsUpdating, UITableViewDataSource>
 
-@property (strong, nonatomic) UISearchController *searchController;
-@property (strong, nonatomic) NSArray *tableData;
-@property (strong, nonatomic) NSArray *searchResults;
-
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
-
 @end

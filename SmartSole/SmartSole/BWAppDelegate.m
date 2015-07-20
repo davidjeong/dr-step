@@ -8,6 +8,10 @@
 
 #import "BWAppDelegate.h"
 
+#import "BWAppConstants.h"
+#import "BWCoordinate.h"
+#import "BWData.h"
+
 @interface BWAppDelegate ()
 
 @end

@@ -7,13 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <PTDBeanManager.h>
+
+@class PTDBean;
 
 @interface BWBlueBeanTableViewCell : UITableViewCell
 
 @property (nonatomic, strong) PTDBean *bean;
-@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
-@property (weak, nonatomic) IBOutlet UILabel *rssiLabel;
-@property (weak, nonatomic) IBOutlet UILabel *statusLabel;
 
 @end

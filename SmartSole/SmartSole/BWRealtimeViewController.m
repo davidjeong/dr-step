@@ -8,7 +8,13 @@
 
 #import "BWRealtimeViewController.h"
 
+#import "BWAppConstants.h"
+#import "BWCoordinate.h"
+
 @interface BWRealtimeViewController ()
+
+@property (nonatomic, strong) NSMutableArray *currentGraphicsData;
+@property (strong, nonatomic) IBOutlet UIImageView *baseImage;
 
 @end
 
@@ -53,6 +59,7 @@
                                              selector:@selector(receivedNotification:)
                                                  name:@"finishedProcessingData"
                                                object:nil];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -101,9 +108,16 @@
             
             // Set the text in textLayer
             // TODO Need to test
-            CATextLayer *textLayer = [currentLayer.sublayers valueForKey:@"textLayer"];
-            [textLayer setString:[NSString stringWithFormat:@"%.02f", intensity]];
-            
+            CATextLayer *textLayer = nil;
+            for (CATextLayer *layer in [currentLayer sublayers]) {
+                if ([[layer name] isEqualToString:@"textLayer"]) {
+                    textLayer = layer;
+                }
+            }
+            if (textLayer != nil) {
+                [textLayer setString:[NSString stringWithFormat:@"%.02fV", intensity]];
+                NSLog(@"YEY");
+            }
             [currentLayer addAnimation:animation forKey:@"animation"];
             [currentLayer setFillColor:toColor.CGColor];
             NSLog(@"Concurrent thread finished animation.");

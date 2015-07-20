@@ -6,7 +6,17 @@
 //
 //
 
+#import <PTDBeanManager.h>
+
 #import "BWBlueBeanTableViewCell.h"
+
+@interface BWBlueBeanTableViewCell()
+
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *rssiLabel;
+@property (weak, nonatomic) IBOutlet UILabel *statusLabel;
+
+@end
 
 @implementation BWBlueBeanTableViewCell
 

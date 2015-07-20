@@ -8,7 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-
 // NSString
 static NSString* const commaDelim = @",";
 static NSString* const EOM = @"EOM";

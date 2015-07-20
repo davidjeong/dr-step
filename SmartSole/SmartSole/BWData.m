@@ -8,6 +8,15 @@
 
 #import "BWData.h"
 
+@interface BWData()
+
+@property (nonatomic, strong) NSMutableArray *lastMinuteData;
+@property (assign, nonatomic) NSUInteger *counter;
+@property (assign, nonatomic) NSUInteger numberOfSensors;
+@property (nonatomic, strong) NSTimer *timer;
+
+@end
+
 @implementation BWData
 
 + (id)data{

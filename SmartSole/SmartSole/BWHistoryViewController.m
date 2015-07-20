@@ -8,7 +8,15 @@
 
 #import "BWHistoryViewController.h"
 
+#import "BWHistoryGraphViewController.h"
+#import "BWHistoryTableViewController.h"
+#import "BWInformationViewController.h"
+
 @interface BWHistoryViewController ()
+
+@property (strong, nonatomic) UIPageViewController *pageViewController;
+@property (strong, nonatomic) NSArray *instances;
+@property (assign, nonatomic) NSUInteger index;
 
 @end
 
@@ -42,7 +50,8 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - History View Controller
+#pragma mark - UIPageViewControllerDataSource
+
 // Return the controller at previous index.
 - (UIViewController*) pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController {
     if ([viewController isKindOfClass:[BWHistoryGraphViewController class]]) {
