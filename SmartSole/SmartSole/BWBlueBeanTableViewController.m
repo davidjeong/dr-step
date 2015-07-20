@@ -71,11 +71,17 @@
         [alert show];
         return;
     }
+    BWBlueBean *blueBean = [BWBlueBean bean];
+    blueBean.isConnected = YES;
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"connectedToBean" object:nil];
     [self.tableView reloadData];
     // Bean has been connected, go back to previous.
 }
 
 - (void)beanManager:(PTDBeanManager *)beanManager didDisconnectBean:(PTDBean *)bean error:(NSError *)error {
+    BWBlueBean *blueBean = [BWBlueBean bean];
+    blueBean.isConnected = NO;
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"disconnectedFromBean" object:nil];
     [self.tableView reloadData];
 }
 
@@ -106,8 +112,6 @@ static NSString *cellIdentifier = @"beanCell";
         blueBean.bean = bean;
         blueBean.beanName = bean.name;
         blueBean.bean.delegate = connector;
-        blueBean.isConnected = YES;
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"connectedToBean" object:nil];
     }
     [self.tableView reloadData];
 }
@@ -122,8 +126,6 @@ static NSString *cellIdentifier = @"beanCell";
             BWBlueBean *blueBean = [BWBlueBean bean];
             blueBean.bean = nil;
             blueBean.beanName = @"";
-            blueBean.isConnected = NO;
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"disconnectedFromBean" object:nil];
         }];
         return @[disconnectAction];
     }

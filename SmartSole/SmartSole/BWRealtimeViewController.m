@@ -95,7 +95,8 @@
         BWCoordinate *coordinate = [constants.sensorCoordinates objectAtIndex:i];
         if (coordinate.x == 0 && coordinate.y == 0) continue;
         // Calculate new opacity
-        float intensity = [[array objectAtIndex:i] floatValue] / maximumVoltage;
+        float voltage = [[array objectAtIndex:i] floatValue];
+        float intensity = voltage / maximumVoltage;
         // Remove old layer, and put new layer.
         dispatch_async(dispatch_get_main_queue(), ^ {
             NSLog(@"Dispatching concurrent thread to run animation.");
@@ -115,8 +116,7 @@
                 }
             }
             if (textLayer != nil) {
-                [textLayer setString:[NSString stringWithFormat:@"%.02fV", intensity]];
-                NSLog(@"YEY");
+                [textLayer setString:[NSString stringWithFormat:@"%.02fV", voltage]];
             }
             [currentLayer addAnimation:animation forKey:@"animation"];
             [currentLayer setFillColor:toColor.CGColor];
