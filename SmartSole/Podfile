@@ -1,2 +1,3 @@
 platform :ios, '8.4'
 pod 'Bean-iOS-OSX-SDK'
+pod 'LFHeatMap'
