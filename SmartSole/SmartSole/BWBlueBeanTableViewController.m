@@ -83,7 +83,6 @@
     localNotification.alertBody = @"The bean has been disconnected.";
     localNotification.soundName = UILocalNotificationDefaultSoundName;
     [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
-    
     [self.tableView reloadData];
 }
 

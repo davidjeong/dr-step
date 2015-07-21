@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5313D0521B5EACE400914B32 /* libPods-LFHeatMap.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5313D0511B5EACE400914B32 /* libPods-LFHeatMap.a */; };
 		5315D8801B50F01200B56EA5 /* libCorePlot-CocoaTouch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CDDFB1201B390D2600DF1D5B /* libCorePlot-CocoaTouch.a */; };
 		5315D8821B50F01600B56EA5 /* libPods-Bean-iOS-OSX-SDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5315D8811B50F01600B56EA5 /* libPods-Bean-iOS-OSX-SDK.a */; };
 		535468751B583F26001D66E1 /* demo_feet_image.png in Resources */ = {isa = PBXBuildFile; fileRef = 535468741B583F26001D66E1 /* demo_feet_image.png */; };
-		535468781B5843AA001D66E1 /* BWCoordinate.m in Sources */ = {isa = PBXBuildFile; fileRef = 535468771B5843AA001D66E1 /* BWCoordinate.m */; };
 		535468B01B596108001D66E1 /* Coordinates.plist in Resources */ = {isa = PBXBuildFile; fileRef = 535468AF1B596108001D66E1 /* Coordinates.plist */; };
 		535468B51B5968E6001D66E1 /* BWAppConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 535468B41B5968E6001D66E1 /* BWAppConstants.m */; };
 		535468BF1B59DAA8001D66E1 /* foot_image.png in Resources */ = {isa = PBXBuildFile; fileRef = 535468BE1B59DAA8001D66E1 /* foot_image.png */; };
@@ -83,10 +83,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5313D0511B5EACE400914B32 /* libPods-LFHeatMap.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-LFHeatMap.a"; path = "Pods/../build/Debug-iphoneos/libPods-LFHeatMap.a"; sourceTree = "<group>"; };
 		5315D8811B50F01600B56EA5 /* libPods-Bean-iOS-OSX-SDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-Bean-iOS-OSX-SDK.a"; path = "Pods/../build/Debug-iphoneos/libPods-Bean-iOS-OSX-SDK.a"; sourceTree = "<group>"; };
 		535468741B583F26001D66E1 /* demo_feet_image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = demo_feet_image.png; path = images/demo_feet_image.png; sourceTree = "<group>"; };
-		535468761B5843AA001D66E1 /* BWCoordinate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWCoordinate.h; sourceTree = "<group>"; };
-		535468771B5843AA001D66E1 /* BWCoordinate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWCoordinate.m; sourceTree = "<group>"; };
 		535468AF1B596108001D66E1 /* Coordinates.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Coordinates.plist; sourceTree = "<group>"; };
 		535468B31B5968E6001D66E1 /* BWAppConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWAppConstants.h; sourceTree = "<group>"; };
 		535468B41B5968E6001D66E1 /* BWAppConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWAppConstants.m; sourceTree = "<group>"; };
@@ -160,6 +159,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5313D0521B5EACE400914B32 /* libPods-LFHeatMap.a in Frameworks */,
 				5315D8821B50F01600B56EA5 /* libPods-Bean-iOS-OSX-SDK.a in Frameworks */,
 				5315D8801B50F01200B56EA5 /* libCorePlot-CocoaTouch.a in Frameworks */,
 				CDDFB1281B39116200DF1D5B /* Accelerate.framework in Frameworks */,
@@ -190,6 +190,7 @@
 		7377D6F3ACB1645A58B7499C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5313D0511B5EACE400914B32 /* libPods-LFHeatMap.a */,
 				5315D8811B50F01600B56EA5 /* libPods-Bean-iOS-OSX-SDK.a */,
 				CDA9D5711B4E001000C3170F /* libPods-Bean-iOS-OSX-SDK.a */,
 				DF5B73B1D557B0CEC5618F1A /* libPods.a */,
@@ -236,8 +237,6 @@
 				CDA9D56E1B4DFA1E00C3170F /* BWBlueBeanTableViewCell.m */,
 				CDA9D5681B4DF61D00C3170F /* BWBlueBeanTableViewController.h */,
 				CDA9D5691B4DF61D00C3170F /* BWBlueBeanTableViewController.m */,
-				535468761B5843AA001D66E1 /* BWCoordinate.h */,
-				535468771B5843AA001D66E1 /* BWCoordinate.m */,
 				53612AC51B51D0CF002D7690 /* BWData.h */,
 				53612AC61B51D0CF002D7690 /* BWData.m */,
 				CD16E7E51B2508DA0071E1CF /* BWHistoryGraphViewController.h */,
@@ -521,7 +520,6 @@
 				CDA9D5601B4DE49100C3170F /* BWSettingsTableViewController.m in Sources */,
 				CDA9D56A1B4DF61D00C3170F /* BWBlueBeanTableViewController.m in Sources */,
 				CD7F378D1B378EA300C19A6E /* BWHistoryTableViewController.m in Sources */,
-				535468781B5843AA001D66E1 /* BWCoordinate.m in Sources */,
 				CD16E7E71B2508DA0071E1CF /* BWHistoryGraphViewController.m in Sources */,
 				CDA9D5791B4E127F00C3170F /* BWBlueBeanConnector.m in Sources */,
 				CD16E7BD1B24FBC50071E1CF /* BWHistoryViewController.m in Sources */,

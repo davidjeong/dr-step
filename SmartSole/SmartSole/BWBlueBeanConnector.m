@@ -41,7 +41,7 @@
 - (void) processStringIntoArray:(NSString *) dataString {
     BWAppConstants* constants = [BWAppConstants constants];
     NSArray *analogData = [dataString componentsSeparatedByString:commaDelim];
-    if ([analogData count] == constants.numberOfSensors) {
+    if ([analogData count] == constants.coordinates.count) {
         // Do further processing. As in put in a data structure and show fancy shmancy.
         NSLog(@"Array size looks beautiful by default: %lu.", analogData.count);
         NSMutableArray *tempArray = [[NSMutableArray alloc] init];
@@ -51,7 +51,7 @@
                 [tempArray addObject:[splitData objectAtIndex:1]];
             }
         }
-        if ([tempArray count] == constants.numberOfSensors) {
+        if ([tempArray count] == constants.coordinates.count) {
             NSLog(@"Valid data.");
             [[NSNotificationCenter defaultCenter]
              postNotificationName:@"finishedProcessingData"

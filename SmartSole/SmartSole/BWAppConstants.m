@@ -21,7 +21,7 @@
 
 - (id) init {
     self.notifiedLowBattery = NO;
-    self.sensorCoordinates = [[NSArray alloc] init];
+    self.coordinates = [[NSArray alloc] init];
     return self;
 }
 
