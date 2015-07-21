@@ -9,12 +9,13 @@
 #import "BWRealtimeViewController.h"
 
 #import "BWAppConstants.h"
-#import "BWCoordinate.h"
+#import "LFHeatMap.h"
 
 @interface BWRealtimeViewController ()
 
-@property (nonatomic, strong) NSMutableArray *currentGraphicsData;
-@property (strong, nonatomic) IBOutlet UIImageView *baseImage;
+@property (nonatomic, strong) NSMutableArray *weights;
+@property (nonatomic, strong) IBOutlet UIImageView *baseImage;
+@property (nonatomic, strong) UIImageView *imageView;
 
 @end
 
@@ -25,105 +26,86 @@
     
     UIImage *image = [UIImage imageNamed:@"foot_image.png"];
     [self.baseImage setImage:image];
+    self.baseImage.contentMode = UIViewContentModeScaleAspectFit;
     
-    self.currentGraphicsData = [[NSMutableArray alloc] init];
     BWAppConstants *constants = [BWAppConstants constants];
-    for (int i = 0; i < constants.sensorCoordinates.count; i++) {
-        BWCoordinate *coordinate = [constants.sensorCoordinates objectAtIndex:i];
-        CAShapeLayer *shapeLayer = [CAShapeLayer layer];
-        CGPoint point = CGPointMake(coordinate.x, coordinate.y);
-        shapeLayer.path = [[self makeShape:point radius:circleRadius index:i] CGPath];
-        shapeLayer.strokeColor = [[UIColor orangeColor] CGColor];
-        shapeLayer.fillColor = [[UIColor yellowColor] CGColor];
-        shapeLayer.lineWidth = 1.0;
-
-        
-        CATextLayer *textLayer = [[CATextLayer alloc] init];
-        [textLayer setName:@"textLayer"];
-        [textLayer setFont:@"Helvetica-Bold"];
-        [textLayer setFontSize:10];
-        [textLayer setFrame:CGRectMake(point.x - 20, point.y - 5, 40, 10)];
-        [textLayer setString:@"0.00V"];
-        [textLayer setAlignmentMode:kCAAlignmentCenter];
-        [textLayer setForegroundColor:[[UIColor darkTextColor] CGColor]];
-        [textLayer setContentsScale:[[UIScreen mainScreen] scale]];
-        [shapeLayer addSublayer:textLayer];
-        
-        [self.currentGraphicsData addObject:shapeLayer];
-        
-        if (coordinate.x == 0 && coordinate.y == 0) continue;
-        [self.view.layer addSublayer:shapeLayer];
+    
+    self.imageView = [[UIImageView alloc] initWithFrame:self.view.frame];
+    self.imageView.clipsToBounds = YES;
+    self.imageView.contentMode = UIViewContentModeCenter;
+    [self.view addSubview:self.imageView];
+    
+    self.weights = [[NSMutableArray alloc] initWithCapacity:constants.coordinates.count];
+    for (int i=0; i<constants.coordinates.count; i++) {
+        [self.weights addObject:[NSNumber numberWithFloat:0.0f]];
     }
     
+    UIImage *heatMap = [LFHeatMap heatMapWithRect:self.view.frame boost:0.75f points:constants.coordinates weights:self.weights];
+    self.imageView.image = heatMap;
+    
     [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(receivedNotification:)
+                                             selector:@selector(handleNotifications:)
                                                  name:@"finishedProcessingData"
                                                object:nil];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(handleNotifications:)
+                                                 name:@"disconnectedFromBean"
+                                               object:nil];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
 
-- (UIBezierPath *)makeShape:(CGPoint)location radius:(CGFloat)radius index:(NSUInteger)index
-{
-    UIBezierPath *path = [UIBezierPath bezierPath];
-    [path addArcWithCenter:location
-                    radius:radius
-                startAngle:0.0
-                  endAngle:M_PI * 2.0
-                 clockwise:YES];
-    
-    return path;
+- (void) handleNotifications:(NSNotification *)notification {
+    if ([notification.name isEqualToString:@"finishedProcessingData"]) {
+        NSLog(@"Spawning new serial thread");
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^ {
+            if ([[notification name] isEqualToString:@"finishedProcessingData"]) {
+                [self processGraphics:[notification object]];
+            }
+        });
+    } else if ([notification.name isEqualToString:@"disconnectedFromBean"]) {
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            [self clearGraphics];
+        });
+    }
 }
 
-- (void) receivedNotification:(NSNotification *)notification {
-    NSLog(@"Spawning new serial thread");
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^ {
-        if ([[notification name] isEqualToString:@"finishedProcessingData"]) {
-            [self processGraphics:[notification object]];
+- (void)clearGraphics {
+    @synchronized (self.weights) {
+        NSLog(@"Clearing graphics.");
+        BWAppConstants *constants = [BWAppConstants constants];
+        for (int i=0; constants.coordinates.count; i++) {
+            [self.weights replaceObjectAtIndex:i withObject:[NSNumber numberWithFloat:0.0f]];
         }
-    });
+        dispatch_async(dispatch_get_main_queue(), ^ {
+            NSLog(@"Dispatching main thread to run heatmap.");
+            UIImage *heatMap = [LFHeatMap heatMapWithRect:self.view.frame boost:1.0f points:constants.coordinates weights:self.weights];
+            self.imageView.image = heatMap;
+            NSLog(@"Main thread finished heatmap.");
+        });
+    }
 }
 
 - (void)processGraphics:(NSMutableArray*)array {
-    NSLog(@"Processing graphics");
-    BWAppConstants *constants = [BWAppConstants constants];
-    float diff = 255;
-    for (int i=0; i<constants.sensorCoordinates.count; i++) {
-        BWCoordinate *coordinate = [constants.sensorCoordinates objectAtIndex:i];
-        if (coordinate.x == 0 && coordinate.y == 0) continue;
-        // Calculate new opacity
-        float voltage = [[array objectAtIndex:i] floatValue];
-        float intensity = voltage / maximumVoltage;
-        // Remove old layer, and put new layer.
+    @synchronized (self.weights) {
+        NSLog(@"Processing graphics");
+        BWAppConstants *constants = [BWAppConstants constants];
+        for (int i=0; i<constants.coordinates.count; i++) {
+            float voltage = [[array objectAtIndex:i] floatValue];
+            float intensity = voltage / maximumVoltage;
+            [self.weights replaceObjectAtIndex:i withObject:[NSNumber numberWithFloat:intensity]];
+        }
         dispatch_async(dispatch_get_main_queue(), ^ {
-            NSLog(@"Dispatching concurrent thread to run animation.");
-            CAShapeLayer *currentLayer = [self.currentGraphicsData objectAtIndex:i];
-            CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"fillColor"];
-            animation.duration = 0.01;
-            UIColor *toColor = [UIColor colorWithRed:1.0 green:(255-diff*intensity)/255 blue:0.0 alpha:1.0];
-            animation.fromValue = (id) [currentLayer fillColor];
-            animation.toValue = (id) toColor.CGColor;
-            
-            // Set the text in textLayer
-            // TODO Need to test
-            CATextLayer *textLayer = nil;
-            for (CATextLayer *layer in [currentLayer sublayers]) {
-                if ([[layer name] isEqualToString:@"textLayer"]) {
-                    textLayer = layer;
-                }
-            }
-            if (textLayer != nil) {
-                [textLayer setString:[NSString stringWithFormat:@"%.02fV", voltage]];
-            }
-            [currentLayer addAnimation:animation forKey:@"animation"];
-            [currentLayer setFillColor:toColor.CGColor];
-            NSLog(@"Concurrent thread finished animation.");
+            NSLog(@"Dispatching main thread to run heatmap.");
+            UIImage *heatMap = [LFHeatMap heatMapWithRect:self.view.frame boost:1.0f points:constants.coordinates weights:self.weights];
+            self.imageView.image = heatMap;
+            NSLog(@"Main thread finished heatmap.");
         });
+        NSLog(@"Exiting processing graphics.");
     }
-    NSLog(@"Exiting processing graphics.");
 }
 
 @end

@@ -16,14 +16,12 @@ static NSString* const statusBattery = @"lowBattery";
 static NSString* const receivedBatteryStatus = @"receivedBattery";
 
 // Number
-static const NSUInteger circleRadius = 17;
 static const float maximumVoltage = 2.8;
 
 @interface BWAppConstants : NSObject
 
-@property (assign, nonatomic) NSUInteger numberOfSensors;
 @property (assign, nonatomic) BOOL notifiedLowBattery;
-@property (strong, nonatomic) NSArray *sensorCoordinates;
+@property (strong, nonatomic) NSArray *coordinates;
 
 + (id) constants;
 

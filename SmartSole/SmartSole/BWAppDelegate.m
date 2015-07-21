@@ -10,8 +10,8 @@
 
 #import "BWAppConstants.h"
 #import "BWBlueBean.h"
-#import "BWCoordinate.h"
 #import "BWData.h"
+#import "LFHeatMap.h"
 
 @interface BWAppDelegate ()
 
@@ -32,14 +32,11 @@
     NSArray *arrayFromFile = [[NSArray alloc] initWithContentsOfFile:path];
     NSMutableArray *mutableCoordinates = [[NSMutableArray alloc] initWithCapacity:[arrayFromFile count]];
     for (int i=0; i<arrayFromFile.count; i++) {
-        BWCoordinate *coordinate = [[BWCoordinate alloc] init];
-        coordinate.x = [[[arrayFromFile objectAtIndex:i] objectAtIndex:0] integerValue];
-        coordinate.y = [[[arrayFromFile objectAtIndex:i] objectAtIndex:1] integerValue];
-        [mutableCoordinates addObject:coordinate];
+        CGPoint point = CGPointMake([[[arrayFromFile objectAtIndex:i] objectAtIndex:0] integerValue], [[[arrayFromFile objectAtIndex:i] objectAtIndex:1] integerValue]);
+        [mutableCoordinates addObject:[NSValue valueWithCGPoint:point]];
     }
     BWAppConstants *constants = [BWAppConstants constants];
-    constants.sensorCoordinates = [[NSArray alloc] initWithArray:mutableCoordinates];
-    constants.numberOfSensors = [constants.sensorCoordinates count];
+    constants.coordinates = [[NSArray alloc] initWithArray:mutableCoordinates];
     
     // Start the thread to parse every minute collection into data.
     
