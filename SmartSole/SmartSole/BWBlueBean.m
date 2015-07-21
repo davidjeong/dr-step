@@ -23,7 +23,6 @@
 }
 
 - (id) init {    
-    self.isConnected = NO;
     return self;
 }
 

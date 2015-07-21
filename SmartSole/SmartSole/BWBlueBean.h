@@ -12,7 +12,6 @@
 
 @interface BWBlueBean : NSObject
 
-@property (assign, nonatomic) BOOL isConnected;
 @property (nonatomic, strong) PTDBean *bean;
 @property (nonatomic, assign) NSString *beanName;
 

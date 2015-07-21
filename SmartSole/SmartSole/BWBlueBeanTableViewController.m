@@ -71,18 +71,13 @@
         [alert show];
         return;
     }
-    BWBlueBean *blueBean = [BWBlueBean bean];
-    blueBean.isConnected = YES;
     [[NSNotificationCenter defaultCenter] postNotificationName:@"connectedToBean" object:nil];
     [self.tableView reloadData];
     // Bean has been connected, go back to previous.
 }
 
 - (void)beanManager:(PTDBeanManager *)beanManager didDisconnectBean:(PTDBean *)bean error:(NSError *)error {
-    BWBlueBean *blueBean = [BWBlueBean bean];
-    blueBean.isConnected = NO;
     [[NSNotificationCenter defaultCenter] postNotificationName:@"disconnectedFromBean" object:nil];
-    
     UILocalNotification *localNotification = [[UILocalNotification alloc] init];
     localNotification.fireDate = [NSDate date];
     localNotification.alertBody = @"The bean has been disconnected.";

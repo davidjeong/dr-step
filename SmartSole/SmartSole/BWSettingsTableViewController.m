@@ -90,7 +90,7 @@ static NSString *cellIdentifier = @"settingsCell";
             }
             [cell.textLabel setText:@"Connect to LightBlue bean"];
             BWBlueBean *blueBean = [BWBlueBean bean];
-            if (blueBean.isConnected) {
+            if (blueBean.bean != nil) {
                 [cell setAccessoryType:UITableViewCellAccessoryCheckmark];
             } else {
                 [cell setAccessoryType:UITableViewCellAccessoryNone];

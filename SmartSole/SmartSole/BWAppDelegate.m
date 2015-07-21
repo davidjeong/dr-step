@@ -71,7 +71,7 @@
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Alert the user that by terminating the application, the motion will not be logged.
     BWBlueBean *blueBean = [BWBlueBean bean];
-    if (blueBean.isConnected) {
+    if (blueBean.bean != nil) {
         UILocalNotification *localNotification = [[UILocalNotification alloc] init];
         localNotification.fireDate = [NSDate date];
         localNotification.alertBody = @"The application has been terminated. Please restart to continue monitoring.";
