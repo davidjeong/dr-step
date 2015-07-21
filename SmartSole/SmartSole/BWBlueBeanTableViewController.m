@@ -100,7 +100,7 @@ static NSString *cellIdentifier = @"beanCell";
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     BWBlueBeanConnector *connector = [BWBlueBeanConnector connector];
-    return connector.beans.count;
+    return [connector.beans count];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {

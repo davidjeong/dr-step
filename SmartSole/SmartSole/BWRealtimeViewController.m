@@ -16,6 +16,7 @@
 @property (nonatomic, strong) NSMutableArray *weights;
 @property (nonatomic, strong) IBOutlet UIImageView *baseImage;
 @property (nonatomic, strong) UIImageView *imageView;
+@property (nonatomic, strong) NSMutableDictionary *layers;
 
 @end
 
@@ -31,12 +32,14 @@
     BWAppConstants *constants = [BWAppConstants constants];
     
     self.imageView = [[UIImageView alloc] initWithFrame:self.view.frame];
-    self.imageView.clipsToBounds = YES;
-    self.imageView.contentMode = UIViewContentModeCenter;
+    [self.imageView setClipsToBounds:YES];
+    [self.imageView setContentMode:UIViewContentModeCenter];
     [self.view addSubview:self.imageView];
     
-    self.weights = [[NSMutableArray alloc] initWithCapacity:constants.coordinates.count];
-    for (int i=0; i<constants.coordinates.count; i++) {
+    self.weights = [[NSMutableArray alloc] initWithCapacity:[constants.coordinates count]];
+    self.layers = [[NSMutableDictionary alloc] initWithCapacity:[constants.coordinates count]];
+    
+    for (int i=0; i<[constants.coordinates count]; i++) {
         CGPoint point = [[constants.coordinates objectAtIndex:i] CGPointValue];
         [self.weights addObject:[NSNumber numberWithFloat:0.0f]];
         
@@ -49,11 +52,13 @@
         [textLayer setAlignmentMode:kCAAlignmentCenter];
         [textLayer setForegroundColor:[[UIColor darkTextColor] CGColor]];
         [textLayer setContentsScale:[[UIScreen mainScreen] scale]];
+        
+        [self.layers setObject:textLayer forKey:[NSString stringWithFormat:@"textLayer_%d", i]];
         [self.view.layer addSublayer:textLayer];
     }
     
     UIImage *heatMap = [LFHeatMap heatMapWithRect:self.view.frame boost:0.75f points:constants.coordinates weights:self.weights];
-    self.imageView.image = heatMap;
+    [self.imageView setImage:heatMap];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(handleNotifications:)
@@ -89,14 +94,9 @@
     @synchronized (self.weights) {
         NSLog(@"Clearing graphics.");
         BWAppConstants *constants = [BWAppConstants constants];
-        for (int i=0; constants.coordinates.count; i++) {
+        for (int i=0; i<[constants.coordinates count]; i++) {
             [self.weights replaceObjectAtIndex:i withObject:[NSNumber numberWithFloat:0.0f]];
-            CATextLayer *textLayer = nil;
-            for (CATextLayer *layer in [self.view.layer sublayers]) {
-                if ([[layer name] isEqualToString:[NSString stringWithFormat:@"textLayer_%d", i]]) {
-                    textLayer = layer;
-                }
-            }
+            CATextLayer *textLayer = [self.layers objectForKey:[NSString stringWithFormat:@"textLayer_%d", i]];
             if (textLayer != nil) {
                 dispatch_async(dispatch_get_main_queue(), ^{
                     NSLog(@"Dispatching main thread to update voltage.");
@@ -108,7 +108,7 @@
         UIImage *heatMap = [LFHeatMap heatMapWithRect:self.view.frame boost:1.0f points:constants.coordinates weights:self.weights];
         dispatch_async(dispatch_get_main_queue(), ^ {
             NSLog(@"Dispatching main thread to run heatmap.");
-            self.imageView.image = heatMap;
+            [self.imageView setImage:heatMap];
             NSLog(@"Main thread finished heatmap.");
         });
     }
@@ -118,28 +118,28 @@
     @synchronized (self.weights) {
         NSLog(@"Processing graphics");
         BWAppConstants *constants = [BWAppConstants constants];
-        for (int i=0; i<constants.coordinates.count; i++) {
+        for (int i=0; i<[constants.coordinates count]; i++) {
             float voltage = [[array objectAtIndex:i] floatValue];
-            float intensity = voltage / maximumVoltage;
-            [self.weights replaceObjectAtIndex:i withObject:[NSNumber numberWithFloat:intensity]];
-            CATextLayer *textLayer = nil;
-            for (CATextLayer *layer in [self.view.layer sublayers]) {
-                if ([[layer name] isEqualToString:[NSString stringWithFormat:@"textLayer_%d", i]]) {
-                    textLayer = layer;
-                }
+            // To remove discrepencies
+            if (voltage > 0.10) {
+                [self.weights replaceObjectAtIndex:i withObject:[NSNumber numberWithFloat:voltage]];
+            } else {
+                [self.weights replaceObjectAtIndex:i withObject:[NSNumber numberWithFloat:0.0f]];
             }
+            CATextLayer *textLayer = [self.layers objectForKey:[NSString stringWithFormat:@"textLayer_%d", i]];
             if (textLayer != nil) {
                 dispatch_async(dispatch_get_main_queue(), ^{
-                    NSLog(@"Dispatching main thread to update voltage.");
+                    // NSLog(@"Dispatching main thread to update voltage.");
                     [textLayer setString:[NSString stringWithFormat:@"%.02fV", voltage]];
-                    NSLog(@"Main thread finished updating voltage.");
+                    [self.layers setObject:textLayer forKey:[NSString stringWithFormat:@"textLayer_%d", i]];
+                    // NSLog(@"Main thread finished updating voltage.");
                 });
             }
         }
-        UIImage *heatMap = [LFHeatMap heatMapWithRect:self.view.frame boost:1.0f points:constants.coordinates weights:self.weights];
+        UIImage *heatMap = [LFHeatMap heatMapWithRect:self.view.frame boost:1.0f points:constants.coordinates weights:self.weights weightsAdjustmentEnabled:NO groupingEnabled:YES];
         dispatch_async(dispatch_get_main_queue(), ^{
             NSLog(@"Dispatching main thread to run heatmap.");
-            self.imageView.image = heatMap;
+            [self.imageView setImage:heatMap];
             NSLog(@"Main thread finished heatmap.");
         });
         NSLog(@"Exiting processing graphics.");

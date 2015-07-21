@@ -69,7 +69,7 @@
 - (void) aggregateData:(NSMutableArray*)array {
     @synchronized (self.lastMinuteData) {
         NSLog(@"Updating data array");
-        for (int i=0; i<self.lastMinuteData.count; i++) {
+        for (int i=0; i<[self.lastMinuteData count]; i++) {
             float oldNumber = [[self.lastMinuteData objectAtIndex:i] floatValue];
             float newNumber = oldNumber + [[array objectAtIndex:i] floatValue];
             [self.lastMinuteData replaceObjectAtIndex:i withObject:[NSNumber numberWithFloat:newNumber]];

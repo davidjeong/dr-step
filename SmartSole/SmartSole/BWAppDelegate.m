@@ -31,7 +31,7 @@
     NSString *path = [[NSBundle mainBundle] pathForResource:@"Coordinates" ofType:@"plist"];
     NSArray *arrayFromFile = [[NSArray alloc] initWithContentsOfFile:path];
     NSMutableArray *mutableCoordinates = [[NSMutableArray alloc] initWithCapacity:[arrayFromFile count]];
-    for (int i=0; i<arrayFromFile.count; i++) {
+    for (int i=0; i<[arrayFromFile count]; i++) {
         CGPoint point = CGPointMake([[[arrayFromFile objectAtIndex:i] objectAtIndex:0] integerValue], [[[arrayFromFile objectAtIndex:i] objectAtIndex:1] integerValue]);
         [mutableCoordinates addObject:[NSValue valueWithCGPoint:point]];
     }
@@ -41,7 +41,7 @@
     // Start the thread to parse every minute collection into data.
     
     BWData *data = [BWData data];
-    [data setCountAndInitialize:arrayFromFile.count];
+    [data setCountAndInitialize:[arrayFromFile count]];
     
     return YES;
 }
