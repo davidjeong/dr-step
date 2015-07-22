@@ -77,18 +77,10 @@
                             </tableViewSection>
                             <tableViewSection headerTitle="Configuration" id="3Bn-a6-ATm">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="configurationCell" textLabel="aMq-90-kdD" style="IBUITableViewCellStyleDefault" id="GCK-UZ-630">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="configurationCell" style="IBUITableViewCellStyleDefault" id="GCK-UZ-630">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="GCK-UZ-630" id="FKx-BH-ots">
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="aMq-90-kdD">
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </cells>
@@ -141,10 +133,29 @@
             </objects>
             <point key="canvasLocation" x="1462" y="-20"/>
         </scene>
+        <!--Info-->
+        <scene sceneID="OoT-JM-K3c">
+            <objects>
+                <navigationController navigationBarHidden="YES" id="Ht5-8k-Ea2" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Info" image="library_filled.png" id="jvz-20-OZ8"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="fJX-kP-0uR">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="KTK-g5-w2e">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
+                    <connections>
+                        <segue destination="WBI-3o-wzc" kind="relationship" relationship="rootViewController" id="fui-UN-ZIq"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AIt-zB-5JQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1072" y="1060"/>
+        </scene>
         <!--History Table View Controller-->
         <scene sceneID="BjP-QK-hkg">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="S5e-Aw-yLm" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="HistoryTableViewController" id="UYf-L4-8Um" customClass="BWHistoryTableViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="fkg-M3-Fjg"/>
@@ -210,10 +221,11 @@
                         <outlet property="tableView" destination="ZuK-Xk-7Ki" id="S5F-9V-pAD"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="S5e-Aw-yLm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2104" y="-20"/>
         </scene>
-        <!--Bean Connector-->
+        <!--Shoe Connector-->
         <scene sceneID="q0C-Hj-wwX">
             <objects>
                 <tableViewController id="jtP-zv-f6p" customClass="BWBlueBeanTableViewController" sceneMemberID="viewController">
@@ -259,7 +271,7 @@
                             <outlet property="delegate" destination="jtP-zv-f6p" id="7uV-AD-AsW"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Bean Connector" id="4uf-3T-gh6"/>
+                    <navigationItem key="navigationItem" title="Shoe Connector" id="4uf-3T-gh6"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gn2-wC-iEQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -278,7 +290,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="50" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="9tr-Ud-JFV">
-                                <rect key="frame" x="0.0" y="20" width="600" height="580"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="symptomCell" rowHeight="50" id="qxQ-0q-tjs" customClass="BWSymptomTableViewCell">
@@ -324,17 +336,18 @@
                             <constraint firstItem="9tr-Ud-JFV" firstAttribute="leading" secondItem="ct3-nC-D13" secondAttribute="leading" id="U2o-UA-pLD"/>
                             <constraint firstAttribute="trailing" secondItem="9tr-Ud-JFV" secondAttribute="trailing" id="bHL-pZ-HlC"/>
                             <constraint firstAttribute="bottom" secondItem="9tr-Ud-JFV" secondAttribute="bottom" id="fu1-wO-3QC"/>
-                            <constraint firstItem="9tr-Ud-JFV" firstAttribute="top" secondItem="ct3-nC-D13" secondAttribute="top" constant="20" id="rjH-jk-nZt"/>
+                            <constraint firstItem="9tr-Ud-JFV" firstAttribute="top" secondItem="ct3-nC-D13" secondAttribute="top" id="rjH-jk-nZt"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Info" image="library_filled.png" id="Hdc-pj-lZg"/>
+                    <navigationItem key="navigationItem" id="UgG-bm-EBg"/>
                     <connections>
                         <outlet property="tableView" destination="9tr-Ud-JFV" id="X57-Xd-UD8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HTj-OP-Cni" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1220" y="1060"/>
+            <point key="canvasLocation" x="1742" y="1060"/>
         </scene>
         <!--Information Detail View Controller-->
         <scene sceneID="paK-TB-NOG">
@@ -395,6 +408,7 @@
                             </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="UzB-95-xrY" firstAttribute="leading" secondItem="zvW-Px-psj" secondAttribute="leading" constant="10" id="2Rb-KV-VgP"/>
                             <constraint firstAttribute="trailing" secondItem="UzB-95-xrY" secondAttribute="trailing" constant="10" id="86A-3C-ppq"/>
@@ -414,7 +428,11 @@
                             <constraint firstItem="FLE-bB-rVp" firstAttribute="leading" secondItem="zvW-Px-psj" secondAttribute="leading" constant="10" id="q3a-E3-RrO"/>
                             <constraint firstItem="WJ7-Xl-fdo" firstAttribute="top" secondItem="FLE-bB-rVp" secondAttribute="bottom" constant="10" id="ucV-PF-vJi"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="zc9-3z-BfO" appends="YES" id="fFw-ft-tz6"/>
+                        </connections>
                     </view>
+                    <navigationItem key="navigationItem" id="8v2-QF-q3Z"/>
                     <connections>
                         <outlet property="commonLabel" destination="iDg-25-W29" id="iEI-n6-xCQ"/>
                         <outlet property="diagnosisTextView" destination="UzB-95-xrY" id="2lJ-ic-1lL"/>
@@ -424,13 +442,13 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6qA-NH-wzQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="Sqn-Ub-Yq6" userLabel="Exit" sceneMemberID="exit"/>
-                <swipeGestureRecognizer cancelsTouchesInView="NO" direction="right" id="zc9-3z-BfO">
+                <swipeGestureRecognizer direction="right" id="zc9-3z-BfO">
                     <connections>
                         <segue destination="Sqn-Ub-Yq6" kind="unwind" unwindAction="unwindToInformationController:" id="TmT-Bc-PF9"/>
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1996" y="1060"/>
+            <point key="canvasLocation" x="2404" y="1060"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -445,13 +463,13 @@
                     <connections>
                         <segue destination="9pv-A4-QxB" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
                         <segue destination="weV-AF-keP" kind="relationship" relationship="viewControllers" id="OjV-91-Cji"/>
-                        <segue destination="WBI-3o-wzc" kind="relationship" relationship="viewControllers" id="ndT-QS-gPP"/>
+                        <segue destination="Ht5-8k-Ea2" kind="relationship" relationship="viewControllers" id="5gD-Oy-jLW"/>
                         <segue destination="tJN-Tu-Bo6" kind="relationship" relationship="viewControllers" id="eS1-vE-2T7"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-124" y="360"/>
+            <point key="canvasLocation" x="-126" y="360"/>
         </scene>
     </scenes>
     <resources>

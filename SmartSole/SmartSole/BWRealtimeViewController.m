@@ -136,7 +136,7 @@
                 });
             }
         }
-        UIImage *heatMap = [LFHeatMap heatMapWithRect:self.view.frame boost:1.0f points:constants.coordinates weights:self.weights weightsAdjustmentEnabled:NO groupingEnabled:YES];
+        UIImage *heatMap = [LFHeatMap heatMapWithRect:self.view.frame boost:[constants.heatMapBoost floatValue] points:constants.coordinates weights:self.weights weightsAdjustmentEnabled:NO groupingEnabled:YES];
         dispatch_async(dispatch_get_main_queue(), ^{
             NSLog(@"Dispatching main thread to run heatmap.");
             [self.imageView setImage:heatMap];

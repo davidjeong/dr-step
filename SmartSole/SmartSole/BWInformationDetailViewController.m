@@ -8,6 +8,7 @@
 
 #import "BWInformationDetailViewController.h"
 
+#import "BWAppConstants.h"
 #import "BWSymptom.h"
 
 @interface BWInformationDetailViewController ()
@@ -29,8 +30,14 @@
     [self.symptomDescriptionTextView setText:[self.symptom symptomDescription]];
     [self.diagnosisTextView setText:[self.symptom diagnosis]];
     
-    [self.symptomDescriptionTextView setFont:[UIFont systemFontOfSize:15]];
-    [self.diagnosisTextView setFont:[UIFont systemFontOfSize:15]];
+    
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    BWAppConstants *constants = [BWAppConstants constants];
+    [self.symptomDescriptionTextView setFont:[UIFont systemFontOfSize:[constants.infoFontSize integerValue]]];
+    [self.diagnosisTextView setFont:[UIFont systemFontOfSize:[constants.infoFontSize integerValue]]];
+    [super viewWillAppear:animated];
 }
 
 - (void)didReceiveMemoryWarning {

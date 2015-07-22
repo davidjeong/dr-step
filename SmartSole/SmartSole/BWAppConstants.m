@@ -23,6 +23,8 @@
     self.notifiedLowBattery = NO;
     self.coordinates = [[NSArray alloc] init];
     self.symptoms = [[NSArray alloc] init];
+    self.heatMapBoost = [NSNumber numberWithFloat:1.0f];
+    self.infoFontSize = [NSNumber numberWithInt:15];
     return self;
 }
 

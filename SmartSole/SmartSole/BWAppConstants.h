@@ -23,6 +23,8 @@ static const float maximumVoltage = 2.8;
 @property (assign, nonatomic) BOOL notifiedLowBattery;
 @property (strong, nonatomic) NSArray *coordinates;
 @property (strong, nonatomic) NSArray *symptoms;
+@property (strong, nonatomic) NSNumber *heatMapBoost;
+@property (strong, nonatomic) NSNumber *infoFontSize;
 
 + (id) constants;
 

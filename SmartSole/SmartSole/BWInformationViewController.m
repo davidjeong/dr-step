@@ -31,7 +31,10 @@
     [self.searchController setDimsBackgroundDuringPresentation:NO];
     [[self.searchController searchBar] setDelegate:self];
     // Fit the search bar to view.
+    [self.searchController.searchBar setPlaceholder:@"Enter symptom or diagnosis"];
     [[self.searchController searchBar] sizeToFit];
+    
+    self.tableView.delegate = self;
     
     self.tableView.tableHeaderView = self.searchController.searchBar;
     self.definesPresentationContext = YES;
@@ -42,7 +45,6 @@
 
 - (void) viewWillAppear:(BOOL)animated {
     [self.searchController.searchBar setText:@""];
-    
     [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:animated];
     [super viewWillAppear:animated];
 }
@@ -51,8 +53,7 @@
     [super didReceiveMemoryWarning];
 }
 
-
-#pragma mark - UISearchResultsUpdating
+#pragma mark - UISearchBarDelegate
 
 - (void)updateSearchResultsForSearchController:(UISearchController *)searchController {
     NSString *searchString = [searchController.searchBar text];
@@ -73,8 +74,6 @@
     BWAppConstants *constants = [BWAppConstants constants];
     self.searchResults = [constants.symptoms filteredArrayUsingPredicate:resultPredicate];
 }
-
-#pragma mark - UISearchBarDelegate
 
 - (void) searchBar:(UISearchBar *)searchBar selectedScopeButtonIndexDidChange:(NSInteger)selectedScope {
     [self updateSearchResultsForSearchController:self.searchController];
