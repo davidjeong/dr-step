@@ -13,5 +13,6 @@
 @property (strong, nonatomic) NSString *scientificName;
 @property (strong, nonatomic) NSString *commonName;
 @property (strong, nonatomic) NSString *symptomDescription;
+@property (strong, nonatomic) NSString *diagnosis;
 
 @end

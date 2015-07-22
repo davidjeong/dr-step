@@ -22,6 +22,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
+    [self.window setTintColor:[UIColor orangeColor]];
+    
     // Set color for page control.
     UIPageControl *pageControl = [UIPageControl appearance];
     pageControl.pageIndicatorTintColor = [UIColor lightGrayColor];
@@ -46,6 +48,7 @@
         [symptom setScientificName:[[arrayFromFile objectAtIndex:i] objectForKey:@"scientificName"]];
         [symptom setCommonName:[[arrayFromFile objectAtIndex:i] objectForKey:@"commonName"]];
         [symptom setSymptomDescription:[[arrayFromFile objectAtIndex:i] objectForKey:@"description"]];
+        [symptom setDiagnosis:[[arrayFromFile objectAtIndex:i] objectForKey:@"diagnosis"]];
         [mutableSymptoms addObject:symptom];
     }
     

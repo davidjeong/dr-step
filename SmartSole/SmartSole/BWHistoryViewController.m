@@ -8,7 +8,6 @@
 
 #import "BWHistoryViewController.h"
 
-#import "BWHistoryGraphViewController.h"
 #import "BWHistoryTableViewController.h"
 #import "BWInformationViewController.h"
 
@@ -26,15 +25,14 @@
     [super viewDidLoad];
     
     // Create the necessary arrays.
-    self.instances = @[@"HistoryTableViewController", @"HistoryGraphViewController"];
+    self.instances = @[@"HistoryTableViewController"];
     
     // Create HistoryGraphViewController.
     self.pageViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"PageViewController"];
     self.pageViewController.dataSource = self;
     
     BWHistoryTableViewController *tableViewController = [self.storyboard instantiateViewControllerWithIdentifier:self.instances[0]];
-    BWHistoryGraphViewController *graphViewController;
-    NSArray *viewControllers = [NSArray arrayWithObjects:tableViewController, graphViewController, nil];
+    NSArray *viewControllers = [NSArray arrayWithObjects:tableViewController, nil];
     [self.pageViewController setViewControllers:viewControllers direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:nil];
     
     // Change the size of page view controlller.
@@ -54,19 +52,13 @@
 
 // Return the controller at previous index.
 - (UIViewController*) pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController {
-    if ([viewController isKindOfClass:[BWHistoryGraphViewController class]]) {
-        BWHistoryTableViewController *tableViewController = [self.storyboard instantiateViewControllerWithIdentifier:self.instances[0]];
-        return tableViewController;
-    } else return nil;
+    return nil;
 }
 
 
 // Return the controller at next index.
 - (UIViewController*) pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(UIViewController *)viewController {
-    if ([viewController isKindOfClass:[BWHistoryTableViewController class]]) {
-        BWHistoryGraphViewController *graphViewController = [self.storyboard instantiateViewControllerWithIdentifier:self.instances[1]];
-        return graphViewController;
-    } else return nil;
+    return nil;
 }
 
 - (NSInteger) presentationCountForPageViewController:(UIPageViewController *)pageViewController {

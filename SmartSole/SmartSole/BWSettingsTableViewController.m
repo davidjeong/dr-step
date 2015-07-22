@@ -105,11 +105,13 @@ static NSString *cellIdentifier = @"settingsCell";
                 cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
                                               reuseIdentifier:@"configurationCell"];
             }
-            [cell.textLabel setText:@"Change passcode"];
+            //[cell.textLabel setText:@"Change passcode"];
+            [cell setUserInteractionEnabled:NO];
         }
     }
     if (cell == nil) {
         cell = [[UITableViewCell alloc] init];
+        [cell setUserInteractionEnabled:NO];
     }
     return cell;
 }

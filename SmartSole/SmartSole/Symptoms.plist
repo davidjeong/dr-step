@@ -8,9 +8,9 @@
 		<key>commonName</key>
 		<string>Flat Feet</string>
 		<key>description</key>
-		<string>This is a postural deformity in which the arches of the foot collapse, with the entire sole of the foot coming into complete or near-complete contact with the ground. Some individuals (an estimated 20–30% of the general population) have an arch that simply never develops in one foot (unilaterally) or both feet (bilaterally).
-
-Wear shoes that have solid support and avoid weight-bearing activities until the pain and swelling go away. See your doctor if your symptoms persist.</string>
+		<string>This is a postural deformity in which the arches of the foot collapse, with the entire sole of the foot coming into complete or near-complete contact with the ground. Some individuals (an estimated 20–30% of the general population) have an arch that simply never develops in one foot (unilaterally) or both feet (bilaterally).</string>
+		<key>diagnosis</key>
+		<string>Wear shoes that have solid support and avoid weight-bearing activities until the pain and swelling go away. See your doctor if your symptoms persist.</string>
 	</dict>
 	<dict>
 		<key>scientificName</key>
@@ -18,8 +18,9 @@ Wear shoes that have solid support and avoid weight-bearing activities until the
 		<key>commonName</key>
 		<string>Pigeon Toe (Intoeing)</string>
 		<key>description</key>
-		<string>This means that when a child walks or runs, the feet turn inward instead of pointing straight ahead. It is commonly referred to as being &quot;pigeon-toed.&quot;
-In the vast majority of children younger than 8 years old, intoeing will almost always correct itself without the use of casts, braces, surgery, or any special treatment. A child whose intoeing is associated with pain, swelling, or a limp should be evaluated by an orthopaedic surgeon.</string>
+		<string>This means that when a child walks or runs, the feet turn inward instead of pointing straight ahead. It is commonly referred to as being &quot;pigeon-toed.&quot;</string>
+		<key>diagnosis</key>
+		<string>In the vast majority of children younger than 8 years old, intoeing will almost always correct itself without the use of casts, braces, surgery, or any special treatment. A child whose intoeing is associated with pain, swelling, or a limp should be evaluated by an orthopaedic surgeon.</string>
 	</dict>
 	<dict>
 		<key>scientificName</key>
@@ -27,9 +28,9 @@ Wear shoes that have solid support and avoid weight-bearing activities until the
 		<key>commonName</key>
 		<string>Turf Toe</string>
 		<key>description</key>
-		<string>“Turf toe” is the common term used to describe a sprain of the ligaments around the big toe joint. Although it’s commonly associated with football players who play on artificial turf, it affects athletes in other sports including soccer, basketball, wrestling, gymnastics, and dance. It’s a condition that’s caused by jamming the big toe or repeatedly pushing off the big toe forcefully as in running and jumping.
-
-See your doctor. Applying ice or taping the sore toe to the next toe can help relieve the pain.</string>
+		<string>“Turf toe” is the common term used to describe a sprain of the ligaments around the big toe joint. Although it’s commonly associated with football players who play on artificial turf, it affects athletes in other sports including soccer, basketball, wrestling, gymnastics, and dance. It’s a condition that’s caused by jamming the big toe or repeatedly pushing off the big toe forcefully as in running and jumping.</string>
+		<key>diagnosis</key>
+		<string>See your doctor. Applying ice or taping the sore toe to the next toe can help relieve the pain.</string>
 	</dict>
 	<dict>
 		<key>scientificName</key>
@@ -37,9 +38,9 @@ See your doctor. Applying ice or taping the sore toe to the next toe can help re
 		<key>commonName</key>
 		<string>Jogger&apos;s Heel</string>
 		<key>description</key>
-		<string>Plantar fasciitis, also known as plantar fasciosis or jogger&apos;s heel, is a disorder that results in pain in the heel and bottom of the foot. The pain is usually most severe with the first steps of the day or following a period of rest. Pain is also frequently brought on by bending the foot and toes up towards the shin and may be worsened by a tight Achilles tendon. The condition typically comes on slowly. In about a third of people both sides are affected. Typically there are not fevers or night sweats.
-
-Try to keep weight off your foot until the inflammation is better. Use an anti-inflammatory medicine to relieve the pain. Rest and apply ice to the sore area. See your doctor if your pain doesn&apos;t get better.</string>
+		<string>Plantar fasciitis, also known as plantar fasciosis or jogger&apos;s heel, is a disorder that results in pain in the heel and bottom of the foot. The pain is usually most severe with the first steps of the day or following a period of rest. Pain is also frequently brought on by bending the foot and toes up towards the shin and may be worsened by a tight Achilles tendon. The condition typically comes on slowly. In about a third of people both sides are affected. Typically there are not fevers or night sweats.</string>
+		<key>diagnosis</key>
+		<string>Try to keep weight off your foot until the inflammation is better. Use an anti-inflammatory medicine to relieve the pain. Rest and apply ice to the sore area. See your doctor if your pain doesn&apos;t get better.</string>
 	</dict>
 	<dict>
 		<key>scientificName</key>
@@ -47,9 +48,9 @@ Try to keep weight off your foot until the inflammation is better. Use an anti-i
 		<key>commonName</key>
 		<string>Bunion</string>
 		<key>description</key>
-		<string>A hallux abducto valgus deformity, commonly called a bunion, is a deformity characterized by medial deviation of the first metatarsal and lateral deviation of the hallux (big toe), often erroneously described as an enlargement of bone or tissue around the joint at the head of the big toe.
-
-Wear comfortable shoes that provide plenty of room for your toes. Avoid high-heeled shoes and apply ice, or try over-the-counter medicines such as acetaminophen or ibuprofen to relieve the pain. See your doctor if your condition worsens.</string>
+		<string>A hallux abducto valgus deformity, commonly called a bunion, is a deformity characterized by medial deviation of the first metatarsal and lateral deviation of the hallux (big toe), often erroneously described as an enlargement of bone or tissue around the joint at the head of the big toe.</string>
+		<key>diagnosis</key>
+		<string>Wear comfortable shoes that provide plenty of room for your toes. Avoid high-heeled shoes and apply ice, or try over-the-counter medicines such as acetaminophen or ibuprofen to relieve the pain. See your doctor if your condition worsens.</string>
 	</dict>
 	<dict>
 		<key>scientificName</key>
@@ -57,9 +58,9 @@ Wear comfortable shoes that provide plenty of room for your toes. Avoid high-hee
 		<key>commonName</key>
 		<string></string>
 		<key>description</key>
-		<string>Rheumatoid arthritis (RA) is a long lasting disorder that primarily affects joints. It typically result in warm, swollen, and painful joints. Pain and stiffness often worsen following rest. Most commonly the wrist and hands are involved with typically the same joints involved on both sides of the body. The disease may also affect other parts of the body. This may result in low red blood cells, inflammation around the lungs, and inflammation around the heart. Fever and low energy may also be present. Often symptoms come on gradually over weeks to months.
-
-See your doctor. Treatment for rheumatoid arthritis may include medications, physical therapy, exercise and, in some cases, surgery.</string>
+		<string>Rheumatoid arthritis (RA) is a long lasting disorder that primarily affects joints. It typically result in warm, swollen, and painful joints. Pain and stiffness often worsen following rest. Most commonly the wrist and hands are involved with typically the same joints involved on both sides of the body. The disease may also affect other parts of the body. This may result in low red blood cells, inflammation around the lungs, and inflammation around the heart. Fever and low energy may also be present. Often symptoms come on gradually over weeks to months.</string>
+		<key>diagnosis</key>
+		<string>See your doctor. Treatment for rheumatoid arthritis may include medications, physical therapy, exercise and, in some cases, surgery.</string>
 	</dict>
 	<dict>
 		<key>scientificName</key>
@@ -67,9 +68,9 @@ See your doctor. Treatment for rheumatoid arthritis may include medications, phy
 		<key>commonName</key>
 		<string>Gout</string>
 		<key>description</key>
-		<string>Gout is a kind of arthritis caused by uric acid crystals forming in one or more joints. Uric acid is a substance that forms when your body breaks down a substance called purines. This substance normally dissolves in your blood and passes through your kidneys into your urine. In people who have gout, uric acid builds up and can then form sharp crystals in the joint space. This causes pain and swelling in the affected joints.
-
-See your doctor.</string>
+		<string>Gout is a kind of arthritis caused by uric acid crystals forming in one or more joints. Uric acid is a substance that forms when your body breaks down a substance called purines. This substance normally dissolves in your blood and passes through your kidneys into your urine. In people who have gout, uric acid builds up and can then form sharp crystals in the joint space. This causes pain and swelling in the affected joints.</string>
+		<key>diagnosis</key>
+		<string>See your doctor.</string>
 	</dict>
 	<dict>
 		<key>scientificName</key>
@@ -77,9 +78,9 @@ See your doctor.</string>
 		<key>commonName</key>
 		<string>Athelete&apos;s Foot</string>
 		<key>description</key>
-		<string>Also known as athlete’s foot. Tinea is a fungus that can grow on your skin, hair or nails. As it grows, it spreads out in a circle, leaving normal-looking skin in the middle. This makes it look like a ring. At the edge of the ring, the skin is lifted up by the irritation and looks red and scaly. To some people, the infection looks like a worm is under the skin. Because of the way it looks, tinea infection is often called &quot;ringworm.&quot; However, there really isn&apos;t a worm under the skin.
-
-Use an over-the-counter athlete&apos;s foot spray or cream. Wash your feet thoroughly with soap and water twice a day. Be sure to dry your feet completely. If your symptoms aren&apos;t better in 1 to 2 weeks, see your doctor. If the affected area is very red and tender, see your doctor sooner.</string>
+		<string>Also known as athlete’s foot. Tinea is a fungus that can grow on your skin, hair or nails. As it grows, it spreads out in a circle, leaving normal-looking skin in the middle. This makes it look like a ring. At the edge of the ring, the skin is lifted up by the irritation and looks red and scaly. To some people, the infection looks like a worm is under the skin. Because of the way it looks, tinea infection is often called &quot;ringworm.&quot; However, there really isn&apos;t a worm under the skin.</string>
+		<key>diagnosis</key>
+		<string>Use an over-the-counter athlete&apos;s foot spray or cream. Wash your feet thoroughly with soap and water twice a day. Be sure to dry your feet completely. If your symptoms aren&apos;t better in 1 to 2 weeks, see your doctor. If the affected area is very red and tender, see your doctor sooner.</string>
 	</dict>
 	<dict>
 		<key>scientificName</key>
@@ -87,9 +88,9 @@ Use an over-the-counter athlete&apos;s foot spray or cream. Wash your feet thoro
 		<key>commonName</key>
 		<string></string>
 		<key>description</key>
-		<string>Morton&apos;s neuroma (also known as Morton neuroma, Morton&apos;s metatarsalgia, Morton&apos;s neuralgia, plantar neuroma, intermetatarsal neuroma, and interdigital neuroma) is a benign neuroma of an intermetatarsal plantar nerve, most commonly of the second and third intermetatarsal spaces (between 2nd−3rd and 3rd−4th metatarsal heads), which results in the entrapment of the affected nerve. The main symptoms are pain and/or numbness, sometimes relieved by removing footwear.
-
-Wear wide shoes with soft insoles. Over-the-counter anti-inflammatory medication or ice massages may help relieve the pain.</string>
+		<string>Morton&apos;s neuroma (also known as Morton neuroma, Morton&apos;s metatarsalgia, Morton&apos;s neuralgia, plantar neuroma, intermetatarsal neuroma, and interdigital neuroma) is a benign neuroma of an intermetatarsal plantar nerve, most commonly of the second and third intermetatarsal spaces (between 2nd−3rd and 3rd−4th metatarsal heads), which results in the entrapment of the affected nerve. The main symptoms are pain and/or numbness, sometimes relieved by removing footwear.</string>
+		<key>diagnosis</key>
+		<string>Wear wide shoes with soft insoles. Over-the-counter anti-inflammatory medication or ice massages may help relieve the pain.</string>
 	</dict>
 </array>
 </plist>
