@@ -35,9 +35,14 @@
     
     self.tableView.tableHeaderView = self.searchController.searchBar;
     self.definesPresentationContext = YES;
+    
+    BWAppConstants *constants = [BWAppConstants constants];
+    self.searchResults = constants.symptoms;
 }
 
 - (void) viewWillAppear:(BOOL)animated {
+    [self.searchController.searchBar setText:@""];
+    
     [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:animated];
     [super viewWillAppear:animated];
 }
@@ -98,8 +103,7 @@
         [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
     }
     
-    BWAppConstants *constants = [BWAppConstants constants];
-    BWSymptom *symptom = [constants.symptoms objectAtIndex:indexPath.row];
+    BWSymptom *symptom = [self.searchResults objectAtIndex:indexPath.row];
     [cell.scientificName setText:symptom.scientificName];
     [cell.commonName setText:symptom.commonName];
     
@@ -110,8 +114,7 @@
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"showSymptomDetails"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        BWAppConstants *constants = [BWAppConstants constants];
-        BWSymptom *symptom = [constants.symptoms objectAtIndex:indexPath.row];
+        BWSymptom *symptom = [self.searchResults objectAtIndex:indexPath.row];
         
         BWInformationDetailViewController *viewController = segue.destinationViewController;
         viewController.symptom = symptom;
