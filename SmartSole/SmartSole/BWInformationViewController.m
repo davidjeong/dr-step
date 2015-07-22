@@ -26,6 +26,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     self.searchController = [[UISearchController alloc] initWithSearchResultsController:nil];
     [self.searchController setSearchResultsUpdater:self];
     [self.searchController setDimsBackgroundDuringPresentation:NO];
@@ -79,6 +80,14 @@
     [self updateSearchResultsForSearchController:self.searchController];
 }
 
+-(void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar {
+    [self.navigationController setNavigationBarHidden:YES];
+}
+
+-(void)searchBarTextDidEndEditing:(UISearchBar *)searchBar {
+    [self.navigationController setNavigationBarHidden:YES];
+}
+
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -110,6 +119,7 @@
 }
 
 #pragma mark - Segue
+
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"showSymptomDetails"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
