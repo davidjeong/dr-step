@@ -20,6 +20,10 @@
 		532B95501B5F00C2003B1D08 /* settings_filled@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 532B95481B5F00C2003B1D08 /* settings_filled@2x.png */; };
 		532B95531B5F00FF003B1D08 /* clock_filled.png in Resources */ = {isa = PBXBuildFile; fileRef = 532B95511B5F00FF003B1D08 /* clock_filled.png */; };
 		532B95541B5F00FF003B1D08 /* clock_filled@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 532B95521B5F00FF003B1D08 /* clock_filled@2x.png */; };
+		532B95581B5F378A003B1D08 /* BWSymptomTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 532B95571B5F378A003B1D08 /* BWSymptomTableViewCell.m */; };
+		532B955D1B5F3950003B1D08 /* BWSymptom.m in Sources */ = {isa = PBXBuildFile; fileRef = 532B955C1B5F3950003B1D08 /* BWSymptom.m */; };
+		532B955F1B5F3BDF003B1D08 /* Symptoms.plist in Resources */ = {isa = PBXBuildFile; fileRef = 532B955E1B5F3BDF003B1D08 /* Symptoms.plist */; };
+		532B95621B5F4583003B1D08 /* BWInformationDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 532B95611B5F4582003B1D08 /* BWInformationDetailViewController.m */; };
 		535468B01B596108001D66E1 /* Coordinates.plist in Resources */ = {isa = PBXBuildFile; fileRef = 535468AF1B596108001D66E1 /* Coordinates.plist */; };
 		535468B51B5968E6001D66E1 /* BWAppConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 535468B41B5968E6001D66E1 /* BWAppConstants.m */; };
 		535468BF1B59DAA8001D66E1 /* foot_image.png in Resources */ = {isa = PBXBuildFile; fileRef = 535468BE1B59DAA8001D66E1 /* foot_image.png */; };
@@ -92,6 +96,13 @@
 		532B95481B5F00C2003B1D08 /* settings_filled@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "settings_filled@2x.png"; path = "images/settings_filled@2x.png"; sourceTree = "<group>"; };
 		532B95511B5F00FF003B1D08 /* clock_filled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = clock_filled.png; path = images/clock_filled.png; sourceTree = "<group>"; };
 		532B95521B5F00FF003B1D08 /* clock_filled@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "clock_filled@2x.png"; path = "images/clock_filled@2x.png"; sourceTree = "<group>"; };
+		532B95561B5F378A003B1D08 /* BWSymptomTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWSymptomTableViewCell.h; sourceTree = "<group>"; };
+		532B95571B5F378A003B1D08 /* BWSymptomTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWSymptomTableViewCell.m; sourceTree = "<group>"; };
+		532B955B1B5F3950003B1D08 /* BWSymptom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWSymptom.h; sourceTree = "<group>"; };
+		532B955C1B5F3950003B1D08 /* BWSymptom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWSymptom.m; sourceTree = "<group>"; };
+		532B955E1B5F3BDF003B1D08 /* Symptoms.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Symptoms.plist; sourceTree = "<group>"; };
+		532B95601B5F4582003B1D08 /* BWInformationDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWInformationDetailViewController.h; sourceTree = "<group>"; };
+		532B95611B5F4582003B1D08 /* BWInformationDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWInformationDetailViewController.m; sourceTree = "<group>"; };
 		535468AF1B596108001D66E1 /* Coordinates.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Coordinates.plist; sourceTree = "<group>"; };
 		535468B31B5968E6001D66E1 /* BWAppConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWAppConstants.h; sourceTree = "<group>"; };
 		535468B41B5968E6001D66E1 /* BWAppConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWAppConstants.m; sourceTree = "<group>"; };
@@ -241,15 +252,22 @@
 				CD16E7BC1B24FBC50071E1CF /* BWHistoryViewController.m */,
 				CD12CB5C1B385D55004F3AB7 /* BWInformationViewController.h */,
 				CD12CB5D1B385D55004F3AB7 /* BWInformationViewController.m */,
+				532B95601B5F4582003B1D08 /* BWInformationDetailViewController.h */,
+				532B95611B5F4582003B1D08 /* BWInformationDetailViewController.m */,
 				CD16E7B81B24FBC50071E1CF /* BWRealtimeViewController.h */,
 				CD16E7B91B24FBC50071E1CF /* BWRealtimeViewController.m */,
 				CDA9D55E1B4DE49100C3170F /* BWSettingsTableViewController.h */,
 				CDA9D55F1B4DE49100C3170F /* BWSettingsTableViewController.m */,
+				532B955B1B5F3950003B1D08 /* BWSymptom.h */,
+				532B955C1B5F3950003B1D08 /* BWSymptom.m */,
+				532B95561B5F378A003B1D08 /* BWSymptomTableViewCell.h */,
+				532B95571B5F378A003B1D08 /* BWSymptomTableViewCell.m */,
 				CD16E7BE1B24FBC50071E1CF /* Main.storyboard */,
 				CD16E7C11B24FBC50071E1CF /* Images.xcassets */,
 				CD16E7B11B24FBC50071E1CF /* Supporting Files */,
 				CDA9D5B41B4E257F00C3170F /* LaunchScreen.xib */,
 				535468AF1B596108001D66E1 /* Coordinates.plist */,
+				532B955E1B5F3BDF003B1D08 /* Symptoms.plist */,
 				535468C51B5ABF18001D66E1 /* BWData.xcdatamodeld */,
 			);
 			name = BioWear;
@@ -445,6 +463,7 @@
 				CD16E7C01B24FBC50071E1CF /* Main.storyboard in Resources */,
 				CDA9D5A91B4E229000C3170F /* app_launch_screen_640_960.png in Resources */,
 				532B954C1B5F00C2003B1D08 /* library_filled@2x.png in Resources */,
+				532B955F1B5F3BDF003B1D08 /* Symptoms.plist in Resources */,
 				CDA9D5AD1B4E229000C3170F /* bio_wear_logo_87_87.png in Resources */,
 				CDA9D5B31B4E241C00C3170F /* app_launch_screen_640_1136.png in Resources */,
 				532B954B1B5F00C2003B1D08 /* library_filled.png in Resources */,
@@ -507,11 +526,14 @@
 				CDA9D56F1B4DFA1E00C3170F /* BWBlueBeanTableViewCell.m in Sources */,
 				CDA9D5601B4DE49100C3170F /* BWSettingsTableViewController.m in Sources */,
 				CDA9D56A1B4DF61D00C3170F /* BWBlueBeanTableViewController.m in Sources */,
+				532B955D1B5F3950003B1D08 /* BWSymptom.m in Sources */,
 				CD7F378D1B378EA300C19A6E /* BWHistoryTableViewController.m in Sources */,
 				CD16E7E71B2508DA0071E1CF /* BWHistoryGraphViewController.m in Sources */,
 				CDA9D5791B4E127F00C3170F /* BWBlueBeanConnector.m in Sources */,
+				532B95621B5F4583003B1D08 /* BWInformationDetailViewController.m in Sources */,
 				CD16E7BD1B24FBC50071E1CF /* BWHistoryViewController.m in Sources */,
 				CD16E7B71B24FBC50071E1CF /* BWAppDelegate.m in Sources */,
+				532B95581B5F378A003B1D08 /* BWSymptomTableViewCell.m in Sources */,
 				CD16E7BA1B24FBC50071E1CF /* BWRealtimeViewController.m in Sources */,
 				CD12CB5E1B385D55004F3AB7 /* BWInformationViewController.m in Sources */,
 				CDC422941B4F239900759210 /* BWBlueBean.m in Sources */,

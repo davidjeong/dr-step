@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface BWInformationViewController : UIViewController <UISearchBarDelegate, UISearchResultsUpdating, UITableViewDataSource>
+@interface BWInformationViewController : UIViewController <UISearchBarDelegate, UISearchResultsUpdating, UITableViewDataSource, UITableViewDelegate>
+
+- (IBAction)unwindToInformationController:(UIStoryboardSegue *)segue;
 
 @end

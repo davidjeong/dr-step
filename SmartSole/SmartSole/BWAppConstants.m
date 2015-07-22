@@ -22,6 +22,7 @@
 - (id) init {
     self.notifiedLowBattery = NO;
     self.coordinates = [[NSArray alloc] init];
+    self.symptoms = [[NSArray alloc] init];
     return self;
 }
 
