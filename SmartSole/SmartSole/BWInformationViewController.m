@@ -119,7 +119,6 @@
 }
 
 - (IBAction)unwindToInformationController:(UIStoryboardSegue *)segue {
-    BWInformationDetailViewController *source = segue.sourceViewController;
 }
 
 @end
