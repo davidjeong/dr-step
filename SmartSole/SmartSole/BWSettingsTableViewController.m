@@ -156,7 +156,9 @@ static NSString *cellIdentifier = @"settingsCell";
     dispatch_async(dispatch_get_main_queue(), ^{
         [cell.textLabel setText:[NSString stringWithFormat:@"Adjust Font Size - %d", [constants.infoFontSize intValue]]];
     });
+}
 
+- (IBAction)unwindToSettingsController:(UIStoryboardSegue *)segue {
 }
 
 @end
