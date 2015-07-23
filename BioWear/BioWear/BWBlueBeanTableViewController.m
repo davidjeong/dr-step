@@ -44,8 +44,11 @@
         [connector.beans removeAllObjects];
         [connector.beanManager startScanningForBeans_error:nil];
     } else if (connector.beanManager.state == BeanManagerState_PoweredOff) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"The application requires bluetooth permissions." delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Ok", nil];
-        [alert show];
+        UILocalNotification *localNotification = [[UILocalNotification alloc] init];
+        localNotification.fireDate = [NSDate date];
+        localNotification.alertBody = @"The application requires bluetooth permissions.";
+        localNotification.soundName = UILocalNotificationDefaultSoundName;
+        [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
         return;
     }
 }
@@ -81,6 +84,15 @@
     blueBean.bean = bean;
     blueBean.beanName = bean.name;
     blueBean.bean.delegate = connector;
+    
+    [blueBean.bean readArduinoSketchInfo];
+    if ([blueBean.bean sketchName] == nil) {
+        UILocalNotification *localNotification = [[UILocalNotification alloc] init];
+        localNotification.fireDate = [NSDate date];
+        localNotification.alertBody = @"The bean has no program.";
+        localNotification.soundName = UILocalNotificationDefaultSoundName;
+        [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
+    }
     
     [[NSNotificationCenter defaultCenter] postNotificationName:@"connectedToBean" object:nil];
     // Bean has been connected, go back to previous.
