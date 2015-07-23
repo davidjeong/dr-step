@@ -35,7 +35,7 @@
     [self.searchController.searchBar setPlaceholder:@"Enter symptom or diagnosis"];
     [[self.searchController searchBar] sizeToFit];
     
-    self.tableView.delegate = self;
+    [self.tableView setDelegate:self];
     
     self.tableView.tableHeaderView = self.searchController.searchBar;
     self.definesPresentationContext = YES;
