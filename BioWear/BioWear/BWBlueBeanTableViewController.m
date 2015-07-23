@@ -30,6 +30,9 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    BWBlueBeanConnector *connector = [BWBlueBeanConnector connector];
+    [connector.beans removeAllObjects];
+    [connector.beanManager startScanningForBeans_error:nil];
     [self.tableView reloadData];
 }
 
@@ -104,12 +107,10 @@
 
 #pragma mark - UITableViewDataSource
 
-static NSString *cellIdentifier = @"beanCell";
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     BWBlueBeanConnector *connector = [BWBlueBeanConnector connector];
     PTDBean *bean = [connector.beans.allValues objectAtIndex:indexPath.row];
-    BWBlueBeanTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    BWBlueBeanTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"beanCell"];
     cell.bean = bean;
     return cell;
 }
