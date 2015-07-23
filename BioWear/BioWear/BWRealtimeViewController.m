@@ -130,6 +130,11 @@
                 dispatch_async(dispatch_get_main_queue(), ^{
                     // NSLog(@"Dispatching main thread to update voltage.");
                     [textLayer setString:[NSString stringWithFormat:@"%.02fV", voltage]];
+                    if (voltage > 1.00) {
+                        [textLayer setForegroundColor:[[UIColor darkTextColor] CGColor]];
+                    } else {
+                        [textLayer setForegroundColor:[[UIColor whiteColor] CGColor]];
+                    }
                     [self.layers setObject:textLayer forKey:[NSString stringWithFormat:@"textLayer_%d", i]];
                     // NSLog(@"Main thread finished updating voltage.");
                 });
