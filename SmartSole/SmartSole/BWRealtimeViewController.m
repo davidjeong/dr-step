@@ -17,6 +17,7 @@
 @property (nonatomic, strong) IBOutlet UIImageView *baseImage;
 @property (nonatomic, strong) UIImageView *imageView;
 @property (nonatomic, strong) NSMutableDictionary *layers;
+@property (nonatomic, strong) UIImage *heatMap;
 
 @end
 
@@ -57,8 +58,7 @@
         [self.view.layer addSublayer:textLayer];
     }
     
-    UIImage *heatMap = [LFHeatMap heatMapWithRect:self.view.frame boost:0.75f points:constants.coordinates weights:self.weights];
-    [self.imageView setImage:heatMap];
+    self.heatMap = [LFHeatMap heatMapWithRect:self.view.frame boost:0.75f points:constants.coordinates weights:self.weights];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(handleNotifications:)
@@ -69,6 +69,8 @@
                                              selector:@selector(handleNotifications:)
                                                  name:@"disconnectedFromBean"
                                                object:nil];
+    
+    [NSTimer scheduledTimerWithTimeInterval:0.01 target:self selector:@selector(updateMapInBackground) userInfo:nil repeats:YES];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -136,14 +138,18 @@
                 });
             }
         }
-        UIImage *heatMap = [LFHeatMap heatMapWithRect:self.view.frame boost:[constants.heatMapBoost floatValue] points:constants.coordinates weights:self.weights weightsAdjustmentEnabled:NO groupingEnabled:YES];
-        dispatch_async(dispatch_get_main_queue(), ^{
-            NSLog(@"Dispatching main thread to run heatmap.");
-            [self.imageView setImage:heatMap];
-            NSLog(@"Main thread finished heatmap.");
-        });
+        self.heatMap = [LFHeatMap heatMapWithRect:self.view.frame boost:[constants.heatMapBoost floatValue] points:constants.coordinates weights:self.weights weightsAdjustmentEnabled:NO groupingEnabled:YES];
+        //dispatch_async(dispatch_get_main_queue(), ^{
+        //    NSLog(@"Dispatching main thread to run heatmap.");
+        //    [self.imageView setImage:heatMap];
+        //    NSLog(@"Main thread finished heatmap.");
+        //});
         NSLog(@"Exiting processing graphics.");
     }
+}
+
+- (void) updateMapInBackground {
+    [self.imageView setImage:self.heatMap];
 }
 
 @end
