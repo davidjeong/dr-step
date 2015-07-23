@@ -36,7 +36,6 @@
 		CD16E7BD1B24FBC50071E1CF /* BWHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD16E7BC1B24FBC50071E1CF /* BWHistoryViewController.m */; };
 		CD16E7C01B24FBC50071E1CF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD16E7BE1B24FBC50071E1CF /* Main.storyboard */; };
 		CD16E7C21B24FBC50071E1CF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD16E7C11B24FBC50071E1CF /* Images.xcassets */; };
-		CD16E7D11B24FBC50071E1CF /* SmartSoleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CD16E7D01B24FBC50071E1CF /* SmartSoleTests.m */; };
 		CD7F378D1B378EA300C19A6E /* BWHistoryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD7F378C1B378EA300C19A6E /* BWHistoryTableViewController.m */; };
 		CDA9D5601B4DE49100C3170F /* BWSettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDA9D55F1B4DE49100C3170F /* BWSettingsTableViewController.m */; };
 		CDA9D56A1B4DF61D00C3170F /* BWBlueBeanTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDA9D5691B4DF61D00C3170F /* BWBlueBeanTableViewController.m */; };
@@ -111,8 +110,6 @@
 		CD16E7BF1B24FBC50071E1CF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CD16E7C11B24FBC50071E1CF /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		CD16E7CA1B24FBC50071E1CF /* BioWearTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BioWearTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		CD16E7CF1B24FBC50071E1CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CD16E7D01B24FBC50071E1CF /* SmartSoleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SmartSoleTests.m; sourceTree = "<group>"; };
 		CD7F378B1B378EA300C19A6E /* BWHistoryTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWHistoryTableViewController.h; sourceTree = "<group>"; };
 		CD7F378C1B378EA300C19A6E /* BWHistoryTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWHistoryTableViewController.m; sourceTree = "<group>"; };
 		CDA9D55E1B4DE49100C3170F /* BWSettingsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWSettingsTableViewController.h; sourceTree = "<group>"; };
@@ -193,7 +190,6 @@
 				CDDFB1271B39116200DF1D5B /* Accelerate.framework */,
 				CDDFB1251B39115600DF1D5B /* QuartzCore.framework */,
 				CD16E7B01B24FBC50071E1CF /* BioWear */,
-				CD16E7CD1B24FBC50071E1CF /* BioWearTests */,
 				CD16E7AF1B24FBC50071E1CF /* Products */,
 				2A4A5036ED7CD161CFDEB183 /* Pods */,
 				7377D6F3ACB1645A58B7499C /* Frameworks */,
@@ -251,8 +247,7 @@
 				532B955E1B5F3BDF003B1D08 /* Symptoms.plist */,
 				535468C51B5ABF18001D66E1 /* BWData.xcdatamodeld */,
 			);
-			name = BioWear;
-			path = SmartSole;
+			path = BioWear;
 			sourceTree = "<group>";
 		};
 		CD16E7B11B24FBC50071E1CF /* Supporting Files */ = {
@@ -260,24 +255,6 @@
 			children = (
 				CD16E7B21B24FBC50071E1CF /* Info.plist */,
 				CD16E7B31B24FBC50071E1CF /* main.m */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		CD16E7CD1B24FBC50071E1CF /* BioWearTests */ = {
-			isa = PBXGroup;
-			children = (
-				CD16E7D01B24FBC50071E1CF /* SmartSoleTests.m */,
-				CD16E7CE1B24FBC50071E1CF /* Supporting Files */,
-			);
-			name = BioWearTests;
-			path = SmartSoleTests;
-			sourceTree = "<group>";
-		};
-		CD16E7CE1B24FBC50071E1CF /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				CD16E7CF1B24FBC50071E1CF /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -503,7 +480,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CD16E7D11B24FBC50071E1CF /* SmartSoleTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -626,7 +602,7 @@
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					"/Users/juhwanjeong/Documents/fydp-ios/core-plot-master/framework/**",
 				);
-				INFOPLIST_FILE = SmartSole/Info.plist;
+				INFOPLIST_FILE = BioWear/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
@@ -652,7 +628,7 @@
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					"/Users/juhwanjeong/Documents/fydp-ios/core-plot-master/framework/**",
 				);
-				INFOPLIST_FILE = SmartSole/Info.plist;
+				INFOPLIST_FILE = BioWear/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
@@ -676,7 +652,7 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = SmartSoleTests/Info.plist;
+				INFOPLIST_FILE = BioWearTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.piezo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = BioWearTests;
@@ -692,7 +668,7 @@
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = SmartSoleTests/Info.plist;
+				INFOPLIST_FILE = BioWearTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.piezo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = BioWearTests;
