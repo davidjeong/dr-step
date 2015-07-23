@@ -74,7 +74,7 @@ static NSString *cellIdentifier = @"settingsCell";
                 cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
                                            reuseIdentifier:@"connectivityCell"];
             }
-            [cell.textLabel setText:@"Connect to LightBlue bean"];
+            [cell.textLabel setText:@"Connect To The Shoe"];
             BWBlueBean *blueBean = [BWBlueBean bean];
             if (blueBean.bean != nil) {
                 [cell setAccessoryType:UITableViewCellAccessoryCheckmark];

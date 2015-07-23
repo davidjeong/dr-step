@@ -78,13 +78,13 @@
 }
 
 - (void) handleNotifications:(NSNotification *)notification {
-    if ([notification.name isEqualToString:@"finishedProcessingData"]) {
-        NSLog(@"Spawning new serial thread");
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^ {
-            if ([[notification name] isEqualToString:@"finishedProcessingData"]) {
+    if ([[notification name] isEqualToString:@"finishedProcessingData"]) {
+        if ([self isViewLoaded] && self.view.window) {
+            NSLog(@"Spawning new serial thread");
+            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^ {
                 [self processGraphics:[notification object]];
-            }
-        });
+            });
+        }
     } else if ([notification.name isEqualToString:@"disconnectedFromBean"]) {
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
             [self clearGraphics];
