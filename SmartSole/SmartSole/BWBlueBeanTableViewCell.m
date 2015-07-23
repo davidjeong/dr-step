@@ -8,6 +8,7 @@
 
 #import <PTDBeanManager.h>
 
+#import "BWBlueBean.h"
 #import "BWBlueBeanTableViewCell.h"
 
 @interface BWBlueBeanTableViewCell()
@@ -15,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *rssiLabel;
 @property (weak, nonatomic) IBOutlet UILabel *statusLabel;
+@property (weak, nonatomic) IBOutlet UILabel *voltageLabel;
 
 @end
 
@@ -34,6 +36,14 @@
     
     self.nameLabel.text = self.bean.name;
     self.rssiLabel.text = [self.bean.RSSI stringValue];
+    
+    BWBlueBean *blueBean = [BWBlueBean bean];
+    if (blueBean.bean != nil) {
+        self.voltageLabel.text = [NSString stringWithFormat:@"%.02fV", [self.bean.batteryVoltage floatValue]];
+    } else {
+        [self.voltageLabel setHidden:YES];
+    }
+    
     NSString* state;
     
     // Set the state based on bean's state.

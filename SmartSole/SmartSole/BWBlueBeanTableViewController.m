@@ -72,8 +72,8 @@
         return;
     }
     [[NSNotificationCenter defaultCenter] postNotificationName:@"connectedToBean" object:nil];
-    [self.tableView reloadData];
     // Bean has been connected, go back to previous.
+    [self performSegueWithIdentifier:@"unwindToSettingsController" sender:self];
 }
 
 - (void)beanManager:(PTDBeanManager *)beanManager didDisconnectBean:(PTDBean *)bean error:(NSError *)error {

@@ -245,24 +245,35 @@
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9u6-LB-tGk">
-                                            <rect key="frame" x="16" y="8" width="354" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="RSSI" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xHI-iI-Jyb">
                                             <rect key="frame" x="16" y="39" width="354" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Voltage" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kYt-TI-OHt">
+                                            <rect key="frame" x="533" y="39" width="57" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9u6-LB-tGk">
+                                            <rect key="frame" x="16" y="8" width="354" height="21"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="centerY" secondItem="kYt-TI-OHt" secondAttribute="centerY" id="EVA-ON-Xk8"/>
+                                        <constraint firstAttribute="trailing" secondItem="kYt-TI-OHt" secondAttribute="trailing" constant="10" id="OT4-JD-1eY"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="nameLabel" destination="9u6-LB-tGk" id="byp-BY-ikT"/>
                                     <outlet property="rssiLabel" destination="xHI-iI-Jyb" id="Egk-aS-dBu"/>
                                     <outlet property="statusLabel" destination="UFB-Kd-C8R" id="skw-RM-wbD"/>
+                                    <outlet property="voltageLabel" destination="kYt-TI-OHt" id="Oud-9o-gNG"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -277,7 +288,7 @@
                 <swipeGestureRecognizer delaysTouchesEnded="NO" direction="right" id="4kI-rs-ooq">
                     <connections>
                         <outlet property="delegate" destination="2zu-H0-NU5" id="DhU-Jz-cAq"/>
-                        <segue destination="NRT-xk-hAh" kind="unwind" unwindAction="unwindToSettingsController:" id="njI-uA-QBh"/>
+                        <segue destination="NRT-xk-hAh" kind="unwind" identifier="unwindToSettingsController" unwindAction="unwindToSettingsController:" id="njI-uA-QBh"/>
                     </connections>
                 </swipeGestureRecognizer>
                 <exit id="NRT-xk-hAh" userLabel="Exit" sceneMemberID="exit"/>

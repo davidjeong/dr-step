@@ -8,6 +8,8 @@
 
 #import "BWData.h"
 
+#import "BWBlueBean.h"
+
 @interface BWData()
 
 @property (nonatomic, strong) NSMutableArray *lastMinuteData;
@@ -80,17 +82,20 @@
 }
 
 - (void) storeData:(NSTimer *)timer {
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^ {
-        @synchronized (self.lastMinuteData) {
-            NSLog(@"Saving data.");
-            // TODO Actually save data.
-            [self.lastMinuteData removeAllObjects];
-            for (int i=0; i<self.numberOfSensors; i++) {
-                [self.lastMinuteData addObject:[NSNumber numberWithFloat:0.0]];
+    BWBlueBean *blueBean = [BWBlueBean bean];
+    if (blueBean.bean != nil) {
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^ {
+            @synchronized (self.lastMinuteData) {
+                NSLog(@"Saving data.");
+                // TODO Actually save data.
+                [self.lastMinuteData removeAllObjects];
+                for (int i=0; i<self.numberOfSensors; i++) {
+                    [self.lastMinuteData addObject:[NSNumber numberWithFloat:0.0]];
+                }
+                self.counter = 0;
             }
-            self.counter = 0;
-        }
-    });
+        });
+    }
 }
 
 
