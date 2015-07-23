@@ -38,6 +38,7 @@
 - (void)beanManagerDidUpdateState:(PTDBeanManager *)beanManager {
     BWBlueBeanConnector *connector = [BWBlueBeanConnector connector];
     if (connector.beanManager.state == BeanManagerState_PoweredOn) {
+        [connector.beans removeAllObjects];
         [connector.beanManager startScanningForBeans_error:nil];
     } else if (connector.beanManager.state == BeanManagerState_PoweredOff) {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"The application requires bluetooth permissions." delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Ok", nil];
@@ -71,6 +72,13 @@
         [alert show];
         return;
     }
+    
+    // Set the bean variable to this bean.
+    BWBlueBean *blueBean = [BWBlueBean bean];
+    blueBean.bean = bean;
+    blueBean.beanName = bean.name;
+    blueBean.bean.delegate = connector;
+    
     [[NSNotificationCenter defaultCenter] postNotificationName:@"connectedToBean" object:nil];
     // Bean has been connected, go back to previous.
     [self performSegueWithIdentifier:@"unwindToSettingsController" sender:self];
@@ -78,11 +86,19 @@
 
 - (void)beanManager:(PTDBeanManager *)beanManager didDisconnectBean:(PTDBean *)bean error:(NSError *)error {
     [[NSNotificationCenter defaultCenter] postNotificationName:@"disconnectedFromBean" object:nil];
+    
+    // Fire a notification to alert user.
     UILocalNotification *localNotification = [[UILocalNotification alloc] init];
     localNotification.fireDate = [NSDate date];
-    localNotification.alertBody = @"The bean has been disconnected.";
+    localNotification.alertBody = @"The shoe has been disconnected.";
     localNotification.soundName = UILocalNotificationDefaultSoundName;
     [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
+    
+    // Remove all objects from dict and re-scan.
+    BWBlueBeanConnector *connector = [BWBlueBeanConnector connector];
+    [connector.beans removeAllObjects];
+    [connector.beanManager startScanningForBeans_error:nil];
+    
     [self.tableView reloadData];
 }
 
@@ -109,10 +125,6 @@ static NSString *cellIdentifier = @"beanCell";
     if (bean.state == BeanState_Discovered) {
         // If state is discovered, try to establish connection.
         [connector.beanManager connectToBean:bean error:nil];
-        BWBlueBean *blueBean = [BWBlueBean bean];
-        blueBean.bean = bean;
-        blueBean.beanName = bean.name;
-        blueBean.bean.delegate = connector;
     }
     [self.tableView reloadData];
 }

@@ -97,4 +97,9 @@
     }
 }
 
+- (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification {
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:[notification alertTitle] message:[notification alertBody] delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+    [alertView show];
+}
+
 @end
