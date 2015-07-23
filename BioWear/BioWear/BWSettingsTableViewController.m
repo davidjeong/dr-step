@@ -60,6 +60,7 @@
     if ([notification.name isEqualToString:@"connectedToBean"]) {
         [self.tableView reloadData];
     } else if ([notification.name isEqualToString:@"disconnectedFromBean"]){
+        
         [self.tableView reloadData];
     }
 }

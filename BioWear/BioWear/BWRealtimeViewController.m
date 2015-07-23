@@ -104,6 +104,7 @@
                 dispatch_async(dispatch_get_main_queue(), ^{
                     NSLog(@"Dispatching main thread to update voltage.");
                     [textLayer setString:@"0.00V"];
+                    [textLayer setForegroundColor:[[UIColor whiteColor] CGColor]];
                     NSLog(@"Main thread finished updating voltage.");
                 });
             }

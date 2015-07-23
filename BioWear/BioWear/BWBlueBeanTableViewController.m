@@ -90,14 +90,17 @@
 }
 
 - (void)beanManager:(PTDBeanManager *)beanManager didDisconnectBean:(PTDBean *)bean error:(NSError *)error {
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"disconnectedFromBean" object:nil];
-    
     // Fire a notification to alert user.
     UILocalNotification *localNotification = [[UILocalNotification alloc] init];
     localNotification.fireDate = [NSDate date];
     localNotification.alertBody = @"The shoe has been disconnected.";
     localNotification.soundName = UILocalNotificationDefaultSoundName;
     [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
+    
+    BWAppConstants *constants = [BWAppConstants constants];
+    constants.bean = nil;
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"disconnectedFromBean" object:nil];
     
     // Remove all objects from dict and re-scan.
     BWBlueBeanConnector *connector = [BWBlueBeanConnector connector];
@@ -139,8 +142,6 @@
     if (bean.state == BeanState_ConnectedAndValidated) {
         UITableViewRowAction *disconnectAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDefault title:@"Disconnect" handler:^(UITableViewRowAction *action, NSIndexPath *indexPath) {
             [connector.beanManager disconnectBean:bean error:nil];
-            BWAppConstants *constants = [BWAppConstants constants];
-            constants.bean = nil;
         }];
         return @[disconnectAction];
     }
@@ -149,9 +150,12 @@
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
     BWBlueBeanConnector *connector = [BWBlueBeanConnector connector];
-    PTDBean *bean = [connector.beans.allValues objectAtIndex:indexPath.row];
+    PTDBean *bean = nil;
+    if ([connector.beans count] != 0) {
+        bean = [connector.beans.allValues objectAtIndex:indexPath.row];
+    }
     // Only allow left to disconnect on connected beans.
-    if (bean.state == BeanState_ConnectedAndValidated) {
+    if (bean != nil && bean.state == BeanState_ConnectedAndValidated) {
         return YES;
     }
     return NO;
