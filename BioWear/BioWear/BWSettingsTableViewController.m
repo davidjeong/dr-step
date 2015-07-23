@@ -30,11 +30,15 @@
     [self.boostSlider setMinimumValue:0.0f];
     [self.boostSlider setMaximumValue:1.0f];
     
+    BWAppConstants *constants = [BWAppConstants constants];
+    [self.boostSlider setValue:[constants.heatMapBoost floatValue]];
+    
     [self.boostSlider addTarget:self action:@selector(updateBoost:) forControlEvents:UIControlEventValueChanged];
     
     self.fontSlider = [[UISlider alloc] init];
     [self.fontSlider setMinimumValue:12.0f];
     [self.fontSlider setMaximumValue:18.0f];
+    [self.fontSlider setValue:[constants.infoFontSize floatValue]];
     
     [self.fontSlider addTarget:self action:@selector(updateFont:) forControlEvents:UIControlEventValueChanged];
     
