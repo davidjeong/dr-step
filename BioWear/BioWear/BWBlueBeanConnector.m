@@ -9,7 +9,6 @@
 #import "BWBlueBeanConnector.h"
 
 #import "BWAppConstants.h"
-#import "BWBlueBean.h"
 
 @interface BWBlueBeanConnector()
 
@@ -77,8 +76,7 @@
                 batteryNotification.soundName = UILocalNotificationDefaultSoundName;
                 [[UIApplication sharedApplication] scheduleLocalNotification:batteryNotification];
                 constants.notifiedLowBattery = YES;
-                BWBlueBean *bean = [BWBlueBean bean];
-                [bean.bean sendSerialData:[receivedBatteryStatus dataUsingEncoding:NSUTF8StringEncoding]];
+                [constants.bean sendSerialData:[receivedBatteryStatus dataUsingEncoding:NSUTF8StringEncoding]];
             }
             
             [self.dataString appendString:fragment];

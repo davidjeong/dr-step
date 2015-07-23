@@ -8,7 +8,7 @@
 
 #import <PTDBeanManager.h>
 
-#import "BWBlueBean.h"
+#import "BWAppConstants.h"
 #import "BWBlueBeanTableViewCell.h"
 
 @interface BWBlueBeanTableViewCell()
@@ -37,8 +37,8 @@
     self.nameLabel.text = self.bean.name;
     self.rssiLabel.text = [self.bean.RSSI stringValue];
     
-    BWBlueBean *blueBean = [BWBlueBean bean];
-    if (blueBean.bean != nil) {
+    BWAppConstants *constants = [BWAppConstants constants];
+    if (constants.bean != nil) {
         self.voltageLabel.text = [NSString stringWithFormat:@"%.02fV", [self.bean.batteryVoltage floatValue]];
     } else {
         [self.voltageLabel setHidden:YES];

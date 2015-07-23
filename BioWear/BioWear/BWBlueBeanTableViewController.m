@@ -8,7 +8,7 @@
 
 #import "BWBlueBeanTableViewController.h"
 
-#import "BWBlueBean.h"
+#import "BWAppConstants.h"
 #import "BWBlueBeanConnector.h"
 #import "BWBlueBeanTableViewCell.h"
 
@@ -80,10 +80,9 @@
     }
     
     // Set the bean variable to this bean.
-    BWBlueBean *blueBean = [BWBlueBean bean];
-    blueBean.bean = bean;
-    blueBean.beanName = bean.name;
-    blueBean.bean.delegate = connector;
+    BWAppConstants *constants = [BWAppConstants constants];
+    [constants setBean:bean];
+    [[constants bean] setDelegate:connector];
     
     [[NSNotificationCenter defaultCenter] postNotificationName:@"connectedToBean" object:nil];
     // Bean has been connected, go back to previous.
@@ -140,9 +139,8 @@
     if (bean.state == BeanState_ConnectedAndValidated) {
         UITableViewRowAction *disconnectAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDefault title:@"Disconnect" handler:^(UITableViewRowAction *action, NSIndexPath *indexPath) {
             [connector.beanManager disconnectBean:bean error:nil];
-            BWBlueBean *blueBean = [BWBlueBean bean];
-            blueBean.bean = nil;
-            blueBean.beanName = @"";
+            BWAppConstants *constants = [BWAppConstants constants];
+            constants.bean = nil;
         }];
         return @[disconnectAction];
     }

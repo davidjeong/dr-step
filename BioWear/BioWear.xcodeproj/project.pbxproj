@@ -51,7 +51,6 @@
 		CDA9D5B11B4E229000C3170F /* bio_wear_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA9D5A81B4E229000C3170F /* bio_wear_logo.png */; };
 		CDA9D5B31B4E241C00C3170F /* app_launch_screen_640_1136.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA9D5B21B4E241C00C3170F /* app_launch_screen_640_1136.png */; };
 		CDA9D5B51B4E257F00C3170F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDA9D5B41B4E257F00C3170F /* LaunchScreen.xib */; };
-		CDC422941B4F239900759210 /* BWBlueBean.m in Sources */ = {isa = PBXBuildFile; fileRef = CDC422931B4F239900759210 /* BWBlueBean.m */; };
 		CDDFB1261B39115600DF1D5B /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDDFB1251B39115600DF1D5B /* QuartzCore.framework */; };
 		CDDFB1281B39116200DF1D5B /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDDFB1271B39116200DF1D5B /* Accelerate.framework */; };
 /* End PBXBuildFile section */
@@ -131,8 +130,6 @@
 		CDA9D5A81B4E229000C3170F /* bio_wear_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bio_wear_logo.png; path = images/bio_wear_logo.png; sourceTree = "<group>"; };
 		CDA9D5B21B4E241C00C3170F /* app_launch_screen_640_1136.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = app_launch_screen_640_1136.png; path = images/app_launch_screen_640_1136.png; sourceTree = "<group>"; };
 		CDA9D5B41B4E257F00C3170F /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
-		CDC422921B4F239900759210 /* BWBlueBean.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWBlueBean.h; sourceTree = "<group>"; };
-		CDC422931B4F239900759210 /* BWBlueBean.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWBlueBean.m; sourceTree = "<group>"; };
 		CDDFB1251B39115600DF1D5B /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		CDDFB1271B39116200DF1D5B /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		CE87C6738105A298299325A5 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -213,8 +210,6 @@
 				535468B41B5968E6001D66E1 /* BWAppConstants.m */,
 				CD16E7B51B24FBC50071E1CF /* BWAppDelegate.h */,
 				CD16E7B61B24FBC50071E1CF /* BWAppDelegate.m */,
-				CDC422921B4F239900759210 /* BWBlueBean.h */,
-				CDC422931B4F239900759210 /* BWBlueBean.m */,
 				CDA9D5771B4E127F00C3170F /* BWBlueBeanConnector.h */,
 				CDA9D5781B4E127F00C3170F /* BWBlueBeanConnector.m */,
 				CDA9D56D1B4DFA1E00C3170F /* BWBlueBeanTableViewCell.h */,
@@ -468,7 +463,6 @@
 				532B95581B5F378A003B1D08 /* BWSymptomTableViewCell.m in Sources */,
 				CD16E7BA1B24FBC50071E1CF /* BWRealtimeViewController.m in Sources */,
 				CD12CB5E1B385D55004F3AB7 /* BWInformationViewController.m in Sources */,
-				CDC422941B4F239900759210 /* BWBlueBean.m in Sources */,
 				CD16E7B41B24FBC50071E1CF /* main.m in Sources */,
 				535468B51B5968E6001D66E1 /* BWAppConstants.m in Sources */,
 				535468C71B5ABF18001D66E1 /* BWData.xcdatamodeld in Sources */,

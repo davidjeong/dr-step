@@ -9,7 +9,6 @@
 #import "BWSettingsTableViewController.h"
 
 #import "BWAppConstants.h"
-#import "BWBlueBean.h"
 #import "BWBlueBeanConnector.h"
 #import "BWBlueBeanTableViewController.h"
 
@@ -79,8 +78,8 @@ static NSString *cellIdentifier = @"settingsCell";
                                            reuseIdentifier:@"connectivityCell"];
             }
             [cell.textLabel setText:@"Connect To The Shoe"];
-            BWBlueBean *blueBean = [BWBlueBean bean];
-            if (blueBean.bean != nil) {
+            BWAppConstants *constants = [BWAppConstants constants];
+            if (constants.bean != nil) {
                 [cell setAccessoryType:UITableViewCellAccessoryCheckmark];
             } else {
                 [cell setAccessoryType:UITableViewCellAccessoryNone];

@@ -9,7 +9,6 @@
 #import "BWAppDelegate.h"
 
 #import "BWAppConstants.h"
-#import "BWBlueBean.h"
 #import "BWData.h"
 #import "BWSymptom.h"
 #import "LFHeatMap.h"
@@ -87,8 +86,8 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Alert the user that by terminating the application, the motion will not be logged.
-    BWBlueBean *blueBean = [BWBlueBean bean];
-    if (blueBean.bean != nil) {
+    BWAppConstants *constants = [BWAppConstants constants];
+    if (constants.bean != nil) {
         UILocalNotification *localNotification = [[UILocalNotification alloc] init];
         localNotification.fireDate = [NSDate date];
         localNotification.alertBody = @"The application has been terminated. Please restart to continue monitoring.";

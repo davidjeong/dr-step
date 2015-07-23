@@ -8,7 +8,7 @@
 
 #import "BWData.h"
 
-#import "BWBlueBean.h"
+#import "BWAppConstants.h"
 
 @interface BWData()
 
@@ -82,8 +82,8 @@
 }
 
 - (void) storeData:(NSTimer *)timer {
-    BWBlueBean *blueBean = [BWBlueBean bean];
-    if (blueBean.bean != nil) {
+    BWAppConstants *constants = [BWAppConstants constants];
+    if (constants.bean != nil) {
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^ {
             @synchronized (self.lastMinuteData) {
                 NSLog(@"Saving data.");

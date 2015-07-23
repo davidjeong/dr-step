@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+@class PTDBean;
+
 // NSString
 static NSString* const commaDelim = @",";
 static NSString* const EOM = @"EOM";
@@ -25,6 +27,7 @@ static const float maximumVoltage = 2.8;
 @property (strong, nonatomic) NSArray *symptoms;
 @property (strong, nonatomic) NSNumber *heatMapBoost;
 @property (strong, nonatomic) NSNumber *infoFontSize;
+@property (nonatomic, strong) PTDBean *bean;
 
 + (id) constants;
 
