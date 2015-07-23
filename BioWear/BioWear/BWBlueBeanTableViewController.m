@@ -85,15 +85,6 @@
     blueBean.beanName = bean.name;
     blueBean.bean.delegate = connector;
     
-    [blueBean.bean readArduinoSketchInfo];
-    if ([blueBean.bean sketchName] == nil) {
-        UILocalNotification *localNotification = [[UILocalNotification alloc] init];
-        localNotification.fireDate = [NSDate date];
-        localNotification.alertBody = @"The bean has no program.";
-        localNotification.soundName = UILocalNotificationDefaultSoundName;
-        [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
-    }
-    
     [[NSNotificationCenter defaultCenter] postNotificationName:@"connectedToBean" object:nil];
     // Bean has been connected, go back to previous.
     [self performSegueWithIdentifier:@"unwindToSettingsController" sender:self];
