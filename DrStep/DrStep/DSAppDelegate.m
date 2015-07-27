@@ -1,6 +1,6 @@
 //
 //  AppDelegate.m
-//  BioWear
+//  Dr. Step
 //
 //  Created by David Jeong on 2015. 6. 7..
 //

@@ -55,16 +55,6 @@
 		CDDFB1281B39116200DF1D5B /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDDFB1271B39116200DF1D5B /* Accelerate.framework */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		CD16E7CB1B24FBC50071E1CF /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = CD16E7A61B24FBC50071E1CF /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = CD16E7AD1B24FBC50071E1CF;
-			remoteInfo = SmartSole;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
 		5313D0511B5EACE400914B32 /* libPods-LFHeatMap.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-LFHeatMap.a"; path = "Pods/../build/Debug-iphoneos/libPods-LFHeatMap.a"; sourceTree = "<group>"; };
 		5315D8811B50F01600B56EA5 /* libPods-Bean-iOS-OSX-SDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-Bean-iOS-OSX-SDK.a"; path = "Pods/../build/Debug-iphoneos/libPods-Bean-iOS-OSX-SDK.a"; sourceTree = "<group>"; };
@@ -108,7 +98,6 @@
 		CD16E7BC1B24FBC50071E1CF /* DSHistoryViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DSHistoryViewController.m; sourceTree = "<group>"; };
 		CD16E7BF1B24FBC50071E1CF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CD16E7C11B24FBC50071E1CF /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		CD16E7CA1B24FBC50071E1CF /* DrStepTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DrStepTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD7F378B1B378EA300C19A6E /* DSHistoryTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSHistoryTableViewController.h; sourceTree = "<group>"; };
 		CD7F378C1B378EA300C19A6E /* DSHistoryTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSHistoryTableViewController.m; sourceTree = "<group>"; };
 		CDA9D55E1B4DE49100C3170F /* DSSettingsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSSettingsTableViewController.h; sourceTree = "<group>"; };
@@ -146,13 +135,6 @@
 				CDDFB1281B39116200DF1D5B /* Accelerate.framework in Frameworks */,
 				CDDFB1261B39115600DF1D5B /* QuartzCore.framework in Frameworks */,
 				7F9D04A404B7F315EB26D4E1 /* libPods.a in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		CD16E7C71B24FBC50071E1CF /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -197,7 +179,6 @@
 			isa = PBXGroup;
 			children = (
 				CD16E7AE1B24FBC50071E1CF /* Dr. Step.app */,
-				CD16E7CA1B24FBC50071E1CF /* DrStepTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -311,24 +292,6 @@
 			productReference = CD16E7AE1B24FBC50071E1CF /* Dr. Step.app */;
 			productType = "com.apple.product-type.application";
 		};
-		CD16E7C91B24FBC50071E1CF /* DrStepTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = CD16E7D71B24FBC50071E1CF /* Build configuration list for PBXNativeTarget "DrStepTests" */;
-			buildPhases = (
-				CD16E7C61B24FBC50071E1CF /* Sources */,
-				CD16E7C71B24FBC50071E1CF /* Frameworks */,
-				CD16E7C81B24FBC50071E1CF /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				CD16E7CC1B24FBC50071E1CF /* PBXTargetDependency */,
-			);
-			name = DrStepTests;
-			productName = SmartSoleTests;
-			productReference = CD16E7CA1B24FBC50071E1CF /* DrStepTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -346,10 +309,6 @@
 							};
 						};
 					};
-					CD16E7C91B24FBC50071E1CF = {
-						CreatedOnToolsVersion = 6.3.2;
-						TestTargetID = CD16E7AD1B24FBC50071E1CF;
-					};
 				};
 			};
 			buildConfigurationList = CD16E7A91B24FBC50071E1CF /* Build configuration list for PBXProject "DrStep" */;
@@ -366,7 +325,6 @@
 			projectRoot = "";
 			targets = (
 				CD16E7AD1B24FBC50071E1CF /* DrStep */,
-				CD16E7C91B24FBC50071E1CF /* DrStepTests */,
 			);
 		};
 /* End PBXProject section */
@@ -401,13 +359,6 @@
 				532B954D1B5F00C2003B1D08 /* running_filled.png in Resources */,
 				532B954E1B5F00C2003B1D08 /* running_filled@2x.png in Resources */,
 				CD16E7C21B24FBC50071E1CF /* Images.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		CD16E7C81B24FBC50071E1CF /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -470,22 +421,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		CD16E7C61B24FBC50071E1CF /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		CD16E7CC1B24FBC50071E1CF /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = CD16E7AD1B24FBC50071E1CF /* DrStep */;
-			targetProxy = CD16E7CB1B24FBC50071E1CF /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		CD16E7BE1B24FBC50071E1CF /* Main.storyboard */ = {
@@ -634,42 +570,6 @@
 			};
 			name = Release;
 		};
-		CD16E7D81B24FBC50071E1CF /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = BioWearTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.piezo.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = DrStepTests;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BioWear.app/BioWear";
-			};
-			name = Debug;
-		};
-		CD16E7D91B24FBC50071E1CF /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = BioWearTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.piezo.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = DrStepTests;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BioWear.app/BioWear";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -687,15 +587,6 @@
 			buildConfigurations = (
 				CD16E7D51B24FBC50071E1CF /* Debug */,
 				CD16E7D61B24FBC50071E1CF /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		CD16E7D71B24FBC50071E1CF /* Build configuration list for PBXNativeTarget "DrStepTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				CD16E7D81B24FBC50071E1CF /* Debug */,
-				CD16E7D91B24FBC50071E1CF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
