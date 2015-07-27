@@ -319,7 +319,7 @@
                                         <connections>
                                             <outlet property="commonName" destination="tfL-iL-2fu" id="jzI-d9-sUW"/>
                                             <outlet property="scientificName" destination="MMz-YK-O8T" id="ru7-Fu-EjO"/>
-                                            <segue destination="WpI-6g-2eT" kind="presentation" identifier="showSymptomDetails" modalPresentationStyle="currentContext" id="ezT-lM-JvF"/>
+                                            <segue destination="WpI-6g-2eT" kind="show" identifier="showSymptomDetails" id="ezT-lM-JvF"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -394,8 +394,8 @@
                                 <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UzB-95-xrY">
-                                <rect key="frame" x="10" y="438" width="580" height="113"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UzB-95-xrY">
+                                <rect key="frame" x="10" y="438" width="580" height="162"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
