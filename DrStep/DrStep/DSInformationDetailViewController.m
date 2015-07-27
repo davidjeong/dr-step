@@ -29,8 +29,6 @@
     [self.commonLabel setText:[self.symptom commonName]];
     [self.symptomDescriptionTextView setText:[self.symptom symptomDescription]];
     [self.diagnosisTextView setText:[self.symptom diagnosis]];
-    
-    
 }
 
 - (void)viewWillAppear:(BOOL)animated{
