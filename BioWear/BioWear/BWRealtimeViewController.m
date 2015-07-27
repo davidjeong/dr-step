@@ -51,7 +51,7 @@
         [textLayer setFrame:CGRectMake(point.x - 20, point.y - 5, 40, 10)];
         [textLayer setString:@"0.00V"];
         [textLayer setAlignmentMode:kCAAlignmentCenter];
-        [textLayer setForegroundColor:[[UIColor darkTextColor] CGColor]];
+        [textLayer setForegroundColor:[[UIColor whiteColor] CGColor]];
         [textLayer setContentsScale:[[UIScreen mainScreen] scale]];
         
         [self.layers setObject:textLayer forKey:[NSString stringWithFormat:@"textLayer_%d", i]];
