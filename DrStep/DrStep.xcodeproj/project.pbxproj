@@ -33,10 +33,9 @@
 		CD16E7B41B24FBC50071E1CF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CD16E7B31B24FBC50071E1CF /* main.m */; };
 		CD16E7B71B24FBC50071E1CF /* DSAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CD16E7B61B24FBC50071E1CF /* DSAppDelegate.m */; };
 		CD16E7BA1B24FBC50071E1CF /* DSRealtimeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD16E7B91B24FBC50071E1CF /* DSRealtimeViewController.m */; };
-		CD16E7BD1B24FBC50071E1CF /* DSHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD16E7BC1B24FBC50071E1CF /* DSHistoryViewController.m */; };
 		CD16E7C01B24FBC50071E1CF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD16E7BE1B24FBC50071E1CF /* Main.storyboard */; };
 		CD16E7C21B24FBC50071E1CF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD16E7C11B24FBC50071E1CF /* Images.xcassets */; };
-		CD7F378D1B378EA300C19A6E /* DSHistoryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD7F378C1B378EA300C19A6E /* DSHistoryTableViewController.m */; };
+		CD7F378D1B378EA300C19A6E /* DSHistoryTimeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD7F378C1B378EA300C19A6E /* DSHistoryTimeViewController.m */; };
 		CDA9D5601B4DE49100C3170F /* DSSettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDA9D55F1B4DE49100C3170F /* DSSettingsTableViewController.m */; };
 		CDA9D56A1B4DF61D00C3170F /* DSBlueBeanTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDA9D5691B4DF61D00C3170F /* DSBlueBeanTableViewController.m */; };
 		CDA9D56F1B4DFA1E00C3170F /* DSBlueBeanTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CDA9D56E1B4DFA1E00C3170F /* DSBlueBeanTableViewCell.m */; };
@@ -94,12 +93,10 @@
 		CD16E7B61B24FBC50071E1CF /* DSAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DSAppDelegate.m; sourceTree = "<group>"; };
 		CD16E7B81B24FBC50071E1CF /* DSRealtimeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DSRealtimeViewController.h; sourceTree = "<group>"; };
 		CD16E7B91B24FBC50071E1CF /* DSRealtimeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DSRealtimeViewController.m; sourceTree = "<group>"; };
-		CD16E7BB1B24FBC50071E1CF /* DSHistoryViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DSHistoryViewController.h; sourceTree = "<group>"; };
-		CD16E7BC1B24FBC50071E1CF /* DSHistoryViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DSHistoryViewController.m; sourceTree = "<group>"; };
 		CD16E7BF1B24FBC50071E1CF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CD16E7C11B24FBC50071E1CF /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		CD7F378B1B378EA300C19A6E /* DSHistoryTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSHistoryTableViewController.h; sourceTree = "<group>"; };
-		CD7F378C1B378EA300C19A6E /* DSHistoryTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSHistoryTableViewController.m; sourceTree = "<group>"; };
+		CD7F378B1B378EA300C19A6E /* DSHistoryTimeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSHistoryTimeViewController.h; sourceTree = "<group>"; };
+		CD7F378C1B378EA300C19A6E /* DSHistoryTimeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSHistoryTimeViewController.m; sourceTree = "<group>"; };
 		CDA9D55E1B4DE49100C3170F /* DSSettingsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSSettingsTableViewController.h; sourceTree = "<group>"; };
 		CDA9D55F1B4DE49100C3170F /* DSSettingsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSSettingsTableViewController.m; sourceTree = "<group>"; };
 		CDA9D5681B4DF61D00C3170F /* DSBlueBeanTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSBlueBeanTableViewController.h; sourceTree = "<group>"; };
@@ -199,10 +196,8 @@
 				CDA9D5691B4DF61D00C3170F /* DSBlueBeanTableViewController.m */,
 				53612AC51B51D0CF002D7690 /* DSData.h */,
 				53612AC61B51D0CF002D7690 /* DSData.m */,
-				CD7F378B1B378EA300C19A6E /* DSHistoryTableViewController.h */,
-				CD7F378C1B378EA300C19A6E /* DSHistoryTableViewController.m */,
-				CD16E7BB1B24FBC50071E1CF /* DSHistoryViewController.h */,
-				CD16E7BC1B24FBC50071E1CF /* DSHistoryViewController.m */,
+				CD7F378B1B378EA300C19A6E /* DSHistoryTimeViewController.h */,
+				CD7F378C1B378EA300C19A6E /* DSHistoryTimeViewController.m */,
 				CD12CB5C1B385D55004F3AB7 /* DSInformationViewController.h */,
 				CD12CB5D1B385D55004F3AB7 /* DSInformationViewController.m */,
 				532B95601B5F4582003B1D08 /* DSInformationDetailViewController.h */,
@@ -406,10 +401,9 @@
 				CDA9D5601B4DE49100C3170F /* DSSettingsTableViewController.m in Sources */,
 				CDA9D56A1B4DF61D00C3170F /* DSBlueBeanTableViewController.m in Sources */,
 				532B955D1B5F3950003B1D08 /* DSSymptom.m in Sources */,
-				CD7F378D1B378EA300C19A6E /* DSHistoryTableViewController.m in Sources */,
+				CD7F378D1B378EA300C19A6E /* DSHistoryTimeViewController.m in Sources */,
 				CDA9D5791B4E127F00C3170F /* DSBlueBeanConnector.m in Sources */,
 				532B95621B5F4583003B1D08 /* DSInformationDetailViewController.m in Sources */,
-				CD16E7BD1B24FBC50071E1CF /* DSHistoryViewController.m in Sources */,
 				CD16E7B71B24FBC50071E1CF /* DSAppDelegate.m in Sources */,
 				532B95581B5F378A003B1D08 /* DSSymptomTableViewCell.m in Sources */,
 				CD16E7BA1B24FBC50071E1CF /* DSRealtimeViewController.m in Sources */,

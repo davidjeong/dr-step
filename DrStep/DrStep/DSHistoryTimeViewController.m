@@ -1,14 +1,14 @@
 //
-//  HistoryTableViewController.m
+//  HistoryTimeViewController.m
 //  Dr. Step
 //
 //  Created by David Jeong on 2015. 6. 21..
 //
 //
 
-#import "DSHistoryTableViewController.h"
+#import "DSHistoryTimeViewController.h"
 
-@interface DSHistoryTableViewController ()
+@interface DSHistoryTimeViewController ()
 
 @property (strong, nonatomic) NSDateFormatter *dateFormatter;
 @property (strong, nonatomic) NSDate *startDate;
@@ -23,7 +23,7 @@
 
 @end
 
-@implementation DSHistoryTableViewController
+@implementation DSHistoryTimeViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
