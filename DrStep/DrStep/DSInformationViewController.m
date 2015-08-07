@@ -113,12 +113,13 @@
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"showSymptomDetails"]) {
-        [self.searchController setActive:NO];
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         DSSymptom *symptom = [self.searchResults objectAtIndex:indexPath.row];
-        
+
         DSInformationDetailViewController *viewController = segue.destinationViewController;
         viewController.symptom = symptom;
+        
+        [self.searchController setActive:NO];
     }
 }
 
