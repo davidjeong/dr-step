@@ -343,7 +343,9 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Info" image="library_filled.png" id="Hdc-pj-lZg"/>
-                    <navigationItem key="navigationItem" title="Information" id="UgG-bm-EBg"/>
+                    <navigationItem key="navigationItem" title="Information" id="UgG-bm-EBg">
+                        <barButtonItem key="leftBarButtonItem" title="Help" id="ZTw-cC-tOm"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="9tr-Ud-JFV" id="X57-Xd-UD8"/>
                     </connections>
@@ -441,7 +443,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6qA-NH-wzQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2734" y="1060"/>
+            <point key="canvasLocation" x="2734" y="1048"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
