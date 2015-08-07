@@ -121,7 +121,4 @@
     }
 }
 
-- (IBAction)unwindToInformationController:(UIStoryboardSegue *)segue {
-}
-
 @end

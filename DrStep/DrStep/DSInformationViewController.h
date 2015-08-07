@@ -10,6 +10,4 @@
 
 @interface DSInformationViewController : UIViewController <UISearchBarDelegate, UISearchResultsUpdating, UITableViewDataSource, UITableViewDelegate>
 
-- (IBAction)unwindToInformationController:(UIStoryboardSegue *)segue;
-
 @end

@@ -33,6 +33,7 @@
 		53DBA6471B74511600F1BC64 /* app_logo_120_120.png in Resources */ = {isa = PBXBuildFile; fileRef = 53DBA6421B74511600F1BC64 /* app_logo_120_120.png */; };
 		53DBA6481B74511600F1BC64 /* app_logo_180_180.png in Resources */ = {isa = PBXBuildFile; fileRef = 53DBA6431B74511600F1BC64 /* app_logo_180_180.png */; };
 		53DBA6491B74511600F1BC64 /* app_logo_original.png in Resources */ = {isa = PBXBuildFile; fileRef = 53DBA6441B74511600F1BC64 /* app_logo_original.png */; };
+		53DBA64C1B74637200F1BC64 /* DSHistoryTimePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53DBA64B1B74637200F1BC64 /* DSHistoryTimePickerViewController.m */; };
 		7F9D04A404B7F315EB26D4E1 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DF5B73B1D557B0CEC5618F1A /* libPods.a */; };
 		CD12CB5E1B385D55004F3AB7 /* DSInformationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD12CB5D1B385D55004F3AB7 /* DSInformationViewController.m */; };
 		CD16E7B41B24FBC50071E1CF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CD16E7B31B24FBC50071E1CF /* main.m */; };
@@ -86,6 +87,8 @@
 		53DBA6421B74511600F1BC64 /* app_logo_120_120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = app_logo_120_120.png; path = images/app_logo_120_120.png; sourceTree = "<group>"; };
 		53DBA6431B74511600F1BC64 /* app_logo_180_180.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = app_logo_180_180.png; path = images/app_logo_180_180.png; sourceTree = "<group>"; };
 		53DBA6441B74511600F1BC64 /* app_logo_original.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = app_logo_original.png; path = images/app_logo_original.png; sourceTree = "<group>"; };
+		53DBA64A1B74637200F1BC64 /* DSHistoryTimePickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSHistoryTimePickerViewController.h; sourceTree = "<group>"; };
+		53DBA64B1B74637200F1BC64 /* DSHistoryTimePickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSHistoryTimePickerViewController.m; sourceTree = "<group>"; };
 		9E5682A54B82EF61D63EB688 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		CD12CB5C1B385D55004F3AB7 /* DSInformationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSInformationViewController.h; sourceTree = "<group>"; };
 		CD12CB5D1B385D55004F3AB7 /* DSInformationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSInformationViewController.m; sourceTree = "<group>"; };
@@ -194,6 +197,8 @@
 				53612AC61B51D0CF002D7690 /* DSData.m */,
 				CD7F378B1B378EA300C19A6E /* DSHistoryTimeViewController.h */,
 				CD7F378C1B378EA300C19A6E /* DSHistoryTimeViewController.m */,
+				53DBA64A1B74637200F1BC64 /* DSHistoryTimePickerViewController.h */,
+				53DBA64B1B74637200F1BC64 /* DSHistoryTimePickerViewController.m */,
 				CD12CB5C1B385D55004F3AB7 /* DSInformationViewController.h */,
 				CD12CB5D1B385D55004F3AB7 /* DSInformationViewController.m */,
 				532B95601B5F4582003B1D08 /* DSInformationDetailViewController.h */,
@@ -400,6 +405,7 @@
 				532B95581B5F378A003B1D08 /* DSSymptomTableViewCell.m in Sources */,
 				CD16E7BA1B24FBC50071E1CF /* DSRealtimeViewController.m in Sources */,
 				CD12CB5E1B385D55004F3AB7 /* DSInformationViewController.m in Sources */,
+				53DBA64C1B74637200F1BC64 /* DSHistoryTimePickerViewController.m in Sources */,
 				CD16E7B41B24FBC50071E1CF /* main.m in Sources */,
 				535468B51B5968E6001D66E1 /* DSAppConstants.m in Sources */,
 				535468C71B5ABF18001D66E1 /* DSData.xcdatamodeld in Sources */,

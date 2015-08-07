@@ -106,10 +106,10 @@
             </objects>
             <point key="canvasLocation" x="750" y="1733"/>
         </scene>
-        <!--View Controller-->
+        <!--History Time View Controller-->
         <scene sceneID="wY4-i7-TEm">
             <objects>
-                <viewController id="yzz-MB-7tv" sceneMemberID="viewController">
+                <viewController id="yzz-MB-7tv" customClass="DSHistoryTimeViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="i5F-Px-E8u"/>
                         <viewControllerLayoutGuide type="bottom" id="3Od-tj-qaV"/>
@@ -117,25 +117,41 @@
                     <view key="view" contentMode="scaleToFill" id="6Il-og-mMz">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="timeLabel" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Fb-FV-V6z">
+                                <rect key="frame" x="0.0" y="84" width="600" height="20.5"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="9Fb-FV-V6z" firstAttribute="top" secondItem="i5F-Px-E8u" secondAttribute="bottom" constant="20" id="Gya-Jr-mZ8"/>
+                            <constraint firstItem="9Fb-FV-V6z" firstAttribute="leading" secondItem="6Il-og-mMz" secondAttribute="leading" id="Zft-PR-sr1"/>
+                            <constraint firstAttribute="trailing" secondItem="9Fb-FV-V6z" secondAttribute="trailing" id="iza-cr-H4F"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="BUy-uJ-7GG">
                         <barButtonItem key="leftBarButtonItem" title="Analyze" id="VGX-rI-UZI"/>
                         <barButtonItem key="rightBarButtonItem" title="Adjust Time" id="Jcn-7H-36x">
                             <connections>
-                                <segue destination="UYf-L4-8Um" kind="show" id="XZ1-0h-Qa8"/>
+                                <segue destination="UYf-L4-8Um" kind="show" identifier="showDatePicker" id="XZ1-0h-Qa8"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="timeLabel" destination="9Fb-FV-V6z" id="PiX-wA-4tR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dR9-Uu-HYg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1528" y="348"/>
         </scene>
-        <!--History Time View Controller-->
+        <!--History Time Picker View Controller-->
         <scene sceneID="BjP-QK-hkg">
             <objects>
-                <viewController storyboardIdentifier="HistoryTableViewController" id="UYf-L4-8Um" customClass="DSHistoryTimeViewController" sceneMemberID="viewController">
+                <viewController id="UYf-L4-8Um" customClass="DSHistoryTimePickerViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="fkg-M3-Fjg"/>
                         <viewControllerLayoutGuide type="bottom" id="3n1-X1-gDx"/>
@@ -171,6 +187,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="mMd-DX-iPj"/>
+                    <connections>
+                        <outlet property="endDatePicker" destination="Iy8-00-ZhB" id="mYZ-eK-gVZ"/>
+                        <outlet property="startDatePicker" destination="ir3-bB-FVv" id="Pge-1K-zb0"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S5e-Aw-yLm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

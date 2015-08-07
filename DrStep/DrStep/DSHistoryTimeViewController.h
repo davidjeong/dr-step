@@ -10,7 +10,7 @@
 
 @interface DSHistoryTimeViewController : UIViewController
 
-- (IBAction)setStartTime:(id)sender;
-- (IBAction)setEndTime:(id)sender;
+@property (strong, nonatomic) NSDate *startDate;
+@property (strong, nonatomic) NSDate *endDate;
 
 @end
