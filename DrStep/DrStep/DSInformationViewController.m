@@ -38,15 +38,13 @@
     [self.tableView setDelegate:self];
     
     self.tableView.tableHeaderView = self.searchController.searchBar;
-    self.definesPresentationContext = YES;
+    //self.definesPresentationContext = YES;
     
     DSAppConstants *constants = [DSAppConstants constants];
     self.searchResults = constants.symptoms;
 }
 
 - (void) viewWillAppear:(BOOL)animated {
-    [self.searchController.searchBar setText:@""];
-    [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:animated];
     [super viewWillAppear:animated];
 }
 
@@ -78,14 +76,6 @@
 
 - (void) searchBar:(UISearchBar *)searchBar selectedScopeButtonIndexDidChange:(NSInteger)selectedScope {
     [self updateSearchResultsForSearchController:self.searchController];
-}
-
--(void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar {
-    [self.navigationController setNavigationBarHidden:YES];
-}
-
--(void)searchBarTextDidEndEditing:(UISearchBar *)searchBar {
-    [self.navigationController setNavigationBarHidden:YES];
 }
 
 #pragma mark - UITableViewDataSource
@@ -122,6 +112,7 @@
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"showSymptomDetails"]) {
+        [self.searchController setActive:NO];
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         DSSymptom *symptom = [self.searchResults objectAtIndex:indexPath.row];
         
