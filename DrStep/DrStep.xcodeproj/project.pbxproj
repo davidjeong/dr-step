@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5305EB6F1BE53D1700155825 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5305EB6C1BE53D1700155825 /* FBSDKCoreKit.framework */; };
+		5305EB701BE53D1700155825 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5305EB6D1BE53D1700155825 /* FBSDKLoginKit.framework */; };
+		5305EB711BE53D1700155825 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5305EB6E1BE53D1700155825 /* FBSDKShareKit.framework */; };
 		532B95491B5F00C2003B1D08 /* footprint_filled.png in Resources */ = {isa = PBXBuildFile; fileRef = 532B95411B5F00C2003B1D08 /* footprint_filled.png */; };
 		532B954A1B5F00C2003B1D08 /* footprint_filled@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 532B95421B5F00C2003B1D08 /* footprint_filled@2x.png */; };
 		532B954B1B5F00C2003B1D08 /* library_filled.png in Resources */ = {isa = PBXBuildFile; fileRef = 532B95431B5F00C2003B1D08 /* library_filled.png */; };
@@ -21,20 +24,34 @@
 		532B955D1B5F3950003B1D08 /* DSSymptom.m in Sources */ = {isa = PBXBuildFile; fileRef = 532B955C1B5F3950003B1D08 /* DSSymptom.m */; };
 		532B955F1B5F3BDF003B1D08 /* Symptoms.plist in Resources */ = {isa = PBXBuildFile; fileRef = 532B955E1B5F3BDF003B1D08 /* Symptoms.plist */; };
 		532B95621B5F4583003B1D08 /* DSInformationDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 532B95611B5F4582003B1D08 /* DSInformationDetailViewController.m */; };
+		535282331BE545EB00A675F8 /* DSLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 535282321BE545EB00A675F8 /* DSLoginViewController.m */; };
+		535282351BE549A000A675F8 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 535282341BE549A000A675F8 /* CoreData.framework */; };
+		535282371BE549B400A675F8 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 535282361BE549B400A675F8 /* CoreLocation.framework */; };
+		535282391BE549BA00A675F8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 535282381BE549BA00A675F8 /* UIKit.framework */; };
+		535282461BE54D1400A675F8 /* libBean-iOS-OSX-SDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 535282451BE54D1400A675F8 /* libBean-iOS-OSX-SDK.a */; };
+		5352824B1BE54D3100A675F8 /* libLFHeatMap.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 535282481BE54D3100A675F8 /* libLFHeatMap.a */; };
+		5352824F1BE54E9F00A675F8 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 535282251BE5418500A675F8 /* Bolts.framework */; };
+		535282501BE54E9F00A675F8 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 535282261BE5418500A675F8 /* Parse.framework */; };
+		535282521BE54E9F00A675F8 /* ParseFacebookUtilsV4.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 535282291BE5418500A675F8 /* ParseFacebookUtilsV4.framework */; };
+		535282551BE5500700A675F8 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 535282541BE5500700A675F8 /* StoreKit.framework */; };
+		535282571BE5501200A675F8 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 535282561BE5501200A675F8 /* CoreGraphics.framework */; };
+		535282591BE5501F00A675F8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 535282581BE5501F00A675F8 /* Foundation.framework */; };
+		5352825B1BE5531500A675F8 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 5352825A1BE5531500A675F8 /* libsqlite3.0.tbd */; };
+		5352825D1BE5533600A675F8 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5352825C1BE5533600A675F8 /* Security.framework */; };
+		5352825F1BE5535D00A675F8 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5352825E1BE5535D00A675F8 /* AudioToolbox.framework */; };
+		535282611BE5536800A675F8 /* libz.1.1.3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 535282601BE5536800A675F8 /* libz.1.1.3.tbd */; };
+		535282631BE5537600A675F8 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 535282621BE5537600A675F8 /* SystemConfiguration.framework */; };
+		535282651BE5537E00A675F8 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 535282641BE5537E00A675F8 /* MobileCoreServices.framework */; };
 		535468B01B596108001D66E1 /* Coordinates.plist in Resources */ = {isa = PBXBuildFile; fileRef = 535468AF1B596108001D66E1 /* Coordinates.plist */; };
 		535468B51B5968E6001D66E1 /* DSAppConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 535468B41B5968E6001D66E1 /* DSAppConstants.m */; };
 		535468BF1B59DAA8001D66E1 /* foot_image.png in Resources */ = {isa = PBXBuildFile; fileRef = 535468BE1B59DAA8001D66E1 /* foot_image.png */; };
-		535468C71B5ABF18001D66E1 /* DSData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 535468C51B5ABF18001D66E1 /* DSData.xcdatamodeld */; };
 		53612AC71B51D0CF002D7690 /* DSData.m in Sources */ = {isa = PBXBuildFile; fileRef = 53612AC61B51D0CF002D7690 /* DSData.m */; };
-		53C538AA1B600EA3002A84CA /* libPods-Bean-iOS-OSX-SDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 53C538A81B600EA3002A84CA /* libPods-Bean-iOS-OSX-SDK.a */; };
-		53C538AB1B600EA3002A84CA /* libPods-LFHeatMap.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 53C538A91B600EA3002A84CA /* libPods-LFHeatMap.a */; };
 		53DBA6451B74511600F1BC64 /* app_logo_58_58.png in Resources */ = {isa = PBXBuildFile; fileRef = 53DBA6401B74511600F1BC64 /* app_logo_58_58.png */; };
 		53DBA6461B74511600F1BC64 /* app_logo_80_80.png in Resources */ = {isa = PBXBuildFile; fileRef = 53DBA6411B74511600F1BC64 /* app_logo_80_80.png */; };
 		53DBA6471B74511600F1BC64 /* app_logo_120_120.png in Resources */ = {isa = PBXBuildFile; fileRef = 53DBA6421B74511600F1BC64 /* app_logo_120_120.png */; };
 		53DBA6481B74511600F1BC64 /* app_logo_180_180.png in Resources */ = {isa = PBXBuildFile; fileRef = 53DBA6431B74511600F1BC64 /* app_logo_180_180.png */; };
 		53DBA6491B74511600F1BC64 /* app_logo_original.png in Resources */ = {isa = PBXBuildFile; fileRef = 53DBA6441B74511600F1BC64 /* app_logo_original.png */; };
 		53DBA64C1B74637200F1BC64 /* DSHistoryTimePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53DBA64B1B74637200F1BC64 /* DSHistoryTimePickerViewController.m */; };
-		7F9D04A404B7F315EB26D4E1 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DF5B73B1D557B0CEC5618F1A /* libPods.a */; };
 		CD12CB5E1B385D55004F3AB7 /* DSInformationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD12CB5D1B385D55004F3AB7 /* DSInformationViewController.m */; };
 		CD16E7B41B24FBC50071E1CF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CD16E7B31B24FBC50071E1CF /* main.m */; };
 		CD16E7B71B24FBC50071E1CF /* DSAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CD16E7B61B24FBC50071E1CF /* DSAppDelegate.m */; };
@@ -54,8 +71,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		5313D0511B5EACE400914B32 /* libPods-LFHeatMap.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-LFHeatMap.a"; path = "Pods/../build/Debug-iphoneos/libPods-LFHeatMap.a"; sourceTree = "<group>"; };
-		5315D8811B50F01600B56EA5 /* libPods-Bean-iOS-OSX-SDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-Bean-iOS-OSX-SDK.a"; path = "Pods/../build/Debug-iphoneos/libPods-Bean-iOS-OSX-SDK.a"; sourceTree = "<group>"; };
+		5305EB6C1BE53D1700155825 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = ../../FacebookSDK/FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		5305EB6D1BE53D1700155825 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = ../../FacebookSDK/FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		5305EB6E1BE53D1700155825 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = ../../FacebookSDK/FBSDKShareKit.framework; sourceTree = "<group>"; };
 		532B95411B5F00C2003B1D08 /* footprint_filled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = footprint_filled.png; path = images/footprint_filled.png; sourceTree = "<group>"; };
 		532B95421B5F00C2003B1D08 /* footprint_filled@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "footprint_filled@2x.png"; path = "images/footprint_filled@2x.png"; sourceTree = "<group>"; };
 		532B95431B5F00C2003B1D08 /* library_filled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = library_filled.png; path = images/library_filled.png; sourceTree = "<group>"; };
@@ -73,15 +91,31 @@
 		532B955E1B5F3BDF003B1D08 /* Symptoms.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Symptoms.plist; sourceTree = "<group>"; };
 		532B95601B5F4582003B1D08 /* DSInformationDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSInformationDetailViewController.h; sourceTree = "<group>"; };
 		532B95611B5F4582003B1D08 /* DSInformationDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSInformationDetailViewController.m; sourceTree = "<group>"; };
+		535282251BE5418500A675F8 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = ../../Parse/Bolts.framework; sourceTree = "<group>"; };
+		535282261BE5418500A675F8 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = ../../Parse/Parse.framework; sourceTree = "<group>"; };
+		535282291BE5418500A675F8 /* ParseFacebookUtilsV4.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ParseFacebookUtilsV4.framework; path = ../../Parse/ParseFacebookUtilsV4.framework; sourceTree = "<group>"; };
+		535282311BE545EB00A675F8 /* DSLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSLoginViewController.h; sourceTree = "<group>"; };
+		535282321BE545EB00A675F8 /* DSLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSLoginViewController.m; sourceTree = "<group>"; };
+		535282341BE549A000A675F8 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		535282361BE549B400A675F8 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		535282381BE549BA00A675F8 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		535282451BE54D1400A675F8 /* libBean-iOS-OSX-SDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libBean-iOS-OSX-SDK.a"; path = "Pods/../build/Release-iphoneos/libBean-iOS-OSX-SDK.a"; sourceTree = "<group>"; };
+		535282481BE54D3100A675F8 /* libLFHeatMap.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libLFHeatMap.a; path = "Pods/../build/Release-iphoneos/libLFHeatMap.a"; sourceTree = "<group>"; };
+		535282541BE5500700A675F8 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		535282561BE5501200A675F8 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		535282581BE5501F00A675F8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		5352825A1BE5531500A675F8 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
+		5352825C1BE5533600A675F8 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		5352825E1BE5535D00A675F8 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		535282601BE5536800A675F8 /* libz.1.1.3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.1.1.3.tbd; path = usr/lib/libz.1.1.3.tbd; sourceTree = SDKROOT; };
+		535282621BE5537600A675F8 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		535282641BE5537E00A675F8 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		535468AF1B596108001D66E1 /* Coordinates.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Coordinates.plist; sourceTree = "<group>"; };
 		535468B31B5968E6001D66E1 /* DSAppConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSAppConstants.h; sourceTree = "<group>"; };
 		535468B41B5968E6001D66E1 /* DSAppConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSAppConstants.m; sourceTree = "<group>"; };
 		535468BE1B59DAA8001D66E1 /* foot_image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = foot_image.png; path = images/foot_image.png; sourceTree = "<group>"; };
-		535468C61B5ABF18001D66E1 /* BWData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BWData.xcdatamodel; sourceTree = "<group>"; };
 		53612AC51B51D0CF002D7690 /* DSData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSData.h; sourceTree = "<group>"; };
 		53612AC61B51D0CF002D7690 /* DSData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSData.m; sourceTree = "<group>"; };
-		53C538A81B600EA3002A84CA /* libPods-Bean-iOS-OSX-SDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-Bean-iOS-OSX-SDK.a"; path = "Pods/../build/Debug-iphoneos/libPods-Bean-iOS-OSX-SDK.a"; sourceTree = "<group>"; };
-		53C538A91B600EA3002A84CA /* libPods-LFHeatMap.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-LFHeatMap.a"; path = "Pods/../build/Debug-iphoneos/libPods-LFHeatMap.a"; sourceTree = "<group>"; };
 		53DBA6401B74511600F1BC64 /* app_logo_58_58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = app_logo_58_58.png; path = images/app_logo_58_58.png; sourceTree = "<group>"; };
 		53DBA6411B74511600F1BC64 /* app_logo_80_80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = app_logo_80_80.png; path = images/app_logo_80_80.png; sourceTree = "<group>"; };
 		53DBA6421B74511600F1BC64 /* app_logo_120_120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = app_logo_120_120.png; path = images/app_logo_120_120.png; sourceTree = "<group>"; };
@@ -109,7 +143,6 @@
 		CDA9D5691B4DF61D00C3170F /* DSBlueBeanTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSBlueBeanTableViewController.m; sourceTree = "<group>"; };
 		CDA9D56D1B4DFA1E00C3170F /* DSBlueBeanTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSBlueBeanTableViewCell.h; sourceTree = "<group>"; };
 		CDA9D56E1B4DFA1E00C3170F /* DSBlueBeanTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSBlueBeanTableViewCell.m; sourceTree = "<group>"; };
-		CDA9D5711B4E001000C3170F /* libPods-Bean-iOS-OSX-SDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-Bean-iOS-OSX-SDK.a"; path = "Pods/../build/Debug-iphoneos/libPods-Bean-iOS-OSX-SDK.a"; sourceTree = "<group>"; };
 		CDA9D5771B4E127F00C3170F /* DSBlueBeanConnector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSBlueBeanConnector.h; sourceTree = "<group>"; };
 		CDA9D5781B4E127F00C3170F /* DSBlueBeanConnector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSBlueBeanConnector.m; sourceTree = "<group>"; };
 		CDA9D5A01B4E229000C3170F /* app_launch_screen_640_960.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = app_launch_screen_640_960.png; path = images/app_launch_screen_640_960.png; sourceTree = "<group>"; };
@@ -118,7 +151,6 @@
 		CDDFB1251B39115600DF1D5B /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		CDDFB1271B39116200DF1D5B /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		CE87C6738105A298299325A5 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
-		DF5B73B1D557B0CEC5618F1A /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,11 +158,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				53C538AA1B600EA3002A84CA /* libPods-Bean-iOS-OSX-SDK.a in Frameworks */,
-				53C538AB1B600EA3002A84CA /* libPods-LFHeatMap.a in Frameworks */,
-				CDDFB1281B39116200DF1D5B /* Accelerate.framework in Frameworks */,
+				535282611BE5536800A675F8 /* libz.1.1.3.tbd in Frameworks */,
+				5352825B1BE5531500A675F8 /* libsqlite3.0.tbd in Frameworks */,
+				535282461BE54D1400A675F8 /* libBean-iOS-OSX-SDK.a in Frameworks */,
+				5352824B1BE54D3100A675F8 /* libLFHeatMap.a in Frameworks */,
+				5352825F1BE5535D00A675F8 /* AudioToolbox.framework in Frameworks */,
+				535282371BE549B400A675F8 /* CoreLocation.framework in Frameworks */,
+				535282571BE5501200A675F8 /* CoreGraphics.framework in Frameworks */,
+				5305EB6F1BE53D1700155825 /* FBSDKCoreKit.framework in Frameworks */,
+				5305EB701BE53D1700155825 /* FBSDKLoginKit.framework in Frameworks */,
+				5305EB711BE53D1700155825 /* FBSDKShareKit.framework in Frameworks */,
+				535282651BE5537E00A675F8 /* MobileCoreServices.framework in Frameworks */,
+				535282631BE5537600A675F8 /* SystemConfiguration.framework in Frameworks */,
 				CDDFB1261B39115600DF1D5B /* QuartzCore.framework in Frameworks */,
-				7F9D04A404B7F315EB26D4E1 /* libPods.a in Frameworks */,
+				535282551BE5500700A675F8 /* StoreKit.framework in Frameworks */,
+				5352825D1BE5533600A675F8 /* Security.framework in Frameworks */,
+				CDDFB1281B39116200DF1D5B /* Accelerate.framework in Frameworks */,
+				535282501BE54E9F00A675F8 /* Parse.framework in Frameworks */,
+				535282521BE54E9F00A675F8 /* ParseFacebookUtilsV4.framework in Frameworks */,
+				535282351BE549A000A675F8 /* CoreData.framework in Frameworks */,
+				535282391BE549BA00A675F8 /* UIKit.framework in Frameworks */,
+				535282591BE5501F00A675F8 /* Foundation.framework in Frameworks */,
+				5352824F1BE54E9F00A675F8 /* Bolts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -149,12 +198,26 @@
 		7377D6F3ACB1645A58B7499C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				53C538A81B600EA3002A84CA /* libPods-Bean-iOS-OSX-SDK.a */,
-				53C538A91B600EA3002A84CA /* libPods-LFHeatMap.a */,
-				5313D0511B5EACE400914B32 /* libPods-LFHeatMap.a */,
-				5315D8811B50F01600B56EA5 /* libPods-Bean-iOS-OSX-SDK.a */,
-				CDA9D5711B4E001000C3170F /* libPods-Bean-iOS-OSX-SDK.a */,
-				DF5B73B1D557B0CEC5618F1A /* libPods.a */,
+				535282641BE5537E00A675F8 /* MobileCoreServices.framework */,
+				535282621BE5537600A675F8 /* SystemConfiguration.framework */,
+				535282601BE5536800A675F8 /* libz.1.1.3.tbd */,
+				5352825E1BE5535D00A675F8 /* AudioToolbox.framework */,
+				5352825C1BE5533600A675F8 /* Security.framework */,
+				5352825A1BE5531500A675F8 /* libsqlite3.0.tbd */,
+				535282581BE5501F00A675F8 /* Foundation.framework */,
+				535282561BE5501200A675F8 /* CoreGraphics.framework */,
+				535282541BE5500700A675F8 /* StoreKit.framework */,
+				535282481BE54D3100A675F8 /* libLFHeatMap.a */,
+				535282451BE54D1400A675F8 /* libBean-iOS-OSX-SDK.a */,
+				535282381BE549BA00A675F8 /* UIKit.framework */,
+				535282361BE549B400A675F8 /* CoreLocation.framework */,
+				535282341BE549A000A675F8 /* CoreData.framework */,
+				535282251BE5418500A675F8 /* Bolts.framework */,
+				535282261BE5418500A675F8 /* Parse.framework */,
+				535282291BE5418500A675F8 /* ParseFacebookUtilsV4.framework */,
+				5305EB6C1BE53D1700155825 /* FBSDKCoreKit.framework */,
+				5305EB6D1BE53D1700155825 /* FBSDKLoginKit.framework */,
+				5305EB6E1BE53D1700155825 /* FBSDKShareKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -203,6 +266,8 @@
 				CD12CB5D1B385D55004F3AB7 /* DSInformationViewController.m */,
 				532B95601B5F4582003B1D08 /* DSInformationDetailViewController.h */,
 				532B95611B5F4582003B1D08 /* DSInformationDetailViewController.m */,
+				535282311BE545EB00A675F8 /* DSLoginViewController.h */,
+				535282321BE545EB00A675F8 /* DSLoginViewController.m */,
 				CD16E7B81B24FBC50071E1CF /* DSRealtimeViewController.h */,
 				CD16E7B91B24FBC50071E1CF /* DSRealtimeViewController.m */,
 				CDA9D55E1B4DE49100C3170F /* DSSettingsTableViewController.h */,
@@ -217,7 +282,6 @@
 				CDA9D5B41B4E257F00C3170F /* LaunchScreen.xib */,
 				535468AF1B596108001D66E1 /* Coordinates.plist */,
 				532B955E1B5F3BDF003B1D08 /* Symptoms.plist */,
-				535468C51B5ABF18001D66E1 /* DSData.xcdatamodeld */,
 			);
 			path = DrStep;
 			sourceTree = "<group>";
@@ -410,6 +474,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				535282331BE545EB00A675F8 /* DSLoginViewController.m in Sources */,
 				CDA9D56F1B4DFA1E00C3170F /* DSBlueBeanTableViewCell.m in Sources */,
 				CDA9D5601B4DE49100C3170F /* DSSettingsTableViewController.m in Sources */,
 				CDA9D56A1B4DF61D00C3170F /* DSBlueBeanTableViewController.m in Sources */,
@@ -424,7 +489,6 @@
 				53DBA64C1B74637200F1BC64 /* DSHistoryTimePickerViewController.m in Sources */,
 				CD16E7B41B24FBC50071E1CF /* main.m in Sources */,
 				535468B51B5968E6001D66E1 /* DSAppConstants.m in Sources */,
-				535468C71B5ABF18001D66E1 /* DSData.xcdatamodeld in Sources */,
 				53612AC71B51D0CF002D7690 /* DSData.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -532,10 +596,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					/Users/juhwanjeong/Documents/FacebookSDK,
+					/Users/juhwanjeong/Documents/Parse,
+				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
@@ -546,7 +615,10 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				ONLY_ACTIVE_ARCH = YES;
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"$(inherited)",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.piezo.DrStep;
 				PRODUCT_NAME = "Dr. Step";
 				PROVISIONING_PROFILE = "";
@@ -560,10 +632,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					/Users/juhwanjeong/Documents/FacebookSDK,
+					/Users/juhwanjeong/Documents/Parse,
+				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
@@ -573,7 +650,10 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"$(inherited)",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.piezo.DrStep;
 				PRODUCT_NAME = "Dr. Step";
 				PROVISIONING_PROFILE = "";
@@ -603,20 +683,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		535468C51B5ABF18001D66E1 /* DSData.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				535468C61B5ABF18001D66E1 /* BWData.xcdatamodel */,
-			);
-			currentVersion = 535468C61B5ABF18001D66E1 /* BWData.xcdatamodel */;
-			name = DSData.xcdatamodeld;
-			path = BWData.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = CD16E7A61B24FBC50071E1CF /* Project object */;
 }
