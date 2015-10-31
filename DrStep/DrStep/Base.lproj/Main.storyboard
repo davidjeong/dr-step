@@ -525,35 +525,30 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A10-ti-982">
-                                <rect key="frame" x="233" y="0.0" width="134" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A10-ti-982">
+                                <rect key="frame" x="195" y="279.5" width="210" height="41"/>
                                 <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="Login Via Facebook"/>
                                 <connections>
                                     <action selector="login:" destination="yFD-uH-gJF" eventType="touchUpInside" id="8lg-9k-Gfa"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="seZ-x7-dGJ">
-                                <rect key="frame" x="276" y="570" width="48" height="30"/>
-                                <animations/>
-                                <state key="normal" title="Logout"/>
-                                <connections>
-                                    <action selector="logout:" destination="yFD-uH-gJF" eventType="touchUpInside" id="zeN-0e-mls"/>
                                 </connections>
                             </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="seZ-x7-dGJ" firstAttribute="centerX" secondItem="sWk-Hs-7zU" secondAttribute="centerX" id="3NY-Zg-Jdz"/>
-                            <constraint firstItem="yQ5-Ql-WDW" firstAttribute="top" secondItem="seZ-x7-dGJ" secondAttribute="bottom" id="w6f-xG-Eki"/>
+                            <constraint firstItem="A10-ti-982" firstAttribute="centerY" secondItem="sWk-Hs-7zU" secondAttribute="centerY" id="Gc9-5e-Gcy"/>
                             <constraint firstItem="A10-ti-982" firstAttribute="centerX" secondItem="sWk-Hs-7zU" secondAttribute="centerX" id="yjh-2h-BfP"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <segue destination="49e-Tb-3d3" kind="show" identifier="passLogin" id="1SZ-OT-Xo1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="62I-aa-vrX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-842" y="360"/>
+            <point key="canvasLocation" x="-928" y="360"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -567,6 +562,7 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
+                        <segue destination="mGi-vT-nVf" kind="relationship" relationship="viewControllers" id="hqy-ei-ghZ"/>
                         <segue destination="9pv-A4-QxB" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
                         <segue destination="QP0-6W-9he" kind="relationship" relationship="viewControllers" id="XB5-Hr-Ftz"/>
                         <segue destination="IBa-g0-P3F" kind="relationship" relationship="viewControllers" id="Iau-cZ-sIX"/>
@@ -575,7 +571,27 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-126" y="360"/>
+            <point key="canvasLocation" x="-124" y="360"/>
+        </scene>
+        <!--Statistics-->
+        <scene sceneID="oQB-Su-ll1">
+            <objects>
+                <viewController id="mGi-vT-nVf" customClass="DSStatisticsViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="kZq-Ec-XOQ"/>
+                        <viewControllerLayoutGuide type="bottom" id="df4-HP-yX2"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="iX4-S0-EL8">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Statistics" id="Vfx-JG-aUZ"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1UI-y9-QT6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-124" y="1333"/>
         </scene>
     </scenes>
     <resources>

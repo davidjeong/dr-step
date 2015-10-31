@@ -46,6 +46,7 @@
 		535468B51B5968E6001D66E1 /* DSAppConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 535468B41B5968E6001D66E1 /* DSAppConstants.m */; };
 		535468BF1B59DAA8001D66E1 /* foot_image.png in Resources */ = {isa = PBXBuildFile; fileRef = 535468BE1B59DAA8001D66E1 /* foot_image.png */; };
 		53612AC71B51D0CF002D7690 /* DSData.m in Sources */ = {isa = PBXBuildFile; fileRef = 53612AC61B51D0CF002D7690 /* DSData.m */; };
+		53D26BFD1BE56D8D00929D1D /* DSStatisticsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53D26BFC1BE56D8D00929D1D /* DSStatisticsViewController.m */; };
 		53DBA6451B74511600F1BC64 /* app_logo_58_58.png in Resources */ = {isa = PBXBuildFile; fileRef = 53DBA6401B74511600F1BC64 /* app_logo_58_58.png */; };
 		53DBA6461B74511600F1BC64 /* app_logo_80_80.png in Resources */ = {isa = PBXBuildFile; fileRef = 53DBA6411B74511600F1BC64 /* app_logo_80_80.png */; };
 		53DBA6471B74511600F1BC64 /* app_logo_120_120.png in Resources */ = {isa = PBXBuildFile; fileRef = 53DBA6421B74511600F1BC64 /* app_logo_120_120.png */; };
@@ -116,6 +117,8 @@
 		535468BE1B59DAA8001D66E1 /* foot_image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = foot_image.png; path = images/foot_image.png; sourceTree = "<group>"; };
 		53612AC51B51D0CF002D7690 /* DSData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSData.h; sourceTree = "<group>"; };
 		53612AC61B51D0CF002D7690 /* DSData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSData.m; sourceTree = "<group>"; };
+		53D26BFB1BE56D8D00929D1D /* DSStatisticsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSStatisticsViewController.h; sourceTree = "<group>"; };
+		53D26BFC1BE56D8D00929D1D /* DSStatisticsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSStatisticsViewController.m; sourceTree = "<group>"; };
 		53DBA6401B74511600F1BC64 /* app_logo_58_58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = app_logo_58_58.png; path = images/app_logo_58_58.png; sourceTree = "<group>"; };
 		53DBA6411B74511600F1BC64 /* app_logo_80_80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = app_logo_80_80.png; path = images/app_logo_80_80.png; sourceTree = "<group>"; };
 		53DBA6421B74511600F1BC64 /* app_logo_120_120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = app_logo_120_120.png; path = images/app_logo_120_120.png; sourceTree = "<group>"; };
@@ -272,6 +275,8 @@
 				CD16E7B91B24FBC50071E1CF /* DSRealtimeViewController.m */,
 				CDA9D55E1B4DE49100C3170F /* DSSettingsTableViewController.h */,
 				CDA9D55F1B4DE49100C3170F /* DSSettingsTableViewController.m */,
+				53D26BFB1BE56D8D00929D1D /* DSStatisticsViewController.h */,
+				53D26BFC1BE56D8D00929D1D /* DSStatisticsViewController.m */,
 				532B955B1B5F3950003B1D08 /* DSSymptom.h */,
 				532B955C1B5F3950003B1D08 /* DSSymptom.m */,
 				532B95561B5F378A003B1D08 /* DSSymptomTableViewCell.h */,
@@ -475,6 +480,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				535282331BE545EB00A675F8 /* DSLoginViewController.m in Sources */,
+				53D26BFD1BE56D8D00929D1D /* DSStatisticsViewController.m in Sources */,
 				CDA9D56F1B4DFA1E00C3170F /* DSBlueBeanTableViewCell.m in Sources */,
 				CDA9D5601B4DE49100C3170F /* DSSettingsTableViewController.m in Sources */,
 				CDA9D56A1B4DF61D00C3170F /* DSBlueBeanTableViewController.m in Sources */,
