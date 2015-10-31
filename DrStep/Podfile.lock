@@ -1,5 +1,5 @@
 PODS:
-  - Bean-iOS-OSX-SDK (0.9.0)
+  - Bean-iOS-OSX-SDK (0.10.0)
   - LFHeatMap (1.0.2)
 
 DEPENDENCIES:
@@ -7,7 +7,7 @@ DEPENDENCIES:
   - LFHeatMap
 
 SPEC CHECKSUMS:
-  Bean-iOS-OSX-SDK: 76add3bb4feb1801dc8d62bd9d44ccbfac062b52
+  Bean-iOS-OSX-SDK: 7396a43e999a2e53c16e89ff302ffea5fcc1c4c5
   LFHeatMap: 433197b20e4d57a9502bc2a2a21300fa851ff3c6
 
-COCOAPODS: 0.37.2
+COCOAPODS: 0.39.0

@@ -276,6 +276,7 @@
 				CD16E7AB1B24FBC50071E1CF /* Frameworks */,
 				CD16E7AC1B24FBC50071E1CF /* Resources */,
 				1732C5B8F5FE562172883E2C /* Copy Pods Resources */,
+				5BD77F4D9124E0BBC1F46659 /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -370,6 +371,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5BD77F4D9124E0BBC1F46659 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		FF95A157A58F1092B1B9936C /* Check Pods Manifest.lock */ = {
@@ -525,7 +541,7 @@
 					"/Users/juhwanjeong/Documents/fydp-ios/core-plot-master/framework/**",
 				);
 				INFOPLIST_FILE = DrStep/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "-ObjC";
@@ -551,7 +567,7 @@
 					"/Users/juhwanjeong/Documents/fydp-ios/core-plot-master/framework/**",
 				);
 				INFOPLIST_FILE = DrStep/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "-ObjC";
