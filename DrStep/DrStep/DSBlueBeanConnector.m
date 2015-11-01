@@ -39,13 +39,13 @@
 
 - (void) processStringIntoArray:(NSString *) dataString {
     DSAppConstants* constants = [DSAppConstants constants];
-    NSArray *analogData = [dataString componentsSeparatedByString:commaDelim];
+    NSArray *analogData = [dataString componentsSeparatedByString:DELIMITER_COMMA];
     if ([analogData count] == [constants.coordinates count]) {
         // Do further processing. As in put in a data structure and show fancy shmancy.
         NSLog(@"Array size looks beautiful by default: %lu.", [analogData count]);
         NSMutableArray *tempArray = [[NSMutableArray alloc] init];
         for (NSString *string in analogData) {
-            NSArray *splitData = [string componentsSeparatedByString:separatorDelim];
+            NSArray *splitData = [string componentsSeparatedByString:DELIMITER_COLON];
             if ([splitData count] == 2) {
                 [tempArray addObject:[splitData objectAtIndex:1]];
             }
@@ -68,7 +68,7 @@
         @synchronized(self.dataString) {
             NSString *fragment = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
             DSAppConstants *constants = [DSAppConstants constants];
-            if (!constants.notifiedLowBattery && [fragment rangeOfString:statusBattery].location != NSNotFound) {
+            if (!constants.notifiedLowBattery && [fragment rangeOfString:STATUS_LOW_BATTERY].location != NSNotFound) {
                 NSLog(@"Battery level is low.");
                 UILocalNotification *batteryNotification = [[UILocalNotification alloc] init];
                 batteryNotification.fireDate = [NSDate date];
@@ -76,11 +76,11 @@
                 batteryNotification.soundName = UILocalNotificationDefaultSoundName;
                 [[UIApplication sharedApplication] scheduleLocalNotification:batteryNotification];
                 constants.notifiedLowBattery = YES;
-                [constants.bean sendSerialData:[receivedBatteryStatus dataUsingEncoding:NSUTF8StringEncoding]];
+                [constants.bean sendSerialData:[STATUS_RECEIVED_BATTERY dataUsingEncoding:NSUTF8StringEncoding]];
             }
             
             [self.dataString appendString:fragment];
-            if ([self.dataString rangeOfString:EOM].location != NSNotFound) {
+            if ([self.dataString rangeOfString:DELIMITER_EOM].location != NSNotFound) {
                 [self.dataString deleteCharactersInRange:NSMakeRange([self.dataString length] - 3, 3)];
                 NSLog(@"%@", self.dataString);
                 [self processStringIntoArray:self.dataString];

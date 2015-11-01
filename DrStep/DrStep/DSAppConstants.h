@@ -11,14 +11,15 @@
 @class PTDBean;
 
 // NSString
-static NSString* const commaDelim = @",";
-static NSString* const EOM = @"EOM";
-static NSString* const separatorDelim = @":";
-static NSString* const statusBattery = @"lowBattery";
-static NSString* const receivedBatteryStatus = @"receivedBattery";
+static NSString* const DELIMITER_COMMA = @",";
+static NSString* const DELIMITER_EOM = @"EOM";
+static NSString* const DELIMITER_COLON = @":";
+
+static NSString* const STATUS_LOW_BATTERY = @"lowBattery";
+static NSString* const STATUS_RECEIVED_BATTERY = @"receivedBattery";
 
 // Number
-static const float maximumVoltage = 2.8;
+static const float MAXIMUM_VOLTAGE = 2.8;
 
 @interface DSAppConstants : NSObject
 

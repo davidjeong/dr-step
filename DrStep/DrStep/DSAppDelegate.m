@@ -6,17 +6,16 @@
 //
 //
 
-#import "DSAppDelegate.h"
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <ParseFacebookUtilsV4/PFFacebookUtils.h>
 #import <Parse/Parse.h>
 
+#import "DSAppDelegate.h"
 #import "DSAppConstants.h"
 #import "DSData.h"
+#import "DSLoginViewController.h"
 #import "DSSymptom.h"
 #import "LFHeatMap.h"
-
-#import "DSLoginViewController.h"
 
 @interface DSAppDelegate ()
 
@@ -26,6 +25,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
+    // Parse/Facebook initialization
     [Parse enableLocalDatastore];
     [Parse setApplicationId:@"BgxsphIgSYDkELFFb0Da8EJKgUBgHKP574ZU2hT8"
                   clientKey:@"YTmzwHxuZqYBAPUznBAc20pYqDfO1XtLXLutGE0O"];
@@ -80,7 +80,7 @@
     
     self.window.rootViewController = initialViewController;
     [self.window makeKeyAndVisible];
-
+    
     if (![PFUser currentUser] || // Check if user is cached
         ![PFFacebookUtils isLinkedWithUser:[PFUser currentUser]]) { // Check if user is linked to Facebook
         // Load Login/Signup View Controller

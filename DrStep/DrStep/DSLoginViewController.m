@@ -69,7 +69,12 @@
             NSURL *pictureURL = [NSURL URLWithString:[NSString stringWithFormat:@"https://graph.facebook.com/%@/picture?type=large&return_ssl_resources=1", facebookID]];
             
             // Now add the data to the UI elements
-            // ...
+            PFUser *currentUser = [PFUser currentUser];
+            [currentUser setObject:facebookID forKey:@"facebookId"];
+            [currentUser setObject:name forKey:@"name"];
+            [currentUser setObject:email forKey:@"email"];
+            
+            [currentUser saveInBackground];
         }
     }];
 }
