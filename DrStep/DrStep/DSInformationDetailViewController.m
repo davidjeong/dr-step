@@ -33,9 +33,8 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated{
-    DSAppConstants *constants = [DSAppConstants constants];
-    [self.symptomDescriptionTextView setFont:[UIFont systemFontOfSize:[constants.infoFontSize integerValue]]];
-    [self.diagnosisTextView setFont:[UIFont systemFontOfSize:[constants.infoFontSize integerValue]]];
+    [self.symptomDescriptionTextView setFont:[UIFont systemFontOfSize:15]];
+    [self.diagnosisTextView setFont:[UIFont systemFontOfSize:15]];
     [super viewWillAppear:animated];
 }
 

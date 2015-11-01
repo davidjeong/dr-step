@@ -38,7 +38,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="910" y="-368"/>
+            <point key="canvasLocation" x="910" y="-430"/>
         </scene>
         <!--Settings-->
         <scene sceneID="NUx-LU-iGM">
@@ -50,10 +50,10 @@
                         <animations/>
                         <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
                         <sections>
-                            <tableViewSection headerTitle="Connectivity" id="y9i-mq-SgY">
+                            <tableViewSection id="y9i-mq-SgY">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="connectivityCell" id="GJU-ZF-59r">
-                                        <rect key="frame" x="0.0" y="113.5" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="99" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="GJU-ZF-59r" id="8jX-Ck-zY4">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
@@ -64,10 +64,10 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="Configuration" id="3Bn-a6-ATm">
+                            <tableViewSection id="3Bn-a6-ATm">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="configurationCell" style="IBUITableViewCellStyleDefault" id="GCK-UZ-630">
-                                        <rect key="frame" x="0.0" y="199.5" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="163" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="GCK-UZ-630" id="FKx-BH-ots">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
@@ -76,22 +76,12 @@
                                         </tableViewCellContentView>
                                         <animations/>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="configurationCell" style="IBUITableViewCellStyleDefault" id="HNu-RC-8pz">
-                                        <rect key="frame" x="0.0" y="243.5" width="600" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HNu-RC-8pz" id="jB3-Oy-IRI">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <animations/>
-                                        </tableViewCellContentView>
-                                        <animations/>
-                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="Application" id="87i-4e-M5d">
+                            <tableViewSection id="87i-4e-M5d">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="applicationCell" id="Xcf-8e-0Xx">
-                                        <rect key="frame" x="0.0" y="329.5" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="227" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Xcf-8e-0Xx" id="5kh-bL-2ok">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
@@ -457,25 +447,26 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="yQ5-Ql-WDW" firstAttribute="top" secondItem="A10-ti-982" secondAttribute="bottom" id="4bp-H8-DeJ"/>
-                            <constraint firstItem="st0-JU-GG0" firstAttribute="leading" secondItem="sWk-Hs-7zU" secondAttribute="leading" id="50F-Op-wkP"/>
-                            <constraint firstItem="A10-ti-982" firstAttribute="leading" secondItem="sWk-Hs-7zU" secondAttribute="leading" id="D1S-gb-gmh"/>
-                            <constraint firstItem="nUF-Z3-6BL" firstAttribute="top" secondItem="st0-JU-GG0" secondAttribute="bottom" id="ETt-Qq-wvm"/>
-                            <constraint firstItem="A10-ti-982" firstAttribute="top" secondItem="nUF-Z3-6BL" secondAttribute="bottom" id="HWs-sO-LnA"/>
-                            <constraint firstItem="nUF-Z3-6BL" firstAttribute="leading" secondItem="sWk-Hs-7zU" secondAttribute="leading" id="S8Q-bN-C3q"/>
-                            <constraint firstAttribute="trailing" secondItem="A10-ti-982" secondAttribute="trailing" id="eEo-SN-AqC"/>
-                            <constraint firstAttribute="trailing" secondItem="nUF-Z3-6BL" secondAttribute="trailing" id="ja3-44-7Xg"/>
-                            <constraint firstAttribute="trailing" secondItem="st0-JU-GG0" secondAttribute="trailing" id="l88-Og-8nR"/>
-                            <constraint firstItem="st0-JU-GG0" firstAttribute="top" secondItem="sWk-Hs-7zU" secondAttribute="top" id="unU-bb-iek"/>
+                            <constraint firstItem="nUF-Z3-6BL" firstAttribute="leading" secondItem="sWk-Hs-7zU" secondAttribute="leading" id="4LA-bj-FF3"/>
+                            <constraint firstItem="yQ5-Ql-WDW" firstAttribute="top" secondItem="A10-ti-982" secondAttribute="bottom" id="DkU-jw-kC6"/>
+                            <constraint firstItem="A10-ti-982" firstAttribute="leading" secondItem="sWk-Hs-7zU" secondAttribute="leading" id="PMF-lZ-Fri"/>
+                            <constraint firstAttribute="trailing" secondItem="nUF-Z3-6BL" secondAttribute="trailing" id="V7l-AZ-99y"/>
+                            <constraint firstItem="st0-JU-GG0" firstAttribute="leading" secondItem="sWk-Hs-7zU" secondAttribute="leading" id="Wmc-0B-tiD"/>
+                            <constraint firstItem="A10-ti-982" firstAttribute="top" secondItem="nUF-Z3-6BL" secondAttribute="bottom" id="Yid-jE-UGi"/>
+                            <constraint firstAttribute="trailing" secondItem="A10-ti-982" secondAttribute="trailing" id="ZqV-ND-Daf"/>
+                            <constraint firstItem="st0-JU-GG0" firstAttribute="top" secondItem="sWk-Hs-7zU" secondAttribute="top" id="aPn-BK-EcF"/>
+                            <constraint firstAttribute="trailing" secondItem="st0-JU-GG0" secondAttribute="trailing" id="fwI-Az-K7r"/>
+                            <constraint firstItem="nUF-Z3-6BL" firstAttribute="top" secondItem="st0-JU-GG0" secondAttribute="bottom" id="hpD-Yo-un7"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="fbLoginButton" destination="A10-ti-982" id="33O-xO-feM"/>
+                        <segue destination="49e-Tb-3d3" kind="show" identifier="loginSegue" id="Z3f-LU-WEn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="62I-aa-vrX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-134" y="-302"/>
+            <point key="canvasLocation" x="-134" y="-430"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">

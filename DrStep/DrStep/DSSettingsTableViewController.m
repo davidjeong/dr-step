@@ -12,6 +12,7 @@
 #import "DSAppConstants.h"
 #import "DSBlueBeanConnector.h"
 #import "DSBlueBeanTableViewController.h"
+#import "DSLoginViewController.h"
 
 @interface DSSettingsTableViewController ()
 
@@ -38,9 +39,7 @@
     self.fontSlider = [[UISlider alloc] init];
     [self.fontSlider setMinimumValue:12.0f];
     [self.fontSlider setMaximumValue:18.0f];
-    [self.fontSlider setValue:[constants.infoFontSize floatValue]];
-    
-    [self.fontSlider addTarget:self action:@selector(updateFont:) forControlEvents:UIControlEventValueChanged];
+    [self.fontSlider setValue:15.0f];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(handleNotifications:)
@@ -103,17 +102,6 @@ static NSString *cellIdentifier = @"settingsCell";
             [self.boostSlider setValue:[constants.heatMapBoost floatValue]];
             [cell setAccessoryView:self.boostSlider];
             [cell.textLabel setText:[NSString stringWithFormat:@"Adjust Heatmap Boost - %.02f", [constants.heatMapBoost floatValue]]];
-        } else if (indexPath.row == 1) {
-            cell = [tableView dequeueReusableCellWithIdentifier:@"configurationCell"];
-            if(cell == nil) {
-                cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
-                                              reuseIdentifier:@"configurationCell"];
-            }
-            DSAppConstants *constants = [DSAppConstants constants];
-            [self.fontSlider setValue:[constants.infoFontSize floatValue]];
-            [cell setAccessoryView:self.fontSlider];
-            [cell.textLabel setText:[NSString stringWithFormat:@"Adjust Font Size - %d", [constants.infoFontSize intValue]]];
-
         }
     } else if (indexPath.section == 2) { // Application
         if (indexPath.row == 0) {
@@ -121,7 +109,7 @@ static NSString *cellIdentifier = @"settingsCell";
             if (cell == nil) {
                 cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"applicationCell"];
             }
-            [cell.textLabel setText:@"Logout from Facebook"];
+            [cell.textLabel setText:@"Log Out"];
             [cell.textLabel setTextColor:[UIColor redColor]];
         }
     }
@@ -137,12 +125,12 @@ static NSString *cellIdentifier = @"settingsCell";
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    if (section == 0) return 1;
-    else if (section == 1) return 2;
-    else return 1;
+    // Currently each setting has one row.
+    return 1;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
     if (indexPath.section == 0) {
         if (indexPath.row == 0) {
             [self performSegueWithIdentifier:@"showConnector" sender:self];
@@ -153,20 +141,23 @@ static NSString *cellIdentifier = @"settingsCell";
         }
     } else if (indexPath.section == 2) {
         if (indexPath.row == 0) {
-            
-            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Account Logout" message:@"Are you sure you want to logout?" preferredStyle:UIAlertControllerStyleActionSheet];
-            UIAlertAction *confirmAction = [UIAlertAction actionWithTitle:@"Confirm" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-                [self _logoutFacebook];
+            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:@"Are you sure you want to sign out?" preferredStyle:UIAlertControllerStyleActionSheet];
+            UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil];
+            UIAlertAction *confirmAction = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
+                [self _logout];
+                DSLoginViewController *loginViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"DSLoginViewController"];
+                [self presentViewController:loginViewController animated:YES completion:nil];
             }];
-            UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleDefault handler:nil];
             
-            [alertController addAction:confirmAction];
             [alertController addAction:cancelAction];
+            [alertController addAction:confirmAction];
             
             [self presentViewController:alertController animated:YES completion:nil];
         }
     }
 }
+
+#pragma mark - UI Events
 
 - (IBAction)updateBoost:(UISlider *)sender{
     DSAppConstants *constants = [DSAppConstants constants];
@@ -179,32 +170,14 @@ static NSString *cellIdentifier = @"settingsCell";
     });
 }
 
-- (IBAction)updateFont:(UISlider *)sender{
-    DSAppConstants *constants = [DSAppConstants constants];
-    [constants setInfoFontSize:[NSNumber numberWithInt:round(sender.value)]];
-    UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:2]];
-    
-    // Get main thread to update the text.
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [cell.textLabel setText:[NSString stringWithFormat:@"Adjust Font Size - %d", [constants.infoFontSize intValue]]];
-    });
-}
+#pragma mark - Logout
 
-#pragma mark - Facebook Logout
-
-- (void) _logoutFacebook {
+- (void) _logout {
+    // Sign out of Parse.
     [PFUser logOut];
-    // Load Login/Signup View Controller
-    UIViewController *loginViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"DSLoginViewController"];
-    [loginViewController setModalPresentationStyle:UIModalPresentationFullScreen];
-    
-    // For some reason, this has to be done in a separate queue.
-    dispatch_async(dispatch_get_main_queue(), ^(void){
-        [self presentViewController:loginViewController animated:YES completion:nil];
-    });
 }
 
-#pragma mark - Unwind Segue
+#pragma mark - Segue
 
 - (IBAction)unwindToSettingsController:(UIStoryboardSegue *)segue {
 }

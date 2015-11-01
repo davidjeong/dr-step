@@ -27,7 +27,6 @@ static const float MAXIMUM_VOLTAGE = 2.8;
 @property (strong, nonatomic) NSArray *coordinates;
 @property (strong, nonatomic) NSArray *symptoms;
 @property (strong, nonatomic) NSNumber *heatMapBoost;
-@property (strong, nonatomic) NSNumber *infoFontSize;
 @property (nonatomic, strong) PTDBean *bean;
 
 + (id) constants;
