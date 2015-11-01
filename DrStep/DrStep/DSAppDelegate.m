@@ -16,6 +16,8 @@
 #import "DSSymptom.h"
 #import "LFHeatMap.h"
 
+#import "DSLoginViewController.h"
+
 @interface DSAppDelegate ()
 
 @end
@@ -69,6 +71,27 @@
     
     DSData *data = [DSData data];
     [data setCountAndInitialize:[arrayFromFile count]];
+    
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    
+    // Load main app screen
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UIViewController *initialViewController =[storyboard instantiateInitialViewController];
+    
+    self.window.rootViewController = initialViewController;
+    [self.window makeKeyAndVisible];
+
+    if (![PFUser currentUser] || // Check if user is cached
+        ![PFFacebookUtils isLinkedWithUser:[PFUser currentUser]]) { // Check if user is linked to Facebook
+        // Load Login/Signup View Controller
+        UIViewController *loginViewController = [storyboard instantiateViewControllerWithIdentifier:@"DSLoginViewController"];
+        [loginViewController setModalPresentationStyle:UIModalPresentationFullScreen];
+        
+        // For some reason, this has to be done in a separate queue.
+        dispatch_async(dispatch_get_main_queue(), ^(void){
+            [initialViewController presentViewController:loginViewController animated:NO completion:nil];
+        });
+    }
     
     return YES;
 }

@@ -21,19 +21,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-- (void)viewWillAppear:(BOOL)animated {
-    if ([PFUser currentUser] && // Check if user is cached
-        [PFFacebookUtils isLinkedWithUser:[PFUser currentUser]]) { // Check if user is linked to Facebook
-        [self performSegueWithIdentifier:@"passLogin" sender:self];
-    }
 }
 
 #pragma mark - Facebook Login
@@ -53,7 +44,7 @@
         } else {
             NSLog(@"User logged in through Facebook!");
             [self _loadData];
-            [self performSegueWithIdentifier:@"passLogin" sender:self];
+            [self dismissViewControllerAnimated:NO completion:nil];
         }
     }];
 }
@@ -82,15 +73,5 @@
         }
     }];
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
