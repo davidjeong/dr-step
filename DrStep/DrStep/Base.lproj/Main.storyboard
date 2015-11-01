@@ -400,6 +400,25 @@
             </objects>
             <point key="canvasLocation" x="2002" y="1232"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="zBA-eg-g6F">
+            <objects>
+                <viewController id="psC-am-mab" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="UBP-FE-TYr"/>
+                        <viewControllerLayoutGuide type="bottom" id="Qj0-6n-X62"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="42P-WT-Ijf">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KWM-Ha-1xE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-881" y="-430"/>
+        </scene>
         <!--Login View Controller-->
         <scene sceneID="XOZ-mV-dXJ">
             <objects>
@@ -438,8 +457,20 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BCj-5q-cbw">
+                                <rect key="frame" x="0.0" y="300" width="600" height="100"/>
+                                <animations/>
+                                <color key="backgroundColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="7g4-6b-i6K"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Create a New Account">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="st0-JU-GG0">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="400"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="300"/>
                                 <animations/>
                                 <color key="backgroundColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="0.29999999999999999" colorSpace="calibratedRGB"/>
                             </imageView>
@@ -447,16 +478,19 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="nUF-Z3-6BL" firstAttribute="leading" secondItem="sWk-Hs-7zU" secondAttribute="leading" id="4LA-bj-FF3"/>
-                            <constraint firstItem="yQ5-Ql-WDW" firstAttribute="top" secondItem="A10-ti-982" secondAttribute="bottom" id="DkU-jw-kC6"/>
-                            <constraint firstItem="A10-ti-982" firstAttribute="leading" secondItem="sWk-Hs-7zU" secondAttribute="leading" id="PMF-lZ-Fri"/>
-                            <constraint firstAttribute="trailing" secondItem="nUF-Z3-6BL" secondAttribute="trailing" id="V7l-AZ-99y"/>
-                            <constraint firstItem="st0-JU-GG0" firstAttribute="leading" secondItem="sWk-Hs-7zU" secondAttribute="leading" id="Wmc-0B-tiD"/>
-                            <constraint firstItem="A10-ti-982" firstAttribute="top" secondItem="nUF-Z3-6BL" secondAttribute="bottom" id="Yid-jE-UGi"/>
-                            <constraint firstAttribute="trailing" secondItem="A10-ti-982" secondAttribute="trailing" id="ZqV-ND-Daf"/>
-                            <constraint firstItem="st0-JU-GG0" firstAttribute="top" secondItem="sWk-Hs-7zU" secondAttribute="top" id="aPn-BK-EcF"/>
-                            <constraint firstAttribute="trailing" secondItem="st0-JU-GG0" secondAttribute="trailing" id="fwI-Az-K7r"/>
-                            <constraint firstItem="nUF-Z3-6BL" firstAttribute="top" secondItem="st0-JU-GG0" secondAttribute="bottom" id="hpD-Yo-un7"/>
+                            <constraint firstItem="BCj-5q-cbw" firstAttribute="leading" secondItem="sWk-Hs-7zU" secondAttribute="leading" id="AkS-yv-IxZ"/>
+                            <constraint firstItem="nUF-Z3-6BL" firstAttribute="top" secondItem="BCj-5q-cbw" secondAttribute="bottom" id="EOS-yw-qTx"/>
+                            <constraint firstItem="A10-ti-982" firstAttribute="top" secondItem="nUF-Z3-6BL" secondAttribute="bottom" id="MF5-NG-a87"/>
+                            <constraint firstItem="st0-JU-GG0" firstAttribute="top" secondItem="sWk-Hs-7zU" secondAttribute="top" id="Wb4-2g-tB3"/>
+                            <constraint firstItem="yQ5-Ql-WDW" firstAttribute="top" secondItem="A10-ti-982" secondAttribute="bottom" id="Ybh-qS-Pju"/>
+                            <constraint firstItem="A10-ti-982" firstAttribute="leading" secondItem="sWk-Hs-7zU" secondAttribute="leading" id="e7E-E8-itZ"/>
+                            <constraint firstAttribute="trailing" secondItem="BCj-5q-cbw" secondAttribute="trailing" id="far-aK-nzz"/>
+                            <constraint firstItem="st0-JU-GG0" firstAttribute="leading" secondItem="sWk-Hs-7zU" secondAttribute="leading" id="fzx-Lx-q31"/>
+                            <constraint firstItem="nUF-Z3-6BL" firstAttribute="leading" secondItem="sWk-Hs-7zU" secondAttribute="leading" id="gJP-ZZ-GyL"/>
+                            <constraint firstAttribute="trailing" secondItem="st0-JU-GG0" secondAttribute="trailing" id="qsc-j7-RuW"/>
+                            <constraint firstItem="BCj-5q-cbw" firstAttribute="top" secondItem="st0-JU-GG0" secondAttribute="bottom" id="rnc-xj-z9N"/>
+                            <constraint firstAttribute="trailing" secondItem="nUF-Z3-6BL" secondAttribute="trailing" id="tNE-OG-swC"/>
+                            <constraint firstAttribute="trailing" secondItem="A10-ti-982" secondAttribute="trailing" id="zyO-dW-QBV"/>
                         </constraints>
                     </view>
                     <connections>
