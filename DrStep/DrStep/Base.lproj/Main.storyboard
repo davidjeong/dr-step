@@ -76,12 +76,22 @@
                                         </tableViewCellContentView>
                                         <animations/>
                                     </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="configurationCell" style="IBUITableViewCellStyleDefault" id="HNu-RC-8pz">
+                                        <rect key="frame" x="0.0" y="243.5" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HNu-RC-8pz" id="jB3-Oy-IRI">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <animations/>
+                                        </tableViewCellContentView>
+                                        <animations/>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                             <tableViewSection headerTitle="Application" id="87i-4e-M5d">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="applicationCell" id="Xcf-8e-0Xx">
-                                        <rect key="frame" x="0.0" y="285.5" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="329.5" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Xcf-8e-0Xx" id="5kh-bL-2ok">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
@@ -122,119 +132,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kki-eF-hjT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="750" y="1733"/>
-        </scene>
-        <!--History Time View Controller-->
-        <scene sceneID="wY4-i7-TEm">
-            <objects>
-                <viewController id="yzz-MB-7tv" customClass="DSHistoryTimeViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="i5F-Px-E8u"/>
-                        <viewControllerLayoutGuide type="bottom" id="3Od-tj-qaV"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="6Il-og-mMz">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="timeLabel" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Fb-FV-V6z">
-                                <rect key="frame" x="0.0" y="84" width="600" height="20.5"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <animations/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="9Fb-FV-V6z" firstAttribute="top" secondItem="i5F-Px-E8u" secondAttribute="bottom" constant="20" id="Gya-Jr-mZ8"/>
-                            <constraint firstItem="9Fb-FV-V6z" firstAttribute="leading" secondItem="6Il-og-mMz" secondAttribute="leading" id="Zft-PR-sr1"/>
-                            <constraint firstAttribute="trailing" secondItem="9Fb-FV-V6z" secondAttribute="trailing" id="iza-cr-H4F"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="BUy-uJ-7GG">
-                        <barButtonItem key="leftBarButtonItem" title="Analyze" id="VGX-rI-UZI"/>
-                        <barButtonItem key="rightBarButtonItem" title="Adjust Time" id="Jcn-7H-36x">
-                            <connections>
-                                <segue destination="UYf-L4-8Um" kind="show" identifier="showDatePicker" id="XZ1-0h-Qa8"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="timeLabel" destination="9Fb-FV-V6z" id="PiX-wA-4tR"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dR9-Uu-HYg" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1528" y="348"/>
-        </scene>
-        <!--History Time Picker View Controller-->
-        <scene sceneID="BjP-QK-hkg">
-            <objects>
-                <viewController id="UYf-L4-8Um" customClass="DSHistoryTimePickerViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="fkg-M3-Fjg"/>
-                        <viewControllerLayoutGuide type="bottom" id="3n1-X1-gDx"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="WeS-J4-OJl">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <datePicker contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="Iy8-00-ZhB">
-                                <rect key="frame" x="0.0" y="322" width="600" height="216"/>
-                                <animations/>
-                                <date key="date" timeIntervalSinceReferenceDate="459814879.10144001">
-                                    <!--2015-07-28 22:21:19 +0000-->
-                                </date>
-                            </datePicker>
-                            <datePicker contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="ir3-bB-FVv">
-                                <rect key="frame" x="0.0" y="78" width="600" height="216"/>
-                                <animations/>
-                                <date key="date" timeIntervalSinceReferenceDate="459814917.88011998">
-                                    <!--2015-07-28 22:21:57 +0000-->
-                                </date>
-                            </datePicker>
-                        </subviews>
-                        <animations/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="ir3-bB-FVv" firstAttribute="top" secondItem="fkg-M3-Fjg" secondAttribute="bottom" id="7aJ-UE-DVE"/>
-                            <constraint firstItem="ir3-bB-FVv" firstAttribute="leading" secondItem="WeS-J4-OJl" secondAttribute="leading" id="IPi-ui-94w"/>
-                            <constraint firstAttribute="trailing" secondItem="Iy8-00-ZhB" secondAttribute="trailing" id="T0r-dD-neQ"/>
-                            <constraint firstItem="3n1-X1-gDx" firstAttribute="top" secondItem="Iy8-00-ZhB" secondAttribute="bottom" id="Yba-eE-njv"/>
-                            <constraint firstItem="Iy8-00-ZhB" firstAttribute="height" secondItem="ir3-bB-FVv" secondAttribute="height" id="fb5-YO-PM5"/>
-                            <constraint firstItem="Iy8-00-ZhB" firstAttribute="width" secondItem="ir3-bB-FVv" secondAttribute="width" id="fw8-Ec-IWw"/>
-                            <constraint firstItem="Iy8-00-ZhB" firstAttribute="leading" secondItem="WeS-J4-OJl" secondAttribute="leading" id="nj5-az-aRL"/>
-                            <constraint firstItem="Iy8-00-ZhB" firstAttribute="top" secondItem="ir3-bB-FVv" secondAttribute="bottom" id="xhl-lW-PXA"/>
-                            <constraint firstAttribute="trailing" secondItem="ir3-bB-FVv" secondAttribute="trailing" id="yYW-xQ-cRP"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="mMd-DX-iPj"/>
-                    <connections>
-                        <outlet property="endDatePicker" destination="Iy8-00-ZhB" id="mYZ-eK-gVZ"/>
-                        <outlet property="startDatePicker" destination="ir3-bB-FVv" id="Pge-1K-zb0"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="S5e-Aw-yLm" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2275" y="348"/>
-        </scene>
-        <!--History-->
-        <scene sceneID="A3l-wn-tl0">
-            <objects>
-                <navigationController id="QP0-6W-9he" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="History" image="clock_filled.png" id="NcM-3i-Ksf"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="7DZ-fn-ljl">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <animations/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="yzz-MB-7tv" kind="relationship" relationship="rootViewController" id="Slm-pU-lN4"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="2N4-uF-7tj" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="752" y="348"/>
         </scene>
         <!--Info-->
         <scene sceneID="dsz-SS-kTc">
@@ -561,7 +458,6 @@
                     <connections>
                         <segue destination="mGi-vT-nVf" kind="relationship" relationship="viewControllers" id="hqy-ei-ghZ"/>
                         <segue destination="9pv-A4-QxB" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
-                        <segue destination="QP0-6W-9he" kind="relationship" relationship="viewControllers" id="XB5-Hr-Ftz"/>
                         <segue destination="IBa-g0-P3F" kind="relationship" relationship="viewControllers" id="Iau-cZ-sIX"/>
                         <segue destination="tJN-Tu-Bo6" kind="relationship" relationship="viewControllers" id="eS1-vE-2T7"/>
                     </connections>
@@ -584,11 +480,11 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Statistics" id="Vfx-JG-aUZ"/>
+                    <tabBarItem key="tabBarItem" title="Statistics" image="clock_filled.png" id="Vfx-JG-aUZ"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1UI-y9-QT6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-124" y="1333"/>
+            <point key="canvasLocation" x="910" y="360"/>
         </scene>
     </scenes>
     <resources>

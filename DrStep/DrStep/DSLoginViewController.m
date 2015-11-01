@@ -44,7 +44,7 @@
         } else {
             NSLog(@"User logged in through Facebook!");
             [self _loadData];
-            [self dismissViewControllerAnimated:NO completion:nil];
+            [self dismissViewControllerAnimated:YES completion:nil];
         }
     }];
 }

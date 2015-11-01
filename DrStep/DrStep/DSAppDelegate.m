@@ -89,7 +89,7 @@
         
         // For some reason, this has to be done in a separate queue.
         dispatch_async(dispatch_get_main_queue(), ^(void){
-            [initialViewController presentViewController:loginViewController animated:NO completion:nil];
+            [initialViewController presentViewController:loginViewController animated:YES completion:nil];
         });
     }
     

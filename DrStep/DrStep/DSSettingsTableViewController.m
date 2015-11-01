@@ -6,8 +6,9 @@
 //
 //
 
-#import "DSSettingsTableViewController.h"
+#import <ParseFacebookUtilsV4/PFFacebookUtils.h>
 
+#import "DSSettingsTableViewController.h"
 #import "DSAppConstants.h"
 #import "DSBlueBeanConnector.h"
 #import "DSBlueBeanTableViewController.h"
@@ -78,7 +79,7 @@ static NSString *cellIdentifier = @"settingsCell";
     if (indexPath.section == 0) { // Connectivity
         if(indexPath.row == 0) {
             cell = [tableView dequeueReusableCellWithIdentifier:@"connectivityCell"];
-            if(cell == nil) {
+            if (cell == nil) {
                 cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
                                            reuseIdentifier:@"connectivityCell"];
             }
@@ -94,7 +95,7 @@ static NSString *cellIdentifier = @"settingsCell";
     else if(indexPath.section == 1) { // Configuration
         if (indexPath.row == 0) {
             cell = [tableView dequeueReusableCellWithIdentifier:@"configurationCell"];
-            if(cell == nil) {
+            if (cell == nil) {
                 cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
                                               reuseIdentifier:@"configurationCell"];
             }
@@ -102,18 +103,25 @@ static NSString *cellIdentifier = @"settingsCell";
             [self.boostSlider setValue:[constants.heatMapBoost floatValue]];
             [cell setAccessoryView:self.boostSlider];
             [cell.textLabel setText:[NSString stringWithFormat:@"Adjust Heatmap Boost - %.02f", [constants.heatMapBoost floatValue]]];
-        }
-    } else if (indexPath.section == 2) { // Application
-        if (indexPath.row == 0) {
-            cell = [tableView dequeueReusableCellWithIdentifier:@"applicationCell"];
+        } else if (indexPath.row == 1) {
+            cell = [tableView dequeueReusableCellWithIdentifier:@"configurationCell"];
             if(cell == nil) {
                 cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
-                                              reuseIdentifier:@"applicationCell"];
+                                              reuseIdentifier:@"configurationCell"];
             }
             DSAppConstants *constants = [DSAppConstants constants];
             [self.fontSlider setValue:[constants.infoFontSize floatValue]];
             [cell setAccessoryView:self.fontSlider];
             [cell.textLabel setText:[NSString stringWithFormat:@"Adjust Font Size - %d", [constants.infoFontSize intValue]]];
+
+        }
+    } else if (indexPath.section == 2) { // Application
+        if (indexPath.row == 0) {
+            cell = [tableView dequeueReusableCellWithIdentifier:@"applicationCell"];
+            if (cell == nil) {
+                cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"applicationCell"];
+            }
+            [cell.textLabel setText:@"Logout from Facebook"];
         }
     }
     if (cell == nil) {
@@ -128,7 +136,9 @@ static NSString *cellIdentifier = @"settingsCell";
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 1;
+    if (section == 0) return 1;
+    else if (section == 1) return 2;
+    else return 1;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -136,10 +146,13 @@ static NSString *cellIdentifier = @"settingsCell";
         if (indexPath.row == 0) {
             [self performSegueWithIdentifier:@"showConnector" sender:self];
         }
-    }
-    else if (indexPath.section == 1) {
+    } else if (indexPath.section == 1) {
         if (indexPath.row == 0) {
             //[self changePasscode];
+        }
+    } else if (indexPath.section == 2) {
+        if (indexPath.row == 0) {
+            [self _logoutFacebook];
         }
     }
 }
@@ -152,6 +165,18 @@ static NSString *cellIdentifier = @"settingsCell";
     // Get main thread to update the text.
     dispatch_async(dispatch_get_main_queue(), ^{
         [cell.textLabel setText:[NSString stringWithFormat:@"Adjust Heatmap Boost - %.02f", [constants.heatMapBoost floatValue]]];
+    });
+}
+
+- (void) _logoutFacebook {
+    [PFUser logOut];
+    // Load Login/Signup View Controller
+    UIViewController *loginViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"DSLoginViewController"];
+    [loginViewController setModalPresentationStyle:UIModalPresentationFullScreen];
+    
+    // For some reason, this has to be done in a separate queue.
+    dispatch_async(dispatch_get_main_queue(), ^(void){
+        [self presentViewController:loginViewController animated:YES completion:nil];
     });
 }
 
