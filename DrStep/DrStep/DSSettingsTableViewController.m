@@ -122,6 +122,7 @@ static NSString *cellIdentifier = @"settingsCell";
                 cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"applicationCell"];
             }
             [cell.textLabel setText:@"Logout from Facebook"];
+            [cell.textLabel setTextColor:[UIColor redColor]];
         }
     }
     if (cell == nil) {
@@ -152,7 +153,17 @@ static NSString *cellIdentifier = @"settingsCell";
         }
     } else if (indexPath.section == 2) {
         if (indexPath.row == 0) {
-            [self _logoutFacebook];
+            
+            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Account Logout" message:@"Are you sure you want to logout?" preferredStyle:UIAlertControllerStyleActionSheet];
+            UIAlertAction *confirmAction = [UIAlertAction actionWithTitle:@"Confirm" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+                [self _logoutFacebook];
+            }];
+            UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleDefault handler:nil];
+            
+            [alertController addAction:confirmAction];
+            [alertController addAction:cancelAction];
+            
+            [self presentViewController:alertController animated:YES completion:nil];
         }
     }
 }
@@ -168,6 +179,19 @@ static NSString *cellIdentifier = @"settingsCell";
     });
 }
 
+- (IBAction)updateFont:(UISlider *)sender{
+    DSAppConstants *constants = [DSAppConstants constants];
+    [constants setInfoFontSize:[NSNumber numberWithInt:round(sender.value)]];
+    UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:2]];
+    
+    // Get main thread to update the text.
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [cell.textLabel setText:[NSString stringWithFormat:@"Adjust Font Size - %d", [constants.infoFontSize intValue]]];
+    });
+}
+
+#pragma mark - Facebook Logout
+
 - (void) _logoutFacebook {
     [PFUser logOut];
     // Load Login/Signup View Controller
@@ -180,16 +204,7 @@ static NSString *cellIdentifier = @"settingsCell";
     });
 }
 
-- (IBAction)updateFont:(UISlider *)sender{
-    DSAppConstants *constants = [DSAppConstants constants];
-    [constants setInfoFontSize:[NSNumber numberWithInt:round(sender.value)]];
-    UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:2]];
-    
-    // Get main thread to update the text.
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [cell.textLabel setText:[NSString stringWithFormat:@"Adjust Font Size - %d", [constants.infoFontSize intValue]]];
-    });
-}
+#pragma mark - Unwind Segue
 
 - (IBAction)unwindToSettingsController:(UIStoryboardSegue *)segue {
 }

@@ -6,21 +6,25 @@
 //
 //
 
-#import "DSLoginViewController.h"
-
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <ParseFacebookUtilsV4/PFFacebookUtils.h>
 #import <Parse/Parse.h>
 #import <Bolts/Bolts.h>
 
-@interface DSLoginViewController ()
+#import <QuartzCore/QuartzCore.h>
+#import "DSLoginViewController.h"
 
+@interface DSLoginViewController ()
+@property (weak, nonatomic) IBOutlet UIButton *fbLoginButton;
 @end
 
 @implementation DSLoginViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    // Programatically set background button color to facebook color.
+    [self.fbLoginButton.layer setBackgroundColor:[UIColor colorWithRed:59/255.0 green:89/255.0 blue:152/255.0 alpha:1.0].CGColor];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -44,7 +48,7 @@
         } else {
             NSLog(@"User logged in through Facebook!");
             [self _loadData];
-            [self dismissViewControllerAnimated:YES completion:nil];
+            [self dismissViewControllerAnimated:NO completion:nil];
         }
     }];
 }
