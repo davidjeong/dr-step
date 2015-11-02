@@ -22,7 +22,6 @@
 		532B95541B5F00FF003B1D08 /* clock_filled@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 532B95521B5F00FF003B1D08 /* clock_filled@2x.png */; };
 		532B95581B5F378A003B1D08 /* DSSymptomTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 532B95571B5F378A003B1D08 /* DSSymptomTableViewCell.m */; };
 		532B955D1B5F3950003B1D08 /* DSSymptom.m in Sources */ = {isa = PBXBuildFile; fileRef = 532B955C1B5F3950003B1D08 /* DSSymptom.m */; };
-		532B955F1B5F3BDF003B1D08 /* Symptoms.plist in Resources */ = {isa = PBXBuildFile; fileRef = 532B955E1B5F3BDF003B1D08 /* Symptoms.plist */; };
 		532B95621B5F4583003B1D08 /* DSInformationDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 532B95611B5F4582003B1D08 /* DSInformationDetailViewController.m */; };
 		535282331BE545EB00A675F8 /* DSLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 535282321BE545EB00A675F8 /* DSLoginViewController.m */; };
 		535282351BE549A000A675F8 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 535282341BE549A000A675F8 /* CoreData.framework */; };
@@ -88,7 +87,6 @@
 		532B95571B5F378A003B1D08 /* DSSymptomTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSSymptomTableViewCell.m; sourceTree = "<group>"; };
 		532B955B1B5F3950003B1D08 /* DSSymptom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSSymptom.h; sourceTree = "<group>"; };
 		532B955C1B5F3950003B1D08 /* DSSymptom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSSymptom.m; sourceTree = "<group>"; };
-		532B955E1B5F3BDF003B1D08 /* Symptoms.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Symptoms.plist; sourceTree = "<group>"; };
 		532B95601B5F4582003B1D08 /* DSInformationDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSInformationDetailViewController.h; sourceTree = "<group>"; };
 		532B95611B5F4582003B1D08 /* DSInformationDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSInformationDetailViewController.m; sourceTree = "<group>"; };
 		535282251BE5418500A675F8 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = ../../Parse/Bolts.framework; sourceTree = "<group>"; };
@@ -280,7 +278,6 @@
 				5364FAFD1BE6D177003BA58B /* Main.storyboard */,
 				CDA9D5B41B4E257F00C3170F /* LaunchScreen.xib */,
 				535468AF1B596108001D66E1 /* Coordinates.plist */,
-				532B955E1B5F3BDF003B1D08 /* Symptoms.plist */,
 			);
 			path = DrStep;
 			sourceTree = "<group>";
@@ -405,7 +402,6 @@
 				CDA9D5A91B4E229000C3170F /* app_launch_screen_640_960.png in Resources */,
 				532B954C1B5F00C2003B1D08 /* library_filled@2x.png in Resources */,
 				5364FAFF1BE6D177003BA58B /* Main.storyboard in Resources */,
-				532B955F1B5F3BDF003B1D08 /* Symptoms.plist in Resources */,
 				CDA9D5B31B4E241C00C3170F /* app_launch_screen_640_1136.png in Resources */,
 				532B954B1B5F00C2003B1D08 /* library_filled.png in Resources */,
 				532B95531B5F00FF003B1D08 /* clock_filled.png in Resources */,
