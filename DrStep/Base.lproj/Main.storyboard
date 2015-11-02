@@ -220,8 +220,8 @@
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Voltage" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kYt-TI-OHt">
-                                            <rect key="frame" x="533" y="39" width="57" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Voltage" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kYt-TI-OHt">
+                                            <rect key="frame" x="532" y="39.5" width="58" height="20.5"/>
                                             <animations/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -285,15 +285,15 @@
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="commonName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZPy-bZ-gCE">
-                                            <rect key="frame" x="468" y="0.0" width="112" height="43.5"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="commonName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZPy-bZ-gCE">
+                                            <rect key="frame" x="468" y="11.5" width="112" height="20.5"/>
                                             <animations/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="scientificName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KlN-0d-9Vl">
-                                            <rect key="frame" x="20" y="0.0" width="119.5" height="43.5"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="scientificName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KlN-0d-9Vl">
+                                            <rect key="frame" x="20" y="11.5" width="119.5" height="20.5"/>
                                             <animations/>
                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                             <color key="textColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -302,13 +302,10 @@
                                     </subviews>
                                     <animations/>
                                     <constraints>
-                                        <constraint firstItem="ZPy-bZ-gCE" firstAttribute="leading" secondItem="KlN-0d-9Vl" secondAttribute="trailing" constant="20" id="39N-SF-5ku"/>
-                                        <constraint firstAttribute="bottom" secondItem="KlN-0d-9Vl" secondAttribute="bottom" id="AkW-em-ZPM"/>
-                                        <constraint firstItem="KlN-0d-9Vl" firstAttribute="top" secondItem="Hgn-Ey-3ZR" secondAttribute="top" id="OSj-xf-2g4"/>
-                                        <constraint firstAttribute="trailing" secondItem="ZPy-bZ-gCE" secondAttribute="trailing" constant="20" id="ZbK-aK-SVP"/>
-                                        <constraint firstAttribute="bottom" secondItem="ZPy-bZ-gCE" secondAttribute="bottom" id="hOD-KJ-xMt"/>
-                                        <constraint firstItem="ZPy-bZ-gCE" firstAttribute="top" secondItem="Hgn-Ey-3ZR" secondAttribute="top" id="hgN-43-77X"/>
-                                        <constraint firstItem="KlN-0d-9Vl" firstAttribute="leading" secondItem="Hgn-Ey-3ZR" secondAttribute="leading" constant="20" id="sZb-ga-HJg"/>
+                                        <constraint firstAttribute="trailing" secondItem="ZPy-bZ-gCE" secondAttribute="trailing" constant="20" id="67H-5Z-y2q"/>
+                                        <constraint firstItem="ZPy-bZ-gCE" firstAttribute="centerY" secondItem="Hgn-Ey-3ZR" secondAttribute="centerY" id="Y8u-jK-MLb"/>
+                                        <constraint firstItem="KlN-0d-9Vl" firstAttribute="leading" secondItem="Hgn-Ey-3ZR" secondAttribute="leading" constant="20" id="aue-kh-4R6"/>
+                                        <constraint firstItem="KlN-0d-9Vl" firstAttribute="centerY" secondItem="Hgn-Ey-3ZR" secondAttribute="centerY" id="c9c-06-lqW"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <animations/>
@@ -378,8 +375,8 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UzB-95-xrY">
-                                <rect key="frame" x="20" y="482" width="580" height="69"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UzB-95-xrY">
+                                <rect key="frame" x="20" y="482" width="580" height="74"/>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
