@@ -8,7 +8,8 @@
 
 #import "DSInformationViewController.h"
 
-#import "DSAppConstants.h"
+#import <Parse/Parse.h>
+
 #import "DSInformationDetailViewController.h"
 #import "DSSymptom.h"
 #import "DSSymptomTableViewCell.h"
@@ -18,15 +19,25 @@
 @property (strong, nonatomic) UISearchController *searchController;
 @property (strong, nonatomic) NSArray *searchResults;
 
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
-
 @end
 
 @implementation DSInformationViewController
 
+- (id) initWithCoder:(NSCoder *)aDecoder {
+    self = [super initWithCoder:aDecoder];
+    if (self) {
+        self.parseClassName = @"Symptom";
+        self.pullToRefreshEnabled = YES;
+        self.paginationEnabled = YES;
+        self.objectsPerPage = 20;
+    }
+    return self;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    /*
     self.searchController = [[UISearchController alloc] initWithSearchResultsController:nil];
     [self.searchController setSearchResultsUpdater:self];
     [self.searchController setDimsBackgroundDuringPresentation:NO];
@@ -39,9 +50,7 @@
     
     self.tableView.tableHeaderView = self.searchController.searchBar;
     //self.definesPresentationContext = YES;
-    
-    DSAppConstants *constants = [DSAppConstants constants];
-    self.searchResults = constants.symptoms;
+    */
 }
 
 - (void) viewWillAppear:(BOOL)animated {
@@ -53,6 +62,15 @@
     [super didReceiveMemoryWarning];
 }
 
+#pragma mark - Parse Query
+
+- (PFQuery *) queryForTable {
+    // Query for information from Parse.
+    PFQuery *query = [PFQuery queryWithClassName:self.parseClassName];
+    [query orderByAscending:@"scientificName"];
+    return query;
+}
+
 #pragma mark - UISearchBarDelegate
 
 - (void)updateSearchResultsForSearchController:(UISearchController *)searchController {
@@ -60,38 +78,35 @@
     if (searchString != nil && [searchString length] != 0) {
         [self filterContentForSearchText:searchString scope:nil];
     } else {
-        DSAppConstants *constants = [DSAppConstants constants];
-        self.searchResults = constants.symptoms;
+        PFQuery *query = [PFQuery queryWithClassName:self.parseClassName];
+        [query orderByAscending:@"scientificName"];
+        [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+            self.searchResults = objects;
+        }];
     }
     [self.tableView reloadData];
 }
 
 - (void)filterContentForSearchText:(NSString*)searchText scope:(NSString*)scope {
     // Filter the results using a predicate.
-    NSPredicate *resultPredicate = [NSPredicate
-                                    predicateWithFormat:@"scientificName contains[cd] %@ OR commonName contains[cd] %@ OR symptomDescription contains[cd] %@",
-                                    searchText, searchText, searchText];
-    DSAppConstants *constants = [DSAppConstants constants];
-    self.searchResults = [constants.symptoms filteredArrayUsingPredicate:resultPredicate];
+    PFQuery *query = [PFQuery queryWithClassName:self.parseClassName];
+    [query orderByAscending:@"scientificName"];
+    
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        NSPredicate *resultPredicate = [NSPredicate
+                                        predicateWithFormat:@"scientificName contains[cd] %@ OR commonName contains[cd] %@ OR symptomDescription contains[cd] %@",
+                                        searchText, searchText, searchText];
+        self.searchResults = [objects filteredArrayUsingPredicate:resultPredicate];
+    }];
 }
-
+    
 - (void) searchBar:(UISearchBar *)searchBar selectedScopeButtonIndexDidChange:(NSInteger)selectedScope {
     [self updateSearchResultsForSearchController:self.searchController];
 }
 
 #pragma mark - UITableViewDataSource
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    if (self.searchController.active) {
-        return [self.searchResults count];
-    } else {
-        DSAppConstants *constants = [DSAppConstants constants];
-        return [constants.symptoms count];
-    }
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath object:(PFObject *)object
 {
     static NSString *cellIdentifier = @"symptomCell";
     DSSymptomTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
@@ -99,12 +114,22 @@
     if (cell == nil) {
         // If cell is nil, create a new cell.
         cell = [[DSSymptomTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
-        [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
     }
+    [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
     
-    DSSymptom *symptom = [self.searchResults objectAtIndex:indexPath.row];
-    [cell.scientificName setText:symptom.scientificName];
-    [cell.commonName setText:symptom.commonName];
+//    cell.scientificName.text = [object objectForKey:@"scientificName"];
+//    cell.commonName.text = [object objectForKey:@"commonName"];
+    
+    DSSymptom *symptom = [[DSSymptom alloc] init];
+    symptom.scientificName = [object objectForKey:@"scientificName"];
+    symptom.commonName = [object objectForKey:@"commonName"];
+    symptom.symptomDescription = [object objectForKey:@"symptomDescription"];
+    symptom.diagnosis = [object objectForKey:@"diagnosis"];
+    
+    cell.symptom = symptom;
+    
+    cell.scientificName.text = symptom.scientificName;
+    cell.commonName.text = symptom.commonName;
     
     return cell;
 }
@@ -114,12 +139,13 @@
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"showSymptomDetails"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        DSSymptom *symptom = [self.searchResults objectAtIndex:indexPath.row];
-
-        DSInformationDetailViewController *viewController = segue.destinationViewController;
-        viewController.symptom = symptom;
         
-        [self.searchController setActive:NO];
+        DSSymptomTableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+        
+        DSInformationDetailViewController *viewController = segue.destinationViewController;
+        viewController.symptom = cell.symptom;
+
+        //[self.searchController setActive:NO];
     }
 }
 

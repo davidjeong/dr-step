@@ -77,7 +77,6 @@
             [currentUser setObject:facebookID forKey:@"facebookId"];
             [currentUser setObject:name forKey:@"name"];
             [currentUser setObject:email forKey:@"email"];
-            
             [currentUser saveInBackground];
         }
     }];

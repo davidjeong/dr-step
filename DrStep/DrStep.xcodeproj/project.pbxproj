@@ -46,6 +46,8 @@
 		535468B51B5968E6001D66E1 /* DSAppConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 535468B41B5968E6001D66E1 /* DSAppConstants.m */; };
 		535468BF1B59DAA8001D66E1 /* foot_image.png in Resources */ = {isa = PBXBuildFile; fileRef = 535468BE1B59DAA8001D66E1 /* foot_image.png */; };
 		53612AC71B51D0CF002D7690 /* DSData.m in Sources */ = {isa = PBXBuildFile; fileRef = 53612AC61B51D0CF002D7690 /* DSData.m */; };
+		5364FAFF1BE6D177003BA58B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5364FAFD1BE6D177003BA58B /* Main.storyboard */; };
+		5364FB011BE6EED9003BA58B /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5364FB001BE6EED9003BA58B /* ParseUI.framework */; };
 		53D26BFD1BE56D8D00929D1D /* DSStatisticsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53D26BFC1BE56D8D00929D1D /* DSStatisticsViewController.m */; };
 		53DBA6451B74511600F1BC64 /* app_logo_58_58.png in Resources */ = {isa = PBXBuildFile; fileRef = 53DBA6401B74511600F1BC64 /* app_logo_58_58.png */; };
 		53DBA6461B74511600F1BC64 /* app_logo_80_80.png in Resources */ = {isa = PBXBuildFile; fileRef = 53DBA6411B74511600F1BC64 /* app_logo_80_80.png */; };
@@ -56,7 +58,6 @@
 		CD16E7B41B24FBC50071E1CF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CD16E7B31B24FBC50071E1CF /* main.m */; };
 		CD16E7B71B24FBC50071E1CF /* DSAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CD16E7B61B24FBC50071E1CF /* DSAppDelegate.m */; };
 		CD16E7BA1B24FBC50071E1CF /* DSRealtimeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD16E7B91B24FBC50071E1CF /* DSRealtimeViewController.m */; };
-		CD16E7C01B24FBC50071E1CF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD16E7BE1B24FBC50071E1CF /* Main.storyboard */; };
 		CD16E7C21B24FBC50071E1CF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD16E7C11B24FBC50071E1CF /* Images.xcassets */; };
 		CDA9D5601B4DE49100C3170F /* DSSettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDA9D55F1B4DE49100C3170F /* DSSettingsTableViewController.m */; };
 		CDA9D56A1B4DF61D00C3170F /* DSBlueBeanTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDA9D5691B4DF61D00C3170F /* DSBlueBeanTableViewController.m */; };
@@ -115,6 +116,8 @@
 		535468BE1B59DAA8001D66E1 /* foot_image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = foot_image.png; path = images/foot_image.png; sourceTree = "<group>"; };
 		53612AC51B51D0CF002D7690 /* DSData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSData.h; sourceTree = "<group>"; };
 		53612AC61B51D0CF002D7690 /* DSData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSData.m; sourceTree = "<group>"; };
+		5364FAFE1BE6D177003BA58B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		5364FB001BE6EED9003BA58B /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ParseUI.framework; path = ../../Parse/ParseUI.framework; sourceTree = "<group>"; };
 		53D26BFB1BE56D8D00929D1D /* DSStatisticsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSStatisticsViewController.h; sourceTree = "<group>"; };
 		53D26BFC1BE56D8D00929D1D /* DSStatisticsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSStatisticsViewController.m; sourceTree = "<group>"; };
 		53DBA6401B74511600F1BC64 /* app_logo_58_58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = app_logo_58_58.png; path = images/app_logo_58_58.png; sourceTree = "<group>"; };
@@ -132,7 +135,6 @@
 		CD16E7B61B24FBC50071E1CF /* DSAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DSAppDelegate.m; sourceTree = "<group>"; };
 		CD16E7B81B24FBC50071E1CF /* DSRealtimeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DSRealtimeViewController.h; sourceTree = "<group>"; };
 		CD16E7B91B24FBC50071E1CF /* DSRealtimeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DSRealtimeViewController.m; sourceTree = "<group>"; };
-		CD16E7BF1B24FBC50071E1CF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CD16E7C11B24FBC50071E1CF /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		CDA9D55E1B4DE49100C3170F /* DSSettingsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSSettingsTableViewController.h; sourceTree = "<group>"; };
 		CDA9D55F1B4DE49100C3170F /* DSSettingsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSSettingsTableViewController.m; sourceTree = "<group>"; };
@@ -173,6 +175,7 @@
 				CDDFB1281B39116200DF1D5B /* Accelerate.framework in Frameworks */,
 				535282501BE54E9F00A675F8 /* Parse.framework in Frameworks */,
 				535282521BE54E9F00A675F8 /* ParseFacebookUtilsV4.framework in Frameworks */,
+				5364FB011BE6EED9003BA58B /* ParseUI.framework in Frameworks */,
 				535282351BE549A000A675F8 /* CoreData.framework in Frameworks */,
 				535282391BE549BA00A675F8 /* UIKit.framework in Frameworks */,
 				535282591BE5501F00A675F8 /* Foundation.framework in Frameworks */,
@@ -195,6 +198,7 @@
 		7377D6F3ACB1645A58B7499C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5364FB001BE6EED9003BA58B /* ParseUI.framework */,
 				535282641BE5537E00A675F8 /* MobileCoreServices.framework */,
 				535282621BE5537600A675F8 /* SystemConfiguration.framework */,
 				535282601BE5536800A675F8 /* libz.1.1.3.tbd */,
@@ -271,9 +275,9 @@
 				532B955C1B5F3950003B1D08 /* DSSymptom.m */,
 				532B95561B5F378A003B1D08 /* DSSymptomTableViewCell.h */,
 				532B95571B5F378A003B1D08 /* DSSymptomTableViewCell.m */,
-				CD16E7BE1B24FBC50071E1CF /* Main.storyboard */,
 				CD16E7C11B24FBC50071E1CF /* Images.xcassets */,
 				CD16E7B11B24FBC50071E1CF /* Supporting Files */,
+				5364FAFD1BE6D177003BA58B /* Main.storyboard */,
 				CDA9D5B41B4E257F00C3170F /* LaunchScreen.xib */,
 				535468AF1B596108001D66E1 /* Coordinates.plist */,
 				532B955E1B5F3BDF003B1D08 /* Symptoms.plist */,
@@ -397,10 +401,10 @@
 				53DBA6471B74511600F1BC64 /* app_logo_120_120.png in Resources */,
 				532B954A1B5F00C2003B1D08 /* footprint_filled@2x.png in Resources */,
 				535468BF1B59DAA8001D66E1 /* foot_image.png in Resources */,
-				CD16E7C01B24FBC50071E1CF /* Main.storyboard in Resources */,
 				53DBA6461B74511600F1BC64 /* app_logo_80_80.png in Resources */,
 				CDA9D5A91B4E229000C3170F /* app_launch_screen_640_960.png in Resources */,
 				532B954C1B5F00C2003B1D08 /* library_filled@2x.png in Resources */,
+				5364FAFF1BE6D177003BA58B /* Main.storyboard in Resources */,
 				532B955F1B5F3BDF003B1D08 /* Symptoms.plist in Resources */,
 				CDA9D5B31B4E241C00C3170F /* app_launch_screen_640_1136.png in Resources */,
 				532B954B1B5F00C2003B1D08 /* library_filled.png in Resources */,
@@ -490,10 +494,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		CD16E7BE1B24FBC50071E1CF /* Main.storyboard */ = {
+		5364FAFD1BE6D177003BA58B /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				CD16E7BF1B24FBC50071E1CF /* Base */,
+				5364FAFE1BE6D177003BA58B /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";

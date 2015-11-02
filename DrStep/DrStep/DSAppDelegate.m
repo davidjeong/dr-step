@@ -47,25 +47,9 @@
         CGPoint point = CGPointMake([[[arrayFromFile objectAtIndex:i] objectAtIndex:0] integerValue], [[[arrayFromFile objectAtIndex:i] objectAtIndex:1] integerValue]);
         [mutableCoordinates addObject:[NSValue valueWithCGPoint:point]];
     }
-
-    path = [[NSBundle mainBundle] pathForResource:@"Symptoms" ofType:@"plist"];
-    arrayFromFile = [[NSArray alloc] initWithContentsOfFile:path];
-    NSSortDescriptor *descriptor = [[NSSortDescriptor alloc] initWithKey:@"scientificName" ascending:YES];
-    NSMutableArray *mutableSymptoms = [[NSMutableArray alloc] init];
-    for (int i=0; i<[arrayFromFile count]; i++) {
-        DSSymptom *symptom = [[DSSymptom alloc] init];
-        [symptom setScientificName:[[arrayFromFile objectAtIndex:i] objectForKey:@"scientificName"]];
-        [symptom setCommonName:[[arrayFromFile objectAtIndex:i] objectForKey:@"commonName"]];
-        [symptom setSymptomDescription:[[arrayFromFile objectAtIndex:i] objectForKey:@"description"]];
-        [symptom setDiagnosis:[[arrayFromFile objectAtIndex:i] objectForKey:@"diagnosis"]];
-        [mutableSymptoms addObject:symptom];
-    }
-    
     
     DSAppConstants *constants = [DSAppConstants constants];
     constants.coordinates = [[NSArray alloc] initWithArray:mutableCoordinates];
-    constants.symptoms = [mutableSymptoms sortedArrayUsingDescriptors:[NSArray arrayWithObject:descriptor]];
-    
     
     // Start the thread to parse every minute collection into data.
     
