@@ -6,26 +6,35 @@
 //
 //
 
-#import <ParseFacebookUtilsV4/PFFacebookUtils.h>
+#import "DSSettingsViewController.h"
 
-#import "DSSettingsTableViewController.h"
+#import <Parse/Parse.h>
+#import <ParseFacebookUtilsV4/PFFacebookUtils.h>
+#import <QuartzCore/QuartzCore.h>
+
 #import "DSAppConstants.h"
 #import "DSBlueBeanConnector.h"
 #import "DSBlueBeanTableViewController.h"
 #import "DSLoginViewController.h"
 
-@interface DSSettingsTableViewController ()
+@interface DSSettingsViewController ()
 
 @property (nonatomic, strong) UISlider *boostSlider;
 @property (nonatomic, strong) UISlider *fontSlider;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UIImageView *profileImageView;
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *emailLabel;
+@property (weak, nonatomic) IBOutlet UILabel *genderLabel;
 
 @end
 
-@implementation DSSettingsTableViewController
+@implementation DSSettingsViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.tableView.delegate = self;
+    self.tableView.dataSource = self;
     
     self.boostSlider = [[UISlider alloc] init];
     [self.boostSlider setMinimumValue:0.0f];
@@ -50,6 +59,26 @@
                                              selector:@selector(handleNotifications:)
                                                  name:@"disconnectedFromBean"
                                                object:nil];
+    
+    PFUser *currentUser = [PFUser currentUser];
+    PFFile *file = currentUser[@"profilePhoto"];
+    [file getDataInBackgroundWithBlock:^(NSData *imageData, NSError *error) {
+        UIImage *image = [UIImage imageWithData:imageData];
+        self.profileImageView.image = image;
+        self.profileImageView.layer.cornerRadius = self.profileImageView.frame.size.width / 2;
+        self.profileImageView.layer.borderWidth = 6.0f;
+        self.profileImageView.layer.borderColor = [[UIColor whiteColor] CGColor];
+        self.profileImageView.layer.masksToBounds = YES;
+    }];
+    
+    self.nameLabel.text = currentUser[@"name"];
+    self.emailLabel.text = currentUser[@"email"];
+    BOOL isMale = currentUser[@"isMale"];
+    if (isMale) {
+        self.genderLabel.text = @"Male";
+    } else {
+        self.genderLabel.text = @"Female";
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -77,10 +106,10 @@ static NSString *cellIdentifier = @"settingsCell";
     UITableViewCell *cell = nil;
     if (indexPath.section == 0) { // Connectivity
         if(indexPath.row == 0) {
-            cell = [tableView dequeueReusableCellWithIdentifier:@"connectivityCell"];
+            cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
             if (cell == nil) {
                 cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
-                                           reuseIdentifier:@"connectivityCell"];
+                                           reuseIdentifier:cellIdentifier];
             }
             [cell.textLabel setText:@"Connect To The Shoe"];
             DSAppConstants *constants = [DSAppConstants constants];
@@ -93,10 +122,10 @@ static NSString *cellIdentifier = @"settingsCell";
     }
     else if(indexPath.section == 1) { // Configuration
         if (indexPath.row == 0) {
-            cell = [tableView dequeueReusableCellWithIdentifier:@"configurationCell"];
+            cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
             if (cell == nil) {
                 cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
-                                              reuseIdentifier:@"configurationCell"];
+                                              reuseIdentifier:cellIdentifier];
             }
             DSAppConstants *constants = [DSAppConstants constants];
             [self.boostSlider setValue:[constants.heatMapBoost floatValue]];
@@ -105,9 +134,9 @@ static NSString *cellIdentifier = @"settingsCell";
         }
     } else if (indexPath.section == 2) { // Application
         if (indexPath.row == 0) {
-            cell = [tableView dequeueReusableCellWithIdentifier:@"applicationCell"];
+            cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
             if (cell == nil) {
-                cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"applicationCell"];
+                cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
             }
             [cell.textLabel setText:@"Log Out"];
             [cell.textLabel setTextColor:[UIColor redColor]];

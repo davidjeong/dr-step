@@ -58,7 +58,7 @@
 		CD16E7B71B24FBC50071E1CF /* DSAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CD16E7B61B24FBC50071E1CF /* DSAppDelegate.m */; };
 		CD16E7BA1B24FBC50071E1CF /* DSRealtimeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD16E7B91B24FBC50071E1CF /* DSRealtimeViewController.m */; };
 		CD16E7C21B24FBC50071E1CF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD16E7C11B24FBC50071E1CF /* Images.xcassets */; };
-		CDA9D5601B4DE49100C3170F /* DSSettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDA9D55F1B4DE49100C3170F /* DSSettingsTableViewController.m */; };
+		CDA9D5601B4DE49100C3170F /* DSSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDA9D55F1B4DE49100C3170F /* DSSettingsViewController.m */; };
 		CDA9D56A1B4DF61D00C3170F /* DSBlueBeanTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDA9D5691B4DF61D00C3170F /* DSBlueBeanTableViewController.m */; };
 		CDA9D56F1B4DFA1E00C3170F /* DSBlueBeanTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CDA9D56E1B4DFA1E00C3170F /* DSBlueBeanTableViewCell.m */; };
 		CDA9D5791B4E127F00C3170F /* DSBlueBeanConnector.m in Sources */ = {isa = PBXBuildFile; fileRef = CDA9D5781B4E127F00C3170F /* DSBlueBeanConnector.m */; };
@@ -134,8 +134,8 @@
 		CD16E7B81B24FBC50071E1CF /* DSRealtimeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DSRealtimeViewController.h; sourceTree = "<group>"; };
 		CD16E7B91B24FBC50071E1CF /* DSRealtimeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DSRealtimeViewController.m; sourceTree = "<group>"; };
 		CD16E7C11B24FBC50071E1CF /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		CDA9D55E1B4DE49100C3170F /* DSSettingsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSSettingsTableViewController.h; sourceTree = "<group>"; };
-		CDA9D55F1B4DE49100C3170F /* DSSettingsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSSettingsTableViewController.m; sourceTree = "<group>"; };
+		CDA9D55E1B4DE49100C3170F /* DSSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSSettingsViewController.h; sourceTree = "<group>"; };
+		CDA9D55F1B4DE49100C3170F /* DSSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSSettingsViewController.m; sourceTree = "<group>"; };
 		CDA9D5681B4DF61D00C3170F /* DSBlueBeanTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSBlueBeanTableViewController.h; sourceTree = "<group>"; };
 		CDA9D5691B4DF61D00C3170F /* DSBlueBeanTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSBlueBeanTableViewController.m; sourceTree = "<group>"; };
 		CDA9D56D1B4DFA1E00C3170F /* DSBlueBeanTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSBlueBeanTableViewCell.h; sourceTree = "<group>"; };
@@ -265,8 +265,8 @@
 				535282321BE545EB00A675F8 /* DSLoginViewController.m */,
 				CD16E7B81B24FBC50071E1CF /* DSRealtimeViewController.h */,
 				CD16E7B91B24FBC50071E1CF /* DSRealtimeViewController.m */,
-				CDA9D55E1B4DE49100C3170F /* DSSettingsTableViewController.h */,
-				CDA9D55F1B4DE49100C3170F /* DSSettingsTableViewController.m */,
+				CDA9D55E1B4DE49100C3170F /* DSSettingsViewController.h */,
+				CDA9D55F1B4DE49100C3170F /* DSSettingsViewController.m */,
 				53D26BFB1BE56D8D00929D1D /* DSStatisticsViewController.h */,
 				53D26BFC1BE56D8D00929D1D /* DSStatisticsViewController.m */,
 				532B955B1B5F3950003B1D08 /* DSSymptom.h */,
@@ -472,7 +472,7 @@
 				535282331BE545EB00A675F8 /* DSLoginViewController.m in Sources */,
 				53D26BFD1BE56D8D00929D1D /* DSStatisticsViewController.m in Sources */,
 				CDA9D56F1B4DFA1E00C3170F /* DSBlueBeanTableViewCell.m in Sources */,
-				CDA9D5601B4DE49100C3170F /* DSSettingsTableViewController.m in Sources */,
+				CDA9D5601B4DE49100C3170F /* DSSettingsViewController.m in Sources */,
 				CDA9D56A1B4DF61D00C3170F /* DSBlueBeanTableViewController.m in Sources */,
 				532B955D1B5F3950003B1D08 /* DSSymptom.m in Sources */,
 				CDA9D5791B4E127F00C3170F /* DSBlueBeanConnector.m in Sources */,

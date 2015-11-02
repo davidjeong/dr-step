@@ -6,8 +6,10 @@
 //
 //
 
+#import <ParseUI/PFLogInViewController.h>
+#import <ParseUI/PFSignUpViewController.h>
 #import <UIKit/UIKit.h>
 
-@interface DSLoginViewController : UIViewController
+@interface DSLoginViewController : UIViewController <PFLogInViewControllerDelegate>
 
 @end
