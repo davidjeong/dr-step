@@ -36,6 +36,9 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     
+    [self.view setBackgroundColor:[UIColor colorWithRed:255/255.0f green:246/255.0f blue:233/255.0f alpha:1.0f]];
+    [self.tableView setBackgroundColor:[UIColor colorWithRed:255/255.0f green:246/255.0f blue:233/255.0f alpha:1.0f]];
+    
     self.boostSlider = [[UISlider alloc] init];
     [self.boostSlider setMinimumValue:0.0f];
     [self.boostSlider setMaximumValue:1.0f];
@@ -62,14 +65,20 @@
     
     PFUser *currentUser = [PFUser currentUser];
     PFFile *file = currentUser[@"profilePhoto"];
-    [file getDataInBackgroundWithBlock:^(NSData *imageData, NSError *error) {
-        UIImage *image = [UIImage imageWithData:imageData];
-        self.profileImageView.image = image;
-        self.profileImageView.layer.cornerRadius = self.profileImageView.frame.size.width / 2;
-        self.profileImageView.layer.borderWidth = 6.0f;
-        self.profileImageView.layer.borderColor = [[UIColor whiteColor] CGColor];
-        self.profileImageView.layer.masksToBounds = YES;
-    }];
+    self.profileImageView.contentMode = UIViewContentModeScaleAspectFill;
+    self.profileImageView.layer.cornerRadius = self.profileImageView.frame.size.width / 2;
+    self.profileImageView.layer.borderWidth = 5.0f;
+    self.profileImageView.layer.borderColor = [[UIColor grayColor] CGColor];
+    self.profileImageView.layer.masksToBounds = YES;
+    if (file == nil) {
+        self.profileImageView.userInteractionEnabled = YES;
+        self.profileImageView.image = [UIImage imageNamed:@"empty_profile_pic"];
+    } else {
+        [file getDataInBackgroundWithBlock:^(NSData *imageData, NSError *error) {
+            self.profileImageView.image = [UIImage imageWithData:imageData];
+
+        }];
+    }
     
     self.nameLabel.text = currentUser[@"name"];
     self.emailLabel.text = currentUser[@"email"];
@@ -146,6 +155,7 @@ static NSString *cellIdentifier = @"settingsCell";
         cell = [[UITableViewCell alloc] init];
         [cell setUserInteractionEnabled:NO];
     }
+    cell.backgroundColor = [UIColor colorWithRed:255/255.0f green:228/255.0f blue:188/255.0f alpha:1.0f];
     return cell;
 }
 
@@ -197,6 +207,34 @@ static NSString *cellIdentifier = @"settingsCell";
     dispatch_async(dispatch_get_main_queue(), ^{
         [cell.textLabel setText:[NSString stringWithFormat:@"Adjust Heatmap Boost - %.02f", [constants.heatMapBoost floatValue]]];
     });
+}
+
+- (IBAction)profilePhotoTapped:(id)sender {
+    NSLog(@"Photo touched");
+    
+    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+    picker.delegate = self;
+    picker.allowsEditing = NO;
+    picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    
+    [self presentViewController:picker animated:YES completion:NULL];
+}
+
+#pragma mark - UIImagePickerControllerDelegate
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
+    UIImage *image = info[UIImagePickerControllerOriginalImage];
+    NSData* imageData = UIImageJPEGRepresentation(image, 1.0f);
+    PFFile *imageFile = [PFFile fileWithName:@"profile_image.png" data:imageData];
+    self.profileImageView.image = image;
+    PFUser *currentUser = [PFUser currentUser];
+    [currentUser setObject:imageFile forKey:@"profilePhoto"];
+    [currentUser saveInBackground];
+    [picker dismissViewControllerAnimated:YES completion:NULL];
+}
+
+-(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker{
+    [picker dismissViewControllerAnimated:YES completion:NULL];
 }
 
 #pragma mark - Logout

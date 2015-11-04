@@ -18,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *usernameField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordField;
 @property (weak, nonatomic) IBOutlet UIButton *fbLoginButton;
+@property (weak, nonatomic) IBOutlet UILabel *errorLabel;
 @end
 
 @implementation DSLoginViewController
@@ -25,10 +26,18 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // Mask the password.
-    [self.passwordField setSecureTextEntry:YES];
+    // Programatically set the background color.
+    [self.view setBackgroundColor:[UIColor colorWithRed:255/255.0f green:246/255.0f blue:233/255.0f alpha:1.0f]];
+    
     // Programatically set icon and background button color to facebook.
     [self.fbLoginButton.layer setBackgroundColor:[UIColor colorWithRed:59/255.0 green:89/255.0 blue:152/255.0 alpha:1.0].CGColor];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    // Clear the fields.
+    self.usernameField.text = @"";
+    self.passwordField.text = @"";
 }
 
 - (void)didReceiveMemoryWarning {
@@ -49,12 +58,20 @@
 
 - (void)_loginWithApplication {
     if (self.usernameField.text && self.passwordField.text && self.usernameField.text.length != 0 && self.passwordField.text.length != 0) {
+        // Check if username/password combination is correct.
+        [PFUser logInWithUsernameInBackground:self.usernameField.text password:self.passwordField.text block:^(PFUser *user, NSError *error) {
+            if (error) {
+                self.errorLabel.text = @"Invalid credentials";
+                NSLog(@"Error while trying to log in.");
+                return;
+            }
+            if (user) {
+                [self performSegueWithIdentifier:@"loginSegue" sender:self];
+            }
+        }];
     } else {
+        self.errorLabel.text = @"Username or password is empty";
         NSLog(@"Username or password is empty.");
-        UIAlertController *alertViewController = [UIAlertController alertControllerWithTitle:nil message:@"Username or password is empty." preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction *action = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
-        [alertViewController addAction:action];
-        [self presentViewController:alertViewController animated:YES completion:nil];
     }
 }
 
@@ -103,7 +120,6 @@
             NSData *imageData = [NSData dataWithContentsOfURL:imageURL];
             
             PFFile *imageFile = [PFFile fileWithName:@"profile_image.png" data:imageData];
-            [imageFile saveInBackground];
             
             // Now add the data to the UI elements
             PFUser *currentUser = [PFUser currentUser];
@@ -115,6 +131,10 @@
             [currentUser saveInBackground];
         }
     }];
+}
+
+#pragma mark - Segue
+- (IBAction)unwindToLoginViewController:(UIStoryboardSegue *)segue {
 }
 
 @end

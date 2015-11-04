@@ -31,6 +31,8 @@
                   clientKey:@"YTmzwHxuZqYBAPUznBAc20pYqDfO1XtLXLutGE0O"];
     [PFFacebookUtils initializeFacebookWithApplicationLaunchOptions:launchOptions];
     
+    // App tint color is orange.
+    // App background color is HEX: #FFF6E9, or RGB(255, 246, 233).
     [self.window setTintColor:[UIColor orangeColor]];
     
     // Set color for page control.
@@ -59,16 +61,16 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     
-    if (![PFUser currentUser] || // Check if user is cached
-        ![PFFacebookUtils isLinkedWithUser:[PFUser currentUser]]) { // Check if user is linked to Facebook
-        // Load Login/Signup View Controller
-        UIViewController *loginViewController = [storyboard instantiateViewControllerWithIdentifier:@"DSLoginViewController"];
-        self.window.rootViewController = loginViewController;
-        [self.window makeKeyAndVisible];
-    } else {
+    if ([PFUser currentUser] || // Check if user is cached
+        [PFFacebookUtils isLinkedWithUser:[PFUser currentUser]]) { // Check if user is linked to Facebook
         // Load main app screen
         UIViewController *initialViewController =[storyboard instantiateInitialViewController];
         self.window.rootViewController = initialViewController;
+        [self.window makeKeyAndVisible];
+    } else {
+        // Load Login/Signup View Controller
+        UIViewController *loginViewController = [storyboard instantiateViewControllerWithIdentifier:@"DSLoginViewController"];
+        self.window.rootViewController = loginViewController;
         [self.window makeKeyAndVisible];
     }
     
