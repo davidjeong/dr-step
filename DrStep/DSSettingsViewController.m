@@ -70,8 +70,10 @@
     self.profileImageView.layer.borderWidth = 5.0f;
     self.profileImageView.layer.borderColor = [[UIColor grayColor] CGColor];
     self.profileImageView.layer.masksToBounds = YES;
-    if (file == nil) {
+    if (currentUser[@"facebookId"] == nil) {
         self.profileImageView.userInteractionEnabled = YES;
+    }
+    if (file == nil) {
         self.profileImageView.image = [UIImage imageNamed:@"empty_profile_pic"];
     } else {
         [file getDataInBackgroundWithBlock:^(NSData *imageData, NSError *error) {

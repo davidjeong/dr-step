@@ -34,6 +34,7 @@
     // App tint color is orange.
     // App background color is HEX: #FFF6E9, or RGB(255, 246, 233).
     [self.window setTintColor:[UIColor orangeColor]];
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     
     // Set color for page control.
     UIPageControl *pageControl = [UIPageControl appearance];
@@ -53,13 +54,8 @@
     DSAppConstants *constants = [DSAppConstants constants];
     constants.coordinates = [[NSArray alloc] initWithArray:mutableCoordinates];
     
-    // Start the thread to parse every minute collection into data.
-    
     DSData *data = [DSData data];
     [data setCountAndInitialize:[arrayFromFile count]];
-    
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     
     if ([PFUser currentUser] || // Check if user is cached
         [PFFacebookUtils isLinkedWithUser:[PFUser currentUser]]) { // Check if user is linked to Facebook
