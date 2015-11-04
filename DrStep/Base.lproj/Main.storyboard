@@ -282,15 +282,15 @@
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="commonName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZPy-bZ-gCE">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="commonName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZPy-bZ-gCE">
                                             <rect key="frame" x="468" y="11.5" width="112" height="20.5"/>
                                             <animations/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="scientificName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KlN-0d-9Vl">
-                                            <rect key="frame" x="20" y="11.5" width="119.5" height="20.5"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="scientificName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KlN-0d-9Vl">
+                                            <rect key="frame" x="20" y="11" width="119.5" height="20.5"/>
                                             <animations/>
                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                             <color key="textColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -303,6 +303,7 @@
                                         <constraint firstItem="ZPy-bZ-gCE" firstAttribute="centerY" secondItem="Hgn-Ey-3ZR" secondAttribute="centerY" id="Y8u-jK-MLb"/>
                                         <constraint firstItem="KlN-0d-9Vl" firstAttribute="leading" secondItem="Hgn-Ey-3ZR" secondAttribute="leading" constant="20" id="aue-kh-4R6"/>
                                         <constraint firstItem="KlN-0d-9Vl" firstAttribute="centerY" secondItem="Hgn-Ey-3ZR" secondAttribute="centerY" id="c9c-06-lqW"/>
+                                        <constraint firstItem="ZPy-bZ-gCE" firstAttribute="leading" secondItem="KlN-0d-9Vl" secondAttribute="trailing" constant="10" id="pL1-U2-Zng"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <animations/>
