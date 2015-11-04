@@ -12,7 +12,6 @@
 
 @interface DSSignUpViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *nameField;
-@property (weak, nonatomic) IBOutlet UISegmentedControl *genderControl;
 @property (weak, nonatomic) IBOutlet UITextField *emailField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordField;
 @property (weak, nonatomic) IBOutlet UITextField *confirmPasswordField;
@@ -36,6 +35,7 @@
     self.emailField.text = @"";
     self.passwordField.text = @"";
     self.confirmPasswordField.text = @"";
+    self.errorLabel.text = @"";
 }
 
 - (void)didReceiveMemoryWarning {
@@ -86,12 +86,10 @@
         if (objects.count == 0) {
             // Create the new user.
             PFUser *currentUser = [PFUser user];
-            BOOL isMale = self.genderControl.selectedSegmentIndex == 0;
             [currentUser setObject:self.nameField.text forKey:@"name"];
             [currentUser setObject:self.emailField.text forKey:@"username"];
             [currentUser setObject:self.emailField.text forKey:@"email"];
             [currentUser setObject:self.passwordField.text forKey:@"password"];
-            [currentUser setObject:[NSNumber numberWithBool:isMale] forKey:@"isMale"];
             [currentUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
                 if (error) {
                     NSLog(@"Error while trying to save new data");

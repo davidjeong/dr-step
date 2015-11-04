@@ -25,7 +25,6 @@
 @property (weak, nonatomic) IBOutlet UIImageView *profileImageView;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *emailLabel;
-@property (weak, nonatomic) IBOutlet UILabel *genderLabel;
 
 @end
 
@@ -84,12 +83,6 @@
     
     self.nameLabel.text = currentUser[@"name"];
     self.emailLabel.text = currentUser[@"email"];
-    BOOL isMale = currentUser[@"isMale"];
-    if (isMale) {
-        self.genderLabel.text = @"Male";
-    } else {
-        self.genderLabel.text = @"Female";
-    }
 }
 
 - (void)viewWillAppear:(BOOL)animated {

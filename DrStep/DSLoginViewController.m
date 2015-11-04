@@ -38,6 +38,7 @@
     // Clear the fields.
     self.usernameField.text = @"";
     self.passwordField.text = @"";
+    self.errorLabel.text = @"";
 }
 
 - (void)didReceiveMemoryWarning {
@@ -113,8 +114,6 @@
             NSString *facebookId = userData[@"id"];
             NSString *name = userData[@"name"];
             NSString *email = userData[@"email"];
-            NSString *gender = userData[@"gender"];
-            BOOL isMale = [gender isEqualToString:@"male"];
             
             NSURL *imageURL = [NSURL URLWithString:[NSString stringWithFormat:@"https://graph.facebook.com/%@/picture?type=large&return_ssl_resources=1", facebookId]];
             NSData *imageData = [NSData dataWithContentsOfURL:imageURL];
@@ -126,7 +125,6 @@
             [currentUser setObject:facebookId forKey:@"facebookId"];
             [currentUser setObject:name forKey:@"name"];
             [currentUser setObject:email forKey:@"email"];
-            [currentUser setObject:[NSNumber numberWithBool:isMale] forKey:@"isMale"];
             [currentUser setObject:imageFile forKey:@"profilePhoto"];
             [currentUser saveInBackground];
         }
