@@ -10,12 +10,15 @@
 
 #import <Parse/Parse.h>
 
+#import "DSLoginViewController.h"
+
 @interface DSSignUpViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *nameField;
 @property (weak, nonatomic) IBOutlet UITextField *emailField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordField;
 @property (weak, nonatomic) IBOutlet UITextField *confirmPasswordField;
 @property (weak, nonatomic) IBOutlet UILabel *errorLabel;
+@property (weak, nonatomic) IBOutlet UIButton *createButton;
 
 @end
 
@@ -23,15 +26,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.createButton.layer.cornerRadius = self.createButton.frame.size.height / 2;
     
-    // Programatically set the background color.
-    [self.view setBackgroundColor:[UIColor colorWithRed:255/255.0f green:246/255.0f blue:233/255.0f alpha:1.0f]];
+    [self navigationItem].leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Sign In" style:UIBarButtonItemStylePlain target:self action:@selector(goToLogin:)];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    // Register for notifications.
-    [self registerForKeyboardNotifications];
     
     // Clear the fields.
     self.nameField.text = @"";
@@ -43,8 +44,6 @@
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
-    // Unregister from notifications.
-    [self unregisterForKeyboardNotifications];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -56,36 +55,6 @@
 
 - (IBAction)tapRecognized:(id)sender {
     [self.view endEditing:YES];
-}
-
-#pragma mark - Keyboard
-
-#pragma mark - Keyboard
-
-- (void)registerForKeyboardNotifications {
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidHide:) name:UIKeyboardWillHideNotification object:nil];
-}
-
-- (void)unregisterForKeyboardNotifications {
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
-}
-
-- (void)keyboardWillShow:(NSNotification *)aNotification {
-    NSDictionary *info = [aNotification userInfo];
-    CGRect screen = [[UIScreen mainScreen] bounds];
-    CGSize kbSize = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
-    [self.view setFrame:CGRectMake(0, 0, screen.size.width, screen.size.height - kbSize.height)];
-}
-
-- (void)keyboardDidHide:(NSNotification *)aNotification {
-    CGRect screen = [[UIScreen mainScreen] bounds];
-    [self.view setFrame:CGRectMake(0, 0, screen.size.width, screen.size.height)];
-}
-
-#pragma mark - Button Actions
-- (IBAction)goBackToLoginScreen:(id)sender {
 }
 
 - (IBAction)createAccount:(id)sender {
@@ -139,6 +108,22 @@
             self.errorLabel.text = @"User with email already exists";
         }
     }];
+}
+
+#pragma mark - Segue
+- (IBAction)goToLogin:(id)sender {
+    CATransition* transition = [CATransition animation];
+    transition.duration = 0.3;
+    transition.type = kCATransitionFade;
+    
+    [[self navigationController].view.layer addAnimation:transition forKey:kCATransition];
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    DSLoginViewController *destinationViewController = (DSLoginViewController *)[storyboard instantiateViewControllerWithIdentifier:@"DSLoginViewController"];
+    
+    NSMutableArray *viewControllers = [NSMutableArray arrayWithArray:[self.navigationController viewControllers]];
+    
+    [viewControllers replaceObjectAtIndex:0 withObject:destinationViewController];
+    [[self navigationController] setViewControllers:viewControllers];
 }
 
 @end

@@ -65,8 +65,8 @@
         [self.window makeKeyAndVisible];
     } else {
         // Load Login/Signup View Controller
-        UIViewController *loginViewController = [storyboard instantiateViewControllerWithIdentifier:@"DSLoginViewController"];
-        self.window.rootViewController = loginViewController;
+        UINavigationController *loginNavigationController = (UINavigationController *)[storyboard instantiateViewControllerWithIdentifier:@"DSLoginNavigationController"];
+        self.window.rootViewController = loginNavigationController;
         [self.window makeKeyAndVisible];
     }
     

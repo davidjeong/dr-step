@@ -35,9 +35,6 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     
-    [self.view setBackgroundColor:[UIColor colorWithRed:255/255.0f green:246/255.0f blue:233/255.0f alpha:1.0f]];
-    [self.tableView setBackgroundColor:[UIColor colorWithRed:255/255.0f green:246/255.0f blue:233/255.0f alpha:1.0f]];
-    
     self.boostSlider = [[UISlider alloc] init];
     [self.boostSlider setMinimumValue:0.0f];
     [self.boostSlider setMaximumValue:1.0f];
@@ -150,7 +147,6 @@ static NSString *cellIdentifier = @"settingsCell";
         cell = [[UITableViewCell alloc] init];
         [cell setUserInteractionEnabled:NO];
     }
-    cell.backgroundColor = [UIColor colorWithRed:255/255.0f green:228/255.0f blue:188/255.0f alpha:1.0f];
     return cell;
 }
 
@@ -179,8 +175,7 @@ static NSString *cellIdentifier = @"settingsCell";
             UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil];
             UIAlertAction *confirmAction = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
                 [self _logout];
-                DSLoginViewController *loginViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"DSLoginViewController"];
-                [self presentViewController:loginViewController animated:YES completion:nil];
+                [self performSegueWithIdentifier:@"logoutSegue" sender:self];
             }];
             
             [alertController addAction:cancelAction];

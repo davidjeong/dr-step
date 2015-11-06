@@ -23,6 +23,7 @@
 		532B95581B5F378A003B1D08 /* DSSymptomTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 532B95571B5F378A003B1D08 /* DSSymptomTableViewCell.m */; };
 		532B955D1B5F3950003B1D08 /* DSSymptom.m in Sources */ = {isa = PBXBuildFile; fileRef = 532B955C1B5F3950003B1D08 /* DSSymptom.m */; };
 		532B95621B5F4583003B1D08 /* DSInformationDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 532B95611B5F4582003B1D08 /* DSInformationDetailViewController.m */; };
+		53482DE91BEC71C600A7EEE9 /* DSLoginNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53482DE81BEC71C600A7EEE9 /* DSLoginNavigationController.m */; };
 		535282331BE545EB00A675F8 /* DSLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 535282321BE545EB00A675F8 /* DSLoginViewController.m */; };
 		535282351BE549A000A675F8 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 535282341BE549A000A675F8 /* CoreData.framework */; };
 		535282371BE549B400A675F8 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 535282361BE549B400A675F8 /* CoreLocation.framework */; };
@@ -91,6 +92,8 @@
 		532B955C1B5F3950003B1D08 /* DSSymptom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSSymptom.m; sourceTree = "<group>"; };
 		532B95601B5F4582003B1D08 /* DSInformationDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSInformationDetailViewController.h; sourceTree = "<group>"; };
 		532B95611B5F4582003B1D08 /* DSInformationDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSInformationDetailViewController.m; sourceTree = "<group>"; };
+		53482DE71BEC71C600A7EEE9 /* DSLoginNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSLoginNavigationController.h; sourceTree = "<group>"; };
+		53482DE81BEC71C600A7EEE9 /* DSLoginNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSLoginNavigationController.m; sourceTree = "<group>"; };
 		535282251BE5418500A675F8 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = ../../Parse/Bolts.framework; sourceTree = "<group>"; };
 		535282261BE5418500A675F8 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = ../../Parse/Parse.framework; sourceTree = "<group>"; };
 		535282291BE5418500A675F8 /* ParseFacebookUtilsV4.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ParseFacebookUtilsV4.framework; path = ../../Parse/ParseFacebookUtilsV4.framework; sourceTree = "<group>"; };
@@ -266,6 +269,8 @@
 				CD12CB5D1B385D55004F3AB7 /* DSInformationViewController.m */,
 				532B95601B5F4582003B1D08 /* DSInformationDetailViewController.h */,
 				532B95611B5F4582003B1D08 /* DSInformationDetailViewController.m */,
+				53482DE71BEC71C600A7EEE9 /* DSLoginNavigationController.h */,
+				53482DE81BEC71C600A7EEE9 /* DSLoginNavigationController.m */,
 				535282311BE545EB00A675F8 /* DSLoginViewController.h */,
 				535282321BE545EB00A675F8 /* DSLoginViewController.m */,
 				CD16E7B81B24FBC50071E1CF /* DSRealtimeViewController.h */,
@@ -482,6 +487,7 @@
 				53D26BFD1BE56D8D00929D1D /* DSStatisticsViewController.m in Sources */,
 				CDA9D56F1B4DFA1E00C3170F /* DSBlueBeanTableViewCell.m in Sources */,
 				CDA9D5601B4DE49100C3170F /* DSSettingsViewController.m in Sources */,
+				53482DE91BEC71C600A7EEE9 /* DSLoginNavigationController.m in Sources */,
 				CDA9D56A1B4DF61D00C3170F /* DSBlueBeanTableViewController.m in Sources */,
 				532B955D1B5F3950003B1D08 /* DSSymptom.m in Sources */,
 				CDA9D5791B4E127F00C3170F /* DSBlueBeanConnector.m in Sources */,
