@@ -52,13 +52,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="0.96470588239999999" blue="0.91372549020000005" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Statistics" image="clock_filled.png" id="Vhh-5w-f5O"/>
+                    <navigationItem key="navigationItem" title="Statistics" id="8ak-px-xJw"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6xw-rz-WO2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="650" y="360"/>
+            <point key="canvasLocation" x="1445" y="360"/>
         </scene>
         <!--Settings-->
         <scene sceneID="I4g-xh-ScO">
@@ -316,6 +317,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FGP-Nn-t0n" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1445" y="1252"/>
+        </scene>
+        <!--Statistics-->
+        <scene sceneID="utm-ma-Ya5">
+            <objects>
+                <navigationController id="b3k-82-SHZ" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Statistics" image="clock_filled.png" id="pKG-mZ-7tk"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="PR2-bc-vfT">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
+                        <color key="barTintColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="z8j-aJ-94v" kind="relationship" relationship="rootViewController" id="u7M-LJ-lia"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ucn-oJ-Tqi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="650" y="361"/>
         </scene>
         <!--Information Detail View Controller-->
         <scene sceneID="paK-TB-NOG">
@@ -700,7 +720,7 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="z8j-aJ-94v" kind="relationship" relationship="viewControllers" id="jQ8-nG-8kT"/>
+                        <segue destination="b3k-82-SHZ" kind="relationship" relationship="viewControllers" id="xNo-6v-7SR"/>
                         <segue destination="9pv-A4-QxB" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
                         <segue destination="IBa-g0-P3F" kind="relationship" relationship="viewControllers" id="Iau-cZ-sIX"/>
                         <segue destination="tJN-Tu-Bo6" kind="relationship" relationship="viewControllers" id="eS1-vE-2T7"/>
