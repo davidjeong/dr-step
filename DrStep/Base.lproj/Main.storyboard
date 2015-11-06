@@ -248,13 +248,6 @@
                     <navigationItem key="navigationItem" title="Shoe Connector" id="4uf-3T-gh6"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gn2-wC-iEQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <swipeGestureRecognizer delaysTouchesEnded="NO" direction="right" id="4kI-rs-ooq">
-                    <connections>
-                        <outlet property="delegate" destination="2zu-H0-NU5" id="DhU-Jz-cAq"/>
-                        <segue destination="NRT-xk-hAh" kind="unwind" identifier="unwindToSettingsController" unwindAction="unwindToSettingsController:" id="njI-uA-QBh"/>
-                    </connections>
-                </swipeGestureRecognizer>
-                <exit id="NRT-xk-hAh" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1445" y="1985"/>
         </scene>

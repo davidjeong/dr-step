@@ -44,11 +44,10 @@
         [connector.beans removeAllObjects];
         [connector.beanManager startScanningForBeans_error:nil];
     } else if (connector.beanManager.state == BeanManagerState_PoweredOff) {
-        UILocalNotification *localNotification = [[UILocalNotification alloc] init];
-        localNotification.fireDate = [NSDate date];
-        localNotification.alertBody = @"The application requires bluetooth permissions.";
-        localNotification.soundName = UILocalNotificationDefaultSoundName;
-        [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:@"The application requires bluetooth permissions." preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *alertAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+        [alertController addAction:alertAction];
+        [self presentViewController:alertController animated:YES completion:nil];
         return;
     }
 }

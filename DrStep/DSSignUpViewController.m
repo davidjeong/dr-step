@@ -83,7 +83,7 @@
         self.errorLabel.text = @"Please enter a valid password";
         return;
     }
-    if (self.passwordField.text != self.confirmPasswordField.text) {
+    if (![self.passwordField.text isEqualToString:self.confirmPasswordField.text]) {
         self.errorLabel.text = @"Passwords do not match";
         return;
     }
