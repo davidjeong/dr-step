@@ -35,10 +35,19 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    // Register for notifications.
+    [self registerForKeyboardNotifications];
+    
     // Clear the fields.
     self.usernameField.text = @"";
     self.passwordField.text = @"";
     self.errorLabel.text = @"";
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    // Unregister from notifications.
+    [self unregisterForKeyboardNotifications];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -49,6 +58,30 @@
 
 - (IBAction)tapRecognized:(id)sender {
     [self.view endEditing:YES];
+}
+
+#pragma mark - Keyboard
+
+- (void)registerForKeyboardNotifications {
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidHide:) name:UIKeyboardWillHideNotification object:nil];
+}
+
+- (void)unregisterForKeyboardNotifications {
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
+}
+
+- (void)keyboardWillShow:(NSNotification *)aNotification {
+    NSDictionary *info = [aNotification userInfo];
+    CGRect screen = [[UIScreen mainScreen] bounds];
+    CGSize kbSize = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
+    [self.view setFrame:CGRectMake(0, 0, screen.size.width, screen.size.height - kbSize.height)];
+}
+
+- (void)keyboardDidHide:(NSNotification *)aNotification {
+    CGRect screen = [[UIScreen mainScreen] bounds];
+    [self.view setFrame:CGRectMake(0, 0, screen.size.width, screen.size.height)];
 }
 
 #pragma mark - Normal Login
