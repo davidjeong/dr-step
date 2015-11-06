@@ -27,7 +27,6 @@
     self = [super initWithCoder:aDecoder];
     if (self) {
         self.parseClassName = @"Symptom";
-        self.pullToRefreshEnabled = YES;
         self.paginationEnabled = YES;
         self.objectsPerPage = 20;
     }

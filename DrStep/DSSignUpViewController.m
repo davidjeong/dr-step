@@ -26,6 +26,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    // Set delegate to self.
+    self.nameField.delegate = self;
+    self.emailField.delegate = self;
+    self.passwordField.delegate = self;
+    self.confirmPasswordField.delegate = self;
+    
     self.createButton.layer.cornerRadius = self.createButton.frame.size.height / 2;
     
     [self navigationItem].leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Sign In" style:UIBarButtonItemStylePlain target:self action:@selector(goToLogin:)];
@@ -108,6 +115,23 @@
             self.errorLabel.text = @"User with email already exists";
         }
     }];
+}
+
+#pragma mark - UITextFieldDelegate
+
+- (BOOL)textFieldShouldReturn:(UITextField*)textField
+{
+    NSInteger nextTag = textField.tag + 1;
+    // Try to find next responder
+    UIResponder* nextResponder = [textField.superview viewWithTag:nextTag];
+    if (nextResponder) {
+        // Found next responder, so set it.
+        [nextResponder becomeFirstResponder];
+    } else {
+        // Not found, so remove keyboard.
+        [textField resignFirstResponder];
+    }
+    return NO; // We do not want UITextField to insert line-breaks.
 }
 
 #pragma mark - Segue

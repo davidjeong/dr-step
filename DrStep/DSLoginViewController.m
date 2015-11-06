@@ -29,6 +29,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.usernameField.delegate = self;
+    self.passwordField.delegate = self;
+    
     self.appLoginButton.layer.cornerRadius = self.appLoginButton.frame.size.height / 2;
     self.fbLoginButton.layer.cornerRadius = self.fbLoginButton.frame.size.height / 2;
 }
@@ -130,6 +133,23 @@
             [currentUser saveInBackground];
         }
     }];
+}
+
+#pragma mark - UITextFieldDelegate
+
+- (BOOL)textFieldShouldReturn:(UITextField*)textField
+{
+    NSInteger nextTag = textField.tag + 1;
+    // Try to find next responder
+    UIResponder* nextResponder = [textField.superview viewWithTag:nextTag];
+    if (nextResponder) {
+        // Found next responder, so set it.
+        [nextResponder becomeFirstResponder];
+    } else {
+        // Not found, so remove keyboard.
+        [textField resignFirstResponder];
+    }
+    return NO; // We do not want UITextField to insert line-breaks.
 }
 
 #pragma mark - Segue
