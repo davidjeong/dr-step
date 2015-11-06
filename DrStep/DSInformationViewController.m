@@ -28,6 +28,7 @@
     if (self) {
         self.parseClassName = @"Symptom";
         self.paginationEnabled = YES;
+        self.pullToRefreshEnabled = NO;
         self.objectsPerPage = 20;
     }
     return self;
