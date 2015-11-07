@@ -87,18 +87,17 @@
     [constants setBean:bean];
     [[constants bean] setDelegate:connector];
     
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"connectedToBean" object:nil];
+    //[[NSNotificationCenter defaultCenter] postNotificationName:@"connectedToBean" object:nil];
     // Bean has been connected, go back to previous.
     [self performSegueWithIdentifier:@"unwindToSettingsController" sender:self];
 }
 
 - (void)beanManager:(PTDBeanManager *)beanManager didDisconnectBean:(PTDBean *)bean error:(NSError *)error {
     // Fire a notification to alert user.
-    UILocalNotification *localNotification = [[UILocalNotification alloc] init];
-    localNotification.fireDate = [NSDate date];
-    localNotification.alertBody = @"The shoe has been disconnected.";
-    localNotification.soundName = UILocalNotificationDefaultSoundName;
-    [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:@"The show has been disconnected" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *alertAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+    [alertController addAction:alertAction];
+    [self presentViewController:alertController animated:YES completion:nil];
     
     DSAppConstants *constants = [DSAppConstants constants];
     constants.bean = nil;

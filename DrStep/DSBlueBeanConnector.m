@@ -70,11 +70,10 @@
             DSAppConstants *constants = [DSAppConstants constants];
             if (!constants.notifiedLowBattery && [fragment rangeOfString:STATUS_LOW_BATTERY].location != NSNotFound) {
                 NSLog(@"Battery level is low.");
-                UILocalNotification *batteryNotification = [[UILocalNotification alloc] init];
-                batteryNotification.fireDate = [NSDate date];
-                batteryNotification.alertBody = @"The battery level is low. Please replace battery to ensure optimal performance.";
-                batteryNotification.soundName = UILocalNotificationDefaultSoundName;
-                [[UIApplication sharedApplication] scheduleLocalNotification:batteryNotification];
+//                UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Warning" message:@"The battery level is low. Please replace battery to ensure optimal performance." preferredStyle:UIAlertControllerStyleAlert];
+//                UIAlertAction *action = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+//                [alertController addAction:action];
+//                self 
                 constants.notifiedLowBattery = YES;
                 [constants.bean sendSerialData:[STATUS_RECEIVED_BATTERY dataUsingEncoding:NSUTF8StringEncoding]];
             }

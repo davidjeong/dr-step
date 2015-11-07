@@ -54,6 +54,25 @@
     DSAppConstants *constants = [DSAppConstants constants];
     constants.coordinates = [[NSArray alloc] initWithArray:mutableCoordinates];
     
+    // Set the settings.
+    PFQuery *query = [PFQuery queryWithClassName:@"Setting"];
+    [query fromLocalDatastore];
+    [query whereKey:@"key" equalTo:@"heatMapBoost"];
+    [query getFirstObjectInBackgroundWithBlock:^(PFObject *setting, NSError *error) {
+        if (error) {
+            NSLog(@"Error while trying to get settings.");
+        }
+        if (setting == nil) {
+            constants.heatMapBoost = [NSNumber numberWithFloat:1.0f];
+            PFObject *setting = [PFObject objectWithClassName:@"Setting"];
+            setting[@"key"] = @"heatMapBoost";
+            setting[@"value"] = [NSNumber numberWithFloat:1.0f];
+            [setting pinInBackground];
+        } else {
+            constants.heatMapBoost = [NSNumber numberWithFloat:[[setting valueForKey:@"value"] floatValue]];
+        }
+    }];
+    
     DSData *data = [DSData data];
     [data setCountAndInitialize:[arrayFromFile count]];
     

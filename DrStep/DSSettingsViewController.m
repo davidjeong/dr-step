@@ -20,7 +20,6 @@
 @interface DSSettingsViewController ()
 
 @property (nonatomic, strong) UISlider *boostSlider;
-@property (nonatomic, strong) UISlider *fontSlider;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIImageView *profileImageView;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
@@ -43,11 +42,6 @@
     [self.boostSlider setValue:[constants.heatMapBoost floatValue]];
     
     [self.boostSlider addTarget:self action:@selector(updateBoost:) forControlEvents:UIControlEventValueChanged];
-    
-    self.fontSlider = [[UISlider alloc] init];
-    [self.fontSlider setMinimumValue:12.0f];
-    [self.fontSlider setMaximumValue:18.0f];
-    [self.fontSlider setValue:15.0f];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(handleNotifications:)
@@ -84,6 +78,23 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:animated];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    
+    // Save settings for later
+    PFQuery *query = [PFQuery queryWithClassName:@"Setting"];
+    [query fromLocalDatastore];
+    [query whereKey:@"key" equalTo:@"heatMapBoost"];
+    [query getFirstObjectInBackgroundWithBlock:^(PFObject *setting, NSError *error) {
+        if (error) {
+            NSLog(@"Error while trying to get settings.");
+        } else {
+            setting[@"value"] = [NSNumber numberWithFloat:self.boostSlider.value];
+            [setting saveInBackground];
+        }
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -191,6 +202,7 @@ static NSString *cellIdentifier = @"settingsCell";
 - (IBAction)updateBoost:(UISlider *)sender{
     DSAppConstants *constants = [DSAppConstants constants];
     [constants setHeatMapBoost:[NSNumber numberWithFloat:sender.value]];
+    
     UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:1]];
     
     // Get main thread to update the text.
