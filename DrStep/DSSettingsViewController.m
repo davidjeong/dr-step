@@ -38,9 +38,6 @@
     [self.boostSlider setMinimumValue:0.0f];
     [self.boostSlider setMaximumValue:1.0f];
     
-    DSAppConstants *constants = [DSAppConstants constants];
-    [self.boostSlider setValue:[constants.heatMapBoost floatValue]];
-    
     [self.boostSlider addTarget:self action:@selector(updateBoost:) forControlEvents:UIControlEventValueChanged];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -86,15 +83,18 @@
     // Save settings for later
     PFQuery *query = [PFQuery queryWithClassName:@"Setting"];
     [query fromLocalDatastore];
-    [query whereKey:@"key" equalTo:@"heatMapBoost"];
     [query getFirstObjectInBackgroundWithBlock:^(PFObject *setting, NSError *error) {
         if (error) {
             NSLog(@"Error while trying to get settings.");
         } else {
-            setting[@"value"] = [NSNumber numberWithFloat:self.boostSlider.value];
-            [setting saveInBackground];
+            setting[@"heatMapBoost"] = [NSNumber numberWithFloat:self.boostSlider.value];
+            [setting pinInBackground];
         }
     }];
+    DSAppConstants *constants = [DSAppConstants constants];
+    NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithDictionary:constants.settings];
+    dict[@"heatMapBoost"] = [NSNumber numberWithFloat:self.boostSlider.value];
+    constants.settings = [NSDictionary dictionaryWithDictionary:dict];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -139,10 +139,11 @@ static NSString *cellIdentifier = @"settingsCell";
                 cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
                                               reuseIdentifier:cellIdentifier];
             }
-            DSAppConstants *constants = [DSAppConstants constants];
-            [self.boostSlider setValue:[constants.heatMapBoost floatValue]];
             [cell setAccessoryView:self.boostSlider];
-            [cell.textLabel setText:[NSString stringWithFormat:@"Adjust Heatmap Boost - %.02f", [constants.heatMapBoost floatValue]]];
+            DSAppConstants *constants = [DSAppConstants constants];
+            NSDictionary *settings = constants.settings;
+            self.boostSlider.value = [settings[@"heatMapBoost"] floatValue];
+            [cell.textLabel setText:[NSString stringWithFormat:@"Adjust Heatmap Boost - %.02f", self.boostSlider.value]];
         }
     } else if (indexPath.section == 2) { // Application
         if (indexPath.row == 0) {
@@ -200,14 +201,11 @@ static NSString *cellIdentifier = @"settingsCell";
 #pragma mark - UI Events
 
 - (IBAction)updateBoost:(UISlider *)sender{
-    DSAppConstants *constants = [DSAppConstants constants];
-    [constants setHeatMapBoost:[NSNumber numberWithFloat:sender.value]];
-    
     UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:1]];
     
     // Get main thread to update the text.
     dispatch_async(dispatch_get_main_queue(), ^{
-        [cell.textLabel setText:[NSString stringWithFormat:@"Adjust Heatmap Boost - %.02f", [constants.heatMapBoost floatValue]]];
+        [cell.textLabel setText:[NSString stringWithFormat:@"Adjust Heatmap Boost - %.02f", sender.value]];
     });
 }
 

@@ -34,12 +34,12 @@
 - (void)layoutSubviews {
     [super layoutSubviews];
     
-    self.nameLabel.text = self.bean.name;
-    self.rssiLabel.text = [self.bean.RSSI stringValue];
+    self.nameLabel.text = self.name;
+    self.rssiLabel.text = [self.rssi stringValue];
     
     DSAppConstants *constants = [DSAppConstants constants];
     if (constants.bean != nil) {
-        self.voltageLabel.text = [NSString stringWithFormat:@"%.02fV", [self.bean.batteryVoltage floatValue]];
+        self.voltageLabel.text = [NSString stringWithFormat:@"%.02fV", [self.voltage floatValue]];
     } else {
         [self.voltageLabel setHidden:YES];
     }
@@ -47,7 +47,7 @@
     NSString* state;
     
     // Set the state based on bean's state.
-    switch (self.bean.state) {
+    switch (self.state) {
         case BeanState_Unknown:
             state = @"Unknown";
             break;

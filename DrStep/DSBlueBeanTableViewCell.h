@@ -12,6 +12,9 @@
 
 @interface DSBlueBeanTableViewCell : UITableViewCell
 
-@property (nonatomic, strong) PTDBean *bean;
+@property (nonatomic, strong) NSString *name;
+@property (nonatomic, strong) NSNumber *rssi;
+@property (nonatomic, assign) BeanState state;
+@property (nonatomic, strong) NSString *voltage;
 
 @end

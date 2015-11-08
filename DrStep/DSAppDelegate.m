@@ -42,39 +42,35 @@
     pageControl.currentPageIndicatorTintColor = [UIColor blackColor];
     pageControl.backgroundColor = [UIColor whiteColor];
     
-    // Read Coordinates from file to memory.
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"Coordinates" ofType:@"plist"];
-    NSArray *arrayFromFile = [[NSArray alloc] initWithContentsOfFile:path];
-    NSMutableArray *mutableCoordinates = [[NSMutableArray alloc] initWithCapacity:[arrayFromFile count]];
-    for (int i=0; i<[arrayFromFile count]; i++) {
-        CGPoint point = CGPointMake([[[arrayFromFile objectAtIndex:i] objectAtIndex:0] integerValue], [[[arrayFromFile objectAtIndex:i] objectAtIndex:1] integerValue]);
-        [mutableCoordinates addObject:[NSValue valueWithCGPoint:point]];
-    }
-    
-    DSAppConstants *constants = [DSAppConstants constants];
-    constants.coordinates = [[NSArray alloc] initWithArray:mutableCoordinates];
-    
     // Set the settings.
     PFQuery *query = [PFQuery queryWithClassName:@"Setting"];
     [query fromLocalDatastore];
-    [query whereKey:@"key" equalTo:@"heatMapBoost"];
-    [query getFirstObjectInBackgroundWithBlock:^(PFObject *setting, NSError *error) {
+    [query countObjectsInBackgroundWithBlock:^(int number, NSError *error) {
         if (error) {
-            NSLog(@"Error while trying to get settings.");
+            NSLog(@"Error trying to get count of settings.");
         }
-        if (setting == nil) {
-            constants.heatMapBoost = [NSNumber numberWithFloat:1.0f];
+        if (number == 0) {
             PFObject *setting = [PFObject objectWithClassName:@"Setting"];
-            setting[@"key"] = @"heatMapBoost";
-            setting[@"value"] = [NSNumber numberWithFloat:1.0f];
+            setting[@"heatMapBoost"] = [NSNumber numberWithFloat:1.0f];
             [setting pinInBackground];
+            
+            DSAppConstants *constants = [DSAppConstants constants];
+            NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+            [dict setValue:setting[@"heatMapBoost"] forKey:@"heatMapBoost"];
+            constants.settings = [NSDictionary dictionaryWithDictionary:dict];
         } else {
-            constants.heatMapBoost = [NSNumber numberWithFloat:[[setting valueForKey:@"value"] floatValue]];
+            [query getFirstObjectInBackgroundWithBlock:^(PFObject *setting, NSError *error) {
+                if (error) {
+                    NSLog(@"Error while trying to get settings");
+                } else {
+                    DSAppConstants *constants = [DSAppConstants constants];
+                    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+                    [dict setValue:setting[@"heatMapBoost"] forKey:@"heatMapBoost"];
+                    constants.settings = [NSDictionary dictionaryWithDictionary:dict];
+                }
+            }];
         }
     }];
-    
-    DSData *data = [DSData data];
-    [data setCountAndInitialize:[arrayFromFile count]];
     
     if ([PFUser currentUser] || // Check if user is cached
         [PFFacebookUtils isLinkedWithUser:[PFUser currentUser]]) { // Check if user is linked to Facebook

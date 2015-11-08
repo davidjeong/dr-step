@@ -23,9 +23,9 @@ static const float MAXIMUM_VOLTAGE = 2.8;
 
 @interface DSAppConstants : NSObject
 
+@property (strong, nonatomic) NSDictionary *settings;
 @property (assign, nonatomic) BOOL notifiedLowBattery;
 @property (strong, nonatomic) NSArray *coordinates;
-@property (strong, nonatomic) NSNumber *heatMapBoost;
 @property (nonatomic, strong) PTDBean *bean;
 
 + (id) constants;

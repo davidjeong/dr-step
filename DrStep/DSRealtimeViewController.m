@@ -18,6 +18,7 @@
 @property (nonatomic, strong) UIImageView *imageView;
 @property (nonatomic, strong) NSMutableDictionary *layers;
 @property (nonatomic, strong) UIImage *heatMap;
+@property (nonatomic, strong) NSNumber *boost;
 
 @end
 
@@ -58,8 +59,6 @@
         [self.view.layer addSublayer:textLayer];
     }
     
-    self.heatMap = [LFHeatMap heatMapWithRect:self.view.frame boost:[constants.heatMapBoost floatValue] points:constants.coordinates weights:self.weights];
-    
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(handleNotifications:)
                                                  name:@"finishedProcessingData"
@@ -72,6 +71,14 @@
     
     // Update graphics every 0.01
     [NSTimer scheduledTimerWithTimeInterval:0.01 target:self selector:@selector(updateMapInBackground) userInfo:nil repeats:YES];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    DSAppConstants *constants = [DSAppConstants constants];
+    NSDictionary *settings = constants.settings;
+    self.boost = [NSNumber numberWithFloat:[settings[@"heatMapBoost"] floatValue]];
+    self.heatMap = [LFHeatMap heatMapWithRect:self.view.frame boost:[self.boost floatValue] points:constants.coordinates weights:self.weights];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -140,7 +147,7 @@
                 });
             }
         }
-        self.heatMap = [LFHeatMap heatMapWithRect:self.view.frame boost:[constants.heatMapBoost floatValue] points:constants.coordinates weights:self.weights weightsAdjustmentEnabled:NO groupingEnabled:YES];
+        self.heatMap = [LFHeatMap heatMapWithRect:self.view.frame boost:[self.boost floatValue] points:constants.coordinates weights:self.weights weightsAdjustmentEnabled:NO groupingEnabled:YES];
         NSLog(@"Exiting processing graphics.");
     }
 }

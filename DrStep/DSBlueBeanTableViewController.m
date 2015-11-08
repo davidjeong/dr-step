@@ -118,7 +118,9 @@
     DSBlueBeanConnector *connector = [DSBlueBeanConnector connector];
     PTDBean *bean = [connector.beans.allValues objectAtIndex:indexPath.row];
     DSBlueBeanTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"beanCell"];
-    cell.bean = bean;
+    cell.name = bean.name;
+    cell.rssi = bean.RSSI;
+    cell.state = bean.state;
     return cell;
 }
 
