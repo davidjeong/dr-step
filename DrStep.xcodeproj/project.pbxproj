@@ -33,7 +33,6 @@
 		5352824F1BE54E9F00A675F8 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 535282251BE5418500A675F8 /* Bolts.framework */; };
 		535282501BE54E9F00A675F8 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 535282261BE5418500A675F8 /* Parse.framework */; };
 		535282521BE54E9F00A675F8 /* ParseFacebookUtilsV4.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 535282291BE5418500A675F8 /* ParseFacebookUtilsV4.framework */; };
-		535282551BE5500700A675F8 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 535282541BE5500700A675F8 /* StoreKit.framework */; };
 		535282571BE5501200A675F8 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 535282561BE5501200A675F8 /* CoreGraphics.framework */; };
 		535282591BE5501F00A675F8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 535282581BE5501F00A675F8 /* Foundation.framework */; };
 		5352825B1BE5531500A675F8 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 5352825A1BE5531500A675F8 /* libsqlite3.0.tbd */; };
@@ -104,7 +103,6 @@
 		535282381BE549BA00A675F8 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		535282451BE54D1400A675F8 /* libBean-iOS-OSX-SDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libBean-iOS-OSX-SDK.a"; path = "Pods/../build/Release-iphoneos/libBean-iOS-OSX-SDK.a"; sourceTree = "<group>"; };
 		535282481BE54D3100A675F8 /* libLFHeatMap.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libLFHeatMap.a; path = "Pods/../build/Release-iphoneos/libLFHeatMap.a"; sourceTree = "<group>"; };
-		535282541BE5500700A675F8 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		535282561BE5501200A675F8 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		535282581BE5501F00A675F8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		5352825A1BE5531500A675F8 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
@@ -176,7 +174,6 @@
 				535282651BE5537E00A675F8 /* MobileCoreServices.framework in Frameworks */,
 				535282631BE5537600A675F8 /* SystemConfiguration.framework in Frameworks */,
 				CDDFB1261B39115600DF1D5B /* QuartzCore.framework in Frameworks */,
-				535282551BE5500700A675F8 /* StoreKit.framework in Frameworks */,
 				5352825D1BE5533600A675F8 /* Security.framework in Frameworks */,
 				CDDFB1281B39116200DF1D5B /* Accelerate.framework in Frameworks */,
 				535282501BE54E9F00A675F8 /* Parse.framework in Frameworks */,
@@ -213,7 +210,6 @@
 				5352825A1BE5531500A675F8 /* libsqlite3.0.tbd */,
 				535282581BE5501F00A675F8 /* Foundation.framework */,
 				535282561BE5501200A675F8 /* CoreGraphics.framework */,
-				535282541BE5500700A675F8 /* StoreKit.framework */,
 				535282481BE54D3100A675F8 /* libLFHeatMap.a */,
 				535282451BE54D1400A675F8 /* libBean-iOS-OSX-SDK.a */,
 				535282381BE549BA00A675F8 /* UIKit.framework */,
@@ -376,6 +372,9 @@
 								enabled = 1;
 							};
 							com.apple.GameCenter = {
+								enabled = 0;
+							};
+							com.apple.InAppPurchase = {
 								enabled = 0;
 							};
 						};
