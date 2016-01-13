@@ -9,10 +9,12 @@
 #import "DSBlueBeanConnector.h"
 
 #import "DSAppConstants.h"
+#import "DSDataParser.h"
 
 @interface DSBlueBeanConnector()
 
-@property (retain, nonatomic) NSMutableString *dataString;
+@property (retain, nonatomic) NSMutableString *jsonString;
+@property (strong, nonatomic) DSDataParser *dataParser;
 
 @end
 
@@ -32,61 +34,22 @@
     // Initialize the bean dictionary and the bean manager.
     self.beans = [[NSMutableDictionary alloc] init];
     self.beanManager = [[PTDBeanManager alloc] initWithDelegate:self];
-    self.dataString = [[NSMutableString alloc] init];
-    
+    self.dataParser = [[DSDataParser alloc] init];
+    self.jsonString = [[NSMutableString alloc] init];
     return self;
 }
 
-- (void) processStringIntoArray:(NSString *) dataString {
-    DSAppConstants* constants = [DSAppConstants constants];
-    NSArray *analogData = [dataString componentsSeparatedByString:DELIMITER_COMMA];
-    if ([analogData count] == [constants.coordinates count]) {
-        // Do further processing. As in put in a data structure and show fancy shmancy.
-        NSLog(@"Array size looks beautiful by default: %lu.", [analogData count]);
-        NSMutableArray *tempArray = [[NSMutableArray alloc] init];
-        for (NSString *string in analogData) {
-            NSArray *splitData = [string componentsSeparatedByString:DELIMITER_COLON];
-            if ([splitData count] == 2) {
-                [tempArray addObject:[splitData objectAtIndex:1]];
-            }
-        }
-        if ([tempArray count] == [constants.coordinates count]) {
-            NSLog(@"Valid data.");
-            [[NSNotificationCenter defaultCenter]
-             postNotificationName:@"finishedProcessingData"
-             object:tempArray];
-        }
-    } else {
-        NSLog(@"Corrupt data... discarding.");
-    }
-}
 
 #pragma mark - PTDBeanDelegate
 
 - (void)bean:(PTDBean *)bean serialDataReceived:(NSData *)data {
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        @synchronized(self.dataString) {
-            NSString *fragment = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-            DSAppConstants *constants = [DSAppConstants constants];
-            if (!constants.notifiedLowBattery && [fragment rangeOfString:STATUS_LOW_BATTERY].location != NSNotFound) {
-                NSLog(@"Battery level is low.");
-//                UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Warning" message:@"The battery level is low. Please replace battery to ensure optimal performance." preferredStyle:UIAlertControllerStyleAlert];
-//                UIAlertAction *action = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
-//                [alertController addAction:action];
-//                self 
-                constants.notifiedLowBattery = YES;
-                [constants.bean sendSerialData:[STATUS_RECEIVED_BATTERY dataUsingEncoding:NSUTF8StringEncoding]];
-            }
-            
-            [self.dataString appendString:fragment];
-            if ([self.dataString rangeOfString:DELIMITER_EOM].location != NSNotFound) {
-                [self.dataString deleteCharactersInRange:NSMakeRange([self.dataString length] - 3, 3)];
-                NSLog(@"%@", self.dataString);
-                [self processStringIntoArray:self.dataString];
-                [self.dataString setString:@""];
-            }
-        }
-    });
+    NSString *serialData = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+    [self.jsonString appendString:serialData];
+    if ([serialData isEqualToString:@"}"]) {
+        NSLog(@"%@", self.jsonString);
+        [self.dataParser processJSONIntoDictionary:self.jsonString];
+        [self.jsonString setString:@""];
+    }
 }
 
 @end

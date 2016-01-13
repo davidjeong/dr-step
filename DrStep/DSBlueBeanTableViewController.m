@@ -94,7 +94,7 @@
 
 - (void)beanManager:(PTDBeanManager *)beanManager didDisconnectBean:(PTDBean *)bean error:(NSError *)error {
     // Fire a notification to alert user.
-    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:@"The show has been disconnected" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:@"The shoe has been disconnected" preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction *alertAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
     [alertController addAction:alertAction];
     [self presentViewController:alertController animated:YES completion:nil];

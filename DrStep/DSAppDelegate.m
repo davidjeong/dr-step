@@ -12,12 +12,12 @@
 
 #import "DSAppDelegate.h"
 #import "DSAppConstants.h"
-#import "DSData.h"
+#import "DSDataParser.h"
 #import "DSLoginViewController.h"
 #import "DSSymptom.h"
 #import "LFHeatMap.h"
 
-@interface DSAppDelegate ()
+@interface DSAppDelegate()
 
 @end
 

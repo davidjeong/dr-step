@@ -45,9 +45,9 @@
 		535468B01B596108001D66E1 /* Coordinates.plist in Resources */ = {isa = PBXBuildFile; fileRef = 535468AF1B596108001D66E1 /* Coordinates.plist */; };
 		535468B51B5968E6001D66E1 /* DSAppConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 535468B41B5968E6001D66E1 /* DSAppConstants.m */; };
 		535468BF1B59DAA8001D66E1 /* foot_image.png in Resources */ = {isa = PBXBuildFile; fileRef = 535468BE1B59DAA8001D66E1 /* foot_image.png */; };
-		53612AC71B51D0CF002D7690 /* DSData.m in Sources */ = {isa = PBXBuildFile; fileRef = 53612AC61B51D0CF002D7690 /* DSData.m */; };
 		5364FAFF1BE6D177003BA58B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5364FAFD1BE6D177003BA58B /* Main.storyboard */; };
 		5364FB011BE6EED9003BA58B /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5364FB001BE6EED9003BA58B /* ParseUI.framework */; };
+		537017471C4638B900883919 /* DSBlueBeanConnector.m in Sources */ = {isa = PBXBuildFile; fileRef = 537017461C4638B900883919 /* DSBlueBeanConnector.m */; };
 		53C0FD531BE9B9EB0008B711 /* DSSignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53C0FD521BE9B9EB0008B711 /* DSSignUpViewController.m */; };
 		53C0FD551BE9DADB0008B711 /* empty_profile_pic.png in Resources */ = {isa = PBXBuildFile; fileRef = 53C0FD541BE9DADB0008B711 /* empty_profile_pic.png */; };
 		53D26BFD1BE56D8D00929D1D /* DSStatisticsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53D26BFC1BE56D8D00929D1D /* DSStatisticsViewController.m */; };
@@ -64,7 +64,7 @@
 		CDA9D5601B4DE49100C3170F /* DSSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDA9D55F1B4DE49100C3170F /* DSSettingsViewController.m */; };
 		CDA9D56A1B4DF61D00C3170F /* DSBlueBeanTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDA9D5691B4DF61D00C3170F /* DSBlueBeanTableViewController.m */; };
 		CDA9D56F1B4DFA1E00C3170F /* DSBlueBeanTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CDA9D56E1B4DFA1E00C3170F /* DSBlueBeanTableViewCell.m */; };
-		CDA9D5791B4E127F00C3170F /* DSBlueBeanConnector.m in Sources */ = {isa = PBXBuildFile; fileRef = CDA9D5781B4E127F00C3170F /* DSBlueBeanConnector.m */; };
+		CDA9D5791B4E127F00C3170F /* DSDataParser.m in Sources */ = {isa = PBXBuildFile; fileRef = CDA9D5781B4E127F00C3170F /* DSDataParser.m */; };
 		CDA9D5A91B4E229000C3170F /* app_launch_screen_640_960.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA9D5A01B4E229000C3170F /* app_launch_screen_640_960.png */; };
 		CDA9D5B31B4E241C00C3170F /* app_launch_screen_640_1136.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA9D5B21B4E241C00C3170F /* app_launch_screen_640_1136.png */; };
 		CDA9D5B51B4E257F00C3170F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDA9D5B41B4E257F00C3170F /* LaunchScreen.xib */; };
@@ -117,10 +117,10 @@
 		535468B31B5968E6001D66E1 /* DSAppConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSAppConstants.h; sourceTree = "<group>"; };
 		535468B41B5968E6001D66E1 /* DSAppConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSAppConstants.m; sourceTree = "<group>"; };
 		535468BE1B59DAA8001D66E1 /* foot_image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = foot_image.png; path = images/foot_image.png; sourceTree = "<group>"; };
-		53612AC51B51D0CF002D7690 /* DSData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSData.h; sourceTree = "<group>"; };
-		53612AC61B51D0CF002D7690 /* DSData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSData.m; sourceTree = "<group>"; };
 		5364FAFE1BE6D177003BA58B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5364FB001BE6EED9003BA58B /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ParseUI.framework; path = ../../Parse/ParseUI.framework; sourceTree = "<group>"; };
+		537017451C4638B900883919 /* DSBlueBeanConnector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSBlueBeanConnector.h; sourceTree = "<group>"; };
+		537017461C4638B900883919 /* DSBlueBeanConnector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSBlueBeanConnector.m; sourceTree = "<group>"; };
 		53C0FD511BE9B9EB0008B711 /* DSSignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSSignUpViewController.h; sourceTree = "<group>"; };
 		53C0FD521BE9B9EB0008B711 /* DSSignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSSignUpViewController.m; sourceTree = "<group>"; };
 		53C0FD541BE9DADB0008B711 /* empty_profile_pic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = empty_profile_pic.png; path = images/empty_profile_pic.png; sourceTree = "<group>"; };
@@ -148,8 +148,8 @@
 		CDA9D5691B4DF61D00C3170F /* DSBlueBeanTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSBlueBeanTableViewController.m; sourceTree = "<group>"; };
 		CDA9D56D1B4DFA1E00C3170F /* DSBlueBeanTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSBlueBeanTableViewCell.h; sourceTree = "<group>"; };
 		CDA9D56E1B4DFA1E00C3170F /* DSBlueBeanTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSBlueBeanTableViewCell.m; sourceTree = "<group>"; };
-		CDA9D5771B4E127F00C3170F /* DSBlueBeanConnector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSBlueBeanConnector.h; sourceTree = "<group>"; };
-		CDA9D5781B4E127F00C3170F /* DSBlueBeanConnector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSBlueBeanConnector.m; sourceTree = "<group>"; };
+		CDA9D5771B4E127F00C3170F /* DSDataParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSDataParser.h; sourceTree = "<group>"; };
+		CDA9D5781B4E127F00C3170F /* DSDataParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSDataParser.m; sourceTree = "<group>"; };
 		CDA9D5A01B4E229000C3170F /* app_launch_screen_640_960.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = app_launch_screen_640_960.png; path = images/app_launch_screen_640_960.png; sourceTree = "<group>"; };
 		CDA9D5B21B4E241C00C3170F /* app_launch_screen_640_1136.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = app_launch_screen_640_1136.png; path = images/app_launch_screen_640_1136.png; sourceTree = "<group>"; };
 		CDA9D5B41B4E257F00C3170F /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
@@ -257,14 +257,14 @@
 				535468B41B5968E6001D66E1 /* DSAppConstants.m */,
 				CD16E7B51B24FBC50071E1CF /* DSAppDelegate.h */,
 				CD16E7B61B24FBC50071E1CF /* DSAppDelegate.m */,
-				CDA9D5771B4E127F00C3170F /* DSBlueBeanConnector.h */,
-				CDA9D5781B4E127F00C3170F /* DSBlueBeanConnector.m */,
+				537017451C4638B900883919 /* DSBlueBeanConnector.h */,
+				537017461C4638B900883919 /* DSBlueBeanConnector.m */,
 				CDA9D56D1B4DFA1E00C3170F /* DSBlueBeanTableViewCell.h */,
 				CDA9D56E1B4DFA1E00C3170F /* DSBlueBeanTableViewCell.m */,
 				CDA9D5681B4DF61D00C3170F /* DSBlueBeanTableViewController.h */,
 				CDA9D5691B4DF61D00C3170F /* DSBlueBeanTableViewController.m */,
-				53612AC51B51D0CF002D7690 /* DSData.h */,
-				53612AC61B51D0CF002D7690 /* DSData.m */,
+				CDA9D5771B4E127F00C3170F /* DSDataParser.h */,
+				CDA9D5781B4E127F00C3170F /* DSDataParser.m */,
 				CD12CB5C1B385D55004F3AB7 /* DSInformationViewController.h */,
 				CD12CB5D1B385D55004F3AB7 /* DSInformationViewController.m */,
 				532B95601B5F4582003B1D08 /* DSInformationDetailViewController.h */,
@@ -372,6 +372,9 @@
 						CreatedOnToolsVersion = 6.3.2;
 						DevelopmentTeam = EBY7449492;
 						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
 							com.apple.GameCenter = {
 								enabled = 0;
 							};
@@ -485,12 +488,13 @@
 			files = (
 				535282331BE545EB00A675F8 /* DSLoginViewController.m in Sources */,
 				53D26BFD1BE56D8D00929D1D /* DSStatisticsViewController.m in Sources */,
+				537017471C4638B900883919 /* DSBlueBeanConnector.m in Sources */,
 				CDA9D56F1B4DFA1E00C3170F /* DSBlueBeanTableViewCell.m in Sources */,
 				CDA9D5601B4DE49100C3170F /* DSSettingsViewController.m in Sources */,
 				53482DE91BEC71C600A7EEE9 /* DSLoginNavigationController.m in Sources */,
 				CDA9D56A1B4DF61D00C3170F /* DSBlueBeanTableViewController.m in Sources */,
 				532B955D1B5F3950003B1D08 /* DSSymptom.m in Sources */,
-				CDA9D5791B4E127F00C3170F /* DSBlueBeanConnector.m in Sources */,
+				CDA9D5791B4E127F00C3170F /* DSDataParser.m in Sources */,
 				532B95621B5F4583003B1D08 /* DSInformationDetailViewController.m in Sources */,
 				CD16E7B71B24FBC50071E1CF /* DSAppDelegate.m in Sources */,
 				532B95581B5F378A003B1D08 /* DSSymptomTableViewCell.m in Sources */,
@@ -498,7 +502,6 @@
 				CD12CB5E1B385D55004F3AB7 /* DSInformationViewController.m in Sources */,
 				CD16E7B41B24FBC50071E1CF /* main.m in Sources */,
 				535468B51B5968E6001D66E1 /* DSAppConstants.m in Sources */,
-				53612AC71B51D0CF002D7690 /* DSData.m in Sources */,
 				53C0FD531BE9B9EB0008B711 /* DSSignUpViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -554,7 +557,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -592,7 +595,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -621,7 +624,7 @@
 					"/Users/juhwanjeong/Documents/fydp-ios/core-plot-master/framework/**",
 				);
 				INFOPLIST_FILE = DrStep/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				ONLY_ACTIVE_ARCH = YES;
@@ -657,7 +660,7 @@
 					"/Users/juhwanjeong/Documents/fydp-ios/core-plot-master/framework/**",
 				);
 				INFOPLIST_FILE = DrStep/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = (

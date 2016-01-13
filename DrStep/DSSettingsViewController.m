@@ -13,7 +13,6 @@
 #import <QuartzCore/QuartzCore.h>
 
 #import "DSAppConstants.h"
-#import "DSBlueBeanConnector.h"
 #import "DSBlueBeanTableViewController.h"
 #import "DSLoginViewController.h"
 

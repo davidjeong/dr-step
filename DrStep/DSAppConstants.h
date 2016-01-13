@@ -10,21 +10,12 @@
 
 @class PTDBean;
 
-// NSString
-static NSString* const DELIMITER_COMMA = @",";
-static NSString* const DELIMITER_EOM = @"EOM";
-static NSString* const DELIMITER_COLON = @":";
-
-static NSString* const STATUS_LOW_BATTERY = @"lowBattery";
-static NSString* const STATUS_RECEIVED_BATTERY = @"receivedBattery";
-
 // Number
 static const float MAXIMUM_VOLTAGE = 2.8;
 
 @interface DSAppConstants : NSObject
 
 @property (strong, nonatomic) NSDictionary *settings;
-@property (assign, nonatomic) BOOL notifiedLowBattery;
 @property (strong, nonatomic) NSArray *coordinates;
 @property (nonatomic, strong) PTDBean *bean;
 
