@@ -73,6 +73,12 @@
     [NSTimer scheduledTimerWithTimeInterval:0.01 target:self selector:@selector(updateMapInBackground) userInfo:nil repeats:YES];
 }
 
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    UITouch *touch = [[event allTouches] anyObject];
+    CGPoint touchPoint = [touch locationInView:self.view];
+    NSLog(@"Touch x : %f y : %f", touchPoint.x, touchPoint.y);
+}
+
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     DSAppConstants *constants = [DSAppConstants constants];

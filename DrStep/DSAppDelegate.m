@@ -10,6 +10,8 @@
 #import <ParseFacebookUtilsV4/PFFacebookUtils.h>
 #import <Parse/Parse.h>
 
+#import <sys/utsname.h>
+
 #import "DSAppDelegate.h"
 #import "DSAppConstants.h"
 #import "DSDataParser.h"
@@ -42,8 +44,39 @@
     pageControl.currentPageIndicatorTintColor = [UIColor blackColor];
     pageControl.backgroundColor = [UIColor whiteColor];
     
+    
+    // Set the fetch frequency.
+    [[UIApplication sharedApplication] setMinimumBackgroundFetchInterval:UIApplicationBackgroundFetchIntervalMinimum];
+    DSAppConstants *constants = [DSAppConstants constants];
+    
+    // Get the coordinates.
+    PFQuery *query = [PFQuery queryWithClassName:@"PressureCoordinates"];
+    struct utsname systemInfo;
+    uname(&systemInfo);
+    [query whereKey:@"platformString" equalTo:[NSString stringWithCString:systemInfo.machine encoding:NSUTF8StringEncoding]];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
+        if (error) {
+            NSLog(@"%@", error);
+        } else {
+            if ([array count] == 1) {
+                NSArray *coordinates = [[array valueForKey:@"coordinates"] objectAtIndex:0];
+                NSMutableArray *coordinateBuilder = [[NSMutableArray alloc] init];
+                for (int i = 0; i < coordinates.count; ++i) {
+                    NSArray *xyPair = [coordinates objectAtIndex:i];
+                    double x = [[xyPair objectAtIndex:0] floatValue];
+                    double y = [[xyPair objectAtIndex:1] floatValue];
+                    CGPoint point = CGPointMake(x, y);
+                    [coordinateBuilder addObject:[NSValue valueWithCGPoint:point]];
+                }
+                constants.coordinates = [NSArray arrayWithArray:coordinateBuilder];
+            } else {
+                NSLog(@"Not supported device for realtime.");
+            }
+        }
+    }];
     // Set the settings.
-    PFQuery *query = [PFQuery queryWithClassName:@"Setting"];
+    
+    query = [PFQuery queryWithClassName:@"Setting"];
     [query fromLocalDatastore];
     [query countObjectsInBackgroundWithBlock:^(int number, NSError *error) {
         if (error) {
@@ -54,7 +87,6 @@
             setting[@"heatMapBoost"] = [NSNumber numberWithFloat:1.0f];
             [setting pinInBackground];
             
-            DSAppConstants *constants = [DSAppConstants constants];
             NSMutableDictionary *dict = [NSMutableDictionary dictionary];
             [dict setValue:setting[@"heatMapBoost"] forKey:@"heatMapBoost"];
             constants.settings = [NSDictionary dictionaryWithDictionary:dict];
@@ -94,10 +126,6 @@
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
-    self.backgroundTask = [application beginBackgroundTaskWithExpirationHandler: ^ {
-        [application endBackgroundTask: self.backgroundTask]; //Tell the system that we are done with the tasks
-        self.backgroundTask = UIBackgroundTaskInvalid; //Set the task to be invalid
-    }];
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {

@@ -16,6 +16,6 @@
 @property (nonatomic, strong) PTDBeanManager *beanManager;
 @property (nonatomic, strong) NSMutableDictionary *beans;
 
-+ (id)connector;
++ (id) connector;
 
 @end
