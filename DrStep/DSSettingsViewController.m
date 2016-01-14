@@ -246,6 +246,7 @@ static NSString *cellIdentifier = @"settingsCell";
 #pragma mark - Segue
 
 - (IBAction)unwindToSettingsController:(UIStoryboardSegue *)segue {
+    [self.tableView reloadData];
 }
 
 @end

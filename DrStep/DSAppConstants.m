@@ -20,7 +20,7 @@
 }
 
 - (id) init {
-    self.metricsPerRequest = 100;
+    self.metricsPerRequest = (NSUInteger)100;
     self.coordinates = [[NSArray alloc] init];
     return self;
 }
