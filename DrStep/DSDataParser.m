@@ -21,16 +21,6 @@
 
 @implementation DSDataParser
 
-// Singleton class to handle the connection manager.
-+ (id) parser {
-    static DSDataParser *parser = nil;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        parser = [[self alloc] init];
-    });
-    return parser;
-}
-
 - (id) init {
     self.objects = [[NSMutableArray alloc] init];
     self.json = [[NSMutableString alloc] init];
@@ -76,6 +66,8 @@
                         }
                     }];
                 }
+                // Send the notification
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"parsedData" object:jsonObject];
             }
         }
     }

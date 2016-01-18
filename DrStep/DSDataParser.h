@@ -14,6 +14,5 @@
 @interface DSDataParser : NSObject
 
 - (void) processJSONIntoDictionary:(NSString *) jsonString;
-+ (id) parser;
 
 @end

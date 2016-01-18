@@ -13,6 +13,8 @@
 
 @interface DSBlueBeanConnector()
 
+@property (strong, nonatomic) DSDataParser *dataParser;
+
 @end
 
 @implementation DSBlueBeanConnector
@@ -31,6 +33,7 @@
     // Initialize the bean dictionary and the bean manager.
     self.beans = [[NSMutableDictionary alloc] init];
     self.beanManager = [[PTDBeanManager alloc] initWithDelegate:self];
+    self.dataParser = [[DSDataParser alloc] init];
     return self;
 }
 
@@ -39,8 +42,7 @@
 
 - (void)bean:(PTDBean *)bean serialDataReceived:(NSData *)data {
     NSString *serialData = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-    DSDataParser *parser = [DSDataParser parser];
-    [parser processJSONIntoDictionary:serialData];
+    [self.dataParser processJSONIntoDictionary:serialData];
 }
 
 @end

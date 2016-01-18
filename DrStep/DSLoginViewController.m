@@ -31,9 +31,6 @@
     
     self.usernameField.delegate = self;
     self.passwordField.delegate = self;
-    
-    self.appLoginButton.layer.cornerRadius = self.appLoginButton.frame.size.height / 2;
-    self.fbLoginButton.layer.cornerRadius = self.fbLoginButton.frame.size.height / 2;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
