@@ -26,6 +26,8 @@
 		532B95621B5F4583003B1D08 /* DSInformationDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 532B95611B5F4582003B1D08 /* DSInformationDetailViewController.m */; };
 		53482DE91BEC71C600A7EEE9 /* DSLoginNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53482DE81BEC71C600A7EEE9 /* DSLoginNavigationController.m */; };
 		534CF59A1C4C901E00A595C1 /* DSHeatMap.m in Sources */ = {isa = PBXBuildFile; fileRef = 534CF5991C4C901E00A595C1 /* DSHeatMap.m */; };
+		534CF59C1C4C97D600A595C1 /* libPNChart.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 534CF59B1C4C97D600A595C1 /* libPNChart.a */; };
+		534CF59E1C4C97DA00A595C1 /* libUICountingLabel.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 534CF59D1C4C97DA00A595C1 /* libUICountingLabel.a */; };
 		535282331BE545EB00A675F8 /* DSLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 535282321BE545EB00A675F8 /* DSLoginViewController.m */; };
 		535282351BE549A000A675F8 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 535282341BE549A000A675F8 /* CoreData.framework */; };
 		535282371BE549B400A675F8 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 535282361BE549B400A675F8 /* CoreLocation.framework */; };
@@ -97,6 +99,8 @@
 		53482DE81BEC71C600A7EEE9 /* DSLoginNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSLoginNavigationController.m; sourceTree = "<group>"; };
 		534CF5981C4C901E00A595C1 /* DSHeatMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSHeatMap.h; sourceTree = "<group>"; };
 		534CF5991C4C901E00A595C1 /* DSHeatMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSHeatMap.m; sourceTree = "<group>"; };
+		534CF59B1C4C97D600A595C1 /* libPNChart.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPNChart.a; path = "Pods/../build/Debug-iphoneos/libPNChart.a"; sourceTree = "<group>"; };
+		534CF59D1C4C97DA00A595C1 /* libUICountingLabel.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libUICountingLabel.a; path = "Pods/../build/Debug-iphoneos/libUICountingLabel.a"; sourceTree = "<group>"; };
 		535282251BE5418500A675F8 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = ../../Parse/Bolts.framework; sourceTree = "<group>"; };
 		535282261BE5418500A675F8 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = ../../Parse/Parse.framework; sourceTree = "<group>"; };
 		535282291BE5418500A675F8 /* ParseFacebookUtilsV4.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ParseFacebookUtilsV4.framework; path = ../../Parse/ParseFacebookUtilsV4.framework; sourceTree = "<group>"; };
@@ -167,6 +171,8 @@
 			files = (
 				535282611BE5536800A675F8 /* libz.1.1.3.tbd in Frameworks */,
 				5352825B1BE5531500A675F8 /* libsqlite3.0.tbd in Frameworks */,
+				534CF59E1C4C97DA00A595C1 /* libUICountingLabel.a in Frameworks */,
+				534CF59C1C4C97D600A595C1 /* libPNChart.a in Frameworks */,
 				535282461BE54D1400A675F8 /* libBean-iOS-OSX-SDK.a in Frameworks */,
 				5352825F1BE5535D00A675F8 /* AudioToolbox.framework in Frameworks */,
 				535282371BE549B400A675F8 /* CoreLocation.framework in Frameworks */,
@@ -205,6 +211,8 @@
 		7377D6F3ACB1645A58B7499C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				534CF59D1C4C97DA00A595C1 /* libUICountingLabel.a */,
+				534CF59B1C4C97D600A595C1 /* libPNChart.a */,
 				5364FB001BE6EED9003BA58B /* ParseUI.framework */,
 				535282641BE5537E00A675F8 /* MobileCoreServices.framework */,
 				535282621BE5537600A675F8 /* SystemConfiguration.framework */,
