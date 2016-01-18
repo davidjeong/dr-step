@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4947EA8BF0FFC3F8511BFAD6 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2888611C19D4537267EE0867 /* libPods.a */; };
 		5305EB6F1BE53D1700155825 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5305EB6C1BE53D1700155825 /* FBSDKCoreKit.framework */; };
 		5305EB701BE53D1700155825 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5305EB6D1BE53D1700155825 /* FBSDKLoginKit.framework */; };
 		5305EB711BE53D1700155825 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5305EB6E1BE53D1700155825 /* FBSDKShareKit.framework */; };
@@ -24,12 +25,12 @@
 		532B955D1B5F3950003B1D08 /* DSSymptom.m in Sources */ = {isa = PBXBuildFile; fileRef = 532B955C1B5F3950003B1D08 /* DSSymptom.m */; };
 		532B95621B5F4583003B1D08 /* DSInformationDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 532B95611B5F4582003B1D08 /* DSInformationDetailViewController.m */; };
 		53482DE91BEC71C600A7EEE9 /* DSLoginNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53482DE81BEC71C600A7EEE9 /* DSLoginNavigationController.m */; };
+		534CF59A1C4C901E00A595C1 /* DSHeatMap.m in Sources */ = {isa = PBXBuildFile; fileRef = 534CF5991C4C901E00A595C1 /* DSHeatMap.m */; };
 		535282331BE545EB00A675F8 /* DSLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 535282321BE545EB00A675F8 /* DSLoginViewController.m */; };
 		535282351BE549A000A675F8 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 535282341BE549A000A675F8 /* CoreData.framework */; };
 		535282371BE549B400A675F8 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 535282361BE549B400A675F8 /* CoreLocation.framework */; };
 		535282391BE549BA00A675F8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 535282381BE549BA00A675F8 /* UIKit.framework */; };
 		535282461BE54D1400A675F8 /* libBean-iOS-OSX-SDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 535282451BE54D1400A675F8 /* libBean-iOS-OSX-SDK.a */; };
-		5352824B1BE54D3100A675F8 /* libLFHeatMap.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 535282481BE54D3100A675F8 /* libLFHeatMap.a */; };
 		5352824F1BE54E9F00A675F8 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 535282251BE5418500A675F8 /* Bolts.framework */; };
 		535282501BE54E9F00A675F8 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 535282261BE5418500A675F8 /* Parse.framework */; };
 		535282521BE54E9F00A675F8 /* ParseFacebookUtilsV4.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 535282291BE5418500A675F8 /* ParseFacebookUtilsV4.framework */; };
@@ -72,6 +73,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2888611C19D4537267EE0867 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		5305EB6C1BE53D1700155825 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = ../../FacebookSDK/FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		5305EB6D1BE53D1700155825 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = ../../FacebookSDK/FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		5305EB6E1BE53D1700155825 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = ../../FacebookSDK/FBSDKShareKit.framework; sourceTree = "<group>"; };
@@ -93,6 +95,8 @@
 		532B95611B5F4582003B1D08 /* DSInformationDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSInformationDetailViewController.m; sourceTree = "<group>"; };
 		53482DE71BEC71C600A7EEE9 /* DSLoginNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSLoginNavigationController.h; sourceTree = "<group>"; };
 		53482DE81BEC71C600A7EEE9 /* DSLoginNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSLoginNavigationController.m; sourceTree = "<group>"; };
+		534CF5981C4C901E00A595C1 /* DSHeatMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSHeatMap.h; sourceTree = "<group>"; };
+		534CF5991C4C901E00A595C1 /* DSHeatMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSHeatMap.m; sourceTree = "<group>"; };
 		535282251BE5418500A675F8 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = ../../Parse/Bolts.framework; sourceTree = "<group>"; };
 		535282261BE5418500A675F8 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = ../../Parse/Parse.framework; sourceTree = "<group>"; };
 		535282291BE5418500A675F8 /* ParseFacebookUtilsV4.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ParseFacebookUtilsV4.framework; path = ../../Parse/ParseFacebookUtilsV4.framework; sourceTree = "<group>"; };
@@ -164,7 +168,6 @@
 				535282611BE5536800A675F8 /* libz.1.1.3.tbd in Frameworks */,
 				5352825B1BE5531500A675F8 /* libsqlite3.0.tbd in Frameworks */,
 				535282461BE54D1400A675F8 /* libBean-iOS-OSX-SDK.a in Frameworks */,
-				5352824B1BE54D3100A675F8 /* libLFHeatMap.a in Frameworks */,
 				5352825F1BE5535D00A675F8 /* AudioToolbox.framework in Frameworks */,
 				535282371BE549B400A675F8 /* CoreLocation.framework in Frameworks */,
 				535282571BE5501200A675F8 /* CoreGraphics.framework in Frameworks */,
@@ -183,6 +186,7 @@
 				535282391BE549BA00A675F8 /* UIKit.framework in Frameworks */,
 				535282591BE5501F00A675F8 /* Foundation.framework in Frameworks */,
 				5352824F1BE54E9F00A675F8 /* Bolts.framework in Frameworks */,
+				4947EA8BF0FFC3F8511BFAD6 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -221,6 +225,7 @@
 				5305EB6C1BE53D1700155825 /* FBSDKCoreKit.framework */,
 				5305EB6D1BE53D1700155825 /* FBSDKLoginKit.framework */,
 				5305EB6E1BE53D1700155825 /* FBSDKShareKit.framework */,
+				2888611C19D4537267EE0867 /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -261,6 +266,8 @@
 				CDA9D5691B4DF61D00C3170F /* DSBlueBeanTableViewController.m */,
 				CDA9D5771B4E127F00C3170F /* DSDataParser.h */,
 				CDA9D5781B4E127F00C3170F /* DSDataParser.m */,
+				534CF5981C4C901E00A595C1 /* DSHeatMap.h */,
+				534CF5991C4C901E00A595C1 /* DSHeatMap.m */,
 				CD12CB5C1B385D55004F3AB7 /* DSInformationViewController.h */,
 				CD12CB5D1B385D55004F3AB7 /* DSInformationViewController.m */,
 				532B95601B5F4582003B1D08 /* DSInformationDetailViewController.h */,
@@ -488,6 +495,7 @@
 				535282331BE545EB00A675F8 /* DSLoginViewController.m in Sources */,
 				53D26BFD1BE56D8D00929D1D /* DSStatisticsViewController.m in Sources */,
 				537017471C4638B900883919 /* DSBlueBeanConnector.m in Sources */,
+				534CF59A1C4C901E00A595C1 /* DSHeatMap.m in Sources */,
 				CDA9D56F1B4DFA1E00C3170F /* DSBlueBeanTableViewCell.m in Sources */,
 				CDA9D5601B4DE49100C3170F /* DSSettingsViewController.m in Sources */,
 				53482DE91BEC71C600A7EEE9 /* DSLoginNavigationController.m in Sources */,

@@ -1,3 +1,2 @@
-platform :ios, '9.1'
+platform :ios, '9.2'
 pod 'Bean-iOS-OSX-SDK'
-pod 'LFHeatMap'

@@ -17,7 +17,6 @@
 #import "DSDataParser.h"
 #import "DSLoginViewController.h"
 #import "DSSymptom.h"
-#import "LFHeatMap.h"
 
 @interface DSAppDelegate()
 
