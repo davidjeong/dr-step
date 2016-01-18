@@ -135,7 +135,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0f6-8F-7tD">
-                                <rect key="frame" x="541" y="168" width="39" height="20"/>
+                                <rect key="frame" x="145" y="168" width="435" height="19.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -150,7 +150,7 @@
                             <constraint firstAttribute="trailing" secondItem="Wig-Ed-Ecd" secondAttribute="trailing" constant="20" id="MUk-H5-lWF"/>
                             <constraint firstAttribute="trailing" secondItem="L8A-yP-DJP" secondAttribute="trailing" id="PhH-HL-LrA"/>
                             <constraint firstItem="60f-Ce-Gf1" firstAttribute="leading" secondItem="ian-1p-lW3" secondAttribute="leading" constant="25" id="SMi-i9-Yji"/>
-                            <constraint firstItem="0f6-8F-7tD" firstAttribute="leading" secondItem="60f-Ce-Gf1" secondAttribute="trailing" priority="250" constant="20" id="VlP-DM-rWJ"/>
+                            <constraint firstItem="0f6-8F-7tD" firstAttribute="leading" secondItem="60f-Ce-Gf1" secondAttribute="trailing" constant="20" id="VlP-DM-rWJ"/>
                             <constraint firstItem="L8A-yP-DJP" firstAttribute="top" secondItem="lbv-7S-QRj" secondAttribute="bottom" constant="200" id="Y3U-T4-4qD"/>
                             <constraint firstAttribute="trailing" secondItem="0f6-8F-7tD" secondAttribute="trailing" constant="20" id="fD8-ho-7dv"/>
                             <constraint firstItem="Wig-Ed-Ecd" firstAttribute="leading" secondItem="60f-Ce-Gf1" secondAttribute="trailing" constant="20" id="hCh-qZ-g1I"/>
