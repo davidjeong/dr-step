@@ -13,10 +13,12 @@
 
 @interface DSInformationDetailViewController ()
 
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UILabel *scientificLabel;
 @property (weak, nonatomic) IBOutlet UILabel *commonLabel;
-@property (weak, nonatomic) IBOutlet UITextView *symptomDescriptionTextView;
-@property (weak, nonatomic) IBOutlet UITextView *diagnosisTextView;
+@property (weak, nonatomic) IBOutlet UILabel *descriptionLabel;
+@property (weak, nonatomic) IBOutlet UILabel *diagnosisLabel;
+@property (strong, nonatomic) UIView *contentView;
 
 @end
 
@@ -25,17 +27,22 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    NSArray *views = [[NSBundle bundleForClass:[self class]] loadNibNamed:@"DSInformationDetailContentView"                                                                     owner:self                                                                  options:nil];
+    self.contentView = [views firstObject];
+    
+    //[self.view addSubview:self.contentView];
     [self.scientificLabel setText:[self.symptom scientificName]];
     [self.commonLabel setText:[self.symptom commonName]];
-    [self.symptomDescriptionTextView setText:[self.symptom symptomDescription]];
-    [self.diagnosisTextView setText:[self.symptom diagnosis]];
+    [self.descriptionLabel setText:[self.symptom symptomDescription]];
+    [self.diagnosisLabel setText:[self.symptom diagnosis]];
     
+    [self.scrollView addSubview:self.contentView];
 }
 
-- (void)viewWillAppear:(BOOL)animated{
-    [self.symptomDescriptionTextView setFont:[UIFont systemFontOfSize:15]];
-    [self.diagnosisTextView setFont:[UIFont systemFontOfSize:15]];
-    [super viewWillAppear:animated];
+- (void)viewDidLayoutSubviews {
+    CGSize size = self.contentView.bounds.size;
+    self.contentView.frame = CGRectMake(0, 0, size.width, size.height);
+    self.scrollView.contentSize = size;
 }
 
 - (void)didReceiveMemoryWarning {

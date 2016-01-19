@@ -34,25 +34,6 @@
     return self;
 }
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    
-    /*
-    self.searchController = [[UISearchController alloc] initWithSearchResultsController:nil];
-    [self.searchController setSearchResultsUpdater:self];
-    [self.searchController setDimsBackgroundDuringPresentation:NO];
-    [[self.searchController searchBar] setDelegate:self];
-    // Fit the search bar to view.
-    [self.searchController.searchBar setPlaceholder:@"Enter symptom or diagnosis"];
-    [[self.searchController searchBar] sizeToFit];
-    
-    [self.tableView setDelegate:self];
-    
-    self.tableView.tableHeaderView = self.searchController.searchBar;
-    //self.definesPresentationContext = YES;
-    */
-}
-
 - (void) viewWillAppear:(BOOL)animated {
     [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:animated];
     [super viewWillAppear:animated];

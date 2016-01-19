@@ -28,6 +28,7 @@
 		534CF59A1C4C901E00A595C1 /* DSHeatMap.m in Sources */ = {isa = PBXBuildFile; fileRef = 534CF5991C4C901E00A595C1 /* DSHeatMap.m */; };
 		534CF59C1C4C97D600A595C1 /* libPNChart.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 534CF59B1C4C97D600A595C1 /* libPNChart.a */; };
 		534CF59E1C4C97DA00A595C1 /* libUICountingLabel.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 534CF59D1C4C97DA00A595C1 /* libUICountingLabel.a */; };
+		534CF5A21C4ECD0900A595C1 /* DSInformationDetailContentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 534CF5A11C4ECD0900A595C1 /* DSInformationDetailContentView.xib */; };
 		535282331BE545EB00A675F8 /* DSLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 535282321BE545EB00A675F8 /* DSLoginViewController.m */; };
 		535282351BE549A000A675F8 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 535282341BE549A000A675F8 /* CoreData.framework */; };
 		535282371BE549B400A675F8 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 535282361BE549B400A675F8 /* CoreLocation.framework */; };
@@ -101,6 +102,7 @@
 		534CF5991C4C901E00A595C1 /* DSHeatMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSHeatMap.m; sourceTree = "<group>"; };
 		534CF59B1C4C97D600A595C1 /* libPNChart.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPNChart.a; path = "Pods/../build/Debug-iphoneos/libPNChart.a"; sourceTree = "<group>"; };
 		534CF59D1C4C97DA00A595C1 /* libUICountingLabel.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libUICountingLabel.a; path = "Pods/../build/Debug-iphoneos/libUICountingLabel.a"; sourceTree = "<group>"; };
+		534CF5A11C4ECD0900A595C1 /* DSInformationDetailContentView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DSInformationDetailContentView.xib; sourceTree = "<group>"; };
 		535282251BE5418500A675F8 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = ../../Parse/Bolts.framework; sourceTree = "<group>"; };
 		535282261BE5418500A675F8 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = ../../Parse/Parse.framework; sourceTree = "<group>"; };
 		535282291BE5418500A675F8 /* ParseFacebookUtilsV4.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ParseFacebookUtilsV4.framework; path = ../../Parse/ParseFacebookUtilsV4.framework; sourceTree = "<group>"; };
@@ -299,6 +301,7 @@
 				CD16E7C11B24FBC50071E1CF /* Images.xcassets */,
 				CD16E7B11B24FBC50071E1CF /* Supporting Files */,
 				5364FAFD1BE6D177003BA58B /* Main.storyboard */,
+				534CF5A11C4ECD0900A595C1 /* DSInformationDetailContentView.xib */,
 				CDA9D5B41B4E257F00C3170F /* LaunchScreen.xib */,
 				535468AF1B596108001D66E1 /* Coordinates.plist */,
 			);
@@ -432,6 +435,7 @@
 				CDA9D5A91B4E229000C3170F /* app_launch_screen_640_960.png in Resources */,
 				532B954C1B5F00C2003B1D08 /* library_filled@2x.png in Resources */,
 				5364FAFF1BE6D177003BA58B /* Main.storyboard in Resources */,
+				534CF5A21C4ECD0900A595C1 /* DSInformationDetailContentView.xib in Resources */,
 				CDA9D5B31B4E241C00C3170F /* app_launch_screen_640_1136.png in Resources */,
 				532B954B1B5F00C2003B1D08 /* library_filled.png in Resources */,
 				532B95531B5F00FF003B1D08 /* clock_filled.png in Resources */,
