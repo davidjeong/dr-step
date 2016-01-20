@@ -113,6 +113,7 @@
             NSArray *array = [dict objectForKey:@"data"];
             float voltage = [[array objectAtIndex:i] floatValue];
             // To remove discrepencies
+            voltage = voltage/(3-voltage);
             if (voltage > 0.10) {
                 [self.weights replaceObjectAtIndex:i withObject:[NSNumber numberWithFloat:voltage]];
             } else {
