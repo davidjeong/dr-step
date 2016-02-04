@@ -157,6 +157,9 @@ static NSString *cellIdentifier = @"settingsCell";
     if (cell == nil) {
         cell = [[UITableViewCell alloc] init];
         [cell setUserInteractionEnabled:NO];
+    } else {
+        cell.backgroundColor = [UIColor colorWithRed:255/255.0f green:244/255.0f blue:240/255.0f alpha:1.0f];
+        
     }
     return cell;
 }

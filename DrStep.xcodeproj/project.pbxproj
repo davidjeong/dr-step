@@ -51,7 +51,6 @@
 		5364FAFF1BE6D177003BA58B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5364FAFD1BE6D177003BA58B /* Main.storyboard */; };
 		5364FB011BE6EED9003BA58B /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5364FB001BE6EED9003BA58B /* ParseUI.framework */; };
 		537017471C4638B900883919 /* DSBlueBeanConnector.m in Sources */ = {isa = PBXBuildFile; fileRef = 537017461C4638B900883919 /* DSBlueBeanConnector.m */; };
-		53C0FD531BE9B9EB0008B711 /* DSSignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53C0FD521BE9B9EB0008B711 /* DSSignUpViewController.m */; };
 		53C0FD551BE9DADB0008B711 /* empty_profile_pic.png in Resources */ = {isa = PBXBuildFile; fileRef = 53C0FD541BE9DADB0008B711 /* empty_profile_pic.png */; };
 		53D26BFD1BE56D8D00929D1D /* DSStatisticsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53D26BFC1BE56D8D00929D1D /* DSStatisticsViewController.m */; };
 		53DBA6451B74511600F1BC64 /* app_logo_58_58.png in Resources */ = {isa = PBXBuildFile; fileRef = 53DBA6401B74511600F1BC64 /* app_logo_58_58.png */; };
@@ -129,8 +128,6 @@
 		5364FB001BE6EED9003BA58B /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ParseUI.framework; path = ../../Parse/ParseUI.framework; sourceTree = "<group>"; };
 		537017451C4638B900883919 /* DSBlueBeanConnector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSBlueBeanConnector.h; sourceTree = "<group>"; };
 		537017461C4638B900883919 /* DSBlueBeanConnector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSBlueBeanConnector.m; sourceTree = "<group>"; };
-		53C0FD511BE9B9EB0008B711 /* DSSignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSSignUpViewController.h; sourceTree = "<group>"; };
-		53C0FD521BE9B9EB0008B711 /* DSSignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSSignUpViewController.m; sourceTree = "<group>"; };
 		53C0FD541BE9DADB0008B711 /* empty_profile_pic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = empty_profile_pic.png; path = images/empty_profile_pic.png; sourceTree = "<group>"; };
 		53D26BFB1BE56D8D00929D1D /* DSStatisticsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSStatisticsViewController.h; sourceTree = "<group>"; };
 		53D26BFC1BE56D8D00929D1D /* DSStatisticsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSStatisticsViewController.m; sourceTree = "<group>"; };
@@ -290,8 +287,6 @@
 				CD16E7B91B24FBC50071E1CF /* DSRealtimeViewController.m */,
 				CDA9D55E1B4DE49100C3170F /* DSSettingsViewController.h */,
 				CDA9D55F1B4DE49100C3170F /* DSSettingsViewController.m */,
-				53C0FD511BE9B9EB0008B711 /* DSSignUpViewController.h */,
-				53C0FD521BE9B9EB0008B711 /* DSSignUpViewController.m */,
 				53D26BFB1BE56D8D00929D1D /* DSStatisticsViewController.h */,
 				53D26BFC1BE56D8D00929D1D /* DSStatisticsViewController.m */,
 				532B955B1B5F3950003B1D08 /* DSSymptom.h */,
@@ -521,7 +516,6 @@
 				CD12CB5E1B385D55004F3AB7 /* DSInformationViewController.m in Sources */,
 				CD16E7B41B24FBC50071E1CF /* main.m in Sources */,
 				535468B51B5968E6001D66E1 /* DSAppConstants.m in Sources */,
-				53C0FD531BE9B9EB0008B711 /* DSSignUpViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

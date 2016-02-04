@@ -14,13 +14,8 @@
 #import <Parse/Parse.h>
 #import <QuartzCore/QuartzCore.h>
 
-#import "DSSignUpViewController.h"
-
 @interface DSLoginViewController ()
-@property (weak, nonatomic) IBOutlet UITextField *usernameField;
-@property (weak, nonatomic) IBOutlet UITextField *passwordField;
 @property (weak, nonatomic) IBOutlet UIButton *fbLoginButton;
-@property (weak, nonatomic) IBOutlet UIButton *appLoginButton;
 @property (weak, nonatomic) IBOutlet UILabel *errorLabel;
 @end
 
@@ -28,17 +23,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    self.usernameField.delegate = self;
-    self.passwordField.delegate = self;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
     // Clear the fields.
-    self.usernameField.text = @"";
-    self.passwordField.text = @"";
     self.errorLabel.text = @"";
 }
 
@@ -52,33 +42,7 @@
     [self.view endEditing:YES];
 }
 
-#pragma mark - Normal Login
-
-- (IBAction)loginApplication:(id)sender {
-    [self _loginWithApplication];
-}
-
-- (void)_loginWithApplication {
-    if (self.usernameField.text && self.passwordField.text && self.usernameField.text.length != 0 && self.passwordField.text.length != 0) {
-        // Check if username/password combination is correct.
-        [PFUser logInWithUsernameInBackground:self.usernameField.text password:self.passwordField.text block:^(PFUser *user, NSError *error) {
-            if (error) {
-                self.errorLabel.text = @"Invalid credentials";
-                NSLog(@"Error while trying to log in.");
-                return;
-            }
-            if (user) {
-                [self performSegueWithIdentifier:@"loginSegue" sender:self];
-            }
-        }];
-    } else {
-        self.errorLabel.text = @"Username or password is empty";
-        NSLog(@"Username or password is empty.");
-    }
-}
-
 #pragma mark - Facebook Login
-
 - (IBAction)loginFacebook:(id)sender {
     [self _loginWithFacebook];
 }
@@ -147,23 +111,6 @@
         [textField resignFirstResponder];
     }
     return NO; // We do not want UITextField to insert line-breaks.
-}
-
-#pragma mark - Segue
-
-- (IBAction)goToSignUp:(id)sender {
-    CATransition* transition = [CATransition animation];
-    transition.duration = 0.3;
-    transition.type = kCATransitionFade;
-    
-    [[self navigationController].view.layer addAnimation:transition forKey:kCATransition];
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    DSSignUpViewController *destinationViewController = (DSSignUpViewController *)[storyboard instantiateViewControllerWithIdentifier:@"DSSignUpViewController"];
-    
-    NSMutableArray *viewControllers = [NSMutableArray arrayWithArray:[self.navigationController viewControllers]];
-    
-    [viewControllers replaceObjectAtIndex:0 withObject:destinationViewController];
-    [[self navigationController] setViewControllers:viewControllers];
 }
 
 @end

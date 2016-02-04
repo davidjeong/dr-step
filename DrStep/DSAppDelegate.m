@@ -32,9 +32,9 @@
                   clientKey:@"YTmzwHxuZqYBAPUznBAc20pYqDfO1XtLXLutGE0O"];
     [PFFacebookUtils initializeFacebookWithApplicationLaunchOptions:launchOptions];
     
-    // App tint color is orange.
-    // App background color is HEX: #FFF6E9, or RGB(255, 246, 233).
-    [self.window setTintColor:[UIColor orangeColor]];
+    // App background color is HEX: #FFFAF6, or RGB(255, 250, 246).
+    // App Tint and Tab color is HEX: #4CBEA0, or RGB(76, 190, 160).
+    [self.window setTintColor:[UIColor colorWithRed:76/255.0f green:216/255.0f blue:190/255.0f alpha:1.0f]];
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     
     // Set color for page control.
