@@ -147,11 +147,13 @@ inline static int isqrt(int x)
                        boost:(float)boost
                       points:(NSArray *)points
                      weights:(NSArray *)weights
+                   maxWeight:(float)maxWeight
 {
     return [self heatMapWithRect:rect
                                 boost:boost
                                points:points
                               weights:weights
+                            maxWeight:maxWeight
              weightsAdjustmentEnabled:NO
                       groupingEnabled:YES];
 }
@@ -160,6 +162,7 @@ inline static int isqrt(int x)
                        boost:(float)boost
                       points:(NSArray *)points
                      weights:(NSArray *)weights
+                   maxWeight:(float)maxWeight
     weightsAdjustmentEnabled:(BOOL)weightsAdjustmentEnabled
              groupingEnabled:(BOOL)groupingEnabled
 {
@@ -208,7 +211,7 @@ inline static int isqrt(int x)
     if (weights != nil)
     {
         point_weight = malloc(sizeof(float) * points_num);
-        max_weight = 0.0;
+        max_weight = maxWeight;
     }
     
     i = 0;
@@ -237,8 +240,8 @@ inline static int isqrt(int x)
             NSNumber* weightValue = [weights objectAtIndex:j];
             
             point_weight[i] = [weightValue floatValue];
-            if (max_weight < point_weight[i])
-                max_weight = point_weight[i];
+            //if (max_weight < point_weight[i])
+            //    max_weight = point_weight[i];
         }
         
         i++;

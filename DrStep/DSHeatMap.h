@@ -22,6 +22,7 @@
  boost: heat boost value
  points: array of NSValue CGPoint objects representing the data points
  weights: array of NSNumber integer objects representing the weight of each point
+ maxWeight: maximum weight of the system
  
  @returns
  UIImage object representing the heatmap for the specified region.
@@ -29,7 +30,8 @@
 + (UIImage *)heatMapWithRect:(CGRect)rect
                        boost:(float)boost
                       points:(NSArray *)points
-                     weights:(NSArray *)weights;
+                     weights:(NSArray *)weights
+                   maxWeight:(float)maxWeight;
 
 /**
  Generates a heat map image for the specified rectangle.
@@ -42,6 +44,7 @@
  boost: heat boost value
  points: array of NSValue CGPoint objects representing the data points
  weights: array of NSNumber integer objects representing the weight of each point
+ maxWeight: maximum weight of the system
  weightsAdjustmentEnabled: set YES for weight balancing and normalization
  groupingEnabled: set YES for tighter visual grouping of dense areas
  
@@ -52,6 +55,7 @@
                        boost:(float)boost
                       points:(NSArray *)points
                      weights:(NSArray *)weights
+                   maxWeight:(float)maxWeight
     weightsAdjustmentEnabled:(BOOL)weightsAdjustmentEnabled
              groupingEnabled:(BOOL)groupingEnabled;
 

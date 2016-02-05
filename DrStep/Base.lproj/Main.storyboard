@@ -95,7 +95,22 @@
                     <view key="view" contentMode="scaleToFill" id="kLq-Xz-gOc">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="O8V-S7-5Ca">
+                                <rect key="frame" x="40" y="84" width="520" height="29"/>
+                                <segments>
+                                    <segment title="Analysis"/>
+                                    <segment title="Metrics"/>
+                                </segments>
+                                <color key="tintColor" red="0.29803921570000003" green="0.74509803919999995" blue="0.62745098040000002" alpha="1" colorSpace="calibratedRGB"/>
+                            </segmentedControl>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="0.98039215690000003" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="O8V-S7-5Ca" secondAttribute="trailing" constant="40" id="AHk-ML-sQG"/>
+                            <constraint firstItem="O8V-S7-5Ca" firstAttribute="top" secondItem="69f-sL-2LB" secondAttribute="bottom" constant="20" id="Dcm-5z-Rpl"/>
+                            <constraint firstItem="O8V-S7-5Ca" firstAttribute="leading" secondItem="kLq-Xz-gOc" secondAttribute="leading" constant="40" id="xE4-Xt-CNU"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Statistics" image="clock_filled.png" id="Vhh-5w-f5O"/>
                     <navigationItem key="navigationItem" title="Statistics" id="8ak-px-xJw"/>
@@ -458,12 +473,12 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A10-ti-982">
-                                <rect key="frame" x="20" y="183" width="560" height="40"/>
+                                <rect key="frame" x="20" y="203" width="560" height="50"/>
                                 <color key="backgroundColor" red="0.23137254901960785" green="0.34901960784313724" blue="0.59607843137254901" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="vsH-6z-lWa"/>
+                                    <constraint firstAttribute="height" constant="50" id="vsH-6z-lWa"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                 <state key="normal" title="Login with Facebook">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
@@ -472,14 +487,20 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign in to your account" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="57n-xe-6px">
-                                <rect key="frame" x="40" y="40" width="520" height="43"/>
+                                <rect key="frame" x="20" y="60" width="560" height="43"/>
                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="36"/>
                                 <color key="textColor" red="0.29803921570000003" green="0.74509803919999995" blue="0.62745098040000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bGy-St-PUA">
-                                <rect key="frame" x="20" y="243" width="560" height="0.0"/>
+                                <rect key="frame" x="20" y="273" width="560" height="0.0"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="companyLabel" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Vs-f9-pYZ">
+                                <rect key="frame" x="20" y="501" width="560" height="15"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -490,12 +511,15 @@
                             <constraint firstItem="bGy-St-PUA" firstAttribute="leading" secondItem="sWk-Hs-7zU" secondAttribute="leading" constant="20" id="2g8-wq-ZK6"/>
                             <constraint firstAttribute="trailing" secondItem="bGy-St-PUA" secondAttribute="trailing" constant="20" id="5Uy-FE-0eZ"/>
                             <constraint firstItem="A10-ti-982" firstAttribute="top" secondItem="57n-xe-6px" secondAttribute="bottom" constant="100" id="EOR-LM-JTv"/>
-                            <constraint firstItem="57n-xe-6px" firstAttribute="top" secondItem="pzG-yf-sOv" secondAttribute="bottom" constant="40" id="Qa1-nC-0Uh"/>
+                            <constraint firstItem="57n-xe-6px" firstAttribute="top" secondItem="pzG-yf-sOv" secondAttribute="bottom" constant="60" id="Qa1-nC-0Uh"/>
                             <constraint firstAttribute="trailing" secondItem="A10-ti-982" secondAttribute="trailing" constant="20" id="Qjc-gi-ot0"/>
-                            <constraint firstItem="57n-xe-6px" firstAttribute="leading" secondItem="sWk-Hs-7zU" secondAttribute="leading" constant="40" id="bZy-21-qga"/>
+                            <constraint firstItem="2Vs-f9-pYZ" firstAttribute="leading" secondItem="sWk-Hs-7zU" secondAttribute="leading" constant="20" id="UQb-Q0-zHJ"/>
+                            <constraint firstItem="57n-xe-6px" firstAttribute="leading" secondItem="sWk-Hs-7zU" secondAttribute="leading" constant="20" id="bZy-21-qga"/>
                             <constraint firstItem="A10-ti-982" firstAttribute="leading" secondItem="sWk-Hs-7zU" secondAttribute="leading" constant="20" id="c1i-V8-3pf"/>
                             <constraint firstItem="bGy-St-PUA" firstAttribute="top" secondItem="A10-ti-982" secondAttribute="bottom" constant="20" id="cRT-Gb-09g"/>
-                            <constraint firstAttribute="trailing" secondItem="57n-xe-6px" secondAttribute="trailing" constant="40" id="vZ5-UV-svY"/>
+                            <constraint firstItem="yQ5-Ql-WDW" firstAttribute="top" secondItem="2Vs-f9-pYZ" secondAttribute="bottom" constant="20" id="cyI-5D-a2Y"/>
+                            <constraint firstAttribute="trailing" secondItem="2Vs-f9-pYZ" secondAttribute="trailing" constant="20" id="ubD-9H-2Fa"/>
+                            <constraint firstAttribute="trailing" secondItem="57n-xe-6px" secondAttribute="trailing" constant="20" id="vZ5-UV-svY"/>
                         </constraints>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="uw5-at-lxl" appends="YES" id="4MN-e8-2hR"/>
@@ -503,6 +527,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="fMg-T7-Jib"/>
                     <connections>
+                        <outlet property="companyLabel" destination="2Vs-f9-pYZ" id="BLQ-DF-aH2"/>
                         <outlet property="errorLabel" destination="bGy-St-PUA" id="xhT-Ac-bBr"/>
                         <outlet property="fbLoginButton" destination="A10-ti-982" id="33O-xO-feM"/>
                         <segue destination="49e-Tb-3d3" kind="presentation" identifier="loginSegue" modalTransitionStyle="crossDissolve" id="Z3f-LU-WEn"/>

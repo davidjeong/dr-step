@@ -15,6 +15,7 @@
 #import <QuartzCore/QuartzCore.h>
 
 @interface DSLoginViewController ()
+@property (weak, nonatomic) IBOutlet UILabel *companyLabel;
 @property (weak, nonatomic) IBOutlet UIButton *fbLoginButton;
 @property (weak, nonatomic) IBOutlet UILabel *errorLabel;
 @end
@@ -23,6 +24,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.fbLoginButton.layer.cornerRadius = self.fbLoginButton.frame.size.height / 3;
+    
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"yyyy"];
+    NSString *yearString = [formatter stringFromDate:[NSDate date]];
+    self.companyLabel.text = [NSString stringWithFormat:@"\u00A9Dr. Step %@", yearString];
 }
 
 - (void)viewWillAppear:(BOOL)animated {

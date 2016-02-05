@@ -68,7 +68,7 @@
     DSAppConstants *constants = [DSAppConstants constants];
     NSDictionary *settings = constants.settings;
     self.boost = [NSNumber numberWithFloat:[settings[@"heatMapBoost"] floatValue]];
-    self.heatMap = [DSHeatMap heatMapWithRect:self.view.frame boost:[self.boost floatValue] points:constants.coordinates weights:self.weights];
+    self.heatMap = [DSHeatMap heatMapWithRect:self.view.frame boost:[self.boost floatValue] points:constants.coordinates weights:self.weights maxWeight:MAXIMUM_VOLTAGE];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -97,7 +97,7 @@
         for (int i=0; i<[constants.coordinates count]; i++) {
             [self.weights replaceObjectAtIndex:i withObject:[NSNumber numberWithFloat:0.0f]];
         }
-        self.heatMap = [DSHeatMap heatMapWithRect:self.view.frame boost:1.0f points:constants.coordinates weights:self.weights];
+        self.heatMap = [DSHeatMap heatMapWithRect:self.view.frame boost:1.0f points:constants.coordinates weights:self.weights maxWeight:MAXIMUM_VOLTAGE];
         [self.imageView setImage:self.heatMap];
     }
 }
@@ -120,7 +120,7 @@
                 [self.weights replaceObjectAtIndex:i withObject:[NSNumber numberWithFloat:0.0f]];
             }
         }
-        self.heatMap = [DSHeatMap heatMapWithRect:self.view.frame boost:[self.boost floatValue] points:constants.coordinates weights:self.weights weightsAdjustmentEnabled:NO groupingEnabled:YES];
+        self.heatMap = [DSHeatMap heatMapWithRect:self.view.frame boost:[self.boost floatValue] points:constants.coordinates weights:self.weights maxWeight:MAXIMUM_VOLTAGE weightsAdjustmentEnabled:NO groupingEnabled:YES];
         dispatch_async(dispatch_get_main_queue(), ^{
             [self.accelerationXField setText:[NSString stringWithFormat:@"X: %@", [accelerationX stringValue]]];
             [self.accelerationYField setText:[NSString stringWithFormat:@"Y: %@", [accelerationY stringValue]]];
