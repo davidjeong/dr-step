@@ -51,7 +51,7 @@
     
     // Initialize the line chart.
     self.pressureLineChart = [[PNLineChart alloc] initWithFrame:CGRectMake(20, height*0.05, width-20, height*0.3)];
-    self.pressureLineChart.yLabelFormat = @"%1.0f";
+    self.pressureLineChart.yLabelFormat = @"%1.1f";
     self.pressureLineChart.backgroundColor = [UIColor clearColor];
     [self.pressureLineChart setXLabels:@[@"1",@"2",@"3",@"4",@"5",@"6",@"7", @"8", @"9", @"10", @"11", @"12"]];
     self.pressureLineChart.showCoordinateAxis = YES;
@@ -63,7 +63,7 @@
     self.pressureData = [PNLineChartData new];
     self.pressureData.dataTitle = @"Pressure";
     self.pressureData.color = PNFreshGreen;
-    self.pressureData.alpha = 0.3f;
+    self.pressureData.alpha = 1.0f;
     self.pressureData.inflexionPointStyle = PNLineChartPointStyleTriangle;
     self.pressureData.getData = ^(NSUInteger index) {
         CGFloat yValue = [pressureArray[index] floatValue];
@@ -74,8 +74,10 @@
     
     // Line Chart for Acceleration
     self.accelerationLineChart = [[PNLineChart alloc] initWithFrame:CGRectMake(20, height*0.35, width-20, height*0.3)];
+    self.pressureLineChart.yLabelFormat = @"%1.1f";
     self.accelerationLineChart.backgroundColor = [UIColor clearColor];
     self.accelerationLineChart.showCoordinateAxis = YES;
+    [self.accelerationLineChart setYLabels:@[@"-20000", @"-10000", @"0", @"10000", @"20000"]];
     [self.accelerationLineChart setXLabels:@[@"X",@"Y",@"Z"]];
     
     NSArray *accelerationArray = @[@0.0, @0.0, @0.0];
@@ -83,7 +85,7 @@
     self.accelerationData = [PNLineChartData new];
     self.accelerationData.dataTitle = @"Pressure";
     self.accelerationData.color = PNFreshGreen;
-    self.accelerationData.alpha = 0.3f;
+    self.accelerationData.alpha = 1.0f;
     self.accelerationData.itemCount = accelerationArray.count;
     self.accelerationData.inflexionPointStyle = PNLineChartPointStyleTriangle;
     self.accelerationData.getData = ^(NSUInteger index) {
