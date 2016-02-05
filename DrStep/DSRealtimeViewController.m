@@ -10,17 +10,24 @@
 
 #import "DSAppConstants.h"
 #import "DSHeatMap.h"
+#import "PNChart.h"
 
 @interface DSRealtimeViewController ()
 
-@property (nonatomic, strong) NSMutableArray *weights;
-@property (nonatomic, strong) IBOutlet UIImageView *baseImage;
-@property (nonatomic, strong) UIImageView *imageView;
-@property (nonatomic, strong) UIImage *heatMap;
-@property (nonatomic, strong) NSNumber *boost;
+@property (atomic) NSMutableArray *weights;
+@property (nonatomic) PNLineChart *lineChart;
+
+@property (weak, nonatomic) IBOutlet UIView *uiView;
+@property (nonatomic) UIImageView *imageView;
+@property (nonatomic) UIView *chartView;
+
+@property (atomic) UIImage *heatMap;
+@property (nonatomic) NSNumber *boost;
+
 @property (weak, nonatomic) IBOutlet UITextField *accelerationXField;
 @property (weak, nonatomic) IBOutlet UITextField *accelerationYField;
 @property (weak, nonatomic) IBOutlet UITextField *accelerationZField;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *segmentedControl;
 
 @end
 
@@ -28,23 +35,50 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    UIImage *image = [UIImage imageNamed:@"foot_image.png"];
-    [self.baseImage setImage:image];
-    self.baseImage.contentMode = UIViewContentModeScaleAspectFit;
-    
     DSAppConstants *constants = [DSAppConstants constants];
-    
-    self.imageView = [[UIImageView alloc] initWithFrame:self.view.frame];
-    [self.imageView setClipsToBounds:YES];
-    [self.imageView setContentMode:UIViewContentModeCenter];
-    [self.view addSubview:self.imageView];
     
     self.weights = [[NSMutableArray alloc] initWithCapacity:[constants.coordinates count]];
     
     for (int i=0; i<[constants.coordinates count]; i++) {
         [self.weights addObject:[NSNumber numberWithFloat:0.0f]];
     }
+    
+    // Initialize the line chart.
+    self.lineChart = [[PNLineChart alloc] initWithFrame:CGRectMake(0, 135.0, SCREEN_WIDTH, 200.0)];
+    self.lineChart.yLabelFormat = @"%1.1f";
+    self.lineChart.backgroundColor = [UIColor clearColor];
+    [self.lineChart setXLabels:@[@"SEP 1",@"SEP 2",@"SEP 3",@"SEP 4",@"SEP 5",@"SEP 6",@"SEP 7"]];
+    self.lineChart.showCoordinateAxis = YES;
+    
+    [self.lineChart setYLabels:@[
+                                 @"0 min",
+                                 @"50 min",
+                                 @"100 min",
+                                 @"150 min",
+                                 @"200 min",
+                                 @"250 min",
+                                 @"300 min",
+                                 ]
+     ];
+    
+    // Line Chart #1
+    NSArray * data01Array = @[@60.1, @160.1, @126.4, @0.0, @186.2, @127.2, @176.2];
+    PNLineChartData *data01 = [PNLineChartData new];
+    data01.dataTitle = @"Alpha";
+    data01.color = PNFreshGreen;
+    data01.alpha = 0.3f;
+    data01.itemCount = data01Array.count;
+    data01.inflexionPointStyle = PNLineChartPointStyleTriangle;
+    data01.getData = ^(NSUInteger index) {
+        CGFloat yValue = [data01Array[index] floatValue];
+        return [PNLineChartDataItem dataItemWithY:yValue];
+    };
+    
+    [self.lineChart setXLabels:@[@"DEC 1",@"DEC 2",@"DEC 3",@"DEC 4",@"DEC 5",@"DEC 6",@"DEC 7"]];
+    self.lineChart.chartData = @[data01];
+    [self.lineChart strokeChart];
+    
+    [self.chartView addSubview:self.lineChart];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(handleNotifications:)
@@ -55,6 +89,26 @@
                                              selector:@selector(handleNotifications:)
                                                  name:@"disconnectedFromBean"
                                                object:nil];
+}
+
+- (void)viewDidLayoutSubviews {
+    UIImage *image = [UIImage imageNamed:@"foot_image.png"];
+    self.imageView = [[UIImageView alloc] initWithImage:image];
+    [self.imageView setClipsToBounds:YES];
+    [self.imageView setContentMode:UIViewContentModeScaleAspectFit];
+    [self.imageView setFrame:self.uiView.bounds];
+    
+    self.chartView = [[UIView alloc] initWithFrame:self.uiView.bounds];
+    [self.chartView setContentMode:UIViewContentModeScaleAspectFit];
+    [self.chartView addSubview:self.lineChart];
+
+    [self.uiView addSubview:self.imageView];
+    [self.uiView addSubview:self.chartView];
+    if (self.segmentedControl.selectedSegmentIndex == 0) {
+        [self.chartView setHidden:YES];
+    } else if (self.segmentedControl.selectedSegmentIndex == 1) {
+        [self.imageView setHidden:YES];
+    }
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
@@ -75,9 +129,20 @@
     [super didReceiveMemoryWarning];
 }
 
+- (IBAction)controlChanged:(id)sender {
+    NSInteger selectedSegment = self.segmentedControl.selectedSegmentIndex;
+    if (selectedSegment == 0) {
+        [self.imageView setHidden:NO];
+        [self.chartView setHidden:YES];
+    } else if (selectedSegment == 1) {
+        [self.imageView setHidden:YES];
+        [self.chartView setHidden:NO];
+    }
+}
+
 - (void) handleNotifications:(NSNotification *)notification {
     if ([[notification name] isEqualToString:@"parsedData"]) {
-        if ([self isViewLoaded] && self.view.window) {
+        if ([self isViewLoaded] && self.view.window && !self.imageView.hidden) {
             NSLog(@"Spawning new serial thread");
             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^ {
                 [self processGraphics:[notification object]];

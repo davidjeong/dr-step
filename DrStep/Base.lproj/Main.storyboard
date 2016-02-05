@@ -17,10 +17,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="94p-WF-dkB">
-                                <rect key="frame" x="0.0" y="84" width="600" height="447"/>
-                                <color key="backgroundColor" red="1" green="0.98039215690000003" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
-                            </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ywt-H3-mL1">
                                 <rect key="frame" x="20" y="72" width="8" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -36,18 +32,36 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="N5l-kL-ra9">
+                                <rect key="frame" x="20" y="84" width="560" height="29"/>
+                                <segments>
+                                    <segment title="Heat Map"/>
+                                    <segment title="Pressure Chart"/>
+                                </segments>
+                                <color key="tintColor" red="0.29803921570000003" green="0.74509803919999995" blue="0.62745098040000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="controlChanged:" destination="9pv-A4-QxB" eventType="valueChanged" id="gSc-bU-xtM"/>
+                                </connections>
+                            </segmentedControl>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ibh-vy-eZP">
+                                <rect key="frame" x="0.0" y="132" width="600" height="419"/>
+                                <color key="backgroundColor" red="1" green="0.98039215690000003" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.98039215690000003" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="Ywt-H3-mL1" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" constant="8" id="0PK-M0-mKp"/>
-                            <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="94p-WF-dkB" secondAttribute="bottom" constant="20" id="113-ja-6N9"/>
+                            <constraint firstItem="N5l-kL-ra9" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leading" constant="20" id="AD4-Sh-z4J"/>
+                            <constraint firstAttribute="trailing" secondItem="N5l-kL-ra9" secondAttribute="trailing" constant="20" id="Bfm-ty-1Aa"/>
+                            <constraint firstItem="Ibh-vy-eZP" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leading" id="FBn-DP-zd1"/>
                             <constraint firstItem="Ywt-H3-mL1" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leading" constant="20" id="NxG-Hg-pEj"/>
                             <constraint firstItem="QlT-BE-UHy" firstAttribute="top" secondItem="Ywt-H3-mL1" secondAttribute="bottom" constant="8" id="SWN-0Z-EAO"/>
-                            <constraint firstItem="94p-WF-dkB" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leading" id="Uyg-XQ-t9Q"/>
-                            <constraint firstItem="94p-WF-dkB" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" constant="20" id="ZBJ-7h-h2E"/>
+                            <constraint firstAttribute="trailing" secondItem="Ibh-vy-eZP" secondAttribute="trailing" id="Vvz-f4-CKv"/>
+                            <constraint firstItem="Ibh-vy-eZP" firstAttribute="top" secondItem="N5l-kL-ra9" secondAttribute="bottom" constant="20" id="YY7-B4-UdB"/>
+                            <constraint firstItem="N5l-kL-ra9" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" constant="20" id="eoa-dZ-iZU"/>
                             <constraint firstItem="gnq-uz-kN7" firstAttribute="top" secondItem="QlT-BE-UHy" secondAttribute="bottom" constant="8" id="hwC-XE-mgd"/>
                             <constraint firstItem="gnq-uz-kN7" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leading" constant="20" id="i25-QV-CBu"/>
-                            <constraint firstAttribute="trailing" secondItem="94p-WF-dkB" secondAttribute="trailing" id="tf6-an-hSy"/>
+                            <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="Ibh-vy-eZP" secondAttribute="bottom" id="i5b-ff-fve"/>
                             <constraint firstItem="QlT-BE-UHy" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leading" constant="20" id="weI-ef-1uG"/>
                         </constraints>
                     </view>
@@ -56,7 +70,8 @@
                         <outlet property="accelerationXField" destination="Ywt-H3-mL1" id="B5H-0d-YOI"/>
                         <outlet property="accelerationYField" destination="QlT-BE-UHy" id="3nd-sz-FPZ"/>
                         <outlet property="accelerationZField" destination="gnq-uz-kN7" id="oed-V2-bQT"/>
-                        <outlet property="baseImage" destination="94p-WF-dkB" id="2nm-RW-WBe"/>
+                        <outlet property="segmentedControl" destination="N5l-kL-ra9" id="RKS-YJ-wsi"/>
+                        <outlet property="uiView" destination="Ibh-vy-eZP" id="hoA-Tv-I9U"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
@@ -97,7 +112,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="O8V-S7-5Ca">
-                                <rect key="frame" x="40" y="84" width="520" height="29"/>
+                                <rect key="frame" x="20" y="84" width="560" height="29"/>
                                 <segments>
                                     <segment title="Analysis"/>
                                     <segment title="Metrics"/>
@@ -107,9 +122,9 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.98039215690000003" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="O8V-S7-5Ca" secondAttribute="trailing" constant="40" id="AHk-ML-sQG"/>
+                            <constraint firstAttribute="trailing" secondItem="O8V-S7-5Ca" secondAttribute="trailing" constant="20" id="AHk-ML-sQG"/>
                             <constraint firstItem="O8V-S7-5Ca" firstAttribute="top" secondItem="69f-sL-2LB" secondAttribute="bottom" constant="20" id="Dcm-5z-Rpl"/>
-                            <constraint firstItem="O8V-S7-5Ca" firstAttribute="leading" secondItem="kLq-Xz-gOc" secondAttribute="leading" constant="40" id="xE4-Xt-CNU"/>
+                            <constraint firstItem="O8V-S7-5Ca" firstAttribute="leading" secondItem="kLq-Xz-gOc" secondAttribute="leading" constant="20" id="xE4-Xt-CNU"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Statistics" image="clock_filled.png" id="Vhh-5w-f5O"/>
