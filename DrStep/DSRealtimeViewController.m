@@ -15,7 +15,8 @@
 @interface DSRealtimeViewController ()
 
 @property (atomic) NSMutableArray *weights;
-@property (nonatomic) PNLineChart *lineChart;
+@property (nonatomic) PNLineChart *pressureLineChart;
+@property (nonatomic) PNLineChart *accelerationLineChart;
 
 @property (weak, nonatomic) IBOutlet UIView *uiView;
 @property (nonatomic) UIImageView *imageView;
@@ -23,6 +24,9 @@
 
 @property (atomic) UIImage *heatMap;
 @property (nonatomic) NSNumber *boost;
+
+@property (nonatomic) PNLineChartData *pressureData;
+@property (nonatomic) PNLineChartData *accelerationData;
 
 @property (weak, nonatomic) IBOutlet UITextField *accelerationXField;
 @property (weak, nonatomic) IBOutlet UITextField *accelerationYField;
@@ -36,6 +40,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     DSAppConstants *constants = [DSAppConstants constants];
+    float height = self.view.frame.size.height;
+    float width = self.view.frame.size.width;
     
     self.weights = [[NSMutableArray alloc] initWithCapacity:[constants.coordinates count]];
     
@@ -44,41 +50,49 @@
     }
     
     // Initialize the line chart.
-    self.lineChart = [[PNLineChart alloc] initWithFrame:CGRectMake(0, 135.0, SCREEN_WIDTH, 200.0)];
-    self.lineChart.yLabelFormat = @"%1.1f";
-    self.lineChart.backgroundColor = [UIColor clearColor];
-    [self.lineChart setXLabels:@[@"SEP 1",@"SEP 2",@"SEP 3",@"SEP 4",@"SEP 5",@"SEP 6",@"SEP 7"]];
-    self.lineChart.showCoordinateAxis = YES;
+    self.pressureLineChart = [[PNLineChart alloc] initWithFrame:CGRectMake(20, height*0.05, width-20, height*0.3)];
+    self.pressureLineChart.yLabelFormat = @"%1.0f";
+    self.pressureLineChart.backgroundColor = [UIColor clearColor];
+    [self.pressureLineChart setXLabels:@[@"1",@"2",@"3",@"4",@"5",@"6",@"7", @"8", @"9", @"10", @"11", @"12"]];
+    self.pressureLineChart.showCoordinateAxis = YES;
     
-    [self.lineChart setYLabels:@[
-                                 @"0 min",
-                                 @"50 min",
-                                 @"100 min",
-                                 @"150 min",
-                                 @"200 min",
-                                 @"250 min",
-                                 @"300 min",
-                                 ]
-     ];
+    [self.pressureLineChart setYLabels:@[@"0", @"0.5 V", @"1.0 V", @"1.5 V", @"2.0 V", @"2.5 V", @"3.0 V"]];
     
-    // Line Chart #1
-    NSArray * data01Array = @[@60.1, @160.1, @126.4, @0.0, @186.2, @127.2, @176.2];
-    PNLineChartData *data01 = [PNLineChartData new];
-    data01.dataTitle = @"Alpha";
-    data01.color = PNFreshGreen;
-    data01.alpha = 0.3f;
-    data01.itemCount = data01Array.count;
-    data01.inflexionPointStyle = PNLineChartPointStyleTriangle;
-    data01.getData = ^(NSUInteger index) {
-        CGFloat yValue = [data01Array[index] floatValue];
+    // Line Chart for Pressure
+    NSArray *pressureArray = @[@0.0, @0.0, @0.0, @0.0, @0.0, @0.0, @0.0, @0.0, @0.0, @0.0, @0.0, @0.0];
+    self.pressureData = [PNLineChartData new];
+    self.pressureData.dataTitle = @"Pressure";
+    self.pressureData.color = PNFreshGreen;
+    self.pressureData.alpha = 0.3f;
+    self.pressureData.inflexionPointStyle = PNLineChartPointStyleTriangle;
+    self.pressureData.getData = ^(NSUInteger index) {
+        CGFloat yValue = [pressureArray[index] floatValue];
         return [PNLineChartDataItem dataItemWithY:yValue];
     };
     
-    [self.lineChart setXLabels:@[@"DEC 1",@"DEC 2",@"DEC 3",@"DEC 4",@"DEC 5",@"DEC 6",@"DEC 7"]];
-    self.lineChart.chartData = @[data01];
-    [self.lineChart strokeChart];
+    self.pressureLineChart.chartData = @[self.pressureData];
     
-    [self.chartView addSubview:self.lineChart];
+    // Line Chart for Acceleration
+    self.accelerationLineChart = [[PNLineChart alloc] initWithFrame:CGRectMake(20, height*0.35, width-20, height*0.3)];
+    self.accelerationLineChart.backgroundColor = [UIColor clearColor];
+    self.accelerationLineChart.showCoordinateAxis = YES;
+    [self.accelerationLineChart setXLabels:@[@"X",@"Y",@"Z"]];
+    
+    NSArray *accelerationArray = @[@0.0, @0.0, @0.0];
+    
+    self.accelerationData = [PNLineChartData new];
+    self.accelerationData.dataTitle = @"Pressure";
+    self.accelerationData.color = PNFreshGreen;
+    self.accelerationData.alpha = 0.3f;
+    self.accelerationData.itemCount = accelerationArray.count;
+    self.accelerationData.inflexionPointStyle = PNLineChartPointStyleTriangle;
+    self.accelerationData.getData = ^(NSUInteger index) {
+        CGFloat yValue = [accelerationArray[index] floatValue];
+        return [PNLineChartDataItem dataItemWithY:yValue];
+    };
+    
+    self.accelerationLineChart.chartData = @[self.accelerationData];
+    [self.accelerationLineChart strokeChart];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(handleNotifications:)
@@ -100,7 +114,9 @@
     
     self.chartView = [[UIView alloc] initWithFrame:self.uiView.bounds];
     [self.chartView setContentMode:UIViewContentModeScaleAspectFit];
-    [self.chartView addSubview:self.lineChart];
+    
+    [self.chartView addSubview:self.pressureLineChart];
+    [self.chartView addSubview:self.accelerationLineChart];
 
     [self.uiView addSubview:self.imageView];
     [self.uiView addSubview:self.chartView];
@@ -143,9 +159,14 @@
 - (void) handleNotifications:(NSNotification *)notification {
     if ([[notification name] isEqualToString:@"parsedData"]) {
         if ([self isViewLoaded] && self.view.window && !self.imageView.hidden) {
-            NSLog(@"Spawning new serial thread");
+            NSLog(@"Spawning new serial thread for heatmap");
             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^ {
                 [self processGraphics:[notification object]];
+            });
+        } else if ([self isViewLoaded] && self.view.window && !self.chartView.hidden) {
+            NSLog(@"Spawning new serial thread for heatmap");
+            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^ {
+                [self processCharts:[notification object]];
             });
         }
     } else if ([notification.name isEqualToString:@"disconnectedFromBean"]) {
@@ -164,6 +185,29 @@
         }
         self.heatMap = [DSHeatMap heatMapWithRect:self.view.frame boost:1.0f points:constants.coordinates weights:self.weights maxWeight:MAXIMUM_VOLTAGE];
         [self.imageView setImage:self.heatMap];
+    }
+}
+
+- (void)processCharts:(NSDictionary *)dict {
+    @synchronized(self.pressureData) {
+        NSArray *pressureArray = [dict objectForKey:@"data"];
+        self.pressureData.getData = ^(NSUInteger index) {
+            CGFloat yValue = [pressureArray[index] floatValue];
+            return [PNLineChartDataItem dataItemWithY:yValue];
+        };
+        
+        NSNumber *x = [dict objectForKey:@"accelerationX"];
+        NSNumber *y = [dict objectForKey:@"accelerationY"];
+        NSNumber *z = [dict objectForKey:@"accelerationZ"];
+        
+        NSArray *accelerationArray = @[x, y, z];
+        self.accelerationData.getData = ^(NSUInteger index) {
+            CGFloat yValue = [accelerationArray[index] floatValue];
+            return [PNLineChartDataItem dataItemWithY:yValue];
+        };
+        
+        [self.pressureLineChart updateChartData:@[self.pressureData]];
+        [self.accelerationLineChart updateChartData:@[self.accelerationData]];
     }
 }
 
