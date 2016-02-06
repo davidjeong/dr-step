@@ -17,26 +17,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ywt-H3-mL1">
-                                <rect key="frame" x="20" y="72" width="8" height="17"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QlT-BE-UHy">
-                                <rect key="frame" x="20" y="97" width="8" height="17"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gnq-uz-kN7">
-                                <rect key="frame" x="20" y="122" width="8" height="17"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="N5l-kL-ra9">
                                 <rect key="frame" x="20" y="84" width="560" height="29"/>
                                 <segments>
                                     <segment title="Heat Map"/>
-                                    <segment title="Pressure Chart"/>
+                                    <segment title="Sensor Chart"/>
                                 </segments>
                                 <color key="tintColor" red="0.29803921570000003" green="0.74509803919999995" blue="0.62745098040000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
@@ -50,26 +35,17 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.98039215690000003" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="Ywt-H3-mL1" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" constant="8" id="0PK-M0-mKp"/>
                             <constraint firstItem="N5l-kL-ra9" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leading" constant="20" id="AD4-Sh-z4J"/>
                             <constraint firstAttribute="trailing" secondItem="N5l-kL-ra9" secondAttribute="trailing" constant="20" id="Bfm-ty-1Aa"/>
                             <constraint firstItem="Ibh-vy-eZP" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leading" id="FBn-DP-zd1"/>
-                            <constraint firstItem="Ywt-H3-mL1" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leading" constant="20" id="NxG-Hg-pEj"/>
-                            <constraint firstItem="QlT-BE-UHy" firstAttribute="top" secondItem="Ywt-H3-mL1" secondAttribute="bottom" constant="8" id="SWN-0Z-EAO"/>
                             <constraint firstAttribute="trailing" secondItem="Ibh-vy-eZP" secondAttribute="trailing" id="Vvz-f4-CKv"/>
                             <constraint firstItem="Ibh-vy-eZP" firstAttribute="top" secondItem="N5l-kL-ra9" secondAttribute="bottom" constant="20" id="YY7-B4-UdB"/>
                             <constraint firstItem="N5l-kL-ra9" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" constant="20" id="eoa-dZ-iZU"/>
-                            <constraint firstItem="gnq-uz-kN7" firstAttribute="top" secondItem="QlT-BE-UHy" secondAttribute="bottom" constant="8" id="hwC-XE-mgd"/>
-                            <constraint firstItem="gnq-uz-kN7" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leading" constant="20" id="i25-QV-CBu"/>
                             <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="Ibh-vy-eZP" secondAttribute="bottom" constant="20" id="i5b-ff-fve"/>
-                            <constraint firstItem="QlT-BE-UHy" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leading" constant="20" id="weI-ef-1uG"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Realtime" id="YdK-0e-DSm"/>
                     <connections>
-                        <outlet property="accelerationXField" destination="Ywt-H3-mL1" id="B5H-0d-YOI"/>
-                        <outlet property="accelerationYField" destination="QlT-BE-UHy" id="3nd-sz-FPZ"/>
-                        <outlet property="accelerationZField" destination="gnq-uz-kN7" id="oed-V2-bQT"/>
                         <outlet property="segmentedControl" destination="N5l-kL-ra9" id="RKS-YJ-wsi"/>
                         <outlet property="uiView" destination="Ibh-vy-eZP" id="hoA-Tv-I9U"/>
                     </connections>
@@ -510,13 +486,13 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bGy-St-PUA">
                                 <rect key="frame" x="20" y="273" width="560" height="0.0"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="companyLabel" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Vs-f9-pYZ">
                                 <rect key="frame" x="20" y="501" width="560" height="15"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>

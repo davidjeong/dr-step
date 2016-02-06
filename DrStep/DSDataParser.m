@@ -14,8 +14,8 @@
 
 @interface DSDataParser()
 
-@property (retain, nonatomic) NSMutableString *json;
-@property (strong, nonatomic) NSMutableArray *objects;
+@property (strong, atomic) NSMutableString *json;
+@property (strong, atomic) NSMutableArray *objects;
 
 @end
 
@@ -28,6 +28,7 @@
 }
 
 - (void) processJSONIntoDictionary:(NSString *) jsonString {
+    
     [self.json appendString:jsonString];
     if (![jsonString isEqualToString:@"}"]) {
         return;
@@ -52,6 +53,7 @@
                 object[@"accelerationY"] = [jsonObject valueForKey:@"accelerationY"];
                 object[@"accelerationZ"] = [jsonObject valueForKey:@"accelerationZ"];
                 [self.objects addObject:object];
+                
                 // Send every 100 points
                 DSAppConstants *constants = [DSAppConstants constants];
                 if ([self.objects count] == constants.metricsPerRequest) {
@@ -62,8 +64,9 @@
                             if (succeeded) {
                                 NSLog(@"Successfully logged the data in parse.");
                             }
-                            [self.objects removeAllObjects];
+                            
                         }
+                        [self.objects removeAllObjects];
                     }];
                 }
                 // Send the notification
