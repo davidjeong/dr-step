@@ -185,6 +185,14 @@ static NSString *cellIdentifier = @"settingsCell";
         }
     } else if (indexPath.section == 2) {
         if (indexPath.row == 0) {
+            DSAppConstants *constants = [DSAppConstants constants];
+            if (constants.bean != nil) {
+                UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:@"Please disconnect the bean before logging out." preferredStyle:UIAlertControllerStyleAlert];
+                UIAlertAction *alertAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+                [alertController addAction:alertAction];
+                [self presentViewController:alertController animated:YES completion:nil];
+                return;
+            }
             UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:@"Are you sure you want to sign out?" preferredStyle:UIAlertControllerStyleActionSheet];
             UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil];
             UIAlertAction *confirmAction = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
