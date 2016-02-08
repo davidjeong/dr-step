@@ -133,10 +133,10 @@
     [self.uiView addSubview:self.imageView];
     [self.uiView addSubview:self.chartView];
     if (self.segmentedControl.selectedSegmentIndex == 0) {
-        [self.chartView setHidden:YES];
+        [self.chartView setAlpha:0.0];
     } else if (self.segmentedControl.selectedSegmentIndex == 1) {
-        [self.imageView setHidden:YES];
-        [self.baseImageView setHighlighted:YES];
+        [self.imageView setAlpha:0.0];
+        [self.baseImageView setAlpha:0.0];
     }
 }
 
@@ -161,24 +161,28 @@
 - (IBAction)controlChanged:(id)sender {
     NSInteger selectedSegment = self.segmentedControl.selectedSegmentIndex;
     if (selectedSegment == 0) {
-        [self.imageView setHidden:NO];
-        [self.baseImageView setHidden:NO];
-        [self.chartView setHidden:YES];
+        [UIView animateWithDuration:0.2 animations:^() {
+            [self.imageView setAlpha:1.0];
+            [self.baseImageView setAlpha:1.0];
+            [self.chartView setAlpha:0.0];
+        }];
     } else if (selectedSegment == 1) {
-        [self.imageView setHidden:YES];
-        [self.baseImageView setHidden:YES];
-        [self.chartView setHidden:NO];
+        [UIView animateWithDuration:0.2 animations:^() {
+            [self.imageView setAlpha:0.0];
+            [self.baseImageView setAlpha:0.0];
+            [self.chartView setAlpha:1.0];
+        }];
     }
 }
 
 - (void) handleNotifications:(NSNotification *)notification {
     if ([[notification name] isEqualToString:@"parsedData"]) {
-        if ([self isViewLoaded] && self.view.window && !self.imageView.hidden) {
+        if ([self isViewLoaded] && self.view.window && !self.imageView.alpha == 0.0) {
             //NSLog(@"Spawning new serial thread for heatmap");
             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^ {
                 [self processGraphics:[notification object]];
             });
-        } else if ([self isViewLoaded] && self.view.window && !self.chartView.hidden) {
+        } else if ([self isViewLoaded] && self.view.window && !self.chartView.alpha == 0.0) {
             //NSLog(@"Spawning new serial thread for heatmap");
             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^ {
                 [self processCharts:[notification object]];
