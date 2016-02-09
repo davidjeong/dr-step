@@ -48,11 +48,13 @@
     }
     
     // Initialize the line chart.
-    self.pressureLineChart = [[PNLineChart alloc] initWithFrame:CGRectMake(20, height*0.05, width-20, height*0.3)];
+    self.pressureLineChart = [[PNLineChart alloc] initWithFrame:CGRectMake(5, height*0.05, width-5, height*0.3)];
     self.pressureLineChart.yLabelFormat = @"%1.1f";
     self.pressureLineChart.backgroundColor = [UIColor clearColor];
     self.pressureLineChart.showCoordinateAxis = YES;
-    [self.pressureLineChart setXLabels:@[@"1",@"2",@"3",@"4",@"5",@"6",@"7", @"8", @"9", @"10", @"11", @"12"]];
+    self.pressureLineChart.xLabelFont = [UIFont systemFontOfSize:8.0f];
+    self.pressureLineChart.yLabelFont = [UIFont systemFontOfSize:8.0f];
+    [self.pressureLineChart setXLabels:@[@"A0Y0",@"A1Y0",@"A0Y1",@"A1Y1",@"A0Y2",@"A1Y2",@"A0Y3", @"A1Y3", @"A0Y4", @"A1Y4", @"A0Y5", @"A1Y5"]];
     [self.pressureLineChart setYLabels:@[@"0", @"0.5 V", @"1.0 V", @"1.5 V", @"2.0 V", @"2.5 V", @"3.0 V"]];
     self.pressureLineChart.yFixedValueMax = 3.0;
     self.pressureLineChart.yFixedValueMin = 0.0;
@@ -75,11 +77,13 @@
     [self.pressureLineChart strokeChart];
     
     // Line Chart for Acceleration
-    self.accelerationLineChart = [[PNLineChart alloc] initWithFrame:CGRectMake(20, height*0.35, width-20, height*0.3)];
+    self.accelerationLineChart = [[PNLineChart alloc] initWithFrame:CGRectMake(5, height*0.35, width-5, height*0.3)];
     self.pressureLineChart.yLabelFormat = @"%1.1f";
     self.accelerationLineChart.backgroundColor = [UIColor clearColor];
     self.accelerationLineChart.showCoordinateAxis = YES;
-    [self.accelerationLineChart setYLabels:@[@"0", @"25000", @"50000", @"75000"]];
+    self.accelerationLineChart.xLabelFont = [UIFont systemFontOfSize:8.0f];
+    self.accelerationLineChart.yLabelFont = [UIFont systemFontOfSize:8.0f];
+    [self.accelerationLineChart setYLabels:@[@"0", @"25K", @"50K", @"75K"]];
     [self.accelerationLineChart setXLabels:@[@"X",@"Y",@"Z"]];
     self.accelerationLineChart.yFixedValueMax = 75000;
     self.accelerationLineChart.yFixedValueMin = 0;
@@ -112,6 +116,7 @@
 }
 
 - (void)viewDidLayoutSubviews {
+    
     UIImage *image = [UIImage imageNamed:@"foot_image.png"];
     self.baseImageView = [[UIImageView alloc] initWithImage:image];
     [self.baseImageView setClipsToBounds:YES];
@@ -142,7 +147,7 @@
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     UITouch *touch = [[event allTouches] anyObject];
-    CGPoint touchPoint = [touch locationInView:self.view];
+    CGPoint touchPoint = [touch locationInView:self.imageView];
     NSLog(@"Touch x : %f y : %f", touchPoint.x, touchPoint.y);
 }
 
@@ -273,7 +278,7 @@
             voltage = voltage/(3-voltage);
             [self.weights replaceObjectAtIndex:i withObject:[NSNumber numberWithFloat:voltage]];
         }
-        self.heatMap = [DSHeatMap heatMapWithRect:self.view.frame boost:[self.boost floatValue] points:constants.coordinates weights:self.weights maxWeight:MAXIMUM_VOLTAGE weightsAdjustmentEnabled:NO groupingEnabled:YES];
+        self.heatMap = [DSHeatMap heatMapWithRect:self.imageView.frame boost:[self.boost floatValue] points:constants.coordinates weights:self.weights maxWeight:MAXIMUM_VOLTAGE weightsAdjustmentEnabled:NO groupingEnabled:YES];
         dispatch_async(dispatch_get_main_queue(), ^{
             [self.imageView setImage:self.heatMap];
         });
