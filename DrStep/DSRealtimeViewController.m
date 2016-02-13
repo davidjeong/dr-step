@@ -25,6 +25,7 @@
 
 @property (atomic) UIImage *heatMap;
 @property (nonatomic) NSNumber *boost;
+@property (nonatomic) CATransition *transition;
 
 @property (atomic) PNLineChartData *pressureData;
 @property (atomic) PNLineChartData *accelerationData;
@@ -103,6 +104,11 @@
     
     self.accelerationLineChart.chartData = @[self.accelerationData];
     [self.accelerationLineChart strokeChart];
+    
+    self.transition = [CATransition animation];
+    self.transition.duration = 0.5f;
+    self.transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+    self.transition.type = kCATransitionFade;
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(handleNotifications:)
@@ -280,7 +286,9 @@
         }
         self.heatMap = [DSHeatMap heatMapWithRect:self.imageView.frame boost:[self.boost floatValue] points:constants.coordinates weights:self.weights maxWeight:MAXIMUM_VOLTAGE weightsAdjustmentEnabled:NO groupingEnabled:YES];
         dispatch_async(dispatch_get_main_queue(), ^{
+            [self.imageView.layer removeAnimationForKey:@"animate"];
             [self.imageView setImage:self.heatMap];
+            [self.imageView.layer addAnimation:self.transition forKey:@"animate"];
         });
         NSLog(@"Exiting processing graphics.");
     }
