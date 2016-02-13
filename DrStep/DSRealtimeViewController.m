@@ -282,7 +282,7 @@
             float voltage = [[array objectAtIndex:i] floatValue];
             // To remove discrepencies
             voltage = voltage/(3-voltage);
-            [self.weights replaceObjectAtIndex:i withObject:[NSNumber numberWithFloat:arc4random() % 3]];
+            [self.weights replaceObjectAtIndex:i withObject:[NSNumber numberWithFloat:voltage]];
         }
         self.heatMap = [DSHeatMap heatMapWithRect:self.imageView.frame boost:[self.boost floatValue] points:constants.coordinates weights:self.weights maxWeight:MAXIMUM_VOLTAGE weightsAdjustmentEnabled:NO groupingEnabled:YES];
         dispatch_async(dispatch_get_main_queue(), ^{
