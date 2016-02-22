@@ -15,6 +15,7 @@
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSNumber *rssi;
 @property (nonatomic, assign) BeanState state;
-@property (nonatomic, strong) NSString *voltage;
+@property (nonatomic, strong) NSNumber *voltage;
+@property (nonatomic, strong) NSUUID *identifier;
 
 @end
