@@ -84,9 +84,9 @@
     self.accelerationLineChart.showCoordinateAxis = YES;
     self.accelerationLineChart.xLabelFont = [UIFont systemFontOfSize:8.0f];
     self.accelerationLineChart.yLabelFont = [UIFont systemFontOfSize:8.0f];
-    [self.accelerationLineChart setYLabels:@[@"0", @"25K", @"50K", @"75K"]];
+    [self.accelerationLineChart setYLabels:@[@"0", @"200", @"400", @"600"]];
     [self.accelerationLineChart setXLabels:@[@"X",@"Y",@"Z"]];
-    self.accelerationLineChart.yFixedValueMax = 75000;
+    self.accelerationLineChart.yFixedValueMax = 600;
     self.accelerationLineChart.yFixedValueMin = 0;
     
     NSArray *accelerationArray = @[@0.0, @0.0, @0.0];
@@ -260,7 +260,7 @@
         
         NSArray *accelerationArray = @[x, y, z];
         self.accelerationData.getData = ^(NSUInteger index) {
-            CGFloat yValue = [accelerationArray[index] floatValue];
+            CGFloat yValue = fabs([accelerationArray[index] floatValue]);
             return [PNLineChartDataItem dataItemWithY:yValue];
         };
         
