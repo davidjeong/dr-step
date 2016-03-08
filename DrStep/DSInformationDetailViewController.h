@@ -13,5 +13,6 @@
 @interface DSInformationDetailViewController : UIViewController
 
 @property (strong, nonatomic) DSSymptom *symptom;
+@property (strong, nonatomic) IBOutlet UITapGestureRecognizer *tapGestureRecognizer;
 
 @end

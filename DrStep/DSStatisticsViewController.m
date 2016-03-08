@@ -8,6 +8,10 @@
 
 #import "DSStatisticsViewController.h"
 
+#import <Parse/Parse.h>
+
+#import "DSInformationDetailViewController.h"
+#import "DSSymptom.h"
 #import "PNChart.h"
 
 #define ARC4RANDOM_MAX 0x100000000
@@ -16,7 +20,6 @@
 
 
 @property (weak, nonatomic) IBOutlet UIView *uiView;
-@property (nonatomic) UIView *analyticsView;
 @property (nonatomic) UIView *scatterView;
 
 @property (nonatomic) PNCircleChart *circleChartTopLeft;
@@ -24,8 +27,23 @@
 @property (nonatomic) PNCircleChart *circleChartBottomLeft;
 @property (nonatomic) PNCircleChart *circleChartBottomRight;
 
+@property (weak, nonatomic) IBOutlet UIView *topLeftView;
+@property (weak, nonatomic) IBOutlet UIView *topRightView;
+@property (weak, nonatomic) IBOutlet UIView *bottomLeftView;
+@property (weak, nonatomic) IBOutlet UIView *bottomRightView;
+
 @property (nonatomic) PNScatterChart *scatterChart;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *segmentedControl;
+
+@property (nonatomic) DSSymptom *primarySymptom;
+@property (nonatomic) DSSymptom *secondarySymptom;
+@property (nonatomic) NSNumber *primarySimilarity;
+@property (nonatomic) NSNumber *secondarySimilarity;
+@property (nonatomic) NSNumber *overallHealth;
+@property (nonatomic) NSDate *lastUpdatedDate;
+@property (weak, nonatomic) IBOutlet UILabel *primarySymptomLabel;
+@property (weak, nonatomic) IBOutlet UILabel *secondarySymptomLabel;
+
 
 @end
 
@@ -40,19 +58,21 @@
     */
     float height = self.view.frame.size.height;
     float width = self.view.frame.size.width;
-    self.circleChartTopLeft = [[PNCircleChart alloc] initWithFrame:CGRectMake(0,height*0.05, width*0.5f, 100.0)
+    self.primarySimilarity = [NSNumber numberWithFloat:0.0f];
+    self.secondarySimilarity = [NSNumber numberWithFloat:0.0f];
+    self.circleChartTopLeft = [[PNCircleChart alloc] initWithFrame:CGRectMake(0, 0, 80, 80)
                                                              total:@100
-                                                           current:@0
+                                                           current:self.primarySimilarity
                                                          clockwise:YES];
-    self.circleChartTopRight = [[PNCircleChart alloc] initWithFrame:CGRectMake(0,height*0.05, width*1.5f, 100.0)
+    self.circleChartTopRight = [[PNCircleChart alloc] initWithFrame:CGRectMake(0, 0, 80, 80)
                                                               total:@100
-                                                            current:@0
+                                                            current:self.secondarySimilarity
                                                           clockwise:YES];
-    self.circleChartBottomLeft = [[PNCircleChart alloc] initWithFrame:CGRectMake(0,height*0.4, width*0.5f, 100.0)
+    self.circleChartBottomLeft = [[PNCircleChart alloc] initWithFrame:CGRectMake(0, 0, 80, 80)
                                                                 total:@100
                                                               current:@0
                                                             clockwise:YES];
-    self.circleChartBottomRight = [[PNCircleChart alloc] initWithFrame:CGRectMake(0,height*0.4, width*1.5f, 100.0)
+    self.circleChartBottomRight = [[PNCircleChart alloc] initWithFrame:CGRectMake(0, 0, 80, 80)
                                                                  total:@100
                                                                current:@0
                                                              clockwise:YES];
@@ -72,17 +92,10 @@
     [self.circleChartBottomLeft strokeChart];
     [self.circleChartBottomRight strokeChart];
     
-    self.analyticsView = [[UIView alloc] initWithFrame:self.uiView.bounds];
-    
-    [self.analyticsView addSubview:self.circleChartTopLeft];
-    [self.analyticsView addSubview:self.circleChartTopRight];
-    [self.analyticsView addSubview:self.circleChartBottomLeft];
-    [self.analyticsView addSubview:self.circleChartBottomRight];
-    
-    [self.circleChartTopLeft updateChartByCurrent:@(arc4random() % 100)];
-    [self.circleChartTopRight updateChartByCurrent:@(arc4random() % 100)];
-    [self.circleChartBottomLeft updateChartByCurrent:@(arc4random() % 100)];
-    [self.circleChartBottomRight updateChartByCurrent:@(arc4random() % 100)];
+    [self.topLeftView addSubview:self.circleChartTopLeft];
+    [self.topRightView addSubview:self.circleChartTopRight];
+    [self.bottomLeftView addSubview:self.circleChartBottomLeft];
+    [self.bottomRightView addSubview:self.circleChartBottomRight];
     
     /*
      Initialize scatter plot
@@ -112,23 +125,134 @@
     self.scatterView = [[UIView alloc] initWithFrame:self.uiView.bounds];
     [self.scatterView addSubview:self.scatterChart];
     
-    [self.uiView addSubview:self.analyticsView];
     [self.uiView addSubview:self.scatterView];
     
     if (self.segmentedControl.selectedSegmentIndex == 0) {
         [self.scatterView setAlpha:0.0];
     } else if (self.segmentedControl.selectedSegmentIndex == 1) {
-        [self.analyticsView setAlpha:0.0];
+        [self.topLeftView setAlpha:0.0];
+        [self.topRightView setAlpha:0.0];
+        [self.bottomLeftView setAlpha:0.0];
+        [self.bottomRightView setAlpha:0.0];
     }
+}
+
+- (void)viewDidLayoutSubviews{
+    self.circleChartTopLeft.center = CGPointMake(self.topLeftView.bounds.size.width/2, self.topLeftView.bounds.size.height/2);
+    self.circleChartTopRight.center = CGPointMake(self.topRightView.bounds.size.width/2, self.topRightView.bounds.size.height/2);
+    self.circleChartBottomLeft.center = CGPointMake(self.bottomLeftView.bounds.size.width/2, self.bottomLeftView.bounds.size.height/2);
+    self.circleChartBottomRight.center = CGPointMake(self.bottomRightView.bounds.size.width/2, self.bottomRightView.bounds.size.height/2);
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    // We fetch the data here for the pie charts.
+
+    PFQuery *query = [PFQuery queryWithClassName:@"Similarity"];
+    [query whereKey:@"user" equalTo:[PFUser currentUser]];
+    //[query whereKey:@"symptom" matchesQuery:innerQuery];
+    [self.circleChartBottomRight updateChartByCurrent:@(arc4random() % 100)];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            NSLog(@"Retrieved similiarities");
+            if (objects.count == 0) return;
+            NSSortDescriptor *descriptor = [[NSSortDescriptor alloc] initWithKey:@"similarity" ascending:NO];
+            NSArray *descriptors = [NSArray arrayWithObject:descriptor];
+            NSArray *sorted = [objects sortedArrayUsingDescriptors:descriptors];
+            if (sorted.count > 0) {
+                PFObject *majorObject = sorted[0][@"symptom"];
+                float majorSimilarity = [sorted[0][@"similarity"] floatValue];
+                if (majorSimilarity < 0.1) return;
+                if (majorSimilarity >= 0.1 && majorSimilarity < 0.4) {
+                    [self.circleChartTopLeft setStrokeColor:[UIColor greenColor]];
+                } else if (majorSimilarity >= 0.4 && majorSimilarity < 0.7) {
+                    [self.circleChartTopLeft setStrokeColor:[UIColor orangeColor]];
+                } else {
+                    [self.circleChartTopLeft setStrokeColor:[UIColor redColor]];
+                }
+                [majorObject fetchIfNeededInBackgroundWithBlock:^(PFObject *symptom, NSError *error) {
+                    NSLog(@"Major symptom is %@", symptom[@"scientificName"]);
+                    self.primarySymptom = [[DSSymptom alloc] init];
+                    self.primarySymptom.commonName = symptom[@"commonName"];
+                    self.primarySymptom.scientificName = symptom[@"scientificName"];
+                    self.primarySymptom.diagnosis = symptom[@"diagnosis"];
+                    self.primarySymptom.symptomDescription = symptom[@"symptomDescription"];
+
+                    if (![self.primarySimilarity isEqualToNumber:[NSNumber numberWithFloat:majorSimilarity]]) {
+                        [self.circleChartTopLeft updateChartByCurrent:[NSNumber numberWithFloat:majorSimilarity] byTotal:[NSNumber numberWithFloat:1.0f]];
+                        self.primarySimilarity = [NSNumber numberWithFloat:majorSimilarity];
+                    }
+                    self.primarySymptomLabel.text = self.primarySymptom.scientificName;
+                }];
+            }
+            if (sorted.count > 1) {
+                PFObject *minorObject = sorted[1][@"symptom"];
+                float minorSimiliarity = [sorted[1][@"similarity"] floatValue];
+                if (minorSimiliarity < 0.1) return;
+                if (minorSimiliarity >= 0.1 && minorSimiliarity < 0.4) {
+                    [self.circleChartTopLeft setStrokeColor:[UIColor greenColor]];
+                } else if (minorSimiliarity >= 0.4 && minorSimiliarity < 0.7) {
+                    [self.circleChartTopLeft setStrokeColor:[UIColor orangeColor]];
+                } else {
+                    [self.circleChartTopLeft setStrokeColor:[UIColor redColor]];
+                }
+                [minorObject fetchIfNeededInBackgroundWithBlock:^(PFObject *symptom, NSError *error) {
+                    NSLog(@"Minor symptom is %@", symptom[@"scientificName"]);
+                    self.secondarySymptom = [[DSSymptom alloc] init];
+                    self.secondarySymptom.commonName = symptom[@"commonName"];
+                    self.secondarySymptom.scientificName = symptom[@"scientificName"];
+                    self.secondarySymptom.diagnosis = symptom[@"diagnosis"];
+                    self.secondarySymptom.symptomDescription = symptom[@"symptomDescription"];
+                    float minorSimiliarity = [sorted[1][@"similarity"] floatValue];
+                    if (![self.secondarySimilarity isEqualToNumber:[NSNumber numberWithFloat:minorSimiliarity]]) {
+                        [self.circleChartTopRight updateChartByCurrent:[NSNumber numberWithFloat:minorSimiliarity] byTotal:[NSNumber numberWithFloat:1.0f]];
+                        self.secondarySimilarity = [NSNumber numberWithFloat:minorSimiliarity];
+                    }
+                    self.secondarySymptomLabel.text = self.secondarySymptom.scientificName;
+                }];
+            }
+        }
+    }];
+    
+    PFQuery *overallQuery = [PFQuery queryWithClassName:@"SearchSpace"];
+    [overallQuery whereKey:@"user" equalTo:[PFUser currentUser]];
+    [overallQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            if (objects.count == 1) {
+                PFObject *searchSpace = objects[0];
+                float health = [searchSpace[@"overall"] floatValue];
+                if (![self.overallHealth isEqualToNumber:[NSNumber numberWithFloat:health]]) {
+                    [self.circleChartBottomLeft updateChartByCurrent:[NSNumber numberWithFloat:health] byTotal:[NSNumber numberWithFloat:1.0f]];
+                    self.overallHealth = [NSNumber numberWithFloat:health];
+                    if (health >= 0.0 && health < 0.5) {
+                        [self.circleChartBottomLeft setStrokeColor:[UIColor greenColor]];
+                    } else if (health >= 0.5 && health < 0.8) {
+                        [self.circleChartBottomLeft setStrokeColor:[UIColor orangeColor]];
+                    } else {
+                        [self.circleChartBottomLeft setStrokeColor:[UIColor redColor]];
+                    }
+
+                }
+            }
+        }
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)primaryTouched:(id)sender {
+    if (self.primarySymptom != nil) {
+        [self performSegueWithIdentifier:@"showPossibleSymptom" sender:@"primarySender"];
+    }
+}
+
+- (IBAction)secondaryTouched:(id)sender {
+    if (self.secondarySymptom != nil) {
+        [self performSegueWithIdentifier:@"showPossibleSymptom" sender:@"secondarySender"];
+    }
 }
 
 - (NSArray*) generateRandomArray{
@@ -149,14 +273,34 @@
     if (self.segmentedControl.selectedSegmentIndex == 0) {
         [UIView animateWithDuration:0.2 animations:^() {
             [self.scatterView setAlpha:0.0];
-            [self.analyticsView setAlpha:1.0];
+            [self.topLeftView setAlpha:1.0];
+            [self.topRightView setAlpha:1.0];
+            [self.bottomLeftView setAlpha:1.0];
+            [self.bottomRightView setAlpha:1.0];
         }];
     } else if (self.segmentedControl.selectedSegmentIndex == 1) {
         [UIView animateWithDuration:0.2 animations:^() {
             [self.scatterView setAlpha:1.0];
-            [self.analyticsView setAlpha:0.0];
+            [self.topLeftView setAlpha:0.0];
+            [self.topRightView setAlpha:0.0];
+            [self.bottomLeftView setAlpha:0.0];
+            [self.bottomRightView setAlpha:0.0];
         }];
     }
 }
+
+#pragma mark - Segue
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([sender isEqualToString:@"primarySender"]) {
+        DSInformationDetailViewController *viewController = segue.destinationViewController;
+        viewController.tapGestureRecognizer.enabled = YES;
+        viewController.symptom = self.primarySymptom;
+    } else if ([sender isEqualToString:@"secondarySender"]) {
+        DSInformationDetailViewController *viewController = segue.destinationViewController;
+        viewController.tapGestureRecognizer.enabled = YES;
+        viewController.symptom = self.secondarySymptom;
+    }
+}
+
 
 @end
