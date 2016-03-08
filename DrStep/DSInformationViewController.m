@@ -124,6 +124,7 @@
         DSSymptomTableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
         
         DSInformationDetailViewController *viewController = segue.destinationViewController;
+        viewController.tapGestureRecognizer.enabled = NO;
         viewController.symptom = cell.symptom;
 
         //[self.searchController setActive:NO];

@@ -38,7 +38,7 @@
     self.rssiLabel.text = [self.rssi stringValue];
     
     DSAppConstants *constants = [DSAppConstants constants];
-    if (constants.bean != nil) {
+    if (constants.bean != nil && constants.bean.identifier == self.identifier) {
         self.voltageLabel.text = [NSString stringWithFormat:@"%.02fV", [self.voltage floatValue]];
     } else {
         [self.voltageLabel setHidden:YES];

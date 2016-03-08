@@ -121,6 +121,8 @@
     cell.name = bean.name;
     cell.rssi = bean.RSSI;
     cell.state = bean.state;
+    cell.voltage = bean.batteryVoltage;
+    cell.identifier = bean.identifier;
     return cell;
 }
 

@@ -100,7 +100,110 @@
                             </segmentedControl>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FuQ-EG-hEg">
                                 <rect key="frame" x="0.0" y="132" width="600" height="419"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TgG-wt-Hu0">
+                                        <rect key="frame" x="0.0" y="0.0" width="300" height="210"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Primary Symptom" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="7PL-zX-9Gw">
+                                                <rect key="frame" x="0.0" y="0.0" width="300" height="17"/>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Symptom" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="uNc-ri-CSZ">
+                                                <rect key="frame" x="0.0" y="22" width="300" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" red="1" green="0.98039215690000003" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <gestureRecognizers/>
+                                        <constraints>
+                                            <constraint firstItem="7PL-zX-9Gw" firstAttribute="leading" secondItem="TgG-wt-Hu0" secondAttribute="leading" id="0Gg-R7-fUr"/>
+                                            <constraint firstItem="7PL-zX-9Gw" firstAttribute="top" secondItem="TgG-wt-Hu0" secondAttribute="top" id="8NJ-g4-Flv"/>
+                                            <constraint firstAttribute="trailing" secondItem="7PL-zX-9Gw" secondAttribute="trailing" id="Qp0-ie-jiD"/>
+                                            <constraint firstItem="uNc-ri-CSZ" firstAttribute="top" secondItem="7PL-zX-9Gw" secondAttribute="bottom" constant="5" id="XP1-CF-yig"/>
+                                            <constraint firstItem="uNc-ri-CSZ" firstAttribute="leading" secondItem="TgG-wt-Hu0" secondAttribute="leading" id="ZkI-gp-nWu"/>
+                                            <constraint firstAttribute="trailing" secondItem="uNc-ri-CSZ" secondAttribute="trailing" id="pIk-97-AP1"/>
+                                        </constraints>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="Y0i-bf-sk0" appends="YES" id="lq8-MG-u45"/>
+                                        </connections>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bne-YV-iXm">
+                                        <rect key="frame" x="300" y="0.0" width="300" height="210"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Secondary Symptom" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="lQl-ja-zZf">
+                                                <rect key="frame" x="0.0" y="0.0" width="300" height="17"/>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Symptom" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="dp2-EQ-kve">
+                                                <rect key="frame" x="0.0" y="22" width="300" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" red="1" green="0.98039215690000003" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <gestureRecognizers/>
+                                        <constraints>
+                                            <constraint firstItem="lQl-ja-zZf" firstAttribute="top" secondItem="Bne-YV-iXm" secondAttribute="top" id="P4q-zw-EXG"/>
+                                            <constraint firstItem="dp2-EQ-kve" firstAttribute="leading" secondItem="Bne-YV-iXm" secondAttribute="leading" id="Z9N-rA-KE4"/>
+                                            <constraint firstItem="lQl-ja-zZf" firstAttribute="leading" secondItem="Bne-YV-iXm" secondAttribute="leading" id="l3P-Ae-FAU"/>
+                                            <constraint firstAttribute="trailing" secondItem="dp2-EQ-kve" secondAttribute="trailing" id="nhd-uB-apK"/>
+                                            <constraint firstAttribute="trailing" secondItem="lQl-ja-zZf" secondAttribute="trailing" id="sCt-3O-DlN"/>
+                                            <constraint firstItem="dp2-EQ-kve" firstAttribute="top" secondItem="lQl-ja-zZf" secondAttribute="bottom" constant="5" id="sso-gU-z6A"/>
+                                        </constraints>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="pgh-Vu-WHo" appends="YES" id="WBj-MX-ytJ"/>
+                                        </connections>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yA8-Ce-Mv8">
+                                        <rect key="frame" x="0.0" y="210" width="300" height="209"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Overall Health" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="oVq-1n-bBU">
+                                                <rect key="frame" x="0.0" y="0.0" width="300" height="18"/>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" red="1" green="0.98039215690000003" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="oVq-1n-bBU" firstAttribute="top" secondItem="yA8-Ce-Mv8" secondAttribute="top" id="0xI-N4-I0q"/>
+                                            <constraint firstAttribute="trailing" secondItem="oVq-1n-bBU" secondAttribute="trailing" id="rqa-PL-OO4"/>
+                                            <constraint firstItem="oVq-1n-bBU" firstAttribute="leading" secondItem="yA8-Ce-Mv8" secondAttribute="leading" id="ujY-SJ-Ll3"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="boE-GQ-7OU">
+                                        <rect key="frame" x="300" y="210" width="300" height="209"/>
+                                        <color key="backgroundColor" red="1" green="0.98039215690000003" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
+                                    </view>
+                                </subviews>
                                 <color key="backgroundColor" red="1" green="0.98039215690000003" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="boE-GQ-7OU" firstAttribute="leading" secondItem="yA8-Ce-Mv8" secondAttribute="trailing" id="0Qe-Kp-13e"/>
+                                    <constraint firstItem="boE-GQ-7OU" firstAttribute="width" secondItem="TgG-wt-Hu0" secondAttribute="width" id="7bj-8x-NHD"/>
+                                    <constraint firstAttribute="bottom" secondItem="yA8-Ce-Mv8" secondAttribute="bottom" id="7gM-yY-xBp"/>
+                                    <constraint firstItem="yA8-Ce-Mv8" firstAttribute="width" secondItem="TgG-wt-Hu0" secondAttribute="width" id="FC0-EA-KIi"/>
+                                    <constraint firstItem="TgG-wt-Hu0" firstAttribute="top" secondItem="FuQ-EG-hEg" secondAttribute="top" id="G8e-VZ-Wky"/>
+                                    <constraint firstAttribute="trailing" secondItem="Bne-YV-iXm" secondAttribute="trailing" id="Gyc-e4-Vjd"/>
+                                    <constraint firstItem="yA8-Ce-Mv8" firstAttribute="leading" secondItem="FuQ-EG-hEg" secondAttribute="leading" id="HRd-3S-FNl"/>
+                                    <constraint firstItem="boE-GQ-7OU" firstAttribute="top" secondItem="Bne-YV-iXm" secondAttribute="bottom" id="Ke8-Ms-ch6"/>
+                                    <constraint firstItem="Bne-YV-iXm" firstAttribute="height" secondItem="TgG-wt-Hu0" secondAttribute="height" id="Mq5-cR-UTZ"/>
+                                    <constraint firstItem="TgG-wt-Hu0" firstAttribute="leading" secondItem="FuQ-EG-hEg" secondAttribute="leading" id="NIR-rb-KW0"/>
+                                    <constraint firstItem="boE-GQ-7OU" firstAttribute="height" secondItem="TgG-wt-Hu0" secondAttribute="height" id="Qwl-N7-2DM"/>
+                                    <constraint firstAttribute="bottom" secondItem="boE-GQ-7OU" secondAttribute="bottom" id="Sd2-gA-twY"/>
+                                    <constraint firstAttribute="trailing" secondItem="boE-GQ-7OU" secondAttribute="trailing" id="WZs-7U-sCQ"/>
+                                    <constraint firstItem="yA8-Ce-Mv8" firstAttribute="height" secondItem="TgG-wt-Hu0" secondAttribute="height" id="X5E-3t-OBW"/>
+                                    <constraint firstItem="Bne-YV-iXm" firstAttribute="top" secondItem="FuQ-EG-hEg" secondAttribute="top" id="fSm-WY-DaK"/>
+                                    <constraint firstItem="Bne-YV-iXm" firstAttribute="width" secondItem="TgG-wt-Hu0" secondAttribute="width" id="nQe-qv-QYH"/>
+                                    <constraint firstItem="yA8-Ce-Mv8" firstAttribute="top" secondItem="TgG-wt-Hu0" secondAttribute="bottom" id="oE9-N6-g3k"/>
+                                    <constraint firstItem="Bne-YV-iXm" firstAttribute="leading" secondItem="TgG-wt-Hu0" secondAttribute="trailing" id="v49-vL-TaG"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.98039215690000003" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -117,11 +220,28 @@
                     <tabBarItem key="tabBarItem" title="Statistics" image="clock_filled.png" id="Vhh-5w-f5O"/>
                     <navigationItem key="navigationItem" title="Statistics" id="8ak-px-xJw"/>
                     <connections>
+                        <outlet property="bottomLeftView" destination="yA8-Ce-Mv8" id="JP5-cG-8ox"/>
+                        <outlet property="bottomRightView" destination="boE-GQ-7OU" id="PVP-Mg-x0F"/>
+                        <outlet property="primarySymptomLabel" destination="uNc-ri-CSZ" id="NEQ-WC-h2R"/>
+                        <outlet property="secondarySymptomLabel" destination="dp2-EQ-kve" id="1CG-NS-PTw"/>
                         <outlet property="segmentedControl" destination="O8V-S7-5Ca" id="7a9-Xz-nWW"/>
+                        <outlet property="topLeftView" destination="TgG-wt-Hu0" id="1HU-QF-Dlm"/>
+                        <outlet property="topRightView" destination="Bne-YV-iXm" id="VjK-XT-LEO"/>
                         <outlet property="uiView" destination="FuQ-EG-hEg" id="OXA-hx-xjd"/>
+                        <segue destination="OJN-Qd-bH9" kind="presentation" identifier="showPossibleSymptom" id="JW7-w5-3gl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6xw-rz-WO2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="Y0i-bf-sk0">
+                    <connections>
+                        <action selector="primaryTouched:" destination="z8j-aJ-94v" id="Pre-WF-Jt1"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="pgh-Vu-WHo">
+                    <connections>
+                        <action selector="secondaryTouched:" destination="z8j-aJ-94v" id="e5f-v3-oVB"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1445" y="360"/>
         </scene>
@@ -406,24 +526,34 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h3y-Ep-TRN">
-                                <rect key="frame" x="0.0" y="64" width="600" height="492"/>
+                                <rect key="frame" x="0.0" y="20" width="600" height="580"/>
                                 <color key="backgroundColor" red="1" green="0.98039215690000003" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="h3y-Ep-TRN" firstAttribute="top" secondItem="Ecq-Wd-1w0" secondAttribute="bottom" id="EDx-o2-KTp"/>
                             <constraint firstItem="DLP-Xh-4kE" firstAttribute="top" secondItem="h3y-Ep-TRN" secondAttribute="bottom" id="HKL-WU-VAQ"/>
                             <constraint firstAttribute="trailing" secondItem="h3y-Ep-TRN" secondAttribute="trailing" id="a2f-BA-RKN"/>
                             <constraint firstItem="h3y-Ep-TRN" firstAttribute="leading" secondItem="OlD-Do-9K8" secondAttribute="leading" id="yxr-Al-Lf8"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="LVT-Xz-fKf" appends="YES" id="nDM-KZ-VyT"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" id="tTc-F1-IYX"/>
                     <connections>
                         <outlet property="scrollView" destination="h3y-Ep-TRN" id="rOZ-CG-xvd"/>
+                        <outlet property="tapGestureRecognizer" destination="LVT-Xz-fKf" id="rAi-cW-5D9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jhb-Cc-bwN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="LVT-Xz-fKf">
+                    <connections>
+                        <action selector="touched:" destination="OJN-Qd-bH9" id="Ecw-gb-46P"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2196" y="1252"/>
         </scene>
@@ -577,4 +707,7 @@
         <image name="running_filled.png" width="30" height="30"/>
         <image name="settings_filled.png" width="30" height="30"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="JW7-w5-3gl"/>
+    </inferredMetricsTieBreakers>
 </document>

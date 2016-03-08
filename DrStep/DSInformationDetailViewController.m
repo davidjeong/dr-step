@@ -27,7 +27,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    NSArray *views = [[NSBundle bundleForClass:[self class]] loadNibNamed:@"DSInformationDetailContentView"                                                                     owner:self                                                                  options:nil];
+    NSArray *views = [[NSBundle bundleForClass:[self class]] loadNibNamed:@"DSInformationDetailContentView" owner:self options:nil];
     self.contentView = [views firstObject];
     
     //[self.view addSubview:self.contentView];
@@ -37,12 +37,17 @@
     [self.diagnosisLabel setText:[self.symptom diagnosis]];
     
     [self.scrollView addSubview:self.contentView];
+    
 }
 
 - (void)viewDidLayoutSubviews {
     CGSize size = self.contentView.bounds.size;
     self.contentView.frame = CGRectMake(0, 0, size.width, size.height);
     self.scrollView.contentSize = size;
+}
+
+- (IBAction)touched:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)didReceiveMemoryWarning {
