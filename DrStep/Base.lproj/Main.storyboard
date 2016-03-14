@@ -193,8 +193,35 @@
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="boE-GQ-7OU">
                                         <rect key="frame" x="300" y="210" width="300" height="209"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Number of Data Sets" textAlignment="center" lineBreakMode="characterWrap" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="lup-M7-dsa">
+                                                <rect key="frame" x="0.0" y="0.0" width="300" height="18"/>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XMI-x4-rll">
+                                                <rect key="frame" x="130" y="68" width="40" height="72"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="60"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
                                         <color key="backgroundColor" red="1" green="0.98039215690000003" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="XMI-x4-rll" firstAttribute="centerX" secondItem="boE-GQ-7OU" secondAttribute="centerX" id="MtY-li-SXQ"/>
+                                            <constraint firstAttribute="trailing" secondItem="lup-M7-dsa" secondAttribute="trailing" id="eD7-Nc-hdi"/>
+                                            <constraint firstItem="lup-M7-dsa" firstAttribute="top" secondItem="boE-GQ-7OU" secondAttribute="top" id="l0w-r5-USl"/>
+                                            <constraint firstItem="lup-M7-dsa" firstAttribute="leading" secondItem="boE-GQ-7OU" secondAttribute="leading" id="q4c-wQ-7Ra"/>
+                                            <constraint firstItem="XMI-x4-rll" firstAttribute="centerY" secondItem="boE-GQ-7OU" secondAttribute="centerY" id="ypc-mI-j3L"/>
+                                        </constraints>
                                     </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Data Sets Processed" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Ug-pl-LKj">
+                                        <rect key="frame" x="0.0" y="394" width="600" height="15"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="0.98039215690000003" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -210,9 +237,12 @@
                                     <constraint firstItem="TgG-wt-Hu0" firstAttribute="leading" secondItem="FuQ-EG-hEg" secondAttribute="leading" id="NIR-rb-KW0"/>
                                     <constraint firstItem="boE-GQ-7OU" firstAttribute="height" secondItem="TgG-wt-Hu0" secondAttribute="height" id="Qwl-N7-2DM"/>
                                     <constraint firstAttribute="bottom" secondItem="boE-GQ-7OU" secondAttribute="bottom" id="Sd2-gA-twY"/>
+                                    <constraint firstAttribute="bottom" secondItem="4Ug-pl-LKj" secondAttribute="bottom" constant="10" id="SoJ-gD-hLh"/>
                                     <constraint firstAttribute="trailing" secondItem="boE-GQ-7OU" secondAttribute="trailing" id="WZs-7U-sCQ"/>
                                     <constraint firstItem="yA8-Ce-Mv8" firstAttribute="height" secondItem="TgG-wt-Hu0" secondAttribute="height" id="X5E-3t-OBW"/>
+                                    <constraint firstItem="4Ug-pl-LKj" firstAttribute="leading" secondItem="FuQ-EG-hEg" secondAttribute="leading" id="YV9-c1-Wem"/>
                                     <constraint firstItem="Bne-YV-iXm" firstAttribute="top" secondItem="FuQ-EG-hEg" secondAttribute="top" id="fSm-WY-DaK"/>
+                                    <constraint firstAttribute="trailing" secondItem="4Ug-pl-LKj" secondAttribute="trailing" id="lNK-Dw-9jJ"/>
                                     <constraint firstItem="Bne-YV-iXm" firstAttribute="width" secondItem="TgG-wt-Hu0" secondAttribute="width" id="nQe-qv-QYH"/>
                                     <constraint firstItem="yA8-Ce-Mv8" firstAttribute="top" secondItem="TgG-wt-Hu0" secondAttribute="bottom" id="oE9-N6-g3k"/>
                                     <constraint firstItem="Bne-YV-iXm" firstAttribute="leading" secondItem="TgG-wt-Hu0" secondAttribute="trailing" id="v49-vL-TaG"/>
@@ -235,6 +265,7 @@
                     <connections>
                         <outlet property="bottomLeftView" destination="yA8-Ce-Mv8" id="JP5-cG-8ox"/>
                         <outlet property="bottomRightView" destination="boE-GQ-7OU" id="PVP-Mg-x0F"/>
+                        <outlet property="dataSetLabel" destination="XMI-x4-rll" id="wax-7d-ITB"/>
                         <outlet property="primarySymptomLabel" destination="uNc-ri-CSZ" id="NEQ-WC-h2R"/>
                         <outlet property="secondarySymptomLabel" destination="dp2-EQ-kve" id="1CG-NS-PTw"/>
                         <outlet property="segmentedControl" destination="O8V-S7-5Ca" id="7a9-Xz-nWW"/>
@@ -242,6 +273,7 @@
                         <outlet property="topLeftView" destination="TgG-wt-Hu0" id="1HU-QF-Dlm"/>
                         <outlet property="topRightView" destination="Bne-YV-iXm" id="VjK-XT-LEO"/>
                         <outlet property="uiView" destination="FuQ-EG-hEg" id="OXA-hx-xjd"/>
+                        <outlet property="updatedDateLabel" destination="4Ug-pl-LKj" id="6g3-P4-m3a"/>
                         <segue destination="OJN-Qd-bH9" kind="presentation" identifier="showPossibleSymptom" id="JW7-w5-3gl"/>
                     </connections>
                 </viewController>

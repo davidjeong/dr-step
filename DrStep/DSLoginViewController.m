@@ -98,6 +98,10 @@
             [currentUser setObject:email forKey:@"email"];
             [currentUser setObject:imageFile forKey:@"profilePhoto"];
             [currentUser saveInBackground];
+            
+            PFInstallation *currentInstallation = [PFInstallation currentInstallation];
+            [currentInstallation setObject:[PFUser currentUser] forKey:@"user"];
+            [currentInstallation saveInBackground];
         }
     }];
 }

@@ -25,7 +25,6 @@
 @property (nonatomic) PNCircleChart *circleChartTopLeft;
 @property (nonatomic) PNCircleChart *circleChartTopRight;
 @property (nonatomic) PNCircleChart *circleChartBottomLeft;
-@property (nonatomic) PNCircleChart *circleChartBottomRight;
 
 @property (weak, nonatomic) IBOutlet UIView *topLeftView;
 @property (weak, nonatomic) IBOutlet UIView *topRightView;
@@ -43,6 +42,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *secondarySymptomLabel;
 @property (weak, nonatomic) IBOutlet UILabel *tertiarySymptomLabel;
 
+@property (weak, nonatomic) IBOutlet UILabel *dataSetLabel;
+@property (weak, nonatomic) IBOutlet UILabel *updatedDateLabel;
 
 @end
 
@@ -69,35 +70,29 @@
                                                                 total:@100
                                                               current:@0
                                                             clockwise:YES];
-    self.circleChartBottomRight = [[PNCircleChart alloc] initWithFrame:CGRectMake(0, 0, 80, 80)
-                                                                 total:@100
-                                                               current:@0
-                                                             clockwise:YES];
     
     self.circleChartTopLeft.backgroundColor = [UIColor clearColor];
     self.circleChartTopRight.backgroundColor = [UIColor clearColor];
     self.circleChartBottomLeft.backgroundColor = [UIColor clearColor];
-    self.circleChartBottomRight.backgroundColor = [UIColor clearColor];
     
     [self.circleChartTopLeft setStrokeColor:PNGreen];
     [self.circleChartTopRight setStrokeColor:PNGreen];
     [self.circleChartBottomLeft setStrokeColor:PNGreen];
-    [self.circleChartBottomRight setStrokeColor:PNGreen];
     
     [self.circleChartTopLeft strokeChart];
     [self.circleChartTopRight strokeChart];
     [self.circleChartBottomLeft strokeChart];
-    [self.circleChartBottomRight strokeChart];
     
     [self.topLeftView addSubview:self.circleChartTopLeft];
     [self.topRightView addSubview:self.circleChartTopRight];
     [self.bottomLeftView addSubview:self.circleChartBottomLeft];
-    [self.bottomRightView addSubview:self.circleChartBottomRight];
+    
+    [self.dataSetLabel setTextColor:PNGreen];
     
     /*
      Initialize scatter plot
     */
-    self.scatterChart = [[PNScatterChart alloc] initWithFrame:CGRectMake(20, height * 0.05, width - 30, height * 0.6)];
+    self.scatterChart = [[PNScatterChart alloc] initWithFrame:CGRectMake(20, height * 0.05, width - 20, height * 0.6)];
     [self.scatterChart setAxisXWithMinimumValue:1 andMaxValue:12 toTicks:12];
     [self.scatterChart setAxisYWithMinimumValue:1 andMaxValue:12 toTicks:12];
     
@@ -138,7 +133,6 @@
     self.circleChartTopLeft.center = CGPointMake(self.topLeftView.bounds.size.width/2, self.topLeftView.bounds.size.height/2);
     self.circleChartTopRight.center = CGPointMake(self.topRightView.bounds.size.width/2, self.topRightView.bounds.size.height/2);
     self.circleChartBottomLeft.center = CGPointMake(self.bottomLeftView.bounds.size.width/2, self.bottomLeftView.bounds.size.height/2);
-    self.circleChartBottomRight.center = CGPointMake(self.bottomRightView.bounds.size.width/2, self.bottomRightView.bounds.size.height/2);
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -147,8 +141,6 @@
 
     PFQuery *query = [PFQuery queryWithClassName:@"Similarity"];
     [query whereKey:@"user" equalTo:[PFUser currentUser]];
-    //[query whereKey:@"symptom" matchesQuery:innerQuery];
-    [self.circleChartBottomRight updateChartByCurrent:@(arc4random() % 100)];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             NSLog(@"Retrieved similiarities");
@@ -225,22 +217,21 @@
         }
     }];
     
-    PFQuery *overallQuery = [PFQuery queryWithClassName:@"SearchSpace"];
-    [overallQuery whereKey:@"user" equalTo:[PFUser currentUser]];
-    [overallQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+    PFQuery *numQuery = [PFQuery queryWithClassName:@"SearchSpace"];
+    [numQuery whereKey:@"user" equalTo:[PFUser currentUser]];
+    [numQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             if (objects.count == 1) {
-                PFObject *searchSpace = objects[0];
-                float health = [searchSpace[@"overall"] floatValue];
-                [self.circleChartBottomLeft updateChartByCurrent:[NSNumber numberWithFloat:health] byTotal:[NSNumber numberWithFloat:1.0f]];
-                if (health >= 0.0 && health < 0.5) {
-                    [self.circleChartBottomLeft setStrokeColor:PNGreen];
-                } else if (health >= 0.5 && health < 0.8) {
-                    [self.circleChartBottomLeft setStrokeColor:PNYellow];
-                } else {
-                    [self.circleChartBottomLeft setStrokeColor:PNRed];
-                }
-                [self.circleChartBottomLeft strokeChart];
+                PFObject *object = objects[0];
+                int numProcessed = [[object objectForKey:@"numProcessed"] integerValue];
+                numProcessed /= 1000;
+                [self.dataSetLabel setText:[NSString stringWithFormat:@"%dK", numProcessed]];
+                
+                NSDate *updatedDate = object.createdAt;
+                NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+                [formatter setDateFormat:@"Y-m-d hh:MM:SS a"];
+                NSString *dateString = [formatter stringFromDate:updatedDate];
+                [self.updatedDateLabel setText:[NSString stringWithFormat:@"Data Last Analyzed At %@", dateString]];
             }
         }
     }];
