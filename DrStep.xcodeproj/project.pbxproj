@@ -47,9 +47,9 @@
 		535282651BE5537E00A675F8 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 535282641BE5537E00A675F8 /* MobileCoreServices.framework */; };
 		535468B01B596108001D66E1 /* Coordinates.plist in Resources */ = {isa = PBXBuildFile; fileRef = 535468AF1B596108001D66E1 /* Coordinates.plist */; };
 		535468B51B5968E6001D66E1 /* DSAppConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 535468B41B5968E6001D66E1 /* DSAppConstants.m */; };
-		535468BF1B59DAA8001D66E1 /* foot_image.png in Resources */ = {isa = PBXBuildFile; fileRef = 535468BE1B59DAA8001D66E1 /* foot_image.png */; };
 		5364FAFF1BE6D177003BA58B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5364FAFD1BE6D177003BA58B /* Main.storyboard */; };
 		5364FB011BE6EED9003BA58B /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5364FB001BE6EED9003BA58B /* ParseUI.framework */; };
+		53694AA51C9680DF0039226C /* foot_image.png in Resources */ = {isa = PBXBuildFile; fileRef = 53694AA41C9680DF0039226C /* foot_image.png */; };
 		537017471C4638B900883919 /* DSBlueBeanConnector.m in Sources */ = {isa = PBXBuildFile; fileRef = 537017461C4638B900883919 /* DSBlueBeanConnector.m */; };
 		53C0FD551BE9DADB0008B711 /* empty_profile_pic.png in Resources */ = {isa = PBXBuildFile; fileRef = 53C0FD541BE9DADB0008B711 /* empty_profile_pic.png */; };
 		53D26BFD1BE56D8D00929D1D /* DSStatisticsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53D26BFC1BE56D8D00929D1D /* DSStatisticsViewController.m */; };
@@ -123,9 +123,9 @@
 		535468AF1B596108001D66E1 /* Coordinates.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Coordinates.plist; sourceTree = "<group>"; };
 		535468B31B5968E6001D66E1 /* DSAppConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSAppConstants.h; sourceTree = "<group>"; };
 		535468B41B5968E6001D66E1 /* DSAppConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSAppConstants.m; sourceTree = "<group>"; };
-		535468BE1B59DAA8001D66E1 /* foot_image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = foot_image.png; path = images/foot_image.png; sourceTree = "<group>"; };
 		5364FAFE1BE6D177003BA58B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5364FB001BE6EED9003BA58B /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ParseUI.framework; path = ../../Parse/ParseUI.framework; sourceTree = "<group>"; };
+		53694AA41C9680DF0039226C /* foot_image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = foot_image.png; path = images/foot_image.png; sourceTree = "<group>"; };
 		537017451C4638B900883919 /* DSBlueBeanConnector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSBlueBeanConnector.h; sourceTree = "<group>"; };
 		537017461C4638B900883919 /* DSBlueBeanConnector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSBlueBeanConnector.m; sourceTree = "<group>"; };
 		53C0FD541BE9DADB0008B711 /* empty_profile_pic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = empty_profile_pic.png; path = images/empty_profile_pic.png; sourceTree = "<group>"; };
@@ -317,8 +317,8 @@
 			children = (
 				CDA9D5A01B4E229000C3170F /* app_launch_screen_640_960.png */,
 				CDA9D5B21B4E241C00C3170F /* app_launch_screen_640_1136.png */,
-				535468BE1B59DAA8001D66E1 /* foot_image.png */,
 				53C0FD541BE9DADB0008B711 /* empty_profile_pic.png */,
+				53694AA41C9680DF0039226C /* foot_image.png */,
 				CDA9D5BE1B4E264900C3170F /* icons */,
 			);
 			name = images;
@@ -425,10 +425,10 @@
 				535468B01B596108001D66E1 /* Coordinates.plist in Resources */,
 				53DBA6471B74511600F1BC64 /* app_logo_120_120.png in Resources */,
 				532B954A1B5F00C2003B1D08 /* footprint_filled@2x.png in Resources */,
-				535468BF1B59DAA8001D66E1 /* foot_image.png in Resources */,
 				53DBA6461B74511600F1BC64 /* app_logo_80_80.png in Resources */,
 				CDA9D5A91B4E229000C3170F /* app_launch_screen_640_960.png in Resources */,
 				532B954C1B5F00C2003B1D08 /* library_filled@2x.png in Resources */,
+				53694AA51C9680DF0039226C /* foot_image.png in Resources */,
 				5364FAFF1BE6D177003BA58B /* Main.storyboard in Resources */,
 				534CF5A21C4ECD0900A595C1 /* DSInformationDetailContentView.xib in Resources */,
 				CDA9D5B31B4E241C00C3170F /* app_launch_screen_640_1136.png in Resources */,

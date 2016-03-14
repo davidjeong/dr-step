@@ -8,6 +8,8 @@
 
 #import "DSRealtimeViewController.h"
 
+#import <PTDBeanManager.h>
+
 #import "DSAppConstants.h"
 #import "DSHeatMap.h"
 #import "PNChart.h"
@@ -55,9 +57,9 @@
     self.pressureLineChart.showCoordinateAxis = YES;
     self.pressureLineChart.xLabelFont = [UIFont systemFontOfSize:8.0f];
     self.pressureLineChart.yLabelFont = [UIFont systemFontOfSize:8.0f];
-    [self.pressureLineChart setXLabels:@[@"A0Y0",@"A1Y0",@"A0Y1",@"A1Y1",@"A0Y2",@"A1Y2",@"A0Y3", @"A1Y3", @"A0Y4", @"A1Y4", @"A0Y5", @"A1Y5"]];
-    [self.pressureLineChart setYLabels:@[@"0", @"0.5 V", @"1.0 V", @"1.5 V", @"2.0 V", @"2.5 V", @"3.0 V"]];
-    self.pressureLineChart.yFixedValueMax = 3.0;
+    [self.pressureLineChart setXLabels:@[@"A0Y0",@"A0Y1",@"A0Y2",@"A0Y3",@"A0Y4",@"A0Y5",@"A1Y0", @"A1Y1", @"A1Y2", @"A1Y3", @"A1Y4", @"A1Y5"]];
+    [self.pressureLineChart setYLabels:@[@"0", @"25", @"50", @"75", @"100, @125"]];
+    self.pressureLineChart.yFixedValueMax = 125;
     self.pressureLineChart.yFixedValueMin = 0.0;
     
     // Line Chart for Pressure
@@ -243,8 +245,32 @@
 - (void)processCharts:(NSDictionary *)dict {
     @synchronized(self.pressureData) {
         NSArray *pressureArray = [dict objectForKey:@"data"];
+        
+        NSMutableArray *modifiedArray = [[NSMutableArray alloc] initWithArray:pressureArray];
+        int count = 0;
+        for (int i=0; i<6; i++) {
+            [modifiedArray replaceObjectAtIndex:i withObject:pressureArray[count]];
+            [modifiedArray replaceObjectAtIndex:(i+6) withObject:pressureArray[count+1]];
+            count+=2;
+        }
+        
+        DSAppConstants *constants = [DSAppConstants constants];
+        NSNumber *batteryVoltage = constants.bean.batteryVoltage;
+        
+        for (int i=0; i <modifiedArray.count; i++) {
+            double force = [[modifiedArray objectAtIndex:i] doubleValue];
+            force = 7.25*100000/(10000*([batteryVoltage doubleValue] - force)/force);
+            
+            if (force > 200) {
+                double force = [[modifiedArray objectAtIndex:i] doubleValue];
+                force = 1.45*1000000/(10000*([batteryVoltage doubleValue] - force)/force) - 215.743;
+            }
+            force = force/11.41232;
+            [modifiedArray replaceObjectAtIndex:i withObject:[NSNumber numberWithDouble:force]];
+        }
+        
         self.pressureData.getData = ^(NSUInteger index) {
-            CGFloat yValue = [pressureArray[index] floatValue];
+            CGFloat yValue = [modifiedArray[index] floatValue];
             return [PNLineChartDataItem dataItemWithY:yValue];
         };
         
@@ -281,7 +307,6 @@
             NSArray *array = [dict objectForKey:@"data"];
             float voltage = [[array objectAtIndex:i] floatValue];
             // To remove discrepencies
-            voltage = voltage/(3-voltage);
             [self.weights replaceObjectAtIndex:i withObject:[NSNumber numberWithFloat:voltage]];
         }
         self.heatMap = [DSHeatMap heatMapWithRect:self.imageView.frame boost:[self.boost floatValue] points:constants.coordinates weights:self.weights maxWeight:MAXIMUM_VOLTAGE weightsAdjustmentEnabled:NO groupingEnabled:YES];
