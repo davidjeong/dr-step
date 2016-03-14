@@ -37,9 +37,11 @@
 
 @property (nonatomic) DSSymptom *primarySymptom;
 @property (nonatomic) DSSymptom *secondarySymptom;
+@property (nonatomic) DSSymptom *tertiarySymptom;
 @property (nonatomic) NSDate *lastUpdatedDate;
 @property (weak, nonatomic) IBOutlet UILabel *primarySymptomLabel;
 @property (weak, nonatomic) IBOutlet UILabel *secondarySymptomLabel;
+@property (weak, nonatomic) IBOutlet UILabel *tertiarySymptomLabel;
 
 
 @end
@@ -155,15 +157,15 @@
             NSArray *descriptors = [NSArray arrayWithObject:descriptor];
             NSArray *sorted = [objects sortedArrayUsingDescriptors:descriptors];
             if (sorted.count > 0) {
-                PFObject *majorObject = sorted[0][@"symptom"];
-                [majorObject fetchIfNeededInBackgroundWithBlock:^(PFObject *symptom, NSError *error) {
+                PFObject *object = sorted[0][@"symptom"];
+                [object fetchIfNeededInBackgroundWithBlock:^(PFObject *symptom, NSError *error) {
                     float majorSimilarity = [sorted[0][@"similarity"] floatValue];
                     if (majorSimilarity >= 0.0 && majorSimilarity < 0.5) {
-                        [self.circleChartTopLeft setStrokeColor:[UIColor greenColor]];
+                        [self.circleChartTopLeft setStrokeColor:PNGreen];
                     } else if (majorSimilarity >= 0.5 && majorSimilarity < 0.8) {
-                        [self.circleChartTopLeft setStrokeColor:[UIColor orangeColor]];
+                        [self.circleChartTopLeft setStrokeColor:PNYellow];
                     } else {
-                        [self.circleChartTopLeft setStrokeColor:[UIColor redColor]];
+                        [self.circleChartTopLeft setStrokeColor:PNRed];
                     }
                     NSLog(@"Major symptom is %@", symptom[@"scientificName"]);
                     self.primarySymptom = [[DSSymptom alloc] init];
@@ -177,15 +179,15 @@
                 }];
             }
             if (sorted.count > 1) {
-                PFObject *minorObject = sorted[1][@"symptom"];
-                [minorObject fetchIfNeededInBackgroundWithBlock:^(PFObject *symptom, NSError *error) {
+                PFObject *object = sorted[1][@"symptom"];
+                [object fetchIfNeededInBackgroundWithBlock:^(PFObject *symptom, NSError *error) {
                     float minorSimiliarity = [sorted[1][@"similarity"] floatValue];
                     if (minorSimiliarity >= 0.0 && minorSimiliarity < 0.5) {
-                        [self.circleChartTopLeft setStrokeColor:PNGreen];
+                        [self.circleChartTopRight setStrokeColor:PNGreen];
                     } else if (minorSimiliarity >= 0.5 && minorSimiliarity < 0.8) {
-                        [self.circleChartTopLeft setStrokeColor:PNYellow];
+                        [self.circleChartTopRight setStrokeColor:PNYellow];
                     } else {
-                        [self.circleChartTopLeft setStrokeColor:PNRed];
+                        [self.circleChartTopRight setStrokeColor:PNRed];
                     }
                     NSLog(@"Minor symptom is %@", symptom[@"scientificName"]);
                     self.secondarySymptom = [[DSSymptom alloc] init];
@@ -196,6 +198,28 @@
                     [self.circleChartTopRight updateChartByCurrent:[NSNumber numberWithFloat:minorSimiliarity] byTotal:[NSNumber numberWithFloat:1.0f]];
                     self.secondarySymptomLabel.text = self.secondarySymptom.scientificName;
                     [self.circleChartTopRight strokeChart];
+                }];
+            }
+            if (sorted.count > 2) {
+                PFObject *object = sorted[3][@"symptom"];
+                [object fetchIfNeededInBackgroundWithBlock:^(PFObject *symptom, NSError *error) {
+                    float minorSimiliarity = [sorted[2][@"similarity"] floatValue];
+                    if (minorSimiliarity >= 0.0 && minorSimiliarity < 0.5) {
+                        [self.circleChartBottomLeft setStrokeColor:PNGreen];
+                    } else if (minorSimiliarity >= 0.5 && minorSimiliarity < 0.8) {
+                        [self.circleChartBottomLeft setStrokeColor:PNYellow];
+                    } else {
+                        [self.circleChartBottomLeft setStrokeColor:PNRed];
+                    }
+                    NSLog(@"Minor symptom is %@", symptom[@"scientificName"]);
+                    self.tertiarySymptom = [[DSSymptom alloc] init];
+                    self.tertiarySymptom.commonName = symptom[@"commonName"];
+                    self.tertiarySymptom.scientificName = symptom[@"scientificName"];
+                    self.tertiarySymptom.diagnosis = symptom[@"diagnosis"];
+                    self.tertiarySymptom.symptomDescription = symptom[@"symptomDescription"];
+                    [self.circleChartBottomLeft updateChartByCurrent:[NSNumber numberWithFloat:minorSimiliarity] byTotal:[NSNumber numberWithFloat:1.0f]];
+                    self.tertiarySymptomLabel.text = self.tertiarySymptom.scientificName;
+                    [self.circleChartBottomLeft strokeChart];
                 }];
             }
         }
@@ -236,6 +260,12 @@
 - (IBAction)secondaryTouched:(id)sender {
     if (self.secondarySymptom != nil) {
         [self performSegueWithIdentifier:@"showPossibleSymptom" sender:@"secondarySender"];
+    }
+}
+
+- (IBAction)tertiaryTouched:(id)sender {
+    if (self.tertiarySymptom != nil) {
+        [self performSegueWithIdentifier:@"showPossibleSymptom" sender:@"tertiarySender"];
     }
 }
 
@@ -283,6 +313,9 @@
         DSInformationDetailViewController *viewController = segue.destinationViewController;
         viewController.tapGestureRecognizer.enabled = YES;
         viewController.symptom = self.secondarySymptom;
+    } else if ([sender isEqualToString:@"tertiarySender"]) {
+        DSInformationDetailViewController *viewController = segue.destinationViewController;
+        viewController.symptom = self.tertiarySymptom;
     }
 }
 

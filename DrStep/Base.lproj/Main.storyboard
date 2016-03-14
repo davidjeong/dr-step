@@ -164,19 +164,32 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yA8-Ce-Mv8">
                                         <rect key="frame" x="0.0" y="210" width="300" height="209"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Overall Health" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="oVq-1n-bBU">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tertiary Symptom" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="oVq-1n-bBU">
                                                 <rect key="frame" x="0.0" y="0.0" width="300" height="18"/>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Symptom" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="mPp-DB-20M">
+                                                <rect key="frame" x="0.0" y="23" width="300" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" red="1" green="0.98039215690000003" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstItem="oVq-1n-bBU" firstAttribute="top" secondItem="yA8-Ce-Mv8" secondAttribute="top" id="0xI-N4-I0q"/>
+                                            <constraint firstAttribute="trailing" secondItem="mPp-DB-20M" secondAttribute="trailing" id="MY7-Vq-Shu"/>
+                                            <constraint firstItem="mPp-DB-20M" firstAttribute="leading" secondItem="yA8-Ce-Mv8" secondAttribute="leading" id="krj-Zb-5JC"/>
                                             <constraint firstAttribute="trailing" secondItem="oVq-1n-bBU" secondAttribute="trailing" id="rqa-PL-OO4"/>
                                             <constraint firstItem="oVq-1n-bBU" firstAttribute="leading" secondItem="yA8-Ce-Mv8" secondAttribute="leading" id="ujY-SJ-Ll3"/>
+                                            <constraint firstItem="mPp-DB-20M" firstAttribute="top" secondItem="oVq-1n-bBU" secondAttribute="bottom" constant="5" id="vly-vm-aUP"/>
                                         </constraints>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="ev7-m8-krw" appends="YES" id="T0F-2P-50k"/>
+                                        </connections>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="boE-GQ-7OU">
                                         <rect key="frame" x="300" y="210" width="300" height="209"/>
@@ -225,6 +238,7 @@
                         <outlet property="primarySymptomLabel" destination="uNc-ri-CSZ" id="NEQ-WC-h2R"/>
                         <outlet property="secondarySymptomLabel" destination="dp2-EQ-kve" id="1CG-NS-PTw"/>
                         <outlet property="segmentedControl" destination="O8V-S7-5Ca" id="7a9-Xz-nWW"/>
+                        <outlet property="tertiarySymptomLabel" destination="mPp-DB-20M" id="fK3-G2-u0m"/>
                         <outlet property="topLeftView" destination="TgG-wt-Hu0" id="1HU-QF-Dlm"/>
                         <outlet property="topRightView" destination="Bne-YV-iXm" id="VjK-XT-LEO"/>
                         <outlet property="uiView" destination="FuQ-EG-hEg" id="OXA-hx-xjd"/>
@@ -240,6 +254,11 @@
                 <tapGestureRecognizer id="pgh-Vu-WHo">
                     <connections>
                         <action selector="secondaryTouched:" destination="z8j-aJ-94v" id="e5f-v3-oVB"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="ev7-m8-krw">
+                    <connections>
+                        <action selector="tertiaryTouched:" destination="z8j-aJ-94v" id="0e3-YB-pY2"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
