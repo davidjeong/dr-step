@@ -12,6 +12,7 @@
 
 #import "DSInformationDetailViewController.h"
 #import "DSSymptom.h"
+#import "NSDate+TimeAgo.h"
 #import "PNChart.h"
 
 #define ARC4RANDOM_MAX 0x100000000
@@ -32,6 +33,7 @@
 @property (weak, nonatomic) IBOutlet UIView *bottomRightView;
 
 @property (nonatomic) PNScatterChart *scatterChart;
+@property (atomic) PNScatterChartData *scatterData;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *segmentedControl;
 
 @property (nonatomic) DSSymptom *primarySymptom;
@@ -56,8 +58,6 @@
      Initialize all four circle charts, one on each corner of the screen
      Set the color to green
     */
-    float height = self.view.frame.size.height;
-    float width = self.view.frame.size.width;
     self.circleChartTopLeft = [[PNCircleChart alloc] initWithFrame:CGRectMake(0, 0, 80, 80)
                                                              total:@100
                                                            current:@0
@@ -92,31 +92,30 @@
     /*
      Initialize scatter plot
     */
-    self.scatterChart = [[PNScatterChart alloc] initWithFrame:CGRectMake(20, height * 0.05, width - 20, height * 0.6)];
+    self.scatterChart = [[PNScatterChart alloc] initWithFrame:CGRectMake(SCREEN_WIDTH /6.0 - 30, 0, SCREEN_WIDTH - 40, self.uiView.bounds.size.height - 60)];
     [self.scatterChart setAxisXWithMinimumValue:1 andMaxValue:12 toTicks:12];
     [self.scatterChart setAxisYWithMinimumValue:1 andMaxValue:12 toTicks:12];
     
-    NSArray * scatterArray = [self generateRandomArray];
-    PNScatterChartData *scatterData = [PNScatterChartData new];
-    scatterData.strokeColor = PNGreen;
-    scatterData.fillColor = PNFreshGreen;
-    scatterData.size = 2;
-    scatterData.itemCount = [[scatterArray objectAtIndex:0] count];
-    scatterData.inflexionPointStyle = PNScatterChartPointStyleCircle;
-    NSMutableArray *x = [NSMutableArray arrayWithArray:[scatterArray objectAtIndex:0]];
-    NSMutableArray *y = [NSMutableArray arrayWithArray:[scatterArray objectAtIndex:1]];
-    scatterData.getData = ^(NSUInteger index) {
-        CGFloat xValue = [[x objectAtIndex:index] floatValue];
+    //NSArray * scatterArray = [self generateRandomArray];
+    self.scatterData = [PNScatterChartData new];
+    self.scatterData.strokeColor = PNGreen;
+    self.scatterData.fillColor = PNFreshGreen;
+    self.scatterData.size = 2;
+    self.scatterData.itemCount = 0;
+    self.scatterData.inflexionPointStyle = PNScatterChartPointStyleCircle;
+    //NSMutableArray *x = [NSMutableArray arrayWithArray:[scatterArray objectAtIndex:0]];
+    //NSMutableArray *y = [NSMutableArray arrayWithArray:[scatterArray objectAtIndex:1]];
+    /*scatterData.getData = ^(NSUInteger index) {
+    CGFloat xValue = [[x objectAtIndex:index] floatValue];
         CGFloat yValue = [[y objectAtIndex:index] floatValue];
         return [PNScatterChartDataItem dataItemWithX:xValue AndWithY:yValue];
-    };
+    };*/
     
     [self.scatterChart setup];
-    self.scatterChart.chartData = @[scatterData];
+    self.scatterChart.chartData = @[self.scatterData];
     
     self.scatterView = [[UIView alloc] initWithFrame:self.uiView.bounds];
     [self.scatterView addSubview:self.scatterChart];
-    
     [self.uiView addSubview:self.scatterView];
     
     if (self.segmentedControl.selectedSegmentIndex == 0) {
@@ -133,6 +132,7 @@
     self.circleChartTopLeft.center = CGPointMake(self.topLeftView.bounds.size.width/2, self.topLeftView.bounds.size.height/2);
     self.circleChartTopRight.center = CGPointMake(self.topRightView.bounds.size.width/2, self.topRightView.bounds.size.height/2);
     self.circleChartBottomLeft.center = CGPointMake(self.bottomLeftView.bounds.size.width/2, self.bottomLeftView.bounds.size.height/2);
+    self.scatterChart.center = CGPointMake(self.uiView.bounds.size.width/2, self.uiView.bounds.size.height/2 - 30);
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -223,15 +223,39 @@
         if (!error) {
             if (objects.count == 1) {
                 PFObject *object = objects[0];
-                int numProcessed = [[object objectForKey:@"numProcessed"] integerValue];
+                NSUInteger numProcessed = [[object objectForKey:@"numProcessed"] integerValue];
                 numProcessed /= 1000;
-                [self.dataSetLabel setText:[NSString stringWithFormat:@"%dK", numProcessed]];
+                if (numProcessed != 0) {
+                    [self.dataSetLabel setText:[NSString stringWithFormat:@"%dK", (int)numProcessed]];
+                }
                 
                 NSDate *updatedDate = object.createdAt;
-                NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-                [formatter setDateFormat:@"Y-m-d hh:MM:SS a"];
-                NSString *dateString = [formatter stringFromDate:updatedDate];
-                [self.updatedDateLabel setText:[NSString stringWithFormat:@"Data Last Analyzed At %@", dateString]];
+                NSString *dateString = [updatedDate timeAgo];
+                [self.updatedDateLabel setText:[NSString stringWithFormat:@"Last Analyzed %@", dateString]];
+                
+                // Grab the pressure vector and populate the data.
+                NSArray *pressureArray = [object objectForKey:@"pressureVector"];
+                NSMutableArray *x = [[NSMutableArray alloc] init];
+                NSMutableArray *y = [[NSMutableArray alloc] init];
+                for (int i=0; i < pressureArray.count; i++) {
+                    NSArray *innerArray = pressureArray[i];
+                    for (int j=0; j < innerArray.count; j++) {
+                        NSNumber *innerNumber = @([innerArray[j] integerValue]);
+                        if (![innerNumber isEqualToNumber:[NSNumber numberWithInt:0]]) {
+                            [x addObject:[NSNumber numberWithInt:i+1]];
+                            [y addObject:[NSNumber numberWithInt:12-j]];
+                        }
+                    }
+                }
+                self.scatterData.getData = ^(NSUInteger index) {
+                    CGFloat xValue = [[x objectAtIndex:index] floatValue];
+                    CGFloat yValue = [[y objectAtIndex:index] floatValue];
+                    return [PNScatterChartDataItem dataItemWithX:xValue AndWithY:yValue];
+                };
+                self.scatterData.itemCount = x.count;
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [self.scatterChart updateChartData:@[self.scatterData]];
+                });
             }
         }
     }];

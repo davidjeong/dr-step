@@ -50,6 +50,7 @@
 		5364FAFF1BE6D177003BA58B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5364FAFD1BE6D177003BA58B /* Main.storyboard */; };
 		5364FB011BE6EED9003BA58B /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5364FB001BE6EED9003BA58B /* ParseUI.framework */; };
 		53694AA51C9680DF0039226C /* foot_image.png in Resources */ = {isa = PBXBuildFile; fileRef = 53694AA41C9680DF0039226C /* foot_image.png */; };
+		53694AA71C9785B50039226C /* libNSDate+TimeAgo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 53694AA61C9785B50039226C /* libNSDate+TimeAgo.a */; };
 		537017471C4638B900883919 /* DSBlueBeanConnector.m in Sources */ = {isa = PBXBuildFile; fileRef = 537017461C4638B900883919 /* DSBlueBeanConnector.m */; };
 		53C0FD551BE9DADB0008B711 /* empty_profile_pic.png in Resources */ = {isa = PBXBuildFile; fileRef = 53C0FD541BE9DADB0008B711 /* empty_profile_pic.png */; };
 		53D26BFD1BE56D8D00929D1D /* DSStatisticsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53D26BFC1BE56D8D00929D1D /* DSStatisticsViewController.m */; };
@@ -126,6 +127,7 @@
 		5364FAFE1BE6D177003BA58B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5364FB001BE6EED9003BA58B /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ParseUI.framework; path = ../../Parse/ParseUI.framework; sourceTree = "<group>"; };
 		53694AA41C9680DF0039226C /* foot_image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = foot_image.png; path = images/foot_image.png; sourceTree = "<group>"; };
+		53694AA61C9785B50039226C /* libNSDate+TimeAgo.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libNSDate+TimeAgo.a"; path = "Pods/../build/Debug-iphoneos/libNSDate+TimeAgo.a"; sourceTree = "<group>"; };
 		537017451C4638B900883919 /* DSBlueBeanConnector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSBlueBeanConnector.h; sourceTree = "<group>"; };
 		537017461C4638B900883919 /* DSBlueBeanConnector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSBlueBeanConnector.m; sourceTree = "<group>"; };
 		53C0FD541BE9DADB0008B711 /* empty_profile_pic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = empty_profile_pic.png; path = images/empty_profile_pic.png; sourceTree = "<group>"; };
@@ -172,6 +174,7 @@
 				5352825B1BE5531500A675F8 /* libsqlite3.0.tbd in Frameworks */,
 				534CF59E1C4C97DA00A595C1 /* libUICountingLabel.a in Frameworks */,
 				534CF59C1C4C97D600A595C1 /* libPNChart.a in Frameworks */,
+				53694AA71C9785B50039226C /* libNSDate+TimeAgo.a in Frameworks */,
 				535282461BE54D1400A675F8 /* libBean-iOS-OSX-SDK.a in Frameworks */,
 				5352825F1BE5535D00A675F8 /* AudioToolbox.framework in Frameworks */,
 				535282371BE549B400A675F8 /* CoreLocation.framework in Frameworks */,
@@ -210,6 +213,7 @@
 		7377D6F3ACB1645A58B7499C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				53694AA61C9785B50039226C /* libNSDate+TimeAgo.a */,
 				534CF59D1C4C97DA00A595C1 /* libUICountingLabel.a */,
 				534CF59B1C4C97D600A595C1 /* libPNChart.a */,
 				5364FB001BE6EED9003BA58B /* ParseUI.framework */,

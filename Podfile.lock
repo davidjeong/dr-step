@@ -1,15 +1,18 @@
 PODS:
   - Bean-iOS-OSX-SDK (0.10.1)
+  - NSDate+TimeAgo (1.0.6)
   - PNChart (0.8.8):
     - UICountingLabel (~> 1.2.0)
   - UICountingLabel (1.2.0)
 
 DEPENDENCIES:
   - Bean-iOS-OSX-SDK
+  - NSDate+TimeAgo
   - PNChart
 
 SPEC CHECKSUMS:
   Bean-iOS-OSX-SDK: 0a79eab21e5bbb276e4f42a19d894ba947accf02
+  NSDate+TimeAgo: 35601c619b2d59290055e4fe76e61d97677a2360
   PNChart: 25f91e9c4688af49c3647489760624d037f5383f
   UICountingLabel: 1db4e7d023e1762171eb226d6dff47a7a84f27aa
 
