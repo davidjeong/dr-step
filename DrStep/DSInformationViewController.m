@@ -37,6 +37,7 @@
 }
 
 - (void) viewWillAppear:(BOOL)animated {
+        [self loadObjects];
     [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:animated];
     [super viewWillAppear:animated];
 }

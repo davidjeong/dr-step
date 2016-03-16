@@ -110,8 +110,8 @@
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Symptom" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="uNc-ri-CSZ">
-                                                <rect key="frame" x="0.0" y="22" width="300" height="21"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Symptom" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.29999999999999999" translatesAutoresizingMaskIntoConstraints="NO" id="uNc-ri-CSZ">
+                                                <rect key="frame" x="0.0" y="17" width="300" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -123,7 +123,7 @@
                                             <constraint firstItem="7PL-zX-9Gw" firstAttribute="leading" secondItem="TgG-wt-Hu0" secondAttribute="leading" id="0Gg-R7-fUr"/>
                                             <constraint firstItem="7PL-zX-9Gw" firstAttribute="top" secondItem="TgG-wt-Hu0" secondAttribute="top" id="8NJ-g4-Flv"/>
                                             <constraint firstAttribute="trailing" secondItem="7PL-zX-9Gw" secondAttribute="trailing" id="Qp0-ie-jiD"/>
-                                            <constraint firstItem="uNc-ri-CSZ" firstAttribute="top" secondItem="7PL-zX-9Gw" secondAttribute="bottom" constant="5" id="XP1-CF-yig"/>
+                                            <constraint firstItem="uNc-ri-CSZ" firstAttribute="top" secondItem="7PL-zX-9Gw" secondAttribute="bottom" id="XP1-CF-yig"/>
                                             <constraint firstItem="uNc-ri-CSZ" firstAttribute="leading" secondItem="TgG-wt-Hu0" secondAttribute="leading" id="ZkI-gp-nWu"/>
                                             <constraint firstAttribute="trailing" secondItem="uNc-ri-CSZ" secondAttribute="trailing" id="pIk-97-AP1"/>
                                         </constraints>
@@ -140,8 +140,8 @@
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Symptom" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="dp2-EQ-kve">
-                                                <rect key="frame" x="0.0" y="22" width="300" height="21"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Symptom" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.29999999999999999" translatesAutoresizingMaskIntoConstraints="NO" id="dp2-EQ-kve">
+                                                <rect key="frame" x="0.0" y="17" width="300" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -155,7 +155,7 @@
                                             <constraint firstItem="lQl-ja-zZf" firstAttribute="leading" secondItem="Bne-YV-iXm" secondAttribute="leading" id="l3P-Ae-FAU"/>
                                             <constraint firstAttribute="trailing" secondItem="dp2-EQ-kve" secondAttribute="trailing" id="nhd-uB-apK"/>
                                             <constraint firstAttribute="trailing" secondItem="lQl-ja-zZf" secondAttribute="trailing" id="sCt-3O-DlN"/>
-                                            <constraint firstItem="dp2-EQ-kve" firstAttribute="top" secondItem="lQl-ja-zZf" secondAttribute="bottom" constant="5" id="sso-gU-z6A"/>
+                                            <constraint firstItem="dp2-EQ-kve" firstAttribute="top" secondItem="lQl-ja-zZf" secondAttribute="bottom" id="sso-gU-z6A"/>
                                         </constraints>
                                         <connections>
                                             <outletCollection property="gestureRecognizers" destination="pgh-Vu-WHo" appends="YES" id="WBj-MX-ytJ"/>
@@ -170,8 +170,8 @@
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Symptom" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="mPp-DB-20M">
-                                                <rect key="frame" x="0.0" y="23" width="300" height="21"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Symptom" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.29999999999999999" translatesAutoresizingMaskIntoConstraints="NO" id="mPp-DB-20M">
+                                                <rect key="frame" x="0.0" y="18" width="300" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -185,7 +185,7 @@
                                             <constraint firstItem="mPp-DB-20M" firstAttribute="leading" secondItem="yA8-Ce-Mv8" secondAttribute="leading" id="krj-Zb-5JC"/>
                                             <constraint firstAttribute="trailing" secondItem="oVq-1n-bBU" secondAttribute="trailing" id="rqa-PL-OO4"/>
                                             <constraint firstItem="oVq-1n-bBU" firstAttribute="leading" secondItem="yA8-Ce-Mv8" secondAttribute="leading" id="ujY-SJ-Ll3"/>
-                                            <constraint firstItem="mPp-DB-20M" firstAttribute="top" secondItem="oVq-1n-bBU" secondAttribute="bottom" constant="5" id="vly-vm-aUP"/>
+                                            <constraint firstItem="mPp-DB-20M" firstAttribute="top" secondItem="oVq-1n-bBU" secondAttribute="bottom" id="vly-vm-aUP"/>
                                         </constraints>
                                         <connections>
                                             <outletCollection property="gestureRecognizers" destination="ev7-m8-krw" appends="YES" id="T0F-2P-50k"/>
@@ -587,7 +587,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h3y-Ep-TRN">
-                                <rect key="frame" x="0.0" y="64" width="600" height="492"/>
+                                <rect key="frame" x="0.0" y="20" width="600" height="580"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </scrollView>
                         </subviews>
@@ -769,6 +769,6 @@
         <image name="settings_filled.png" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="nHm-EZ-USh"/>
+        <segue reference="JW7-w5-3gl"/>
     </inferredMetricsTieBreakers>
 </document>
