@@ -112,6 +112,7 @@
     symptom.diagnosis = [object objectForKey:@"diagnosis"];
     
     cell.symptom = symptom;
+    
     DSAppConstants *constants = [DSAppConstants constants];
     if ([constants.symptomToSimilarity objectForKey:symptom.scientificName]) {
         float similarity = [constants.symptomToSimilarity[symptom.scientificName] floatValue];
@@ -129,6 +130,11 @@
     cell.scientificName.text = symptom.scientificName;
     cell.commonName.text = symptom.commonName;
     return cell;
+}
+
+- (void)objectsDidLoad:(NSError *)error {
+    [super objectsDidLoad:error];
+    [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleSingleLine];
 }
 
 #pragma mark - Segue

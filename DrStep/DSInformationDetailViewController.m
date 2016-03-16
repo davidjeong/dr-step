@@ -35,8 +35,9 @@
     [self.commonLabel setText:[self.symptom commonName]];
     [self.descriptionLabel setText:[self.symptom symptomDescription]];
     [self.diagnosisLabel setText:[self.symptom diagnosis]];
-    [self.scrollView addSubview:self.contentView];
     
+    [self.scrollView addSubview:self.contentView];
+
 }
 
 - (void)viewDidLayoutSubviews {

@@ -504,11 +504,11 @@
         <scene sceneID="mlE-q0-h41">
             <objects>
                 <tableViewController id="gzM-aC-lfn" customClass="DSInformationViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="7eo-7t-ldO">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="7eo-7t-ldO">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="sectionIndexBackgroundColor" red="1" green="0.98039215690000003" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="sectionIndexBackgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="symptomCell" id="WpM-Qz-phq" customClass="DSSymptomTableViewCell">
                                 <rect key="frame" x="0.0" y="92" width="600" height="44"/>
@@ -529,7 +529,7 @@
                                             <color key="textColor" red="0.29803921570000003" green="0.74509803919999995" blue="0.62745098040000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="N/A" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="kWI-bC-QN0">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="kWI-bC-QN0">
                                             <rect key="frame" x="20" y="0.0" width="30" height="43"/>
                                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -586,18 +586,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h3y-Ep-TRN">
-                                <rect key="frame" x="0.0" y="20" width="600" height="580"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h3y-Ep-TRN">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="h3y-Ep-TRN" firstAttribute="top" secondItem="Ecq-Wd-1w0" secondAttribute="bottom" id="EDx-o2-KTp"/>
-                            <constraint firstItem="DLP-Xh-4kE" firstAttribute="top" secondItem="h3y-Ep-TRN" secondAttribute="bottom" id="HKL-WU-VAQ"/>
-                            <constraint firstAttribute="trailing" secondItem="h3y-Ep-TRN" secondAttribute="trailing" id="a2f-BA-RKN"/>
-                            <constraint firstItem="h3y-Ep-TRN" firstAttribute="leading" secondItem="OlD-Do-9K8" secondAttribute="leading" id="yxr-Al-Lf8"/>
+                            <constraint firstAttribute="trailing" secondItem="h3y-Ep-TRN" secondAttribute="trailing" id="M1A-au-fBn"/>
+                            <constraint firstAttribute="bottom" secondItem="h3y-Ep-TRN" secondAttribute="bottom" id="Yfn-x0-CXN"/>
+                            <constraint firstItem="h3y-Ep-TRN" firstAttribute="top" secondItem="OlD-Do-9K8" secondAttribute="top" id="eU0-st-BEr"/>
+                            <constraint firstItem="h3y-Ep-TRN" firstAttribute="leading" secondItem="OlD-Do-9K8" secondAttribute="leading" id="enx-qu-Bgb"/>
                         </constraints>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="LVT-Xz-fKf" appends="YES" id="nDM-KZ-VyT"/>
@@ -769,6 +769,6 @@
         <image name="settings_filled.png" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="JW7-w5-3gl"/>
+        <segue reference="nHm-EZ-USh"/>
     </inferredMetricsTieBreakers>
 </document>

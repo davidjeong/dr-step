@@ -19,37 +19,37 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lorem Ipsum" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="XIz-6g-HKo">
-                    <rect key="frame" x="20" y="0.0" width="560" height="41"/>
+                    <rect key="frame" x="20" y="20" width="560" height="41"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="34"/>
                     <color key="textColor" red="0.29803921570000003" green="0.74509803919999995" blue="0.62745098040000002" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lorem Ipsum" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="HcM-gh-6EA">
-                    <rect key="frame" x="20" y="51" width="560" height="23"/>
+                    <rect key="frame" x="20" y="71" width="560" height="23"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
                     <color key="textColor" red="0.29803921570000003" green="0.74509803919999995" blue="0.62745098040000002" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Symptoms" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cij-KJ-IyW">
-                    <rect key="frame" x="20" y="84" width="560" height="21"/>
+                    <rect key="frame" x="20" y="104" width="560" height="21"/>
                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                     <color key="textColor" red="0.29803921570000003" green="0.74509803919999995" blue="0.62745098040000002" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lorem Ipsum Dolor Sit Amet" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qu7-Ep-bwL">
-                    <rect key="frame" x="20" y="115" width="560" height="18"/>
+                    <rect key="frame" x="20" y="135" width="560" height="18"/>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Diagnosis" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J8K-f5-RDW">
-                    <rect key="frame" x="20" y="153" width="560" height="21"/>
+                    <rect key="frame" x="20" y="173" width="560" height="21"/>
                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                     <color key="textColor" red="0.29803921570000003" green="0.74509803919999995" blue="0.62745098040000002" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lorem Ipsum Dolor Sit Amet" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4nv-i5-fRq">
-                    <rect key="frame" x="20" y="184" width="560" height="18"/>
+                    <rect key="frame" x="20" y="204" width="560" height="18"/>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
@@ -60,7 +60,7 @@
                 <constraint firstItem="4nv-i5-fRq" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="0Ge-vc-bQs"/>
                 <constraint firstAttribute="trailing" secondItem="4nv-i5-fRq" secondAttribute="trailing" constant="20" id="2eQ-L8-PId"/>
                 <constraint firstAttribute="trailing" secondItem="XIz-6g-HKo" secondAttribute="trailing" constant="20" id="4Aw-jj-yS5"/>
-                <constraint firstItem="XIz-6g-HKo" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="AzL-pI-yad"/>
+                <constraint firstItem="XIz-6g-HKo" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="20" id="AzL-pI-yad"/>
                 <constraint firstItem="4nv-i5-fRq" firstAttribute="top" secondItem="J8K-f5-RDW" secondAttribute="bottom" constant="10" id="Dev-mj-sBG"/>
                 <constraint firstItem="HcM-gh-6EA" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="Pfh-6k-Qsd"/>
                 <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="4nv-i5-fRq" secondAttribute="bottom" id="RQG-y8-GgT"/>
