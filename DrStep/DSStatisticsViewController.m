@@ -232,7 +232,7 @@
                     [self.dataSetLabel setText:[NSString stringWithFormat:@"<1K"]];
                 }
                 
-                NSDate *updatedDate = object.createdAt;
+                NSDate *updatedDate = object.updatedAt;
                 NSString *dateString = [updatedDate timeAgo];
                 [self.updatedDateLabel setText:[NSString stringWithFormat:@"Last Analyzed %@", dateString]];
                 
