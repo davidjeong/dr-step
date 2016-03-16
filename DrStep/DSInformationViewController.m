@@ -51,7 +51,8 @@
 - (PFQuery *) queryForTable {
     // Query for information from Parse.
     PFQuery *query = [PFQuery queryWithClassName:self.parseClassName];
-    [query orderByAscending:@"scientificName"];
+    [query addAscendingOrder:@"healthy"];
+    [query addAscendingOrder:@"scientificName"];
     return query;
 }
 
