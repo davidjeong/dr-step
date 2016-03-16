@@ -10,6 +10,7 @@
 
 #import <Parse/Parse.h>
 
+#import "DSAppConstants.h"
 #import "DSInformationDetailViewController.h"
 #import "DSSymptom.h"
 #import "NSDate+TimeAgo.h"
@@ -259,6 +260,23 @@
                     [self.scatterChart updateChartData:@[self.scatterData]];
                 });
             }
+        }
+    }];
+    
+    PFQuery *similarityQuery = [PFQuery queryWithClassName:@"Similarity"];
+    [similarityQuery whereKey:@"user" equalTo:[PFUser currentUser]];
+    [similarityQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            NSMutableDictionary *mutableSymptomToSimilarity = [[NSMutableDictionary alloc] initWithCapacity:objects.count];
+            for (PFObject *object in objects) {
+                PFObject *symptom = object[@"symptom"];
+                [symptom fetchIfNeeded];
+                NSNumber *similarity = object[@"similarity"];
+                NSString *scientificName = symptom[@"scientificName"];
+                [mutableSymptomToSimilarity setObject:similarity forKey:scientificName];
+            }
+            DSAppConstants *constants = [DSAppConstants constants];
+            constants.symptomToSimilarity = [[NSDictionary alloc] initWithDictionary:mutableSymptomToSimilarity];
         }
     }];
 }

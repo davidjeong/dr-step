@@ -13,6 +13,7 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *scientificName;
 @property (weak, nonatomic) IBOutlet UILabel *commonName;
+@property (weak, nonatomic) IBOutlet UILabel *similarity;
 
 @property (strong, nonatomic) DSSymptom *symptom;
 

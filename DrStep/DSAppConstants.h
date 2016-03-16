@@ -17,6 +17,7 @@ static const float MAXIMUM_VOLTAGE = 2.8;
 
 @property (assign, nonatomic) NSUInteger metricsPerRequest;
 @property (strong, nonatomic) NSDictionary *settings;
+@property (atomic) NSDictionary *symptomToSimilarity;
 @property (strong, nonatomic) NSArray *coordinates;
 @property (nonatomic, strong) PTDBean *bean;
 

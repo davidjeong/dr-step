@@ -518,26 +518,36 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="commonName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="ZPy-bZ-gCE">
-                                            <rect key="frame" x="310" y="0.0" width="270" height="43"/>
+                                            <rect key="frame" x="330" y="0.0" width="250" height="43"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="scientificName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="KlN-0d-9Vl">
-                                            <rect key="frame" x="20" y="0.0" width="270" height="43"/>
+                                            <rect key="frame" x="60" y="0.0" width="250" height="43"/>
                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                             <color key="textColor" red="0.29803921570000003" green="0.74509803919999995" blue="0.62745098040000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="N/A" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="kWI-bC-QN0">
+                                            <rect key="frame" x="20" y="0.0" width="30" height="43"/>
+                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <constraints>
                                         <constraint firstAttribute="bottom" secondItem="KlN-0d-9Vl" secondAttribute="bottom" id="6eZ-R0-DQx"/>
                                         <constraint firstItem="ZPy-bZ-gCE" firstAttribute="width" secondItem="KlN-0d-9Vl" secondAttribute="width" priority="250" id="BUU-wa-Adr"/>
+                                        <constraint firstAttribute="bottom" secondItem="kWI-bC-QN0" secondAttribute="bottom" id="DeN-c0-Dbs"/>
+                                        <constraint firstItem="KlN-0d-9Vl" firstAttribute="leading" secondItem="kWI-bC-QN0" secondAttribute="trailing" constant="10" id="Dvy-JF-m0L"/>
                                         <constraint firstItem="ZPy-bZ-gCE" firstAttribute="top" secondItem="Hgn-Ey-3ZR" secondAttribute="top" id="LIx-0j-Rna"/>
-                                        <constraint firstItem="KlN-0d-9Vl" firstAttribute="leading" secondItem="Hgn-Ey-3ZR" secondAttribute="leading" constant="20" id="SpY-mF-MsU"/>
+                                        <constraint firstItem="KlN-0d-9Vl" firstAttribute="leading" secondItem="Hgn-Ey-3ZR" secondAttribute="leading" constant="60" id="SpY-mF-MsU"/>
                                         <constraint firstAttribute="bottom" secondItem="ZPy-bZ-gCE" secondAttribute="bottom" id="V3j-CL-vpw"/>
                                         <constraint firstItem="ZPy-bZ-gCE" firstAttribute="leading" secondItem="KlN-0d-9Vl" secondAttribute="trailing" priority="750" constant="20" id="Vhf-q1-6HS"/>
+                                        <constraint firstItem="kWI-bC-QN0" firstAttribute="leading" secondItem="Hgn-Ey-3ZR" secondAttribute="leading" constant="20" id="WVN-OF-H4Z"/>
                                         <constraint firstAttribute="trailing" secondItem="ZPy-bZ-gCE" secondAttribute="trailing" constant="20" id="dSY-Ld-ulV"/>
+                                        <constraint firstItem="kWI-bC-QN0" firstAttribute="top" secondItem="Hgn-Ey-3ZR" secondAttribute="top" id="f4r-cW-Yni"/>
                                         <constraint firstItem="KlN-0d-9Vl" firstAttribute="top" secondItem="Hgn-Ey-3ZR" secondAttribute="top" id="fnh-SX-1eA"/>
                                     </constraints>
                                 </tableViewCellContentView>
@@ -545,6 +555,7 @@
                                 <connections>
                                     <outlet property="commonName" destination="ZPy-bZ-gCE" id="ods-BH-oIh"/>
                                     <outlet property="scientificName" destination="KlN-0d-9Vl" id="pU9-3u-wRp"/>
+                                    <outlet property="similarity" destination="kWI-bC-QN0" id="uBT-Dd-sBR"/>
                                     <segue destination="OJN-Qd-bH9" kind="show" identifier="showSymptomDetails" id="nHm-EZ-USh"/>
                                 </connections>
                             </tableViewCell>
@@ -576,7 +587,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h3y-Ep-TRN">
-                                <rect key="frame" x="0.0" y="20" width="600" height="580"/>
+                                <rect key="frame" x="0.0" y="64" width="600" height="492"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </scrollView>
                         </subviews>
@@ -758,6 +769,6 @@
         <image name="settings_filled.png" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="JW7-w5-3gl"/>
+        <segue reference="nHm-EZ-USh"/>
     </inferredMetricsTieBreakers>
 </document>

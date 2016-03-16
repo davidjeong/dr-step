@@ -9,7 +9,9 @@
 #import "DSInformationViewController.h"
 
 #import <Parse/Parse.h>
+#import <PNColor.h>
 
+#import "DSAppConstants.h"
 #import "DSInformationDetailViewController.h"
 #import "DSSymptom.h"
 #import "DSSymptomTableViewCell.h"
@@ -108,10 +110,22 @@
     symptom.diagnosis = [object objectForKey:@"diagnosis"];
     
     cell.symptom = symptom;
+    DSAppConstants *constants = [DSAppConstants constants];
+    if ([constants.symptomToSimilarity objectForKey:symptom.scientificName]) {
+        float similarity = [constants.symptomToSimilarity[symptom.scientificName] floatValue];
+        if (similarity > 0 && similarity < 0.5) {
+            cell.similarity.textColor = PNGreen;
+        } else if (similarity >= 0.5 && similarity < 0.8) {
+            cell.similarity.textColor = PNYellow;
+        } else if (similarity >= 0.8) {
+            cell.similarity.textColor = PNRed;
+        }
+
+        cell.similarity.text = [NSString stringWithFormat:@"%d%%", (int)(similarity*100)];
+    }
     
     cell.scientificName.text = symptom.scientificName;
     cell.commonName.text = symptom.commonName;
-    
     return cell;
 }
 

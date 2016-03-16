@@ -164,7 +164,7 @@
     DSAppConstants *constants = [DSAppConstants constants];
     NSDictionary *settings = constants.settings;
     self.boost = [NSNumber numberWithFloat:[settings[@"heatMapBoost"] floatValue]];
-    self.heatMap = [DSHeatMap heatMapWithRect:self.view.frame boost:[self.boost floatValue] points:constants.coordinates weights:self.weights maxWeight:MAXIMUM_VOLTAGE];
+    //self.heatMap = [DSHeatMap heatMapWithRect:self.view.frame boost:[self.boost floatValue] points:constants.coordinates weights:self.weights maxWeight:MAXIMUM_VOLTAGE];
 }
 
 - (void)didReceiveMemoryWarning {
