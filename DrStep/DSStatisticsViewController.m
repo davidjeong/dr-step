@@ -224,9 +224,11 @@
             if (objects.count == 1) {
                 PFObject *object = objects[0];
                 NSUInteger numProcessed = [[object objectForKey:@"numProcessed"] integerValue];
-                numProcessed /= 1000;
-                if (numProcessed != 0) {
-                    [self.dataSetLabel setText:[NSString stringWithFormat:@"%dK", (int)numProcessed]];
+                if (numProcessed >= 1000) {
+                    numProcessed /= 1000;
+                    [self.dataSetLabel setText:[NSString stringWithFormat:@"~%dK", (int)numProcessed]];
+                } else {
+                    [self.dataSetLabel setText:[NSString stringWithFormat:@"<1K"]];
                 }
                 
                 NSDate *updatedDate = object.createdAt;
