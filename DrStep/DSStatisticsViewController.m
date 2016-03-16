@@ -227,7 +227,7 @@
                 if (numProcessed >= 1000) {
                     numProcessed /= 1000;
                     [self.dataSetLabel setText:[NSString stringWithFormat:@"~%dK", (int)numProcessed]];
-                } else {
+                } else if (numProcessed > 0 && numProcessed < 1000) {
                     [self.dataSetLabel setText:[NSString stringWithFormat:@"<1K"]];
                 }
                 
