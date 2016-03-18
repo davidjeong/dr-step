@@ -146,13 +146,10 @@
                 PFObject *object = sorted[0][@"symptom"];
                 [object fetchIfNeededInBackgroundWithBlock:^(PFObject *symptom, NSError *error) {
                     float majorSimilarity = [sorted[0][@"similarity"] floatValue];
-                    if (majorSimilarity >= 0.0 && majorSimilarity < 0.5) {
-                        [self.circleChartTopLeft setStrokeColor:PNGreen];
-                    } else if (majorSimilarity >= 0.5 && majorSimilarity < 0.8) {
-                        [self.circleChartTopLeft setStrokeColor:PNYellow];
-                    } else {
-                        [self.circleChartTopLeft setStrokeColor:PNRed];
-                    }
+                    NSNumber *healthy = symptom[@"healthy"];
+                    bool isHealthy = [healthy isEqualToNumber:[NSNumber numberWithInt:0]];
+                    UIColor *symptomColor = [self _colorForChart:isHealthy similarity:majorSimilarity];
+                    [self.circleChartTopLeft setStrokeColor:symptomColor];
                     NSLog(@"Primary symptom is %@", symptom[@"scientificName"]);
                     self.primarySymptom = [[DSSymptom alloc] init];
                     self.primarySymptom.commonName = symptom[@"commonName"];
@@ -168,13 +165,10 @@
                 PFObject *object = sorted[1][@"symptom"];
                 [object fetchIfNeededInBackgroundWithBlock:^(PFObject *symptom, NSError *error) {
                     float minorSimiliarity = [sorted[1][@"similarity"] floatValue];
-                    if (minorSimiliarity >= 0.0 && minorSimiliarity < 0.5) {
-                        [self.circleChartTopRight setStrokeColor:PNGreen];
-                    } else if (minorSimiliarity >= 0.5 && minorSimiliarity < 0.8) {
-                        [self.circleChartTopRight setStrokeColor:PNYellow];
-                    } else {
-                        [self.circleChartTopRight setStrokeColor:PNRed];
-                    }
+                    NSNumber *healthy = symptom[@"healthy"];
+                    bool isHealthy = [healthy isEqualToNumber:[NSNumber numberWithInt:0]];
+                    UIColor *symptomColor = [self _colorForChart:isHealthy similarity:minorSimiliarity];
+                    [self.circleChartTopRight setStrokeColor:symptomColor];
                     NSLog(@"Secondary symptom is %@", symptom[@"scientificName"]);
                     self.secondarySymptom = [[DSSymptom alloc] init];
                     self.secondarySymptom.commonName = symptom[@"commonName"];
@@ -190,13 +184,10 @@
                 PFObject *object = sorted[3][@"symptom"];
                 [object fetchIfNeededInBackgroundWithBlock:^(PFObject *symptom, NSError *error) {
                     float minorSimiliarity = [sorted[2][@"similarity"] floatValue];
-                    if (minorSimiliarity >= 0.0 && minorSimiliarity < 0.5) {
-                        [self.circleChartBottomLeft setStrokeColor:PNGreen];
-                    } else if (minorSimiliarity >= 0.5 && minorSimiliarity < 0.8) {
-                        [self.circleChartBottomLeft setStrokeColor:PNYellow];
-                    } else {
-                        [self.circleChartBottomLeft setStrokeColor:PNRed];
-                    }
+                    NSNumber *healthy = symptom[@"healthy"];
+                    bool isHealthy = [healthy isEqualToNumber:[NSNumber numberWithInt:0]];
+                    UIColor *symptomColor = [self _colorForChart:isHealthy similarity:minorSimiliarity];
+                    [self.circleChartBottomLeft setStrokeColor:symptomColor];
                     NSLog(@"Tertiary symptom is %@", symptom[@"scientificName"]);
                     self.tertiarySymptom = [[DSSymptom alloc] init];
                     self.tertiarySymptom.commonName = symptom[@"commonName"];
@@ -261,16 +252,18 @@
     [similarityQuery whereKey:@"user" equalTo:[PFUser currentUser]];
     [similarityQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
-            NSMutableDictionary *mutableSymptomToSimilarity = [[NSMutableDictionary alloc] initWithCapacity:objects.count];
+            DSAppConstants *constants = [DSAppConstants constants];
+            constants.symptomToSimilarity = [[NSMutableDictionary alloc] initWithCapacity:objects.count];
             for (PFObject *object in objects) {
                 PFObject *symptom = object[@"symptom"];
-                [symptom fetchIfNeeded];
-                NSNumber *similarity = object[@"similarity"];
-                NSString *scientificName = symptom[@"scientificName"];
-                [mutableSymptomToSimilarity setObject:similarity forKey:scientificName];
+                [symptom fetchIfNeededInBackgroundWithBlock:^(PFObject *symptom, NSError *error) {
+                    if (!error) {
+                        NSNumber *similarity = object[@"similarity"];
+                        NSString *scientificName = symptom[@"scientificName"];
+                        [constants.symptomToSimilarity setObject:similarity forKey:scientificName];
+                    }
+                }];
             }
-            DSAppConstants *constants = [DSAppConstants constants];
-            constants.symptomToSimilarity = [[NSDictionary alloc] initWithDictionary:mutableSymptomToSimilarity];
         }
     }];
 }
@@ -314,6 +307,30 @@
         }];
     }
 }
+
+#pragma mark - Private
+
+- (UIColor *) _colorForChart:(bool)healthy similarity:(float)similarity {
+    if (healthy) {
+        if (similarity >= 0.0 && similarity < 0.5) {
+            return PNRed;
+        } else if (similarity >= 0.5 && similarity < 0.8) {
+            return PNYellow;
+        } else {
+            return PNGreen;
+        }
+    } else {
+        if (similarity >= 0.0 && similarity < 0.5) {
+            return PNGreen;
+        } else if (similarity >= 0.5 && similarity < 0.8) {
+            return PNYellow;
+        } else {
+            return PNRed;
+        }
+    }
+    return PNRed;
+}
+
 
 #pragma mark - Segue
 

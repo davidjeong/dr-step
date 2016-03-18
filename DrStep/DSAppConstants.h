@@ -15,7 +15,7 @@
 
 @property (assign, nonatomic) NSUInteger metricsPerRequest;
 @property (strong, nonatomic) NSDictionary *settings;
-@property (atomic) NSDictionary *symptomToSimilarity;
+@property (atomic) NSMutableDictionary *symptomToSimilarity;
 @property (strong, nonatomic) NSArray *coordinates;
 @property (nonatomic, strong) PTDBean *bean;
 @property (nonatomic, strong) UIImage *profileImage;

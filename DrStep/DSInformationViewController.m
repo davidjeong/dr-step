@@ -20,6 +20,8 @@
 
 @property (strong, nonatomic) UISearchController *searchController;
 @property (strong, nonatomic) NSArray *searchResults;
+@property (retain, nonatomic) NSArray *positive;
+@property (retain, nonatomic) NSArray *negative;
 
 @end
 
@@ -46,6 +48,20 @@
 
 #pragma mark - UITableViewDelegate
 
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    if (section == 0) {
+        return @"Positive";
+    } else if (section == 1) {
+        return @"Negative";
+    }
+    return @"";
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 2;
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath object:(PFObject *)object
 {
     static NSString *cellIdentifier = @"symptomCell";
@@ -68,20 +84,40 @@
     DSAppConstants *constants = [DSAppConstants constants];
     if ([constants.symptomToSimilarity objectForKey:symptom.scientificName]) {
         float similarity = [constants.symptomToSimilarity[symptom.scientificName] floatValue];
-        if (similarity > 0 && similarity < 0.5) {
-            cell.similarity.textColor = PNGreen;
-        } else if (similarity >= 0.5 && similarity < 0.8) {
-            cell.similarity.textColor = PNYellow;
-        } else if (similarity >= 0.8) {
-            cell.similarity.textColor = PNRed;
-        }
-
+        NSNumber *healthy = [object objectForKey:@"healthy"];
+        bool isHealthy = [healthy isEqualToNumber:[NSNumber numberWithInt:0]];
+        [cell.similarity setTextColor:[self _colorForTable:isHealthy similarity:similarity]];
         cell.similarity.text = [NSString stringWithFormat:@"%d%%", (int)(similarity*100)];
     }
     
     cell.scientificName.text = symptom.scientificName;
     cell.commonName.text = symptom.commonName;
     return cell;
+}
+
+#pragma mark - Private
+
+#pragma mark - Private
+
+- (UIColor *) _colorForTable:(bool)healthy similarity:(float)similarity {
+    if (healthy) {
+        if (similarity >= 0.0 && similarity < 0.5) {
+            return PNRed;
+        } else if (similarity >= 0.5 && similarity < 0.8) {
+            return PNYellow;
+        } else {
+            return PNGreen;
+        }
+    } else {
+        if (similarity >= 0.0 && similarity < 0.5) {
+            return PNGreen;
+        } else if (similarity >= 0.5 && similarity < 0.8) {
+            return PNYellow;
+        } else {
+            return PNRed;
+        }
+    }
+    return PNRed;
 }
 
 #pragma mark - Parse
@@ -96,7 +132,41 @@
 
 - (void)objectsDidLoad:(NSError *)error {
     [super objectsDidLoad:error];
+    
+    NSMutableArray *tempPositive = [[NSMutableArray alloc] init];
+    NSMutableArray *tempNegative = [[NSMutableArray alloc] init];
+    
+    for (PFObject *object in self.objects) {
+        NSNumber *healthy = [object objectForKey:@"healthy"];
+        if ([healthy isEqualToNumber:[NSNumber numberWithInt:0]]) {
+            [tempPositive addObject:object];
+        } else {
+            [tempNegative addObject:object];
+        }
+    }
+    
+    self.positive = [NSArray arrayWithArray:tempPositive];
+    self.negative = [NSArray arrayWithArray:tempNegative];
+    
     [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleSingleLine];
+}
+
+- (PFObject *) objectAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section == 0) {
+        return [self.positive objectAtIndex:indexPath.row];
+    } else if (indexPath.section == 1) {
+        return [self.negative objectAtIndex:indexPath.row];
+    }
+    return nil;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    if (section == 0) {
+        return self.positive.count;
+    } else if (section == 1) {
+        return self.negative.count;
+    }
+    return 0;
 }
 
 #pragma mark - Segue
