@@ -8,13 +8,15 @@
 
 #import "DSInformationDetailViewController.h"
 
+#import <PNColor.h>
+
 #import "DSAppConstants.h"
 #import "DSSymptom.h"
 
 @interface DSInformationDetailViewController ()
 
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
-@property (weak, nonatomic) IBOutlet UILabel *scientificLabel;
+@property (weak, nonatomic) IBOutlet UIButton *scientificLabel;
 @property (weak, nonatomic) IBOutlet UILabel *commonLabel;
 @property (weak, nonatomic) IBOutlet UILabel *descriptionLabel;
 @property (weak, nonatomic) IBOutlet UILabel *diagnosisLabel;
@@ -34,13 +36,17 @@
     self.contentView = [views firstObject];
     
     //[self.view addSubview:self.contentView];
-    [self.scientificLabel setText:[self.symptom scientificName]];
+    [self.scientificLabel setTitle:[self.symptom scientificName] forState:UIControlStateNormal];
     [self.commonLabel setText:[self.symptom commonName]];
     [self.descriptionLabel setText:[self.symptom symptomDescription]];
     [self.diagnosisLabel setText:[self.symptom diagnosis]];
-    
     [self.scrollView addSubview:self.contentView];
-
+    
+    self.scientificLabel.titleLabel.lineBreakMode = NSLineBreakByWordWrapping;
+    self.scientificLabel.titleLabel.textAlignment = NSTextAlignmentCenter;
+    if (self.symptom.url == nil) {
+        self.scientificLabel.enabled = NO;
+    }
 }
 
 - (void)viewDidLayoutSubviews {
@@ -49,10 +55,8 @@
     self.scrollView.contentSize = size;
 }
 
-#pragma mark - IBAction
-
-- (IBAction)touched:(id)sender {
-    [self dismissViewControllerAnimated:YES completion:nil];
+- (IBAction)symptomClicked:(id)sender {
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[self.symptom url]]];
 }
 
 @end

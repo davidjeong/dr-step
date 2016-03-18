@@ -14,5 +14,6 @@
 @property (strong, nonatomic) NSString *commonName;
 @property (strong, nonatomic) NSString *symptomDescription;
 @property (strong, nonatomic) NSString *diagnosis;
+@property (strong, nonatomic) NSString *url;
 
 @end

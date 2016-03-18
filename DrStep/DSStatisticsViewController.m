@@ -156,6 +156,7 @@
                     self.primarySymptom.scientificName = symptom[@"scientificName"];
                     self.primarySymptom.diagnosis = symptom[@"diagnosis"];
                     self.primarySymptom.symptomDescription = symptom[@"symptomDescription"];
+                    self.primarySymptom.url = symptom[@"webUrl"];
                     [self.circleChartTopLeft updateChartByCurrent:[NSNumber numberWithFloat:majorSimilarity] byTotal:[NSNumber numberWithFloat:1.0f]];
                     self.primarySymptomLabel.text = self.primarySymptom.scientificName;
                     [self.circleChartTopLeft strokeChart];
@@ -175,6 +176,7 @@
                     self.secondarySymptom.scientificName = symptom[@"scientificName"];
                     self.secondarySymptom.diagnosis = symptom[@"diagnosis"];
                     self.secondarySymptom.symptomDescription = symptom[@"symptomDescription"];
+                    self.secondarySymptom.url = symptom[@"webUrl"];
                     [self.circleChartTopRight updateChartByCurrent:[NSNumber numberWithFloat:minorSimiliarity] byTotal:[NSNumber numberWithFloat:1.0f]];
                     self.secondarySymptomLabel.text = self.secondarySymptom.scientificName;
                     [self.circleChartTopRight strokeChart];
@@ -194,6 +196,7 @@
                     self.tertiarySymptom.scientificName = symptom[@"scientificName"];
                     self.tertiarySymptom.diagnosis = symptom[@"diagnosis"];
                     self.tertiarySymptom.symptomDescription = symptom[@"symptomDescription"];
+                    self.tertiarySymptom.url = symptom[@"webUrl"];
                     [self.circleChartBottomLeft updateChartByCurrent:[NSNumber numberWithFloat:minorSimiliarity] byTotal:[NSNumber numberWithFloat:1.0f]];
                     self.tertiarySymptomLabel.text = self.tertiarySymptom.scientificName;
                     [self.circleChartBottomLeft strokeChart];

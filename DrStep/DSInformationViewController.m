@@ -78,6 +78,7 @@
     symptom.commonName = [object objectForKey:@"commonName"];
     symptom.symptomDescription = [object objectForKey:@"symptomDescription"];
     symptom.diagnosis = [object objectForKey:@"diagnosis"];
+    symptom.url = [object objectForKey:@"webUrl"];
     
     cell.symptom = symptom;
     
