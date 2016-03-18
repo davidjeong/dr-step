@@ -15,14 +15,11 @@
 #import "DSAppConstants.h"
 #import "DSBlueBeanTableViewController.h"
 #import "DSLoginViewController.h"
+#import "DSProfileCell.h"
 
 @interface DSSettingsViewController ()
 
 @property (nonatomic, strong) UISlider *boostSlider;
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (weak, nonatomic) IBOutlet UIImageView *profileImageView;
-@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
-@property (weak, nonatomic) IBOutlet UILabel *emailLabel;
 
 @end
 
@@ -50,28 +47,6 @@
                                              selector:@selector(handleNotifications:)
                                                  name:@"disconnectedFromBean"
                                                object:nil];
-    
-    PFUser *currentUser = [PFUser currentUser];
-    PFFile *file = currentUser[@"profilePhoto"];
-    self.profileImageView.contentMode = UIViewContentModeScaleAspectFill;
-    self.profileImageView.layer.cornerRadius = self.profileImageView.frame.size.width / 2;
-    self.profileImageView.layer.borderWidth = 5.0f;
-    self.profileImageView.layer.borderColor = [[UIColor grayColor] CGColor];
-    self.profileImageView.layer.masksToBounds = YES;
-    if (currentUser[@"facebookId"] == nil) {
-        self.profileImageView.userInteractionEnabled = YES;
-    }
-    if (file == nil) {
-        self.profileImageView.image = [UIImage imageNamed:@"empty_profile_pic"];
-    } else {
-        [file getDataInBackgroundWithBlock:^(NSData *imageData, NSError *error) {
-            self.profileImageView.image = [UIImage imageWithData:imageData];
-
-        }];
-    }
-    
-    self.nameLabel.text = currentUser[@"name"];
-    self.emailLabel.text = currentUser[@"email"];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -100,79 +75,126 @@
 
 #pragma mark - UITableViewDelegate
 
-static NSString *cellIdentifier = @"settingsCell";
+static NSString *profileCellIdentifier = @"profileCell";
+static NSString *settingCellIdentifier = @"settingCell";
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    if (section == 1) {
+        return @"Connectivity";
+    } else if (section == 2) {
+        return @"Application";
+    } else if (section == 3) {
+        return @"Other";
+    }
+    return @"";
+}
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = nil;
-    if (indexPath.section == 0) { // Connectivity
-        if(indexPath.row == 0) {
-            cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-            if (cell == nil) {
-                cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
-                                           reuseIdentifier:cellIdentifier];
+    UITableViewCell *settingCell = nil;
+    if (indexPath.section == 0) { // Profile
+        DSProfileCell *profileCell = nil;
+        if (indexPath.row == 0) {
+            profileCell = [tableView dequeueReusableCellWithIdentifier:profileCellIdentifier];
+            if (profileCell == nil) {
+                profileCell = [[DSProfileCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:profileCellIdentifier];
             }
-            [cell.textLabel setText:@"Connect To The Shoe"];
+            PFUser *currentUser = [PFUser currentUser];
+            profileCell.name = currentUser[@"name"];
+            profileCell.email = currentUser[@"email"];
+            DSAppConstants *constants = [DSAppConstants constants];
+            profileCell.profileImage = constants.profileImage;
+        }
+        profileCell.userInteractionEnabled = NO;
+        return profileCell;
+    }
+    else if (indexPath.section == 1) { // Connectivity
+        if(indexPath.row == 0) {
+            settingCell = [tableView dequeueReusableCellWithIdentifier:settingCellIdentifier];
+            if (settingCell == nil) {
+                settingCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
+                                           reuseIdentifier:settingCellIdentifier];
+            }
+            [settingCell.textLabel setText:@"Connect To The Shoe"];
             DSAppConstants *constants = [DSAppConstants constants];
             if (constants.bean != nil) {
-                [cell setAccessoryType:UITableViewCellAccessoryCheckmark];
+                [settingCell setAccessoryType:UITableViewCellAccessoryCheckmark];
             } else {
-                [cell setAccessoryType:UITableViewCellAccessoryNone];
+                [settingCell setAccessoryType:UITableViewCellAccessoryNone];
             }
         }
     }
-    else if(indexPath.section == 1) { // Configuration
+    else if(indexPath.section == 2) { // Configuration
         if (indexPath.row == 0) {
-            cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-            if (cell == nil) {
-                cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
-                                              reuseIdentifier:cellIdentifier];
+            settingCell = [tableView dequeueReusableCellWithIdentifier:settingCellIdentifier];
+            if (settingCell == nil) {
+                settingCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
+                                              reuseIdentifier:settingCellIdentifier];
             }
-            [cell setAccessoryView:self.boostSlider];
+            [settingCell setAccessoryView:self.boostSlider];
             DSAppConstants *constants = [DSAppConstants constants];
             NSDictionary *settings = constants.settings;
             self.boostSlider.value = [settings[@"heatMapBoost"] floatValue];
-            [cell.textLabel setText:[NSString stringWithFormat:@"Adjust Heatmap Boost - %.02f", self.boostSlider.value]];
+            [settingCell.textLabel setText:[NSString stringWithFormat:@"Adjust Heatmap Boost - %.02f", self.boostSlider.value]];
         }
-    } else if (indexPath.section == 2) { // Application
+    } else if (indexPath.section == 3) { // Application
         if (indexPath.row == 0) {
-            cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-            if (cell == nil) {
-                cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+            settingCell = [tableView dequeueReusableCellWithIdentifier:settingCellIdentifier];
+            if (settingCell == nil) {
+                settingCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:settingCellIdentifier];
             }
-            [cell.textLabel setText:@"Log Out"];
-            [cell.textLabel setTextColor:[UIColor redColor]];
+            [settingCell.textLabel setText:@"About Us"];
+            [settingCell.textLabel setTextColor:[UIColor colorWithRed:76/255.0f green:190/255.0f blue:160/255.0f alpha:1.0f]];
+        }
+        else if (indexPath.row == 1) {
+            settingCell = [tableView dequeueReusableCellWithIdentifier:settingCellIdentifier];
+            if (settingCell == nil) {
+                settingCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:settingCellIdentifier];
+            }
+            [settingCell.textLabel setText:@"Third Party Libraries"];
+            [settingCell.textLabel setTextColor:[UIColor colorWithRed:76/255.0f green:190/255.0f blue:160/255.0f alpha:1.0f]];
+        }
+        else if (indexPath.row == 2) {
+            settingCell = [tableView dequeueReusableCellWithIdentifier:settingCellIdentifier];
+            if (settingCell == nil) {
+                settingCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:settingCellIdentifier];
+            }
+            [settingCell.textLabel setText:@"Log Out"];
+            [settingCell.textLabel setTextColor:[UIColor redColor]];
         }
     }
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] init];
-        [cell setUserInteractionEnabled:NO];
-    } else {
-        cell.backgroundColor = [UIColor colorWithRed:255/255.0f green:250/255.0f blue:246/255.0f alpha:0.3f];
+    if (settingCell == nil) {
+        settingCell = [[UITableViewCell alloc] init];
+        [settingCell setUserInteractionEnabled:NO];
     }
-    return cell;
+    return settingCell;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 3;
+    return 4;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Currently each setting has one row.
+    if (section == 3) return 3;
     return 1;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
-    if (indexPath.section == 0) {
+    if (indexPath.section == 1) {
         if (indexPath.row == 0) {
             [self performSegueWithIdentifier:@"showConnector" sender:self];
         }
-    } else if (indexPath.section == 1) {
+    } else if (indexPath.section == 3) {
         if (indexPath.row == 0) {
-            //[self changePasscode];
+            // Show about
         }
-    } else if (indexPath.section == 2) {
-        if (indexPath.row == 0) {
+        else if (indexPath.row == 1) {
+            // Show copyright
+            [self performSegueWithIdentifier:@"showCopyright" sender:self];
+        }
+        else if (indexPath.row == 2) {
             DSAppConstants *constants = [DSAppConstants constants];
             if (constants.bean != nil) {
                 UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:@"Please disconnect the bean before logging out." preferredStyle:UIAlertControllerStyleAlert];
@@ -196,10 +218,18 @@ static NSString *cellIdentifier = @"settingsCell";
     }
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.section == 0) {
+        return 200;
+    }
+    return [self.tableView rowHeight];
+}
+
 #pragma mark - IBAction
 
 - (IBAction)updateBoost:(UISlider *)sender{
-    UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:1]];
+    UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:2]];
     
     // Get main thread to update the text.
     dispatch_async(dispatch_get_main_queue(), ^{

@@ -14,6 +14,8 @@
 #import <Parse/Parse.h>
 #import <QuartzCore/QuartzCore.h>
 
+#import "DSAppConstants.h"
+
 @interface DSLoginViewController ()
 
 @property (weak, nonatomic) IBOutlet UILabel *companyLabel;
@@ -89,6 +91,8 @@
             NSData *imageData = [NSData dataWithContentsOfURL:imageURL];
             
             PFFile *imageFile = [PFFile fileWithName:@"profile_image.png" data:imageData];
+            DSAppConstants *constants = [DSAppConstants constants];
+            constants.profileImage = [UIImage imageWithData:imageData];
             
             // Now add the data to the UI elements
             PFUser *currentUser = [PFUser currentUser];

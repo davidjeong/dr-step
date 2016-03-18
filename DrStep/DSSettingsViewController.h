@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 #import <PTDBean.h>
 
-@interface DSSettingsViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface DSSettingsViewController : UITableViewController
 
 @end

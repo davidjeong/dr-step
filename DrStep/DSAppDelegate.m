@@ -110,13 +110,24 @@
             }];
         }
     }];
-    
+    constants.profileImage = [UIImage imageNamed:@"empty_profile_pic.png"];
     // Check if user is cached
     if ([PFUser currentUser] ||
         // Check if user is linked to Facebook
         [PFFacebookUtils isLinkedWithUser:[PFUser currentUser]]) {
         // Load main app screen if current user is logged in to the application.
         UIViewController *initialViewController =[storyboard instantiateInitialViewController];
+        DSAppConstants *constants = [DSAppConstants constants];
+        PFUser *currentUser = [PFUser currentUser];
+        PFFile *file = currentUser[@"profilePhoto"];
+        if (file != nil) {
+            [file getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
+                if (!error) {
+                    constants.profileImage = [UIImage imageWithData:data];
+                }
+            }];
+        }
+        
         self.window.rootViewController = initialViewController;
         [self.window makeKeyAndVisible];
     } else {

@@ -7,6 +7,7 @@
 //  Singleton class to take care of global constants.
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @class PTDBean;
 
@@ -17,6 +18,7 @@
 @property (atomic) NSDictionary *symptomToSimilarity;
 @property (strong, nonatomic) NSArray *coordinates;
 @property (nonatomic, strong) PTDBean *bean;
+@property (nonatomic, strong) UIImage *profileImage;
 
 + (id) constants;
 

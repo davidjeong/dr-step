@@ -24,6 +24,7 @@
 		532B95581B5F378A003B1D08 /* DSSymptomTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 532B95571B5F378A003B1D08 /* DSSymptomTableViewCell.m */; };
 		532B955D1B5F3950003B1D08 /* DSSymptom.m in Sources */ = {isa = PBXBuildFile; fileRef = 532B955C1B5F3950003B1D08 /* DSSymptom.m */; };
 		532B95621B5F4583003B1D08 /* DSInformationDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 532B95611B5F4582003B1D08 /* DSInformationDetailViewController.m */; };
+		533C09081C9C54BE005697D5 /* DSProfileCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 533C09071C9C54BE005697D5 /* DSProfileCell.m */; };
 		53482DE91BEC71C600A7EEE9 /* DSLoginNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53482DE81BEC71C600A7EEE9 /* DSLoginNavigationController.m */; };
 		534CF59A1C4C901E00A595C1 /* DSHeatMap.m in Sources */ = {isa = PBXBuildFile; fileRef = 534CF5991C4C901E00A595C1 /* DSHeatMap.m */; };
 		534CF59C1C4C97D600A595C1 /* libPNChart.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 534CF59B1C4C97D600A595C1 /* libPNChart.a */; };
@@ -96,6 +97,8 @@
 		532B955C1B5F3950003B1D08 /* DSSymptom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSSymptom.m; sourceTree = "<group>"; };
 		532B95601B5F4582003B1D08 /* DSInformationDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSInformationDetailViewController.h; sourceTree = "<group>"; };
 		532B95611B5F4582003B1D08 /* DSInformationDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSInformationDetailViewController.m; sourceTree = "<group>"; };
+		533C09061C9C54BE005697D5 /* DSProfileCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSProfileCell.h; sourceTree = "<group>"; };
+		533C09071C9C54BE005697D5 /* DSProfileCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSProfileCell.m; sourceTree = "<group>"; };
 		53482DE71BEC71C600A7EEE9 /* DSLoginNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSLoginNavigationController.h; sourceTree = "<group>"; };
 		53482DE81BEC71C600A7EEE9 /* DSLoginNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSLoginNavigationController.m; sourceTree = "<group>"; };
 		534CF5981C4C901E00A595C1 /* DSHeatMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSHeatMap.h; sourceTree = "<group>"; };
@@ -287,6 +290,8 @@
 				53482DE81BEC71C600A7EEE9 /* DSLoginNavigationController.m */,
 				535282311BE545EB00A675F8 /* DSLoginViewController.h */,
 				535282321BE545EB00A675F8 /* DSLoginViewController.m */,
+				533C09061C9C54BE005697D5 /* DSProfileCell.h */,
+				533C09071C9C54BE005697D5 /* DSProfileCell.m */,
 				CD16E7B81B24FBC50071E1CF /* DSRealtimeViewController.h */,
 				CD16E7B91B24FBC50071E1CF /* DSRealtimeViewController.m */,
 				CDA9D55E1B4DE49100C3170F /* DSSettingsViewController.h */,
@@ -522,6 +527,7 @@
 				CD16E7BA1B24FBC50071E1CF /* DSRealtimeViewController.m in Sources */,
 				CD12CB5E1B385D55004F3AB7 /* DSInformationViewController.m in Sources */,
 				CD16E7B41B24FBC50071E1CF /* main.m in Sources */,
+				533C09081C9C54BE005697D5 /* DSProfileCell.m in Sources */,
 				535468B51B5968E6001D66E1 /* DSAppConstants.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
