@@ -16,10 +16,7 @@
 #import "NSDate+TimeAgo.h"
 #import "PNChart.h"
 
-#define ARC4RANDOM_MAX 0x100000000
-
 @interface DSStatisticsViewController ()
-
 
 @property (weak, nonatomic) IBOutlet UIView *uiView;
 @property (nonatomic) UIView *scatterView;
@@ -51,6 +48,8 @@
 @end
 
 @implementation DSStatisticsViewController
+
+#pragma mark - Lifecycle
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -104,13 +103,6 @@
     self.scatterData.size = 2;
     self.scatterData.itemCount = 0;
     self.scatterData.inflexionPointStyle = PNScatterChartPointStyleCircle;
-    //NSMutableArray *x = [NSMutableArray arrayWithArray:[scatterArray objectAtIndex:0]];
-    //NSMutableArray *y = [NSMutableArray arrayWithArray:[scatterArray objectAtIndex:1]];
-    /*scatterData.getData = ^(NSUInteger index) {
-    CGFloat xValue = [[x objectAtIndex:index] floatValue];
-        CGFloat yValue = [[y objectAtIndex:index] floatValue];
-        return [PNScatterChartDataItem dataItemWithX:xValue AndWithY:yValue];
-    };*/
     
     [self.scatterChart setup];
     self.scatterChart.chartData = @[self.scatterData];
@@ -138,8 +130,9 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    
     // We fetch the data here for the pie charts.
-
+    // Fetch top 3 symptoms and put appropriate colors.
     PFQuery *query = [PFQuery queryWithClassName:@"Similarity"];
     [query whereKey:@"user" equalTo:[PFUser currentUser]];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
@@ -160,7 +153,7 @@
                     } else {
                         [self.circleChartTopLeft setStrokeColor:PNRed];
                     }
-                    NSLog(@"Major symptom is %@", symptom[@"scientificName"]);
+                    NSLog(@"Primary symptom is %@", symptom[@"scientificName"]);
                     self.primarySymptom = [[DSSymptom alloc] init];
                     self.primarySymptom.commonName = symptom[@"commonName"];
                     self.primarySymptom.scientificName = symptom[@"scientificName"];
@@ -182,7 +175,7 @@
                     } else {
                         [self.circleChartTopRight setStrokeColor:PNRed];
                     }
-                    NSLog(@"Minor symptom is %@", symptom[@"scientificName"]);
+                    NSLog(@"Secondary symptom is %@", symptom[@"scientificName"]);
                     self.secondarySymptom = [[DSSymptom alloc] init];
                     self.secondarySymptom.commonName = symptom[@"commonName"];
                     self.secondarySymptom.scientificName = symptom[@"scientificName"];
@@ -204,7 +197,7 @@
                     } else {
                         [self.circleChartBottomLeft setStrokeColor:PNRed];
                     }
-                    NSLog(@"Minor symptom is %@", symptom[@"scientificName"]);
+                    NSLog(@"Tertiary symptom is %@", symptom[@"scientificName"]);
                     self.tertiarySymptom = [[DSSymptom alloc] init];
                     self.tertiarySymptom.commonName = symptom[@"commonName"];
                     self.tertiarySymptom.scientificName = symptom[@"scientificName"];
@@ -218,6 +211,7 @@
         }
     }];
     
+    // Fetch the search space into 2d scatterplot.
     PFQuery *numQuery = [PFQuery queryWithClassName:@"SearchSpace"];
     [numQuery whereKey:@"user" equalTo:[PFUser currentUser]];
     [numQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
@@ -281,10 +275,7 @@
     }];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
+#pragma mark - IBAction
 
 - (IBAction)primaryTouched:(id)sender {
     if (self.primarySymptom != nil) {
@@ -302,20 +293,6 @@
     if (self.tertiarySymptom != nil) {
         [self performSegueWithIdentifier:@"showPossibleSymptom" sender:@"tertiarySender"];
     }
-}
-
-- (NSArray*) generateRandomArray{
-    NSMutableArray *array = [NSMutableArray array];
-    NSString *LabelFormat = @"%1.f";
-    NSMutableArray *x = [NSMutableArray array];
-    NSMutableArray *y = [NSMutableArray array];
-    for (int i = 0; i < 25 ; i++) {
-        [x addObject:[NSString stringWithFormat:LabelFormat,(((double)arc4random() / ARC4RANDOM_MAX) * (self.scatterChart.AxisX_maxValue - self.scatterChart.AxisX_minValue) + self.scatterChart.AxisX_minValue)]];
-        [y addObject:[NSString stringWithFormat:LabelFormat,(((double)arc4random() / ARC4RANDOM_MAX) * (self.scatterChart.AxisY_maxValue - self.scatterChart.AxisY_minValue) + self.scatterChart.AxisY_minValue)]];
-    }
-    [array addObject:x];
-    [array addObject:y];
-    return (NSArray*) array;
 }
 
 - (IBAction)controlChanged:(id)sender {
@@ -339,6 +316,7 @@
 }
 
 #pragma mark - Segue
+
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([sender isEqualToString:@"primarySender"]) {
         DSInformationDetailViewController *viewController = segue.destinationViewController;
@@ -353,6 +331,5 @@
         viewController.symptom = self.tertiarySymptom;
     }
 }
-
 
 @end

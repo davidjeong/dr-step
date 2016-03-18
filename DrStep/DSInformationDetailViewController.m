@@ -24,9 +24,12 @@
 
 @implementation DSInformationDetailViewController
 
+#pragma mark - Lifecycle
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    // Load the nib into scroll view.
     NSArray *views = [[NSBundle bundleForClass:[self class]] loadNibNamed:@"DSInformationDetailContentView" owner:self options:nil];
     self.contentView = [views firstObject];
     
@@ -46,12 +49,10 @@
     self.scrollView.contentSize = size;
 }
 
+#pragma mark - IBAction
+
 - (IBAction)touched:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
 }
 
 @end

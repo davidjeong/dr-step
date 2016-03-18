@@ -38,6 +38,8 @@
 
 @implementation DSRealtimeViewController
 
+#pragma mark - Lifecycle
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     DSAppConstants *constants = [DSAppConstants constants];
@@ -153,12 +155,6 @@
     }
 }
 
-- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    UITouch *touch = [[event allTouches] anyObject];
-    CGPoint touchPoint = [touch locationInView:self.imageView];
-    NSLog(@"Touch x : %f y : %f", touchPoint.x, touchPoint.y);
-}
-
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     DSAppConstants *constants = [DSAppConstants constants];
@@ -167,9 +163,7 @@
     //self.heatMap = [DSHeatMap heatMapWithRect:self.view.frame boost:[self.boost floatValue] points:constants.coordinates weights:self.weights maxWeight:MAXIMUM_VOLTAGE];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-}
+#pragma mark - IBAction
 
 - (IBAction)controlChanged:(id)sender {
     NSInteger selectedSegment = self.segmentedControl.selectedSegmentIndex;
@@ -188,34 +182,38 @@
     }
 }
 
+#pragma mark - Local Notifications
+
 - (void) handleNotifications:(NSNotification *)notification {
     if ([[notification name] isEqualToString:@"parsedData"]) {
         if ([self isViewLoaded] && self.view.window && !self.imageView.alpha == 0.0) {
             //NSLog(@"Spawning new serial thread for heatmap");
             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^ {
-                [self processGraphics:[notification object]];
+                [self _processGraphics:[notification object]];
             });
         } else if ([self isViewLoaded] && self.view.window && !self.chartView.alpha == 0.0) {
             //NSLog(@"Spawning new serial thread for heatmap");
             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^ {
-                [self processCharts:[notification object]];
+                [self _processCharts:[notification object]];
             });
         }
     } else if ([notification.name isEqualToString:@"disconnectedFromBean"]) {
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-            [self clearGraphics];
+            [self _clearGraphics];
         });
     }
 }
 
-- (void)clearGraphics {
+#pragma mark - Private
+
+- (void)_clearGraphics {
     @synchronized (self.weights) {
         NSLog(@"Clearing graphics.");
         DSAppConstants *constants = [DSAppConstants constants];
         for (int i=0; i<[constants.coordinates count]; i++) {
             [self.weights replaceObjectAtIndex:i withObject:[NSNumber numberWithFloat:0.0f]];
         }
-        self.heatMap = [DSHeatMap heatMapWithRect:self.view.frame boost:1.0f points:constants.coordinates weights:self.weights maxWeight:MAXIMUM_VOLTAGE];
+        self.heatMap = [DSHeatMap heatMapWithRect:self.view.frame boost:1.0f points:constants.coordinates weights:self.weights maxWeight:0];
         [self.imageView setImage:self.heatMap];
     }
     
@@ -242,7 +240,7 @@
     }
 }
 
-- (void)processCharts:(NSDictionary *)dict {
+- (void)_processCharts:(NSDictionary *)dict {
     @synchronized(self.pressureData) {
         NSArray *pressureArray = [dict objectForKey:@"data"];
         
@@ -299,7 +297,7 @@
     }
 }
 
-- (void)processGraphics:(NSDictionary *)dict {
+- (void)_processGraphics:(NSDictionary *)dict {
     @synchronized (self.weights) {
         NSLog(@"Processing graphics");
         DSAppConstants *constants = [DSAppConstants constants];
@@ -309,7 +307,7 @@
             // To remove discrepencies
             [self.weights replaceObjectAtIndex:i withObject:[NSNumber numberWithFloat:voltage]];
         }
-        self.heatMap = [DSHeatMap heatMapWithRect:self.imageView.frame boost:[self.boost floatValue] points:constants.coordinates weights:self.weights maxWeight:MAXIMUM_VOLTAGE weightsAdjustmentEnabled:NO groupingEnabled:YES];
+        self.heatMap = [DSHeatMap heatMapWithRect:self.imageView.frame boost:[self.boost floatValue] points:constants.coordinates weights:self.weights maxWeight:[constants.bean.batteryVoltage floatValue] weightsAdjustmentEnabled:NO groupingEnabled:YES];
         dispatch_async(dispatch_get_main_queue(), ^{
             [self.imageView.layer removeAnimationForKey:@"animate"];
             [self.imageView setImage:self.heatMap];

@@ -15,12 +15,16 @@
 #import <QuartzCore/QuartzCore.h>
 
 @interface DSLoginViewController ()
+
 @property (weak, nonatomic) IBOutlet UILabel *companyLabel;
 @property (weak, nonatomic) IBOutlet UIButton *fbLoginButton;
 @property (weak, nonatomic) IBOutlet UILabel *errorLabel;
+
 @end
 
 @implementation DSLoginViewController
+
+#pragma mark - Lifecycle
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -38,20 +42,17 @@
     self.errorLabel.text = @"";
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-}
-
-#pragma mark - Tap Gesture
+#pragma mark - IBAction
 
 - (IBAction)tapRecognized:(id)sender {
     [self.view endEditing:YES];
 }
 
-#pragma mark - Facebook Login
 - (IBAction)loginFacebook:(id)sender {
     [self _loginWithFacebook];
 }
+
+#pragma mark - Facebook
 
 - (void)_loginWithFacebook {
     // Set permissions required from the facebook user account
@@ -68,8 +69,6 @@
         }
     }];
 }
-
-#pragma mark - Facebook Data
 
 - (void)_loadDataFromFacebook {
     
@@ -104,23 +103,6 @@
             [currentInstallation saveInBackground];
         }
     }];
-}
-
-#pragma mark - UITextFieldDelegate
-
-- (BOOL)textFieldShouldReturn:(UITextField*)textField
-{
-    NSInteger nextTag = textField.tag + 1;
-    // Try to find next responder
-    UIResponder* nextResponder = [textField.superview viewWithTag:nextTag];
-    if (nextResponder) {
-        // Found next responder, so set it.
-        [nextResponder becomeFirstResponder];
-    } else {
-        // Not found, so remove keyboard.
-        [textField resignFirstResponder];
-    }
-    return NO; // We do not want UITextField to insert line-breaks.
 }
 
 @end

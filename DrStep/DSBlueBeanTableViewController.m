@@ -18,14 +18,12 @@
 
 @implementation DSBlueBeanTableViewController
 
+#pragma mark - Lifecycle
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     DSBlueBeanConnector *connector = [DSBlueBeanConnector connector];
     connector.beanManager.delegate = self;
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -87,8 +85,7 @@
     [constants setBean:bean];
     [[constants bean] setDelegate:connector];
     
-    //[[NSNotificationCenter defaultCenter] postNotificationName:@"connectedToBean" object:nil];
-    // Bean has been connected, go back to previous.
+    // Bean has been connected, go back to previous view controller.
     [self performSegueWithIdentifier:@"unwindToSettingsController" sender:self];
 }
 
@@ -112,7 +109,7 @@
     [self.tableView reloadData];
 }
 
-#pragma mark - UITableViewDataSource
+#pragma mark - UITableViewDelegate
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     DSBlueBeanConnector *connector = [DSBlueBeanConnector connector];
@@ -160,15 +157,11 @@
     if ([connector.beans count] != 0) {
         bean = [connector.beans.allValues objectAtIndex:indexPath.row];
     }
-    // Only allow left to disconnect on connected beans.
+    // Only allow left swipe to disconnect on connected beans.
     if (bean != nil && bean.state == BeanState_ConnectedAndValidated) {
         return YES;
     }
     return NO;
-}
-
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    
 }
 
 @end

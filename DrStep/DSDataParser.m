@@ -21,11 +21,15 @@
 
 @implementation DSDataParser
 
+#pragma mark - Lifecycle
+
 - (id) init {
     self.objects = [[NSMutableArray alloc] init];
     self.json = [[NSMutableString alloc] init];
     return self;
 }
+
+#pragma mark - Public
 
 - (void) processJSONIntoDictionary:(NSString *) jsonString {
     
@@ -37,6 +41,7 @@
     NSData *jsonData = [self.json dataUsingEncoding:NSUTF8StringEncoding];
     NSDictionary *jsonObject = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:&error];
     if (error) {
+        // Discard the data if parsing JSON string into dictionary has failed.
         NSLog(@"Corrupt data... discarding.");
     } else {
         if ([jsonObject objectForKey:@"accelerationX"] != nil &&
@@ -69,7 +74,7 @@
                         [self.objects removeAllObjects];
                     }];
                 }
-                // Send the notification
+                // Send the notification notifying the data has been parsed
                 [[NSNotificationCenter defaultCenter] postNotificationName:@"parsedData" object:jsonObject];
             }
         }

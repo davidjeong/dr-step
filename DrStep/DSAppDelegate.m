@@ -24,6 +24,8 @@
 
 @implementation DSAppDelegate
 
+#pragma mark - Application Lifecycle
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     // Parse/Facebook initialization
@@ -37,8 +39,6 @@
     [application registerUserNotificationSettings:settings];
     [application registerForRemoteNotifications];
     
-    
-    // App background color is HEX: #FFFAF6, or RGB(255, 250, 246).
     // App Tint and Tab color is HEX: #4CBEA0, or RGB(76, 190, 160).
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     [self.window setTintColor:[UIColor colorWithRed:76/255.0f green:216/255.0f blue:190/255.0f alpha:1.0f]];
@@ -54,7 +54,8 @@
     [[UIApplication sharedApplication] setMinimumBackgroundFetchInterval:UIApplicationBackgroundFetchIntervalMinimum];
     DSAppConstants *constants = [DSAppConstants constants];
     
-    // Get the coordinates.
+    // Fetch the coordinates from Parse.
+    // The coordinates differ based on iPhone device Id.
     PFQuery *query = [PFQuery queryWithClassName:@"PressureCoordinates"];
     struct utsname systemInfo;
     uname(&systemInfo);
@@ -79,8 +80,9 @@
             }
         }
     }];
-    // Set the settings.
     
+    
+    // Load settings from local data store.
     query = [PFQuery queryWithClassName:@"Setting"];
     [query fromLocalDatastore];
     [query countObjectsInBackgroundWithBlock:^(int number, NSError *error) {
@@ -109,31 +111,22 @@
         }
     }];
     
-    if ([PFUser currentUser] || // Check if user is cached
-        [PFFacebookUtils isLinkedWithUser:[PFUser currentUser]]) { // Check if user is linked to Facebook
-        // Load main app screen
+    // Check if user is cached
+    if ([PFUser currentUser] ||
+        // Check if user is linked to Facebook
+        [PFFacebookUtils isLinkedWithUser:[PFUser currentUser]]) {
+        // Load main app screen if current user is logged in to the application.
         UIViewController *initialViewController =[storyboard instantiateInitialViewController];
         self.window.rootViewController = initialViewController;
         [self.window makeKeyAndVisible];
     } else {
-        // Load Login/Signup View Controller
+        // Load LoginView Controller
         UINavigationController *loginNavigationController = (UINavigationController *)[storyboard instantiateViewControllerWithIdentifier:@"DSLoginNavigationController"];
         self.window.rootViewController = loginNavigationController;
         [self.window makeKeyAndVisible];
     }
     
     return YES;
-}
-
-- (void)applicationWillResignActive:(UIApplication *)application {
-    // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-    // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
-}
-
-- (void)applicationDidEnterBackground:(UIApplication *)application {
-}
-
-- (void)applicationWillEnterForeground:(UIApplication *)application {
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
@@ -152,6 +145,15 @@
     }
 }
 
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+    return [[FBSDKApplicationDelegate sharedInstance] application:application
+                                                          openURL:url
+                                                sourceApplication:sourceApplication
+                                                       annotation:annotation];
+}
+
+#pragma mark - Local Notifications
+
 - (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification {
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:[notification alertTitle] message:[notification alertBody] preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction *action = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
@@ -160,12 +162,7 @@
     [self.window makeKeyAndVisible];
 }
 
-- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
-    return [[FBSDKApplicationDelegate sharedInstance] application:application
-                                                          openURL:url
-                                                sourceApplication:sourceApplication
-                                                       annotation:annotation];
-}
+#pragma mark - Push Notifications
 
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
     PFInstallation *currentInstallation = [PFInstallation currentInstallation];

@@ -10,6 +10,16 @@
 
 @implementation DSAppConstants
 
+#pragma mark - Lifecycle
+
+- (id) init {
+    self.metricsPerRequest = (NSUInteger)100;
+    self.coordinates = [[NSArray alloc] init];
+    return self;
+}
+
+#pragma mark - Custom Accessor
+
 + (id) constants {
     static DSAppConstants *constants = nil;
     static dispatch_once_t onceToken;
@@ -17,12 +27,6 @@
         constants = [[self alloc] init];
     });
     return constants;
-}
-
-- (id) init {
-    self.metricsPerRequest = (NSUInteger)100;
-    self.coordinates = [[NSArray alloc] init];
-    return self;
 }
 
 @end

@@ -9,6 +9,6 @@
 #import <ParseUI/PFLogInViewController.h>
 #import <UIKit/UIKit.h>
 
-@interface DSLoginViewController : UIViewController <PFLogInViewControllerDelegate, UITextFieldDelegate>
+@interface DSLoginViewController : UIViewController <PFLogInViewControllerDelegate>
 
 @end

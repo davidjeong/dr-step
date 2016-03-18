@@ -28,6 +28,8 @@
 
 @implementation DSSettingsViewController
 
+#pragma mark - Lifecycle
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.tableView.delegate = self;
@@ -94,19 +96,6 @@
     NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithDictionary:constants.settings];
     dict[@"heatMapBoost"] = [NSNumber numberWithFloat:self.boostSlider.value];
     constants.settings = [NSDictionary dictionaryWithDictionary:dict];
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-}
-
-- (void) handleNotifications:(NSNotification *)notification {
-    if ([notification.name isEqualToString:@"connectedToBean"]) {
-        [self.tableView reloadData];
-    } else if ([notification.name isEqualToString:@"disconnectedFromBean"]){
-        
-        [self.tableView reloadData];
-    }
 }
 
 #pragma mark - UITableViewDelegate
@@ -207,7 +196,7 @@ static NSString *cellIdentifier = @"settingsCell";
     }
 }
 
-#pragma mark - UI Events
+#pragma mark - IBAction
 
 - (IBAction)updateBoost:(UISlider *)sender{
     UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:1]];
@@ -218,45 +207,26 @@ static NSString *cellIdentifier = @"settingsCell";
     });
 }
 
-- (IBAction)profilePhotoTapped:(id)sender {
-    NSLog(@"Photo touched");
-    
-    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
-    picker.delegate = self;
-    picker.allowsEditing = NO;
-    picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-    
-    [self presentViewController:picker animated:YES completion:NULL];
+- (IBAction)unwindToSettingsController:(UIStoryboardSegue *)segue {
+    [self.tableView reloadData];
 }
 
-#pragma mark - UIImagePickerControllerDelegate
+#pragma mark - Local Notifications
 
-- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
-    UIImage *image = info[UIImagePickerControllerOriginalImage];
-    NSData* imageData = UIImageJPEGRepresentation(image, 1.0f);
-    PFFile *imageFile = [PFFile fileWithName:@"profile_image.png" data:imageData];
-    self.profileImageView.image = image;
-    PFUser *currentUser = [PFUser currentUser];
-    [currentUser setObject:imageFile forKey:@"profilePhoto"];
-    [currentUser saveInBackground];
-    [picker dismissViewControllerAnimated:YES completion:NULL];
+- (void) handleNotifications:(NSNotification *)notification {
+    if ([notification.name isEqualToString:@"connectedToBean"]) {
+        [self.tableView reloadData];
+    } else if ([notification.name isEqualToString:@"disconnectedFromBean"]){
+        
+        [self.tableView reloadData];
+    }
 }
 
--(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker{
-    [picker dismissViewControllerAnimated:YES completion:NULL];
-}
-
-#pragma mark - Logout
+#pragma mark - Private
 
 - (void) _logout {
     // Sign out of Parse.
     [PFUser logOut];
-}
-
-#pragma mark - Segue
-
-- (IBAction)unwindToSettingsController:(UIStoryboardSegue *)segue {
-    [self.tableView reloadData];
 }
 
 @end

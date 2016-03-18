@@ -25,6 +25,8 @@
 
 @implementation DSInformationViewController
 
+#pragma mark - Lifecycle
+
 - (id) initWithCoder:(NSCoder *)aDecoder {
     self = [super initWithCoder:aDecoder];
     if (self) {
@@ -42,54 +44,7 @@
     [super viewWillAppear:animated];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-}
-
-#pragma mark - Parse Query
-
-- (PFQuery *) queryForTable {
-    // Query for information from Parse.
-    PFQuery *query = [PFQuery queryWithClassName:self.parseClassName];
-    [query addAscendingOrder:@"healthy"];
-    [query addAscendingOrder:@"scientificName"];
-    return query;
-}
-
-#pragma mark - UISearchBarDelegate
-
-- (void)updateSearchResultsForSearchController:(UISearchController *)searchController {
-    NSString *searchString = [searchController.searchBar text];
-    if (searchString != nil && [searchString length] != 0) {
-        [self filterContentForSearchText:searchString scope:nil];
-    } else {
-        PFQuery *query = [PFQuery queryWithClassName:self.parseClassName];
-        [query orderByAscending:@"scientificName"];
-        [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-            self.searchResults = objects;
-        }];
-    }
-    [self.tableView reloadData];
-}
-
-- (void)filterContentForSearchText:(NSString*)searchText scope:(NSString*)scope {
-    // Filter the results using a predicate.
-    PFQuery *query = [PFQuery queryWithClassName:self.parseClassName];
-    [query orderByAscending:@"scientificName"];
-    
-    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        NSPredicate *resultPredicate = [NSPredicate
-                                        predicateWithFormat:@"scientificName contains[cd] %@ OR commonName contains[cd] %@ OR symptomDescription contains[cd] %@",
-                                        searchText, searchText, searchText];
-        self.searchResults = [objects filteredArrayUsingPredicate:resultPredicate];
-    }];
-}
-    
-- (void) searchBar:(UISearchBar *)searchBar selectedScopeButtonIndexDidChange:(NSInteger)selectedScope {
-    [self updateSearchResultsForSearchController:self.searchController];
-}
-
-#pragma mark - UITableViewDataSource
+#pragma mark - UITableViewDelegate
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath object:(PFObject *)object
 {
@@ -101,9 +56,6 @@
         cell = [[DSSymptomTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }
     [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
-    
-//    cell.scientificName.text = [object objectForKey:@"scientificName"];
-//    cell.commonName.text = [object objectForKey:@"commonName"];
     
     DSSymptom *symptom = [[DSSymptom alloc] init];
     symptom.scientificName = [object objectForKey:@"scientificName"];
@@ -132,6 +84,16 @@
     return cell;
 }
 
+#pragma mark - Parse
+
+- (PFQuery *) queryForTable {
+    // Query for information from Parse.
+    PFQuery *query = [PFQuery queryWithClassName:self.parseClassName];
+    [query addAscendingOrder:@"healthy"];
+    [query addAscendingOrder:@"scientificName"];
+    return query;
+}
+
 - (void)objectsDidLoad:(NSError *)error {
     [super objectsDidLoad:error];
     [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleSingleLine];
@@ -148,8 +110,6 @@
         DSInformationDetailViewController *viewController = segue.destinationViewController;
         viewController.tapGestureRecognizer.enabled = NO;
         viewController.symptom = cell.symptom;
-
-        //[self.searchController setActive:NO];
     }
 }
 

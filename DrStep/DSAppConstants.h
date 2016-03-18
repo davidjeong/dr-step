@@ -10,9 +10,6 @@
 
 @class PTDBean;
 
-// Number
-static const float MAXIMUM_VOLTAGE = 2.8;
-
 @interface DSAppConstants : NSObject
 
 @property (assign, nonatomic) NSUInteger metricsPerRequest;

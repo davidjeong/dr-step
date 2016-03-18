@@ -9,6 +9,6 @@
 #import <ParseUI/ParseUI.h>
 #import <UIKit/UIKit.h>
 
-@interface DSInformationViewController : PFQueryTableViewController <UISearchBarDelegate, UISearchResultsUpdating>
+@interface DSInformationViewController : PFQueryTableViewController
 
 @end
