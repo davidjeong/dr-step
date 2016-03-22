@@ -46,13 +46,17 @@
 		535282611BE5536800A675F8 /* libz.1.1.3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 535282601BE5536800A675F8 /* libz.1.1.3.tbd */; };
 		535282631BE5537600A675F8 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 535282621BE5537600A675F8 /* SystemConfiguration.framework */; };
 		535282651BE5537E00A675F8 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 535282641BE5537E00A675F8 /* MobileCoreServices.framework */; };
-		535468B01B596108001D66E1 /* Coordinates.plist in Resources */ = {isa = PBXBuildFile; fileRef = 535468AF1B596108001D66E1 /* Coordinates.plist */; };
 		535468B51B5968E6001D66E1 /* DSAppConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 535468B41B5968E6001D66E1 /* DSAppConstants.m */; };
 		5364FAFF1BE6D177003BA58B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5364FAFD1BE6D177003BA58B /* Main.storyboard */; };
 		5364FB011BE6EED9003BA58B /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5364FB001BE6EED9003BA58B /* ParseUI.framework */; };
 		53694AA51C9680DF0039226C /* foot_image.png in Resources */ = {isa = PBXBuildFile; fileRef = 53694AA41C9680DF0039226C /* foot_image.png */; };
 		53694AA71C9785B50039226C /* libNSDate+TimeAgo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 53694AA61C9785B50039226C /* libNSDate+TimeAgo.a */; };
 		537017471C4638B900883919 /* DSBlueBeanConnector.m in Sources */ = {isa = PBXBuildFile; fileRef = 537017461C4638B900883919 /* DSBlueBeanConnector.m */; };
+		53841D5B1C9FCD3A0054EAE9 /* DSCopyrightViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53841D5A1C9FCD3A0054EAE9 /* DSCopyrightViewController.m */; };
+		53841D5D1C9FCDEE0054EAE9 /* framework.plist in Resources */ = {isa = PBXBuildFile; fileRef = 53841D5C1C9FCDEE0054EAE9 /* framework.plist */; };
+		53841D601C9FD33E0054EAE9 /* DSFrameworkTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 53841D5F1C9FD33E0054EAE9 /* DSFrameworkTableViewCell.m */; };
+		53841D631CA0CB850054EAE9 /* DSAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53841D621CA0CB850054EAE9 /* DSAboutViewController.m */; };
+		53841D651CA0CD360054EAE9 /* about.txt in Resources */ = {isa = PBXBuildFile; fileRef = 53841D641CA0CD360054EAE9 /* about.txt */; };
 		53C0FD551BE9DADB0008B711 /* empty_profile_pic.png in Resources */ = {isa = PBXBuildFile; fileRef = 53C0FD541BE9DADB0008B711 /* empty_profile_pic.png */; };
 		53D26BFD1BE56D8D00929D1D /* DSStatisticsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53D26BFC1BE56D8D00929D1D /* DSStatisticsViewController.m */; };
 		53DBA6451B74511600F1BC64 /* app_logo_58_58.png in Resources */ = {isa = PBXBuildFile; fileRef = 53DBA6401B74511600F1BC64 /* app_logo_58_58.png */; };
@@ -124,7 +128,6 @@
 		535282601BE5536800A675F8 /* libz.1.1.3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.1.1.3.tbd; path = usr/lib/libz.1.1.3.tbd; sourceTree = SDKROOT; };
 		535282621BE5537600A675F8 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		535282641BE5537E00A675F8 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
-		535468AF1B596108001D66E1 /* Coordinates.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Coordinates.plist; sourceTree = "<group>"; };
 		535468B31B5968E6001D66E1 /* DSAppConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSAppConstants.h; sourceTree = "<group>"; };
 		535468B41B5968E6001D66E1 /* DSAppConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSAppConstants.m; sourceTree = "<group>"; };
 		5364FAFE1BE6D177003BA58B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -133,6 +136,14 @@
 		53694AA61C9785B50039226C /* libNSDate+TimeAgo.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libNSDate+TimeAgo.a"; path = "Pods/../build/Debug-iphoneos/libNSDate+TimeAgo.a"; sourceTree = "<group>"; };
 		537017451C4638B900883919 /* DSBlueBeanConnector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSBlueBeanConnector.h; sourceTree = "<group>"; };
 		537017461C4638B900883919 /* DSBlueBeanConnector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSBlueBeanConnector.m; sourceTree = "<group>"; };
+		53841D591C9FCD3A0054EAE9 /* DSCopyrightViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSCopyrightViewController.h; sourceTree = "<group>"; };
+		53841D5A1C9FCD3A0054EAE9 /* DSCopyrightViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSCopyrightViewController.m; sourceTree = "<group>"; };
+		53841D5C1C9FCDEE0054EAE9 /* framework.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = framework.plist; sourceTree = "<group>"; };
+		53841D5E1C9FD33E0054EAE9 /* DSFrameworkTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSFrameworkTableViewCell.h; sourceTree = "<group>"; };
+		53841D5F1C9FD33E0054EAE9 /* DSFrameworkTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSFrameworkTableViewCell.m; sourceTree = "<group>"; };
+		53841D611CA0CB850054EAE9 /* DSAboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSAboutViewController.h; sourceTree = "<group>"; };
+		53841D621CA0CB850054EAE9 /* DSAboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSAboutViewController.m; sourceTree = "<group>"; };
+		53841D641CA0CD360054EAE9 /* about.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = about.txt; sourceTree = "<group>"; };
 		53C0FD541BE9DADB0008B711 /* empty_profile_pic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = empty_profile_pic.png; path = images/empty_profile_pic.png; sourceTree = "<group>"; };
 		53D26BFB1BE56D8D00929D1D /* DSStatisticsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSStatisticsViewController.h; sourceTree = "<group>"; };
 		53D26BFC1BE56D8D00929D1D /* DSStatisticsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSStatisticsViewController.m; sourceTree = "<group>"; };
@@ -268,6 +279,8 @@
 			isa = PBXGroup;
 			children = (
 				CDA9D5891B4E1E8E00C3170F /* images */,
+				53841D611CA0CB850054EAE9 /* DSAboutViewController.h */,
+				53841D621CA0CB850054EAE9 /* DSAboutViewController.m */,
 				535468B31B5968E6001D66E1 /* DSAppConstants.h */,
 				535468B41B5968E6001D66E1 /* DSAppConstants.m */,
 				CD16E7B51B24FBC50071E1CF /* DSAppDelegate.h */,
@@ -278,8 +291,12 @@
 				CDA9D56E1B4DFA1E00C3170F /* DSBlueBeanTableViewCell.m */,
 				CDA9D5681B4DF61D00C3170F /* DSBlueBeanTableViewController.h */,
 				CDA9D5691B4DF61D00C3170F /* DSBlueBeanTableViewController.m */,
+				53841D591C9FCD3A0054EAE9 /* DSCopyrightViewController.h */,
+				53841D5A1C9FCD3A0054EAE9 /* DSCopyrightViewController.m */,
 				CDA9D5771B4E127F00C3170F /* DSDataParser.h */,
 				CDA9D5781B4E127F00C3170F /* DSDataParser.m */,
+				53841D5E1C9FD33E0054EAE9 /* DSFrameworkTableViewCell.h */,
+				53841D5F1C9FD33E0054EAE9 /* DSFrameworkTableViewCell.m */,
 				534CF5981C4C901E00A595C1 /* DSHeatMap.h */,
 				534CF5991C4C901E00A595C1 /* DSHeatMap.m */,
 				CD12CB5C1B385D55004F3AB7 /* DSInformationViewController.h */,
@@ -307,7 +324,8 @@
 				5364FAFD1BE6D177003BA58B /* Main.storyboard */,
 				534CF5A11C4ECD0900A595C1 /* DSInformationDetailContentView.xib */,
 				CDA9D5B41B4E257F00C3170F /* LaunchScreen.xib */,
-				535468AF1B596108001D66E1 /* Coordinates.plist */,
+				53841D5C1C9FCDEE0054EAE9 /* framework.plist */,
+				53841D641CA0CD360054EAE9 /* about.txt */,
 			);
 			path = DrStep;
 			sourceTree = "<group>";
@@ -434,13 +452,14 @@
 				53DBA6491B74511600F1BC64 /* app_logo_original.png in Resources */,
 				53DBA6451B74511600F1BC64 /* app_logo_58_58.png in Resources */,
 				CDA9D5B51B4E257F00C3170F /* LaunchScreen.xib in Resources */,
-				535468B01B596108001D66E1 /* Coordinates.plist in Resources */,
 				53DBA6471B74511600F1BC64 /* app_logo_120_120.png in Resources */,
 				532B954A1B5F00C2003B1D08 /* footprint_filled@2x.png in Resources */,
+				53841D5D1C9FCDEE0054EAE9 /* framework.plist in Resources */,
 				53DBA6461B74511600F1BC64 /* app_logo_80_80.png in Resources */,
 				CDA9D5A91B4E229000C3170F /* app_launch_screen_640_960.png in Resources */,
 				532B954C1B5F00C2003B1D08 /* library_filled@2x.png in Resources */,
 				53694AA51C9680DF0039226C /* foot_image.png in Resources */,
+				53841D651CA0CD360054EAE9 /* about.txt in Resources */,
 				5364FAFF1BE6D177003BA58B /* Main.storyboard in Resources */,
 				534CF5A21C4ECD0900A595C1 /* DSInformationDetailContentView.xib in Resources */,
 				CDA9D5B31B4E241C00C3170F /* app_launch_screen_640_1136.png in Resources */,
@@ -512,6 +531,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				535282331BE545EB00A675F8 /* DSLoginViewController.m in Sources */,
+				53841D601C9FD33E0054EAE9 /* DSFrameworkTableViewCell.m in Sources */,
 				53D26BFD1BE56D8D00929D1D /* DSStatisticsViewController.m in Sources */,
 				537017471C4638B900883919 /* DSBlueBeanConnector.m in Sources */,
 				534CF59A1C4C901E00A595C1 /* DSHeatMap.m in Sources */,
@@ -528,7 +548,9 @@
 				CD12CB5E1B385D55004F3AB7 /* DSInformationViewController.m in Sources */,
 				CD16E7B41B24FBC50071E1CF /* main.m in Sources */,
 				533C09081C9C54BE005697D5 /* DSProfileCell.m in Sources */,
+				53841D5B1C9FCD3A0054EAE9 /* DSCopyrightViewController.m in Sources */,
 				535468B51B5968E6001D66E1 /* DSAppConstants.m in Sources */,
+				53841D631CA0CB850054EAE9 /* DSAboutViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

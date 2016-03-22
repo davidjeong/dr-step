@@ -19,31 +19,31 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lorem Ipsum" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="HcM-gh-6EA">
-                    <rect key="frame" x="20" y="83" width="560" height="23"/>
+                    <rect key="frame" x="20" y="88" width="560" height="23"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
                     <color key="textColor" red="0.29803921570000003" green="0.74509803919999995" blue="0.62745098040000002" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Symptoms" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cij-KJ-IyW">
-                    <rect key="frame" x="20" y="116" width="560" height="21"/>
+                    <rect key="frame" x="20" y="121" width="560" height="21"/>
                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                     <color key="textColor" red="0.29803921570000003" green="0.74509803919999995" blue="0.62745098040000002" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lorem Ipsum Dolor Sit Amet" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qu7-Ep-bwL">
-                    <rect key="frame" x="20" y="147" width="560" height="18"/>
+                    <rect key="frame" x="20" y="152" width="560" height="18"/>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Diagnosis" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J8K-f5-RDW">
-                    <rect key="frame" x="20" y="185" width="560" height="20"/>
+                    <rect key="frame" x="20" y="190" width="560" height="20"/>
                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                     <color key="textColor" red="0.29803921570000003" green="0.74509803919999995" blue="0.62745098040000002" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lorem Ipsum Dolor Sit Amet" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4nv-i5-fRq">
-                    <rect key="frame" x="20" y="215" width="560" height="18"/>
+                    <rect key="frame" x="20" y="220" width="560" height="18"/>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
@@ -65,7 +65,7 @@
                 <constraint firstAttribute="trailing" secondItem="4nv-i5-fRq" secondAttribute="trailing" constant="20" id="2eQ-L8-PId"/>
                 <constraint firstAttribute="trailing" secondItem="iwV-WG-V4t" secondAttribute="trailing" constant="20" id="3DK-Ey-tP8"/>
                 <constraint firstItem="iwV-WG-V4t" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="20" id="68w-6w-CCZ"/>
-                <constraint firstItem="HcM-gh-6EA" firstAttribute="top" secondItem="iwV-WG-V4t" secondAttribute="bottom" constant="10" id="BE3-Y0-NVi"/>
+                <constraint firstItem="HcM-gh-6EA" firstAttribute="top" secondItem="iwV-WG-V4t" secondAttribute="bottom" constant="15" id="BE3-Y0-NVi"/>
                 <constraint firstItem="4nv-i5-fRq" firstAttribute="top" secondItem="J8K-f5-RDW" secondAttribute="bottom" constant="10" id="Dev-mj-sBG"/>
                 <constraint firstItem="HcM-gh-6EA" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="Pfh-6k-Qsd"/>
                 <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="4nv-i5-fRq" secondAttribute="bottom" id="RQG-y8-GgT"/>

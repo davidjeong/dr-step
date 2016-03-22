@@ -1,0 +1,10 @@
+We are 4th year students from the University of Waterloo, with a mission to provide health care professionals with a platform which efficiently and effectively computes and provides similarities of patients regarding podiatry.
+
+Harnessing the power of cloud computing, and easy accessibility of mobile applications, we are able to give feedback to potential patients quickly.
+
+Our names are:
+1. Juhwan Jeong
+2. Denis Tse
+3. Bavan Poologarajah
+4. Aravinth Raveendran
+5. Simmon Wu

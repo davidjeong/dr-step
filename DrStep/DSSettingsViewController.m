@@ -135,7 +135,7 @@ static NSString *settingCellIdentifier = @"settingCell";
             DSAppConstants *constants = [DSAppConstants constants];
             NSDictionary *settings = constants.settings;
             self.boostSlider.value = [settings[@"heatMapBoost"] floatValue];
-            [settingCell.textLabel setText:[NSString stringWithFormat:@"Adjust Heatmap Boost - %.02f", self.boostSlider.value]];
+            [settingCell.textLabel setText:[NSString stringWithFormat:@"Boost - %.02f", self.boostSlider.value]];
         }
     } else if (indexPath.section == 3) { // Application
         if (indexPath.row == 0) {
@@ -189,6 +189,7 @@ static NSString *settingCellIdentifier = @"settingCell";
     } else if (indexPath.section == 3) {
         if (indexPath.row == 0) {
             // Show about
+            [self performSegueWithIdentifier:@"showAbout" sender:self];
         }
         else if (indexPath.row == 1) {
             // Show copyright
@@ -233,7 +234,7 @@ static NSString *settingCellIdentifier = @"settingCell";
     
     // Get main thread to update the text.
     dispatch_async(dispatch_get_main_queue(), ^{
-        [cell.textLabel setText:[NSString stringWithFormat:@"Adjust Heatmap Boost - %.02f", sender.value]];
+        [cell.textLabel setText:[NSString stringWithFormat:@"Boost - %.02f", sender.value]];
     });
 }
 
