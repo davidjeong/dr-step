@@ -16,6 +16,8 @@
 
 @interface DSRealtimeViewController ()
 
+@property (weak, nonatomic) IBOutlet UIVisualEffectView *effectView;
+
 @property (atomic) NSMutableArray *weights;
 @property (nonatomic) PNLineChart *pressureLineChart;
 @property (nonatomic) PNLineChart *accelerationLineChart;
@@ -160,7 +162,12 @@
     DSAppConstants *constants = [DSAppConstants constants];
     NSDictionary *settings = constants.settings;
     self.boost = [NSNumber numberWithFloat:[settings[@"heatMapBoost"] floatValue]];
-    //self.heatMap = [DSHeatMap heatMapWithRect:self.view.frame boost:[self.boost floatValue] points:constants.coordinates weights:self.weights maxWeight:MAXIMUM_VOLTAGE];
+    
+    if (constants.bean != nil) {
+        self.effectView.hidden = YES;
+    } else {
+        self.effectView.hidden = NO;
+    }
 }
 
 #pragma mark - IBAction

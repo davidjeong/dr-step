@@ -83,7 +83,7 @@
     cell.symptom = symptom;
     
     DSAppConstants *constants = [DSAppConstants constants];
-    if ([constants.symptomToSimilarity objectForKey:symptom.scientificName]) {
+    if (constants.symptomToSimilarity.count > 0 && [constants.symptomToSimilarity objectForKey:symptom.scientificName]) {
         float similarity = [constants.symptomToSimilarity[symptom.scientificName] floatValue];
         NSNumber *healthy = [object objectForKey:@"healthy"];
         bool isHealthy = [healthy isEqualToNumber:[NSNumber numberWithInt:0]];

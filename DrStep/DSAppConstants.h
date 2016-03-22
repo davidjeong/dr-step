@@ -19,6 +19,7 @@
 @property (strong, nonatomic) NSArray *coordinates;
 @property (nonatomic, strong) PTDBean *bean;
 @property (nonatomic, strong) UIImage *profileImage;
+@property (nonatomic, assign) NSUInteger analyticsThreshold;
 
 + (id) constants;
 

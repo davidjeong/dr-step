@@ -97,7 +97,7 @@
     [self presentViewController:alertController animated:YES completion:nil];
     
     DSAppConstants *constants = [DSAppConstants constants];
-    constants.bean = nil;
+    [constants setBean:nil];
     
     [[NSNotificationCenter defaultCenter] postNotificationName:@"disconnectedFromBean" object:nil];
     

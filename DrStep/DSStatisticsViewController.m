@@ -20,6 +20,7 @@
 
 @property (weak, nonatomic) IBOutlet UIView *uiView;
 @property (nonatomic) UIView *scatterView;
+@property (weak, nonatomic) IBOutlet UIVisualEffectView *effectView;
 
 @property (nonatomic) PNCircleChart *circleChartTopLeft;
 @property (nonatomic) PNCircleChart *circleChartTopRight;
@@ -130,6 +131,40 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    PFQuery *searchQuery = [PFQuery queryWithClassName:@"SearchSpace"];
+    [searchQuery whereKey:@"user" equalTo:[PFUser currentUser]];
+    [searchQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            if (objects.count == 0) return;
+            PFObject *object = objects[0];
+            DSAppConstants *constants = [DSAppConstants constants];
+            float numProcessed = [object[@"numProcessed"] floatValue];
+            if (numProcessed <= constants.analyticsThreshold) {
+                self.effectView.hidden = NO;
+                [constants.symptomToSimilarity removeAllObjects];
+            } else {
+                self.effectView.hidden = YES;
+                PFQuery *similarityQuery = [PFQuery queryWithClassName:@"Similarity"];
+                [similarityQuery whereKey:@"user" equalTo:[PFUser currentUser]];
+                [similarityQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+                    if (!error) {
+                        DSAppConstants *constants = [DSAppConstants constants];
+                        constants.symptomToSimilarity = [[NSMutableDictionary alloc] initWithCapacity:objects.count];
+                        for (PFObject *object in objects) {
+                            PFObject *symptom = object[@"symptom"];
+                            [symptom fetchIfNeededInBackgroundWithBlock:^(PFObject *symptom, NSError *error) {
+                                if (!error) {
+                                    NSNumber *similarity = object[@"similarity"];
+                                    NSString *scientificName = symptom[@"scientificName"];
+                                    [constants.symptomToSimilarity setObject:similarity forKey:scientificName];
+                                }
+                            }];
+                        }
+                    }
+                }];
+            }
+        }
+    }];
     
     // We fetch the data here for the pie charts.
     // Fetch top 3 symptoms and put appropriate colors.
@@ -247,25 +282,6 @@
                 dispatch_async(dispatch_get_main_queue(), ^{
                     [self.scatterChart updateChartData:@[self.scatterData]];
                 });
-            }
-        }
-    }];
-    
-    PFQuery *similarityQuery = [PFQuery queryWithClassName:@"Similarity"];
-    [similarityQuery whereKey:@"user" equalTo:[PFUser currentUser]];
-    [similarityQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        if (!error) {
-            DSAppConstants *constants = [DSAppConstants constants];
-            constants.symptomToSimilarity = [[NSMutableDictionary alloc] initWithCapacity:objects.count];
-            for (PFObject *object in objects) {
-                PFObject *symptom = object[@"symptom"];
-                [symptom fetchIfNeededInBackgroundWithBlock:^(PFObject *symptom, NSError *error) {
-                    if (!error) {
-                        NSNumber *similarity = object[@"similarity"];
-                        NSString *scientificName = symptom[@"scientificName"];
-                        [constants.symptomToSimilarity setObject:similarity forKey:scientificName];
-                    }
-                }];
             }
         }
     }];
