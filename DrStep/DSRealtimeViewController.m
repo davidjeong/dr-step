@@ -193,13 +193,13 @@
 
 - (void) handleNotifications:(NSNotification *)notification {
     if ([[notification name] isEqualToString:@"parsedData"]) {
-        if ([self isViewLoaded] && self.view.window && !self.imageView.alpha == 0.0) {
+        if ([self isViewLoaded] && self.view.window && self.imageView.alpha != 0.0) {
             //NSLog(@"Spawning new serial thread for heatmap");
             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^ {
                 [self _processGraphics:[notification object]];
             });
-        } else if ([self isViewLoaded] && self.view.window && !self.chartView.alpha == 0.0) {
-            //NSLog(@"Spawning new serial thread for heatmap");
+        } else if ([self isViewLoaded] && self.view.window && self.chartView.alpha != 0.0) {
+            //NSLog(@"Spawning new serial thread for chart");
             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^ {
                 [self _processCharts:[notification object]];
             });

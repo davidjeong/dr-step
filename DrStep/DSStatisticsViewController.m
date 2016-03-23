@@ -45,6 +45,7 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *dataSetLabel;
 @property (weak, nonatomic) IBOutlet UILabel *updatedDateLabel;
+@property (weak, nonatomic) IBOutlet UILabel *unforunateMessage;
 
 @end
 
@@ -120,6 +121,8 @@
         [self.bottomLeftView setAlpha:0.0];
         [self.bottomRightView setAlpha:0.0];
     }
+    
+    self.unforunateMessage.text = [NSString stringWithFormat:@"Unfortunately we need more data from you before we can make an analysis %C", 0xe411];
 }
 
 - (void)viewDidLayoutSubviews{
@@ -139,7 +142,7 @@
             PFObject *object = objects[0];
             DSAppConstants *constants = [DSAppConstants constants];
             float numProcessed = [object[@"numProcessed"] floatValue];
-            if (numProcessed <= constants.analyticsThreshold) {
+            if (numProcessed < constants.analyticsThreshold) {
                 self.effectView.hidden = NO;
                 [constants.symptomToSimilarity removeAllObjects];
             } else {
@@ -266,10 +269,13 @@
                 for (int i=0; i < pressureArray.count; i++) {
                     NSArray *innerArray = pressureArray[i];
                     for (int j=0; j < innerArray.count; j++) {
-                        NSNumber *innerNumber = @([innerArray[j] integerValue]);
-                        if (![innerNumber isEqualToNumber:[NSNumber numberWithInt:0]]) {
-                            [x addObject:[NSNumber numberWithInt:i+1]];
-                            [y addObject:[NSNumber numberWithInt:12-j]];
+                        NSArray *innerInnerArray = innerArray[j];
+                        for (int k=0; k < innerInnerArray.count; k++) {
+                            NSNumber *innerNumber = @([innerInnerArray[k] integerValue]);
+                            if (![innerNumber isEqualToNumber:[NSNumber numberWithInt:0]]) {
+                                [x addObject:[NSNumber numberWithInt:i+1]];
+                                [y addObject:[NSNumber numberWithInt:12-k]];
+                            }
                         }
                     }
                 }

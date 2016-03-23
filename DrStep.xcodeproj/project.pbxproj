@@ -672,7 +672,7 @@
 					"/Users/juhwanjeong/Documents/fydp-ios/core-plot-master/framework/**",
 				);
 				INFOPLIST_FILE = DrStep/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				ONLY_ACTIVE_ARCH = YES;
@@ -708,7 +708,7 @@
 					"/Users/juhwanjeong/Documents/fydp-ios/core-plot-master/framework/**",
 				);
 				INFOPLIST_FILE = DrStep/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				ONLY_ACTIVE_ARCH = YES;

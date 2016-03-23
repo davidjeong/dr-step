@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
         <!--Realtime-->
@@ -281,7 +281,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="487"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Unfortunately we need more data from you before we can make a good analysis :(" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Th3-og-D51">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Unfortunately we need more data from you before we can make an analysis" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Th3-og-D51">
                                             <rect key="frame" x="20" y="20" width="560" height="447"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
                                             <color key="textColor" red="0.29803921570000003" green="0.74509803919999995" blue="0.62745098040000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -327,6 +327,7 @@
                         <outlet property="topLeftView" destination="TgG-wt-Hu0" id="1HU-QF-Dlm"/>
                         <outlet property="topRightView" destination="Bne-YV-iXm" id="VjK-XT-LEO"/>
                         <outlet property="uiView" destination="FuQ-EG-hEg" id="OXA-hx-xjd"/>
+                        <outlet property="unforunateMessage" destination="Th3-og-D51" id="6a8-HX-3O2"/>
                         <outlet property="updatedDateLabel" destination="4Ug-pl-LKj" id="6g3-P4-m3a"/>
                         <segue destination="OJN-Qd-bH9" kind="show" identifier="showPossibleSymptom" id="JW7-w5-3gl"/>
                     </connections>

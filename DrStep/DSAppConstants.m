@@ -15,7 +15,7 @@
 - (id) init {
     self.metricsPerRequest = (NSUInteger)100;
     self.coordinates = [[NSArray alloc] init];
-    self.analyticsThreshold = (NSUInteger)1000;
+    self.analyticsThreshold = (NSUInteger)500;
     return self;
 }
 
